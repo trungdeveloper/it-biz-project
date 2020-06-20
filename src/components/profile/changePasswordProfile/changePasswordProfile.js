@@ -1,5 +1,5 @@
 import React from "react";
-import {SideBar}  from "./../sideBar/sideBar"
+import { SideBar } from "./../sideBar/sideBar";
 export const ChangePasswordProfile = () => {
     return (
         <div className="row">
@@ -14,19 +14,31 @@ export const ChangePasswordProfile = () => {
                     <div className="row">
                         <div className="col">Tên Đăng nhập</div>
                         <div className="col">
-                            <input type="text" name="txtUsername" placeholder="Tên Đăng nhập" />
+                            <input
+                                type="text"
+                                name="txtUsername"
+                                placeholder="Tên Đăng nhập"
+                            />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">Mật Khẩu cũ</div>
                         <div className="col">
-                            <input type="text" name="txtOldPass" placeholder="Mật Khẩu cũ" />
+                            <input
+                                type="text"
+                                name="txtOldPass"
+                                placeholder="Mật Khẩu cũ"
+                            />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">Mật khẩu mới</div>
                         <div className="col">
-                            <input type="email" name="txtNewPass" placeholder="Mật khẩu mới" />
+                            <input
+                                type="email"
+                                name="txtNewPass"
+                                placeholder="Mật khẩu mới"
+                            />
                         </div>
                     </div>
                     <div className="row">
@@ -36,4 +48,4 @@ export const ChangePasswordProfile = () => {
             </div>
         </div>
     );
-}
+};
