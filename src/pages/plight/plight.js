@@ -1,6 +1,7 @@
 import React from "react";
+
 export const Plight = () => {
-    return(
+    return (
         <div>Plight page</div>
     );
 }

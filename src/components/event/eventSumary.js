@@ -1,9 +1,10 @@
 import React from "react";
+
 export const EventSummary = ({event}) => {
-    return(
+    return (
         <div>
             <div>
-                <img style={{width: 100, height: 100}} src={event.img}/>
+                <img alt="event" style={{width: 100, height: 100}} src={event.img}/>
             </div>
             <div>
                 <div>{event.title}</div>
