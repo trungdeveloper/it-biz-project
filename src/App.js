@@ -20,6 +20,7 @@ export default function App() {
     return (
         <Router>
             <div>
+                <NavBar />
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/profile" component={PersonalProfilePage} />

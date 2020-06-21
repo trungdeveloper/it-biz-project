@@ -1,6 +1,7 @@
 import React from "react";
+
 export const Donation = () => {
-    return(
+    return (
         <div>Donation page</div>
     );
 }

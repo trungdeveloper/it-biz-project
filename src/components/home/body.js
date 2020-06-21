@@ -5,33 +5,9 @@ import IMG from "../../assets/image/Capture.PNG"
 import {EventSummary} from "../event/eventSumary";
 import {NewPlight} from "../plight/newPlight";
 import {RepSponsor} from "../sponsor/repSponsor";
-export const Body = () => {
-    const events = [
-        {
-            title: 'TRAO TANG QUA',
-            img: IMG,
-            product:'Am sieu toc',
-            sponsor:'Trung',
-            date:'12/01/1999',
-            location: '101B Le Huu Trac',
-        },
-        {
-            title: 'TRAO TANG QUA',
-            img: IMG,
-            product:'Am sieu toc',
-            sponsor:'Trung',
-            date:'12/01/1999',
-            location: '101B Le Huu Trac',
-        },
-        {
-            title: 'TRAO TANG QUA',
-            img: IMG,
-            product:'Am sieu toc',
-            sponsor:'Trung',
-            date:'12/01/1999',
-            location: '101B Le Huu Trac',
-        },
-    ]
+import {connect} from 'react-redux';
+
+const Body = ({events}) => {
     const plight = {
         img: IMG,
         name: 'Nguyen Tan Trung',
@@ -52,7 +28,7 @@ export const Body = () => {
             name: 'Trung Nguyen'
         },
     ]
-    return(
+    return (
         <div className="container">
             <div className="row">
                 <div>
@@ -60,16 +36,23 @@ export const Body = () => {
                     {events.map((e, i) => <EventSummary key={i} event={e}/>)}
                 </div>
                 <div>
-                <h4>HOÀN CẢNH MỚI CẦN ĐƯỢC HỔ TRỢ</h4>
-                <NewPlight plight={plight} />
+                    <h4>HOÀN CẢNH MỚI CẦN ĐƯỢC HỔ TRỢ</h4>
+                    <NewPlight plight={plight}/>
                 </div>
             </div>
             <div>
                 <div>CÁC NHÀ TÀI TRỢ TIÊU BIỂU TRONG THÁNG</div>
                 <div className="slide">
-                    {repSponsers.map((e, i) => <RepSponsor sponsor={e} key={i} /> )}
+                    {repSponsers.map((e, i) => <RepSponsor sponsor={e} key={i}/>)}
                 </div>
             </div>
         </div>
     );
 }
+const mapStateToProps = (state) => {
+    return {
+        events: state.event.events,
+    }
+}
+
+export default connect(mapStateToProps)(Body)

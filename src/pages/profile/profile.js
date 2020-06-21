@@ -1,6 +1,7 @@
 import React from "react";
+
 export const Profile = () => {
-    return(
+    return (
         <div>Profile page</div>
     );
 }
