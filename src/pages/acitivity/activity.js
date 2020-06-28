@@ -1,7 +1,5 @@
 import React from "react";
 
 export const Activity = () => {
-    return (
-        <div>Activity page</div>
-    );
-}
+    return <div>Activity page</div>;
+};
