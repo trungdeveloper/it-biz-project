@@ -1,17 +1,23 @@
 import React from "react";
 
-export const NewPlight = ({plight}) => {
+export const NewPlight = ({ plight }) => {
     return (
         <div>
             <div>
-                <img alt="plight" style={{width: 100, height: 100}} src={plight.img}/>
+                <img
+                    alt="plight"
+                    style={{ width: 100, height: 100 }}
+                    src={plight.img}
+                />
             </div>
             <div>
-                <div>`${plight.name} - ${plight.need}`</div>
+                <div>
+                    `${plight.name} - ${plight.need}`
+                </div>
                 <div>{plight.description}</div>
                 <button>Tài Trợ Ngay</button>
             </div>
             s
         </div>
     );
-}
+};
