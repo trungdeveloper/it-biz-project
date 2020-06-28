@@ -1,10 +1,14 @@
 import React from "react";
 
-export const EventSummary = ({event}) => {
+export const EventSummary = ({ event }) => {
     return (
         <div>
             <div>
-                <img alt="event" style={{width: 100, height: 100}} src={event.img}/>
+                <img
+                    alt="event"
+                    style={{ width: 100, height: 100 }}
+                    src={event.img}
+                />
             </div>
             <div>
                 <div>{event.title}</div>
@@ -15,4 +19,4 @@ export const EventSummary = ({event}) => {
             </div>
         </div>
     );
-}
+};
