@@ -1,11 +1,114 @@
+*{
+    line-height: 22px;
+}
 .container {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
 
 }
-
 .row {
-    display: flex;
-    justify-content: space-between;
+    float: left;
+    width: 100%;
+}
+
+.event-left {
+    float: left;
+    width: 50%;
+}
+.disadvantaged {
+    float: right;
+    width: 50%;
+    margin-bottom: 25px;
+}
+.event-item {
+    float: left;
+    width: 100%;
+}
+button.event-btn-view-more {
+    background-color: #3B6F23;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    height: 25px;
+    margin-top: 15px;
+}
+.event-image {
+    float: left;
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+.event-image>img{
+    width: 200px;
+    height: 150px;
+}
+.disadvantaged-image {
+    float: left;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 45px;
+}
+.disadvantaged-image>img{
+    width: 200px;
+    height: 150px;
+}
+.disadvantaged-content {
+    width: 90%;
+    padding-top: 55px;
+}
+button.disadvantaged-btn-donate {
+    margin-top: 20px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 160px;
+    height: 25px;
+    text-transform: uppercase;
+}
+h4.title {
+    padding-left: 56px;
+}
+.disadvantaged-item {
+    height: 490px;
+    background-color: #99FF99;
+}
+.month-donator-image>img {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+.slide {
+    margin-top: 25px;
+}
+.month-donator:first-child {
+    float: left;
+    width: 20%;
+    background-color: #C4C4C4;
+}
+.month-donator:nth-child(2) {
+    float: left;
+    width: 20%;
+    background-color: #C4C4C4;
+    margin-left: 75px;
+}
+.month-donator:nth-child(3) {
+    float: left;
+    width: 20%;
+    background-color: #C4C4C4;
+    margin-left: 75px;
+}
+.month-donator:last-child {
+    float: right;
+    width: 20%;
+    background-color: #C4C4C4;
+}
+.month-title {
+    margin-left: 360px;
+}
+.month-donator-image {
+    text-align: center;
+}
+.month-donator-content {
+    text-align: center;
 }

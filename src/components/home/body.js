@@ -17,31 +17,35 @@ const Body = ({events}) => {
     const repSponsers = [
         {
             img: IMG,
-            name: 'Trung Nguyen'
+            name: 'Trung Nguyen Van'
         },
         {
             img: IMG,
-            name: 'Trung Nguyen'
+            name: 'Trung Nguyen Van'
         },
         {
             img: IMG,
-            name: 'Trung Nguyen'
+            name: 'Trung Nguyen Van'
+        },
+        {
+            img: IMG,
+            name: 'Trung Nguyen Van'
         },
     ]
     return (
         <div className="container">
             <div className="row">
-                <div>
-                    <h4>SỰ KIỆN SẮP TỚI</h4>
+                <div className="event-left">
+                    <h4 className="title">SỰ KIỆN SẮP TỚI</h4>
                     {events.map((e, i) => <EventSummary key={i} event={e}/>)}
                 </div>
-                <div>
-                    <h4>HOÀN CẢNH MỚI CẦN ĐƯỢC HỔ TRỢ</h4>
+                <div className="disadvantaged">
+                    <h4 className="title">HOÀN CẢNH MỚI CẦN ĐƯỢC HỔ TRỢ</h4>
                     <NewPlight plight={plight}/>
                 </div>
             </div>
-            <div>
-                <div>CÁC NHÀ TÀI TRỢ TIÊU BIỂU TRONG THÁNG</div>
+            <div className="row">
+                <h4 className="month-title">CÁC NHÀ TÀI TRỢ TIÊU BIỂU TRONG THÁNG</h4>
                 <div className="slide">
                     {repSponsers.map((e, i) => <RepSponsor sponsor={e} key={i}/>)}
                 </div>
