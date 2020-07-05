@@ -28,21 +28,29 @@ const Body = ({ events }) => {
             img: IMG,
             name: "Trung Nguyen",
         },
+        {
+            img: IMG,
+            name: "Trung Nguyen",
+        },
     ];
     return (
         <div className="container">
             <div className="row">
                 <div className="event-left">
                     <h4 className="title">SỰ KIỆN SẮP TỚI</h4>
-                    {events.map((e, i) => <EventSummary key={i} event={e}/>)}
+                    {events.map((e, i) => (
+                        <EventSummary key={i} event={e} />
+                    ))}
                 </div>
                 <div className="disadvantaged">
                     <h4 className="title">HOÀN CẢNH MỚI CẦN ĐƯỢC HỔ TRỢ</h4>
-                    <NewPlight plight={plight}/>
+                    <NewPlight plight={plight} />
                 </div>
             </div>
             <div className="row">
-                <h4 className="month-title">CÁC NHÀ TÀI TRỢ TIÊU BIỂU TRONG THÁNG</h4>
+                <h4 className="month-title">
+                    CÁC NHÀ TÀI TRỢ TIÊU BIỂU TRONG THÁNG
+                </h4>
                 <div className="slide">
                     {repSponsers.map((e, i) => (
                         <RepSponsor sponsor={e} key={i} />
