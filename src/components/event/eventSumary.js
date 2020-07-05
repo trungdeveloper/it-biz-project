@@ -1,6 +1,6 @@
 import React from "react";
 
-export const EventSummary = ({event}) => {
+export const EventSummary = ({ event }) => {
     return (
         <div className="event-item">
             <div className="event-image"> 
@@ -16,4 +16,4 @@ export const EventSummary = ({event}) => {
             </div>
         </div>
     );
-}
+};

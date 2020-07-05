@@ -8,4 +8,4 @@ export const Header = () => {
             <button>TÀI TRỢ NGAY</button>
         </div>
     );
-}
+};

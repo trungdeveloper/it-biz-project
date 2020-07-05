@@ -1,6 +1,6 @@
 import React from "react";
 
-export const RepSponsor = ({sponsor}) => {
+export const RepSponsor = ({ sponsor }) => {
     return (
         <div className="month-donator">
             <div className="month-donator-image">
@@ -9,4 +9,4 @@ export const RepSponsor = ({sponsor}) => {
             <div className="month-donator-content">{sponsor.name}</div>
         </div>
     );
-}
+};

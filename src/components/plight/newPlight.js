@@ -1,6 +1,6 @@
 import React from "react";
 
-export const NewPlight = ({plight}) => {
+export const NewPlight = ({ plight }) => {
     return (
         <div className="disadvantaged-item">
             <div className="disadvantaged-image">
@@ -13,4 +13,4 @@ export const NewPlight = ({plight}) => {
             </div>
         </div>
     );
-}
+};
