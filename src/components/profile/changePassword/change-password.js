@@ -1,6 +1,6 @@
 import React from "react";
 import { SideBar } from "./../sideBar/sideBar";
-export const ChangePasswordProfile = () => {
+export const ChangePassword = () => {
     return (
         <div className="row">
             <div className="col-3">
