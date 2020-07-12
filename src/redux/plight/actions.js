@@ -1,6 +1,6 @@
 import * as types from "./types";
 
-export const getEvents = () => {
+export const getPlights = () => {
     return {
         type: types.GET_PLIHGTS,
     };
