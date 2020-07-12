@@ -23,6 +23,9 @@ export const NavBar = () => {
                 <li>
                     <Link to="/profile">Profile</Link>
                 </li>
+                <li>
+                    <Link to="/sponsor">Sponsor</Link>
+                </li>
             </ul>
         </nav>
     );
