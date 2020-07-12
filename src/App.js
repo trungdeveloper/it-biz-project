@@ -7,6 +7,7 @@ import { Plight } from "./pages/plight/plight";
 import { Donation } from "./pages/donation/donation";
 import { Activity } from "./pages/acitivity/activity";
 import { Login } from "./pages/login/login";
+import PlightDetail from "./components/plight/plightDifficult/plightDetail/plightDetail";
 
 export default function App() {
     return (
@@ -16,10 +17,11 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/profile" component={Profile} />
-                    <Route path="/Plight" component={Plight} />
+                    <Route exact path="/Plight" component={Plight} />
                     <Route path="/Donation" component={Donation} />
                     <Route path="/Activity" component={Activity} />
                     <Route path="/Login" component={Login} />
+                    <Route path="/plight/:id" component={PlightDetail} />
                 </Switch>
             </div>
         </Router>
