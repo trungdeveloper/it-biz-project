@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main_menu{
+    box-sizing: border-box;
+}
+.menu_top{
+    color: white;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    background-color: black;
+}
+.menu_top_left{
+    padding: 10px 30px;
+    width: 50%;
+    float: left;    
+    box-sizing: border-box;
+}
+.menu_top_righ{
+    padding: 10px 30px;
+    width: 50%;
+    float: right;
+    box-sizing: border-box; 
+}
+.menu_top_left p{
+    float: left;
+    width: 50%;
+}
+
+.menu_top_righ .btn_dona{
+    float: right;
+}
+
+.menu_top_left p a{
+    text-decoration: none;
+    color: white;
+}
+.menu_top_left p a:hover{
+    text-decoration: underline;
+}
+
+/* ////// */
+
+.btn_dona{
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: #3B6F23;
+}
+
+/* menu_under */
+
+.menu_under{
+    color: black;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+
+.menu_under .logo_menu{
+    float: left;
+    width: 20%;
+    padding: 0 30px;
+}
+.menu_left{
+    float: left;
+    box-sizing: border-box;
+}
+
+.menu_left ul{
+    width: 55%;
+    display: flex;
+    box-sizing: border-box;
+}
+.menu_left ul li{
+    padding: 26px 15px;
+    list-style-type: none;
+}
+
+.menu_left ul li a{
+    width: max-content;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+ .menu_left ul li a:hover {
+    color: #3B6F23;
+    /* border-bottom: 3px solid #3B6F23; */
+}
+.active{
+    border-bottom: 3px solid #3B6F23;
+    color: #3B6F23;
+}
+
+
+.search-container{
+    float: right    ;
+    width: 20%;
+    padding: 15px 30px;
+}
+
+.search-container form{
+    float: left;
+
+}
+.search-container form input{
+    position: absolute;
+    border-radius: 20px;
+    width: 17%;
+    background: rgba(196, 196, 196, 0.8);
+    box-sizing: border-box;
+}
+.search-container form button{
+    right: 80px;
+    position: absolute;
+    border: none;
+    background: none;
+    top: 61px;
+}
+
+.icon_account_user .account_user img{
+    float: right; 
+    width: 10%;
+}
+
+
+
+
