@@ -6,8 +6,18 @@ import { EventSummary } from "../event/eventSumary";
 import { NewPlight } from "../plight/newPlight";
 import { RepSponsor } from "../sponsor/repSponsor";
 import { connect } from "react-redux";
+import { emailValidator,
+    requireValidator,
+    alphaValidator,
+    numberValidator,
+    phoneNumberValidator,
+    passwordValid } from "../../validation";
 
 const Body = ({ events }) => {
+    console.log('passwordValid', passwordValid('validPASS123'));
+    console.log('passwordValid', passwordValid('invalidPASS'));
+    console.log('passwordValid', passwordValid('jkhdfhkd'));
+    console.log('passwordValid', passwordValid('9574957947'));
     const plight = {
         img: IMG,
         name: "Nguyen Tan Trung",
