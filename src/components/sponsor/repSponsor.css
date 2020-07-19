@@ -1,0 +1,35 @@
+.month-donator-image>img {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+.month-donator:first-child {
+    float: left;
+    width: 20%;
+    background-color: #C4C4C4;
+}
+.month-donator:nth-child(2) {
+    float: left;
+    width: 20%;
+    background-color: #C4C4C4;
+    margin-left: 75px;
+}
+.month-donator:nth-child(3) {
+    float: left;
+    width: 20%;
+    background-color: #C4C4C4;
+    margin-left: 75px;
+}
+.month-donator:last-child {
+    float: right;
+    width: 20%;
+    background-color: #C4C4C4;
+}
+
+.month-donator-image {
+    text-align: center;
+}
+.month-donator-content {
+    text-align: center;
+}

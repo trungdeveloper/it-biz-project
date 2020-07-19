@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./eventSumary.css";
 export const EventSummary = ({ event }) => {
     return (
         <div className="event-item">

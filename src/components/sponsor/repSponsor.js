@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./repSponsor.css";
 export const RepSponsor = ({ sponsor }) => {
     return (
         <div className="month-donator">

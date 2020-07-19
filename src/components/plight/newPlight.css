@@ -1,0 +1,29 @@
+
+.disadvantaged-item {
+    height: 490px;
+    background-color: #99FF99;
+}
+.disadvantaged-image {
+    float: left;
+    padding-right: 85px;
+    padding-left: 75px;
+    padding-top: 75px;
+}
+.disadvantaged-image>img{
+    width: 300px;
+    height: 200px;
+}
+.disadvantaged-content {
+    width: 90%;
+    padding-top: 75px;
+}
+button.disadvantaged-btn-donate {
+    margin-top: 20px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 160px;
+    height: 25px;
+    text-transform: uppercase;
+}

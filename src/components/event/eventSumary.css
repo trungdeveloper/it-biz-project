@@ -1,0 +1,24 @@
+.event-item {
+    float: left;
+    width: 100%;
+}
+
+.event-image {
+    float: left;
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+
+.event-image>img{
+    width: 200px;
+    height: 150px;
+}
+
+button.event-btn-view-more {
+    background-color: #3B6F23;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    height: 25px;
+    margin-top: 15px;
+}

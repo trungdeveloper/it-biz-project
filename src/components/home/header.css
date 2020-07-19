@@ -1,0 +1,31 @@
+.heros{
+    /* background-color: aqua; */
+    height: 500px;
+    background-image: url(../../assets/image/banner-heros2.jpg);
+    margin-bottom: 35px;
+}
+
+.title-heros {
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    padding-top: 100px;
+    padding-left: 70px;
+    line-height: 1.5em;
+}
+.content-heros {
+    padding-left: 70px;
+    line-height: 1.5em;
+    font-size: 1.5em;
+    width: 50%;
+    color: white;
+}
+
+button.btn-nonator-heros {
+    margin-left: 70px;
+    background-color: #3B6F23;
+    border-radius: 50px;
+    color: white;
+    height: 35px;
+    margin-top: 15px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./newPlight.css";
 export const NewPlight = ({ plight }) => {
     return (
         <div className="disadvantaged-item">
