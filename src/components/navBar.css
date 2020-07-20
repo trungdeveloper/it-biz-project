@@ -58,6 +58,8 @@
     width: 100%;
     float: left;
     box-sizing: border-box;
+    background-color: #fff;
+    border-bottom: ridge;
 }
 
 .menu_under .logo_menu{
@@ -119,7 +121,6 @@
     position: absolute;
     border: none;
     background: none;
-    top: 61px;
 }
 
 .icon_account_user .account_user img{
@@ -127,6 +128,12 @@
     width: 10%;
 }
 
+
+.fixed {
+    position: fixed;
+    top:0; 
+    z-index: 1000;
+}
 
 
 

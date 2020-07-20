@@ -3,12 +3,30 @@ import React, { useState } from "react";
 
 // import IMG from "../../assets/image/logo-menu.svg";
 import "./navBar.css";
+import { useEffect } from "react";
 const img = require("../assets/image/logo-menu.svg");
 const icon_search = require("../assets/image/Vector.svg");
 const icon_user = require("../assets/image/user.svg");
 
 export const NavBar = () => {
     const [activeTab, setActiveTab] = useState("activities");
+    const [sticky, setSticky] = useState("");
+
+    const handleScroll = () => {
+        let header = document.getElementById("menu_under");
+        if (window.pageYOffset > header.offsetTop) {
+            setSticky("fixed");
+        } else {
+            setSticky("");
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
         <nav className="main_menu">
@@ -25,7 +43,7 @@ export const NavBar = () => {
                     <button className="btn_dona">Tài trợ ngay</button>
                 </div>
             </div>
-            <div className="menu_under">
+            <div className={`menu_under ${sticky}`} id="menu_under">
                 <div className="logo_menu">
                     <a href="/">
                         <img src={img} alt="logo in here"></img>
