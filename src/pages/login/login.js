@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginRequest } from "../../redux/authentication/actions";
+import { compose } from "redux";
+import { firebaseConnect } from "react-redux-firebase";
 
-const Login = ({ loginHandle }) => {
+const Login = ({ login, authError }) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     return (
@@ -38,25 +40,28 @@ const Login = ({ loginHandle }) => {
                     />
                 </div>
             </div>
-            <button onClick={() => loginHandle({ email, password })}>
+            <button onClick={() => login({ email, password })}>
                 Đăng nhập
             </button>
+            {authError ? <p>{authError}</p> : null}
         </div>
     );
 };
 
 const mapStateToProps = (state) => {
     return {
-        data: state.user,
+        authError: state.auth.error,
+        auth: state.firebase.auth,
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, props) => {
     return {
-        loginHandle: (data) => {
-            dispatch(loginRequest(data));
-        },
+        login: (data) => dispatch(loginRequest(data, props)),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default compose(
+    firebaseConnect(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(Login);

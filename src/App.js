@@ -6,7 +6,7 @@ import { Plight } from "./pages/plight/plight";
 import { Donation } from "./pages/donation/donation";
 import { Activity } from "./pages/acitivity/activity";
 import Login from "./pages/login/login";
-import { Register } from "./pages/register/register";
+import Register from "./pages/register/register";
 import { PersonalProfilePage } from "./pages/profile/personalProfilePage/personalProfilePage";
 import { DonationInformationProfilePage } from "./pages/profile/donationInformationProfilePage/donationInformationProfilePage";
 import { ReceiveDonationProfilePage } from "./pages/profile/receiveDonationProfilePage/receiveDonationProfilePage";
