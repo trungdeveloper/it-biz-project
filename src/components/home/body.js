@@ -32,7 +32,7 @@ const Body = ({ events }) => {
             img: IMG,
             name: "Trung Nguyen",
         },
-    ]
+    ];
 
     return (
         <div className="container">
@@ -60,7 +60,7 @@ const Body = ({ events }) => {
             </div>
         </div>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {

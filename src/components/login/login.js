@@ -3,11 +3,14 @@ import { connect } from "react-redux";
 import { loginRequest } from "../../redux/authentication/actions";
 import { compose } from "redux";
 import { firebaseConnect } from "react-redux-firebase";
+import { Redirect } from "react-router";
 
-const Login = ({ login, authError }) => {
+const Login = ({ auth, login, authError }) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    return (
+    return auth.uid ? (
+        <Redirect to={"/"} />
+    ) : (
         <div className="row">
             <div className="row">
                 <h1>ĐĂNG NHẬP</h1>

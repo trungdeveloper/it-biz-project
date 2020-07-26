@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { firebaseConnect, withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
+
 const Register = (props) => {
     const [name, setName] = React.useState("");
     const [phone, setPhone] = React.useState("");
@@ -18,11 +19,10 @@ const Register = (props) => {
             ? register({ name, email, phone, address, password })
             : alert("mat khau sai");
     };
-    // return
-    // auth.uid ? (
-    //     <Redirect to={"/"} />
-    // ) :
-    return (
+
+    return auth.uid ? (
+        <Redirect to={"/"} />
+    ) : (
         <div className="row">
             <div className="row">
                 <h1>ĐĂNG KÝ</h1>
