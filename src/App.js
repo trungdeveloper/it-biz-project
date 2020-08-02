@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./pages/home/home";
-import { NavBar } from "./components/navBar";
+import { MenuBar } from "./components/menu-bar";
 import { Profile } from "./pages/profile/profile";
 import { Plight } from "./pages/plight/plight";
 import { Donation } from "./pages/donation/donation";
@@ -12,7 +12,7 @@ export default function App() {
     return (
         <Router>
             <div>
-                <NavBar />
+                <MenuBar />
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/profile" component={Profile} />
