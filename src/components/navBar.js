@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import React from "react";
-
+import { logout } from "../redux/authentication/actions";
+import { compose } from "redux";
+import { firebaseConnect, withFirestore } from "react-redux-firebase";
+import { connect } from "react-redux";
 import "./navBar.css";
 const img = require("../assets/image/logo-menu.svg");
 const icon_search = require("../assets/image/Vector.svg");
 const icon_user = require("../assets/image/user.svg");
 
-import { logout } from "../redux/authentication/actions";
-import { compose } from "redux";
-import { firebaseConnect, withFirestore } from "react-redux-firebase";
-import { connect } from "react-redux";
+
 
 const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("activities");
