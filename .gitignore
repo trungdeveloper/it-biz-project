@@ -5,6 +5,32 @@
 /.pnp
 .pnp.js
 
+# IDE (including symlinks)
+.vscode
+.idea
+.classpath
+.settings
+.metadata
+.gradle
+.project
+*.iml
+*.launch
+atlassian-ide-plugin.xml
+
+
+# IDE (including symlinks)
+.vscode
+.idea
+.classpath
+.settings
+.metadata
+.gradle
+.project
+*.iml
+*.launch
+atlassian-ide-plugin.xml
+
+
 # testing
 /coverage
 
