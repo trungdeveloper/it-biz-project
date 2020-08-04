@@ -4,8 +4,11 @@ import { logout } from "../redux/authentication/actions";
 import { compose } from "redux";
 import { firebaseConnect, withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
+import {} from "module";
 
 import "./navBar.css";
+import { useEffect } from "react";
+import { useRef } from "react";
 const img = require("../assets/image/logo-menu.svg");
 const icon_search = require("../assets/image/Vector.svg");
 const icon_user = require("../assets/image/user.svg");
@@ -14,6 +17,9 @@ const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("activities");
     const [sticky, setSticky] = React.useState("");
     const [showSideMenu, setShowSideMenu] = React.useState(false);
+    const [showDropdownMenu, setshowDropdownMenu] = React.useState(false);
+
+    const wrapperRef = useRef(null);
 
     const handleScroll = () => {
         let header = document.getElementById("nav-bar");
@@ -26,8 +32,22 @@ const NavBar = ({ auth, logout }) => {
 
     React.useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+
+        function handleClickOutside(event) {
+            if (
+                wrapperRef.current &&
+                !wrapperRef.current.contains(event.target)
+            ) {
+                setshowDropdownMenu(false);
+            }
+        }
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
 
@@ -164,13 +184,55 @@ const NavBar = ({ auth, logout }) => {
                                             ></img>
                                         </button>
                                     </form>
-                                    <div className="icon_account_user">
-                                        <Link className="account_user" to="/">
+
+                                    <div
+                                        ref={wrapperRef}
+                                        className="icon_account_user"
+                                    >
+                                        <button
+                                            className={`dropbtn`}
+                                            onClick={() =>
+                                                setshowDropdownMenu(
+                                                    !showDropdownMenu
+                                                )
+                                            }
+                                        >
                                             <img
                                                 src={icon_user}
                                                 alt="icon user in here"
                                             ></img>
-                                        </Link>
+                                        </button>
+                                        <div
+                                            id="userInforDropdown"
+                                            className={`dropdown-content ${
+                                                showDropdownMenu ? "show" : ""
+                                            }`}
+                                        >
+                                            <Link
+                                                className="userLogin"
+                                                to="/login"
+                                            >
+                                                Đăng nhập
+                                            </Link>
+                                            <Link
+                                                className="userRegister"
+                                                to="/register"
+                                            >
+                                                Đăng ký
+                                            </Link>
+                                            <Link
+                                                className="userProfile"
+                                                to="/profile"
+                                            >
+                                                Profile
+                                            </Link>
+                                            <Link
+                                                className="userLogout"
+                                                to="/logout"
+                                            >
+                                                Đăng xuất
+                                            </Link>
+                                        </div>
                                     </div>
                                 </ul>
                             </nav>
