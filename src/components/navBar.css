@@ -127,7 +127,8 @@ a:hover, a:active {
 }
 
 form button{
-    right: 30px;
+    bottom: 2px;
+    right: 35px;
     position: relative;
     border: none;
     background: none;
@@ -137,14 +138,61 @@ form button{
     padding-top: 26px;
     justify-content: flex-end!important;
 }
-.icon_account_user img{
+/* .icon_account_user img{
     padding-left: 15px;
-}
+} */
 
 .form-search{
     padding-top: 35px;
     padding-left: 15px;
+    border-radius: 20px;
 }
+.form-search input{
+    border-radius: 20px;
+}
+
+
+
+/* dropdown */
+
+.dropbtn {
+    background: none;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .icon_account_user:hover, .icon_account_user:focus{
+    border-bottom: 3px solid #3B6F23;
+  }
+  /* .dropbtn:hover, .dropbtn:focus {
+    border-bottom: 3px solid #3B6F23;
+  } */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+      right: 0;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: visible;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 99999;
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background: #fff;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
 
 
 
@@ -255,7 +303,7 @@ form button{
         max-width: 100%;
         height: auto;
         padding: 0;
-        overflow: auto;
+        overflow: visible;
         background: transparent;
     }
     
