@@ -1,0 +1,423 @@
+/* *{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main_menu{
+    box-sizing: border-box;
+}
+.menu_top{
+    color: white;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    background-color: black;
+}
+.menu_top_left{
+    padding: 10px 30px;
+    width: 50%;
+    float: left;    
+    box-sizing: border-box;
+}
+.menu_top_righ{
+    padding: 10px 30px;
+    width: 50%;
+    float: right;
+    box-sizing: border-box; 
+}
+.menu_top_left p{
+    float: left;
+    width: 50%;
+}
+
+.menu_top_righ .btn_dona{
+    float: right;
+}
+
+.menu_top_left p a{
+    text-decoration: none;
+    color: white;
+}
+.menu_top_left p a:hover{
+    text-decoration: underline;
+}
+
+//////
+
+.btn_dona{
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: #3B6F23;
+}
+
+menu_under
+
+.menu_under{
+    color: black;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom: ridge;
+}
+
+.menu_under .logo_menu{
+    float: left;
+    width: 20%;
+    padding: 0 30px;
+}
+.menu_left{
+    float: left;
+    box-sizing: border-box;
+}
+
+.menu_left ul{
+    width: 55%;
+    display: flex;
+    box-sizing: border-box;
+}
+.menu_left ul li{
+    padding: 26px 15px;
+    list-style-type: none;
+}
+
+.menu_left ul li a{
+    width: max-content;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+ .menu_left ul li a:hover {
+    color: #3B6F23;
+}
+.active{
+    border-bottom: 3px solid #3B6F23;
+    color: #3B6F23;
+}
+
+
+.search-container{
+    float: right    ;
+    width: 20%;
+    padding: 15px 30px;
+}
+
+.search-container form{
+    float: left;
+
+}
+.search-container form input{
+    position: absolute;
+    border-radius: 20px;
+    width: 17%;
+    background: rgba(196, 196, 196, 0.8);
+    box-sizing: border-box;
+}
+.search-container form button{
+    right: 80px;
+    position: absolute;
+    border: none;
+    background: none;
+}
+
+.icon_account_user .account_user img{
+    float: right; 
+    width: 10%;
+}
+
+
+.fixed {
+    position: fixed;
+    top:0; 
+    z-index: 1000;
+}
+
+
+ */
+
+body {
+    color: #262626;
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    vertical-align: baseline;
+}
+
+/*--------------------------------------------------------------
+# Links
+--------------------------------------------------------------*/
+a {
+    color: #262626;
+}
+
+a:visited {
+    color: #757686;
+}
+
+a:hover, a:focus, a:active {
+    color: #262626;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:hover, a:active {
+    outline: 0;
+    list-style: none;
+}
+
+/*--------------------------------------------------------------
+# Site Header
+--------------------------------------------------------------*/
+/*
+# Header Bar
+--------------------------------*/
+.top-header-bar {
+    background: #000;
+    color: #fff;
+    height: 61px;
+}
+
+/*
+# Header Bar Email
+--------------------------------*/
+.header-bar-email,
+.header-bar-text {
+    padding: 20px 0;
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.header-bar-email a,
+.header-bar-text span {
+    text-transform: lowercase;
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+# Header Bar Text
+--------------------------------*/
+.header-bar-text {
+    margin-left: 48px;
+}
+
+.header-bar-text p {
+    margin: 0;
+}
+
+/*
+# Header Bar Donate Button
+--------------------------------*/
+
+
+.donate-btn a {
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    text-decoration: navajowhite;
+    background: #006600;
+}
+
+/*
+# Site Branding
+--------------------------------*/
+.site-branding {
+    width: calc(100% - 24px);
+    padding: 20px 0;
+}
+
+.site-branding a {
+    margin-top: 6px;
+}
+
+@media screen and (min-width: 992px){
+    .site-branding {
+        width: auto;
+    }
+}
+
+/* active tag */
+
+.active{
+    border-bottom: 3px solid #3B6F23;
+    color: #3B6F23;
+}
+.nav-bar{
+    background: #fff;
+    height: 110px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.fixed {
+    width: 100%;
+    position: fixed;
+    top:0; 
+    z-index: 1000;
+}
+
+form button{
+    right: 30px;
+    position: relative;
+    border: none;
+    background: none;
+}
+
+.justify-content-lg-end .icon_account_user {
+    padding-top: 26px;
+    justify-content: flex-end!important;
+}
+.icon_account_user img{
+    padding-left: 15px;
+}
+
+.form-search{
+    padding-top: 35px;
+    padding-left: 15px;
+}
+
+
+
+/*
+  Hamburger Menu
+----------------------------------------*/
+.hamburger-menu {
+    position: relative;
+    width: 24px;
+    height: 22px;
+    margin: 0 auto;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #262626;
+    border-radius: 10px;
+    opacity: 1;
+    left: 0;
+    transition: .25s ease-in-out;
+}
+
+.hamburger-menu span:nth-child(1) {
+    top: 2px;
+}
+
+.hamburger-menu span:nth-child(2),
+.hamburger-menu span:nth-child(3) {
+    top: 10px;
+}
+
+.hamburger-menu span:nth-child(4) {
+    top: 18px;
+}
+
+.hamburger-menu.open span:nth-child(1) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+}
+
+.hamburger-menu.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.hamburger-menu.open span:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+}
+
+/*
+# Main Menu
+--------------------------------*/
+.site-navigation ul {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    z-index: 9999;
+    width: 320px;
+    max-width: calc(100% - 120px);
+    height: 100%;
+    padding: 30px 15px;
+    margin: 0;
+    background: #fff;
+    list-style: none;
+    overflow-x: scroll;
+    transition: all 0.35s;
+}
+
+.site-navigation.show ul {
+    left: 0;
+}
+
+.site-navigation ul li {
+    margin: 0 16px;
+}
+.site-navigation ul li a {
+    display: block;
+    padding: 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: #262626;
+    text-decoration: none;
+    transition: color .35s;
+}
+
+ @media screen and (min-width: 1200px /*min-width: 992px */) {
+    .site-navigation ul {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 0;
+        overflow: auto;
+        background: transparent;
+    }
+
+    .site-navigation ul li a {
+        padding: 49px 0 30px;
+    }
+}
+
+.site-navigation ul li a:hover,
+.site-navigation ul li.current-menu-item a {
+    border-bottom: 3px solid #3B6F23;
+    color: #3B6F23;
+}
+
+/*
+# Menu SHopping Cart
+--------------------------------*/
+.header-bar-cart {
+    margin-left: 40px;
+}
+
+.header-bar-cart a {
+    width: 48px;
+    height: 100%;
+}
+
+.header-bar-cart a {
+    color: #fff;
+    text-decoration: none;
+}

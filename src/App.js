@@ -1,25 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "./pages/home/home";
-import { MenuBar } from "./components/menu-bar";
-import { Profile } from "./pages/profile/profile";
+import { NavBar } from "./components/navBar";
 import { Plight } from "./pages/plight/plight";
 import { Donation } from "./pages/donation/donation";
 import { Activity } from "./pages/acitivity/activity";
-import { Login } from "./pages/login/login";
-
+import Login from "./components/login/login";
+import Register from "./components/register/register";
 export default function App() {
     return (
         <Router>
             <div>
-                <MenuBar />
+                <NavBar />
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/profile" component={Profile} />
                     <Route path="/Plight" component={Plight} />
                     <Route path="/Donation" component={Donation} />
                     <Route path="/Activity" component={Activity} />
                     <Route path="/Login" component={Login} />
+                    <Route path="/Register" component={Register} />
                 </Switch>
             </div>
         </Router>
