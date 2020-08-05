@@ -1,7 +1,7 @@
 *{
     line-height: 22px;
 }
-.container {
+/* .container {
     width: 90%;
     padding-left: 5%;
     padding-right: 5%;
@@ -10,7 +10,7 @@
 .row {
     float: left;
     width: 100%;
-}
+} */
 
 .event-left {
     float: left;
