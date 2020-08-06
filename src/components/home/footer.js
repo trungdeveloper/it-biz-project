@@ -2,7 +2,7 @@ import React from "react";
 import './footer.css';
 import IMG from "../../assets/image/logo-footer.svg";
 import { Link } from "react-router-dom";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const Footer = () => {
     const handleClick = () => {
         console.log("Clicked", );
@@ -57,9 +57,9 @@ export const Footer = () => {
                                 <div className="foot-contact">
                                     <h2>Liên hệ</h2>
                                     <ul>
-                                        <li><i className="fa fa-phone" /><span>(+84) 334 133 327</span></li>
-                                        <li><i className="fa fa-envelope" /><span>ranghivanhuy@gmail.com</span></li>
-                                        <li><i className="fa fa-map-marker" /><span>101B Lê Hữu Trác, Sơn Trà, Đà Nẵng</span></li>
+                                        <li><FontAwesomeIcon icon={['fas', 'phone-alt']} /> <span> (+84) 334 133 327</span></li>
+                                        <li><FontAwesomeIcon icon={['fas', 'envelope']} /> <span> ranghivanhuy@gmail.com</span></li>
+                                        <li><FontAwesomeIcon icon={['fas', 'map-marker-alt']} /> <span> 101B Lê Hữu Trác, Sơn Trà, Đà Nẵng</span></li>
                                     </ul>
                                 </div>{/* .foot-contact */}
                                 <div className="subscribe-form">

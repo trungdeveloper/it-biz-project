@@ -141,3 +141,8 @@ footer.site-footer {
     background: #131212;
     text-align: center;
 }
+
+svg.svg-inline--fa.fa-phone-alt.fa-w-16, svg.svg-inline--fa.fa-envelope.fa-w-16, svg.svg-inline--fa.fa-map-marker-alt.fa-w-12 {
+    color: white;
+    margin-right: 5px;
+}

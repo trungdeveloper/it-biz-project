@@ -7,6 +7,11 @@ import { Donation } from "./pages/donation/donation";
 import { Activity } from "./pages/acitivity/activity";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+
+library.add( faPhoneAlt, faEnvelope, faMapMarkerAlt )
 export default function App() {
     return (
         <Router>
