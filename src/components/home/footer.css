@@ -5,9 +5,6 @@
 footer.site-footer {
     margin-top: 2%;
 }
-/* .footer-widgets {
-    height: 571px;
-} */
 .footer-widgets {
     position: relative;
     padding: 96px 0 90px;
@@ -124,7 +121,7 @@ footer.site-footer {
     font-style: italic;
 }
 
-.subscribe-form input[type="submit"] {
+.subscribe-form button[type="submit"] {
     width: 68px;
     padding: 13px 0 14px;
     border: 0;
