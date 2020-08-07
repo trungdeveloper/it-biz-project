@@ -9,8 +9,6 @@ const img = require("../assets/image/logo-menu.svg");
 const icon_search = require("../assets/image/Vector.svg");
 const icon_user = require("../assets/image/user.svg");
 
-
-
 const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("activities");
     const [sticky, setSticky] = React.useState("");
@@ -93,6 +91,23 @@ const NavBar = ({ auth, logout }) => {
                                 >
                                     <ul className="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
                                         <li
+                                            id="home"
+                                            className={`tag ${
+                                                activeTab === "home"
+                                                    ? "active"
+                                                    : ""
+                                            }`}
+                                        >
+                                            <Link
+                                                onClick={() =>
+                                                    setActiveTab("home")
+                                                }
+                                                to="/"
+                                            >
+                                                TRANG CHỦ
+                                            </Link>
+                                        </li>
+                                        <li
                                             id="activities"
                                             className={`tag ${
                                                 activeTab === "activities"
@@ -104,7 +119,7 @@ const NavBar = ({ auth, logout }) => {
                                                 onClick={() =>
                                                     setActiveTab("activities")
                                                 }
-                                                to="/"
+                                                to="/activity"
                                             >
                                                 HOẠT ĐỘNG
                                             </Link>
@@ -123,7 +138,7 @@ const NavBar = ({ auth, logout }) => {
                                                 }
                                                 to="/plight"
                                             >
-                                                HOÀN CẢNH KHÓ KHĂN
+                                                KHÓ KHĂN
                                             </Link>
                                         </li>
                                         <li
@@ -138,26 +153,9 @@ const NavBar = ({ auth, logout }) => {
                                                 onClick={() =>
                                                     setActiveTab("profile")
                                                 }
-                                                to="/profile"
-                                            >
-                                                PROFILE
-                                            </Link>
-                                        </li>
-                                        <li
-                                            id="donation"
-                                            className={`tag ${
-                                                activeTab === "donation"
-                                                    ? "active"
-                                                    : ""
-                                            }`}
-                                        >
-                                            <Link
-                                                onClick={() =>
-                                                    setActiveTab("donation")
-                                                }
                                                 to="/donation"
                                             >
-                                                NHÀ TÀI TRỢ
+                                                TỪ THIỆN
                                             </Link>
                                         </li>
                                         <form className="form-search">
