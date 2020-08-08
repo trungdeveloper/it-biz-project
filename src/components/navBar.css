@@ -53,12 +53,12 @@ a:hover, a:active {
     padding: 20px 0;
     font-size: 12px;
     line-height: 1;
-    text-transform: uppercase;
+    text-transdiv: uppercase;
 }
 
 .header-bar-email a,
 .header-bar-text span {
-    text-transform: lowercase;
+    text-transdiv: lowercase;
     color: #fff;
     text-decoration: none;
 }
@@ -126,13 +126,16 @@ a:hover, a:active {
     z-index: 1000;
 }
 
-form button{
+div button{
     bottom: 2px;
     right: 35px;
     position: relative;
     border: none;
     background: none;
 }
+button:focus {
+    outline: none;
+  }
 
 .justify-content-lg-end .icon_account_user {
     padding-top: 26px;
@@ -142,13 +145,15 @@ form button{
     padding-left: 15px;
 } */
 
-.form-search{
+.div-search{
     padding-top: 35px;
     padding-left: 15px;
     border-radius: 20px;
 }
-.form-search input{
+.div-search input{
     border-radius: 20px;
+    outline: none;
+    border-color: black;
 }
 
 
@@ -156,24 +161,21 @@ form button{
 /* dropdown */
 
 .dropbtn {
+    margin-right: -65px;
+    padding-left: 50px;
     background: none;
     color: white;
     font-size: 16px;
     border: none;
     cursor: pointer;
   }
-  .icon_account_user:hover, .icon_account_user:focus{
-    border-bottom: 3px solid #3B6F23;
-  }
-  /* .dropbtn:hover, .dropbtn:focus {
-    border-bottom: 3px solid #3B6F23;
-  } */
+   
   .dropdown {
     position: relative;
     display: inline-block;
   }
   .dropdown-content {
-      right: 0;
+      right: -25px;
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -240,11 +242,11 @@ form button{
 }
 
 .hamburger-menu.open span:nth-child(2) {
-    transform: rotate(45deg);
+    transdiv: rotate(45deg);
 }
 
 .hamburger-menu.open span:nth-child(3) {
-    transform: rotate(-45deg);
+    transdiv: rotate(-45deg);
 }
 
 .hamburger-menu.open span:nth-child(4) {
@@ -259,7 +261,7 @@ form button{
 .site-navigation ul {
     position: fixed;
     top: 0;
-    left: -320px;
+    left: -350px;
     z-index: 9999;
     width: 320px;
     max-width: calc(100% - 120px);
