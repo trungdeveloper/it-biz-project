@@ -135,23 +135,6 @@ const NavBar = ({ auth, logout }) => {
                                         </Link>
                                     </li>
                                     <li
-                                        id="profile"
-                                        className={`tag ${
-                                            activeTab === "profile"
-                                                ? "active"
-                                                : ""
-                                        }`}
-                                    >
-                                        <Link
-                                            onClick={() =>
-                                                setActiveTab("profile")
-                                            }
-                                            to="/profile"
-                                        >
-                                            PROFILE
-                                        </Link>
-                                    </li>
-                                    <li
                                         id="donation"
                                         className={`tag ${
                                             activeTab === "donation"
@@ -168,7 +151,7 @@ const NavBar = ({ auth, logout }) => {
                                             NHÀ TÀI TRỢ
                                         </Link>
                                     </li>
-                                    <form className="form-search">
+                                    <div className="div-search">
                                         <input
                                             type="text"
                                             name="search"
@@ -180,7 +163,7 @@ const NavBar = ({ auth, logout }) => {
                                                 alt="icon search in here"
                                             />
                                         </button>
-                                    </form>
+                                    </div>
 
                                     <div
                                         ref={dropdownRef}
