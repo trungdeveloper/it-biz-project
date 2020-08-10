@@ -20,18 +20,18 @@ export const HightLightEvent = () => {
             >
                 <div className="header-elements">
                     <h2 className="entry-title">
-                        <a href="#">Trao tặng áo quần</a>
+                    <Link to="#">Trao tặng quần áo</Link>
                     </h2>
 
                     <div className="post-metas d-flex flex-wrap align-items-center">
                         <span className="cat-links">
-                            <a href="#">05/08/2020</a>
+                        <Link to="#">5/8/2020</Link>
                         </span>
                         <span className="post-author">
-                            <a href="#">101b Lê hữu Trác, Sơn Trà, Đà Nẵng</a>
+                        <Link to="#">101B Lê Hữu Trác, Sơn Trà, Đà Nẵng</Link>
                         </span>
                         <span className="post-comments">
-                            <a href="#">Hoàng Thanh Vi</a>
+                        <Link to="#">Hoàng Thanh Vi</Link>
                         </span>
                     </div>
                 </div>
@@ -49,9 +49,7 @@ export const HightLightEvent = () => {
             </div>
 
             <footer className="entry-footer" style={{ marginTop: "0px" }}>
-                <a href="#" className="btn gradient-bg">
-                    Xem Thêm
-                </a>
+                <Link to="#" className="btn gradient-bg">Xem thêm</Link>
             </footer>
         </div>
     );

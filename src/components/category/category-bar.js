@@ -1,34 +1,33 @@
 import React from "react";
 import "./category-bar.css";
+import { NavLink, Link } from "react-router-dom";
 
 export const CategoryBar = () => {
     return (
         <ul className="ul-category">
             <li>
-                <a className="active" href="#home">
-                    Danh mục
-                </a>
+                <Link className="active" to="#home">Danh mục</Link>
             </li>
             <li>
-                <a href="#news">Đồ Gia Dụng</a>
+                <Link to="#">Đồ Gia Dụng</Link>
             </li>
             <li>
-                <a href="#contact">Đồ Điện Tử</a>
+                <Link to="#">Đồ Điện Tử</Link>
             </li>
             <li>
-                <a href="#about">Thời Trang</a>
+                <Link to="#">Thời Trang</Link>
             </li>
             <li>
-                <a href="#about">Nội Thất</a>
+                <Link to="#">Nội Thất</Link>
             </li>
             <li>
-                <a href="#about">Văn Phòng</a>
+                <Link to="#">Văn Phòng</Link>
             </li>
             <li>
-                <a href="#about">Nông Nghiệp</a>
+                <Link to="#">Nông Nghiệp</Link>
             </li>
             <li>
-                <a href="#about">Khác</a>
+                <Link to="#">Khác</Link>
             </li>
         </ul>
     );

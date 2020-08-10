@@ -6,35 +6,32 @@ import "../../assets/css/themify-icons.css";
 import "../../assets/css/swiper.min.css";
 import "../../assets/style.css";
 import IMG from "../../assets/images/cause-4.jpg";
+import { Link } from "react-router-dom";
 
 export const NormalEvent = () => {
     return (
         <div className="col-12 col-md-6 col-lg-4">
             <div className="cause-wrap">
                 <figure className="m-0">
-                    <img
-                        src={IMG}
-                        alt="Logo"
-                        style={{ height: "200px", width: "340px" }}
-                    />
+                    <img src={IMG} alt="Logo" style={{ height: "200px", width: "340px" }} />
                 </figure>
 
                 <div className="cause-content-wrap">
                     <div className="entry-content" style={{ marginTop: 0 }}>
                         <header className="entry-header d-flex flex-wrap align-items-center">
                             <h3 className="entry-title w-100 m-0">
-                                <a href="#">Tặng Sách Giáo Khoa</a>
+                                <Link to="#">Tặng Sách Giáo Khoa</Link>
                             </h3>
 
                             <div className="posted-date">
-                                <a href="#">5/8/2020 </a>
+                                <Link to="#">5/8/2020</Link>
                             </div>
 
                             <div className="posted-date">
-                                <a href="#">101B Lê Huữ Trác, Đà Nẵng</a>
+                                <Link to="#">101B Lê Hữu Trác, Sơn Trà, Đà Nẵng</Link>
                             </div>
                             <div className="cats-links ">
-                                <a href="#">Hồ Văn Huy</a>
+                                <Link to="#">Nguyễn Văn A</Link>
                             </div>
                         </header>
                         <p className="m-0">

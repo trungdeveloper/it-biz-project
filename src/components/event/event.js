@@ -6,6 +6,7 @@ import "../../assets/css/themify-icons.css";
 import "../../assets/css/swiper.min.css";
 import "../../assets/style.css";
 import IMG from "../../assets/images/u-1.jpg";
+import { Link } from "react-router-dom";
 
 export const Event = () => {
     return (
@@ -17,17 +18,17 @@ export const Event = () => {
             <div className="event-content-wrap">
                 <header className="entry-header d-flex flex-wrap align-items-center">
                     <h3 className="entry-title w-100 m-0">
-                        <a href="#">Bàn ghế cho lớp học</a>
+                        <Link to="#">Bàn ghế cho lớp học</Link>
                     </h3>
                     <div className="posted-date">
-                        <a href="#">5/8/2020 </a>
+                        <Link to="#">5/8/2020</Link>
                     </div>
 
                     <div className="posted-date">
-                        <a href="#">101B Lê Huữ Trác, Đà Nẵng</a>
+                        <Link to="#">101B Lê Hữu Trác, Đà Nẵng</Link>
                     </div>
                     <div className="cats-links ">
-                        <a href="#">Hồ Văn Huy</a>
+                        <Link to="#">Nguyễn Văn A</Link>
                     </div>
                 </header>
 
@@ -39,7 +40,7 @@ export const Event = () => {
                 </div>
 
                 <div className="entry-footer">
-                    <a href="#">Xem thêm</a>
+                <Link to="#">Xem thêm</Link>
                 </div>
             </div>
         </div>

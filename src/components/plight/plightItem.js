@@ -15,29 +15,23 @@ export const PlightItem = () => {
                 <figure className="m-0">
                     <img src={IMG} alt="Logo" />
                     <div className="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
-                        <a href="#" className="btn gradient-bg mr-2">
-                            Tài Trợ
-                        </a>
+                        <Link to="#" className="btn gradient-bg mr-2">Tài trợ</Link>
                     </div>
                 </figure>
 
-                <div
-                    className="cause-content-wrap"
-                    style={{ border: "1px solid #e0e0e0" }}
-                >
+                <div className="cause-content-wrap" style={{ border: "1px solid #e0e0e0" }}>
                     <header className="entry-header d-flex flex-wrap align-items-center">
                         <h3 className="entry-title w-100 m-0">
-                            <a href="#">Sách vở tới trường</a>
+                            <Link to="#">Sách vở tới trường</Link>
                         </h3>
                         <div className="posted-date">
-                            <a href="#">5/8/2020 </a>
+                            <Link to="#">5/8/2020</Link>
                         </div>
-
                         <div className="posted-date">
-                            <a href="#">101B Lê Huữ Trác, Đà Nẵng</a>
+                            <Link to="#">101B Lê Hữu Trác, Sơn Trà, Đà Nẵng</Link>
                         </div>
                         <div className="cats-links ">
-                            <a href="#">Hồ Văn Huy</a>
+                            <Link to="#">Nguyễn Văn A</Link>
                         </div>
                     </header>
 

@@ -21,7 +21,7 @@ export const PlightItem = () => {
                         <div className="cause-content-wrap">
                             <header className="entry-header d-flex flex-wrap align-items-center">
                                 <h3 className="entry-title w-100 m-0">
-                                    <a href="#">Bé Praku cần sách</a>
+                                    <Link to="#">Bé Praku cần sách</Link>
                                 </h3>
                             </header>
                             <div className="entry-content">

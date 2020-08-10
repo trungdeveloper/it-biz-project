@@ -13,31 +13,24 @@ export const NewPlightItem = () => {
         <div className="cause-wrap d-flex flex-wrap justify-content-between">
             <figure className="m-0">
                 <Link to="/PlightDetail">
-                    <img
-                        src={IMG}
-                        alt="Logo"
-                        style={{ height: "300px", width: "250px" }}
-                    />
+                    <img src={IMG} alt="Logo" style={{ height: "300px", width: "250px" }}/>
                 </Link>
             </figure>
-
             <div className="cause-content-wrap">
                 <header className="entry-header d-flex flex-wrap align-items-center">
                     <h3 className="entry-title w-100 m-0">
-                        <a href="#">Trẻ mồ côi</a>
+                        <Link to="#">Trẻ em mồ côi</Link>
                     </h3>
                     <div className="posted-date">
-                        <a href="#">5/8/2020 </a>
+                        <Link to="#">5/8/2020</Link>
                     </div>
-
                     <div className="posted-date">
-                        <a href="#">101B Lê Huữ Trác, Đà Nẵng</a>
+                        <Link to="#">101B Lê Hữu Trác, Sơn Trà, Đà Nẵng</Link>
                     </div>
                     <div className="cats-links ">
-                        <a href="#">Hồ Văn Huy</a>
+                        <Link to="#">Nguyễn Văn A</Link>
                     </div>
                 </header>
-
                 <div className="entry-content">
                     <p className="m-0">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -45,11 +38,8 @@ export const NewPlightItem = () => {
                         amet, consectetur.
                     </p>
                 </div>
-
                 <div className="entry-footer mt-5">
-                    <a href="#" className="btn gradient-bg mr-2">
-                        Tài Trợ
-                    </a>
+                    <Link to="#" className="btn gradient-bg mr-2">Tài trợ</Link>
                 </div>
             </div>
         </div>
