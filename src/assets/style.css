@@ -2132,3 +2132,10 @@ ul.tabs-nav .tab-nav.active {
     background: #131212;
     text-align: center;
 }
+
+button.btn.btn-success {
+    text-transform: uppercase;
+    border-radius: 25px;
+    background-color: #3B6F23;
+    border-color: #3B6F23;
+}

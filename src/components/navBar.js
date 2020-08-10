@@ -71,16 +71,8 @@ const NavBar = ({ auth, logout }) => {
                         <div className="row">
                             <div className="col-12 d-flex flex-wrap justify-content-between align-items-center">
                                 <div className="site-branding d-flex align-items-center">
-                                    <Link
-                                        className="d-block"
-                                        to="index.html"
-                                        rel="home"
-                                    >
-                                        <img
-                                            className="d-block"
-                                            src={img}
-                                            alt="logo"
-                                        />
+                                    <Link className="d-block" to="/" rel="home">
+                                        <img className="d-block" src={img} alt="logo"/>
                                     </Link>
                                 </div>
                                 {/* .site-branding */}
