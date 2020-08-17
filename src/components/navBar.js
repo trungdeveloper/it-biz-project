@@ -5,7 +5,6 @@ import { compose } from "redux";
 import { firebaseConnect, withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
 import "./navBar.css";
-import { useRef } from "react";
 const img = require("../assets/image/logo-menu.svg");
 const icon_search = require("../assets/image/Vector.svg");
 const icon_user = require("../assets/image/user.svg");
@@ -16,7 +15,7 @@ const NavBar = ({ auth, logout }) => {
     const [showSideMenu, setShowSideMenu] = React.useState(false);
     const [showDropdownMenu, setShowDropdownMenu] = React.useState(false);
 
-    const dropdownRef = useRef(null);
+    const dropdownRef = React.useRef(null);
 
     const handleScroll = () => {
         let header = document.getElementById("nav-bar");
