@@ -168,12 +168,25 @@ const NavBar = ({ auth, logout }) => {
             >
                 <ul className="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
                     <li
+                        id="home"
+                        className={`tag ${
+                            activeTab === "home" ? "active" : ""
+                        }`}
+                    >
+                        <Link onClick={() => setActiveTab("home")} to="/">
+                            TRANG CHỦ
+                        </Link>
+                    </li>
+                    <li
                         id="activities"
                         className={`tag ${
                             activeTab === "activities" ? "active" : ""
                         }`}
                     >
-                        <Link onClick={() => setActiveTab("activities")} to="/">
+                        <Link
+                            onClick={() => setActiveTab("activities")}
+                            to="/Activity"
+                        >
                             HOẠT ĐỘNG
                         </Link>
                     </li>
@@ -200,7 +213,7 @@ const NavBar = ({ auth, logout }) => {
                             onClick={() => setActiveTab("donation")}
                             to="/donation"
                         >
-                            NHÀ TÀI TRỢ
+                            TÀI TRỢ
                         </Link>
                     </li>
                     {renderSearchForm()}

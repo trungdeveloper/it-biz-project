@@ -12,6 +12,7 @@ import { PlightDetail } from "./pages/plight/plightDetail";
 import { ActivityDetail } from "./pages/acitivity/activityDetail";
 import { UserProfile } from "./pages/profile/userProfile";
 import { UserHistory } from "./pages/profile/userHistory";
+import { Footer } from "./components/home/footer";
 
 export default function App() {
     return (
@@ -31,6 +32,7 @@ export default function App() {
                     <Route path="/Activity" component={Activity} />
                     <Route path="/ActivityDetail" component={ActivityDetail} />
                 </Switch>
+                <Footer />
             </div>
         </Router>
     );

@@ -1,10 +1,10 @@
 import React from "react";
-import "../../assets/css/bootstrap.min.css";
-import "../../assets/css/font-awesome.min.css";
-import "../../assets/css/elegant-fonts.css";
-import "../../assets/css/themify-icons.css";
-import "../../assets/css/swiper.min.css";
-import "../../assets/style.css";
+// import "../../assets/css/bootstrap.min.css";
+// import "../../assets/css/font-awesome.min.css";
+// import "../../assets/css/elegant-fonts.css";
+// import "../../assets/css/themify-icons.css";
+// import "../../assets/css/swiper.min.css";
+// import "../../assets/style.css";
 import { Carousel } from "../../components/home/carousel";
 import { Event } from "../../components/event/event";
 import { NewPlightItem } from "../../components/plight/newPlightItem";
