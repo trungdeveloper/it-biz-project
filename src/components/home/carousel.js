@@ -6,7 +6,6 @@ import "../../assets/css/themify-icons.css";
 import "../../assets/css/swiper.min.css";
 import "../../assets/style.css";
 import IMG from "../../images/chung-tay-vi-nguoi-ngheo.jpg";
-import { Link } from "react-router-dom";
 
 export const Carousel = () => {
     return (

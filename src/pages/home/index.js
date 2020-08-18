@@ -85,16 +85,16 @@ export const Home = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-3">
+                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                             <Product />
                         </div>
-                        <div className="col-3">
+                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                             <Product />
                         </div>
-                        <div className="col-3">
+                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                             <Product />
                         </div>
-                        <div className="col-3">
+                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                             <Product />
                         </div>
                     </div>
@@ -112,16 +112,16 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-sm-6 col-md-6">
                             <Sponsor />
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-sm-6 col-md-6">
                             <Sponsor />
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-sm-6 col-md-6">
                             <Sponsor />
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-sm-6 col-md-6">
                             <Sponsor />
                         </div>
                     </div>

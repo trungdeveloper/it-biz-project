@@ -13,8 +13,7 @@ export const Sponsor = () => {
             <div className="entry-footer d-flex flex-wrap align-items-center mt-5">
                 <img src={IMG} alt="aaa" />
                 <h4>
-                    Maria Williams,
-                    <span>Volunteer</span>
+                    Maria Williams
                 </h4>
             </div>
         </div>

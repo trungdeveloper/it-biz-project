@@ -25,16 +25,16 @@ export const DonationDetail = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                         <Product />
                     </div>
-                    <div className="col-3">
+                    <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                         <Product />
                     </div>
-                    <div className="col-3">
+                    <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                         <Product />
                     </div>
-                    <div className="col-3">
+                    <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                         <Product />
                     </div>
                 </div>
