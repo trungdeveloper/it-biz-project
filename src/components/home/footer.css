@@ -121,7 +121,7 @@ footer.site-footer {
     font-style: italic;
 }
 
-.subscribe-form button[type="submit"] {
+.subscribe-form button {
     width: 68px;
     padding: 13px 0 14px;
     border: 0;
@@ -140,9 +140,4 @@ footer.site-footer {
     color: #7b7b7b;
     background: #131212;
     text-align: center;
-}
-
-svg.svg-inline--fa.fa-phone-alt.fa-w-16, svg.svg-inline--fa.fa-envelope.fa-w-16, svg.svg-inline--fa.fa-map-marker-alt.fa-w-12 {
-    color: white;
-    margin-right: 5px;
 }

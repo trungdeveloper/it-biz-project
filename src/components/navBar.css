@@ -126,7 +126,7 @@ a:hover, a:active {
     z-index: 1000;
 }
 
-div button{
+.div-search button{
     bottom: 2px;
     right: 35px;
     position: relative;
