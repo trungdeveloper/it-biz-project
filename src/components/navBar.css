@@ -126,7 +126,8 @@ a:hover, a:active {
     z-index: 1000;
 }
 
-div button{
+
+.div-search button{
     bottom: 2px;
     right: 35px;
     position: relative;
@@ -339,6 +340,8 @@ button:focus {
     text-decoration: none;
 }
 
-
+nav.site-navigation.d-flex.justify-content-end.align-items-center {
+    margin-right: -15px;
+}
 
 

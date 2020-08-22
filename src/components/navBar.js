@@ -5,9 +5,8 @@ import { compose } from "redux";
 import { firebaseConnect, withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
 import "./navBar.css";
-import { useRef } from "react";
 const img = require("../assets/image/logo-menu.svg");
-const icon_search = require("../assets/image/Vector.svg");
+// const icon_search = require("../assets/image/Vector.svg");
 const icon_user = require("../assets/image/user.svg");
 
 const NavBar = ({ auth, logout }) => {
@@ -16,7 +15,7 @@ const NavBar = ({ auth, logout }) => {
     const [showSideMenu, setShowSideMenu] = React.useState(false);
     const [showDropdownMenu, setShowDropdownMenu] = React.useState(false);
 
-    const dropdownRef = useRef(null);
+    const dropdownRef = React.useRef(null);
 
     const handleScroll = () => {
         let header = document.getElementById("nav-bar");
@@ -48,8 +47,8 @@ const NavBar = ({ auth, logout }) => {
         };
     }, []);
 
-    return (
-        <header className="site-header">
+    const renderTopHeading = () => {
+        return (
             <div className="top-header-bar">
                 <div className="container">
                     <div className="row flex-wrap justify-content-center justify-content-lg-between align-items-lg-center">
@@ -57,196 +56,187 @@ const NavBar = ({ auth, logout }) => {
                             <div className="header-bar-email">
                                 MAIL: <Link to="#">contact@ourcharity.com</Link>
                             </div>
-                            {/* .header-bar-email */}
                             <div className="header-bar-text">
                                 <p>
                                     PHONE:{" "}
                                     <span>+24 3772 120 091 / +56452 4567</span>
                                 </p>
                             </div>
-                            {/* .header-bar-text */}
                         </div>
-                        {/* .col */}
                         <div className="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                             <div className="donate-btn">
                                 <Link to="#">Tài Trợ Ngay</Link>
                             </div>
-                            {/* .donate-btn */}
                         </div>
-                        {/* .col */}
                     </div>
-                    {/* .row */}
                 </div>
-                {/* .container */}
             </div>
-            {/* .top-header-bar */}
+        );
+    };
+
+    const renderLogo = () => {
+        return (
+            <div className="site-branding d-flex align-items-center">
+                <Link className="d-block" to="/" rel="home">
+                    <img className="d-block" src={img} alt="logo" />
+                </Link>
+            </div>
+        );
+    };
+
+    const renderDropdown = () => {
+        return (
+            <dichuav ref={dropdownRef} className="icon_account_user">
+                <button
+                    className={`dropbtn`}
+                    onClick={() => setShowDropdownMenu(!showDropdownMenu)}
+                >
+                    <img src={icon_user} alt="icon user in here" />
+                </button>
+                <div
+                    id="userInforDropdown"
+                    className={`dropdown-content ${
+                        showDropdownMenu ? "show" : ""
+                    }`}
+                >
+                    {!auth.uid ? (
+                        <>
+                            <Link className="userLogin" to="/login">
+                                Đăng nhập
+                            </Link>
+                            <Link className="userRegister" to="/register">
+                                Đăng ký
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link className="userProfile" to="/profile">
+                                Profile
+                            </Link>{" "}
+                            <Link
+                                className="userLogout"
+                                to="/"
+                                onClick={logout}
+                            >
+                                Đăng xuất
+                            </Link>
+                        </>
+                    )}
+                </div>
+            </dichuav>
+        );
+    };
+
+    const renderHamburgerMenu = () => {
+        return (
+            <div
+                className={`hamburger-menu d-lg-none ${
+                    showSideMenu ? "open" : ""
+                }`}
+                onClick={() => setShowSideMenu(!showSideMenu)}
+            >
+                <span />
+                <span />
+                <span />
+                <span />
+            </div>
+        );
+    };
+
+    const renderSearchForm = () => {
+        return (
+            <div className="div-search">
+                <input
+                    style={{ paddingLeft: 10, paddingRight: 10 }}
+                    type="text"
+                    name="search"
+                    placeholder="Tìm kiếm..."
+                />
+                <button>
+                    <i className="fa fa-search"></i>
+                </button>
+            </div>
+        );
+    };
+
+    const renderNavBarMenu = () => {
+        return (
+            <nav
+                className={`site-navigation d-flex justify-content-end align-items-center ${
+                    showSideMenu ? "show" : ""
+                }`}
+            >
+                <ul className="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                    <li
+                        id="home"
+                        className={`tag ${
+                            activeTab === "home" ? "active" : ""
+                        }`}
+                    >
+                        <Link onClick={() => setActiveTab("home")} to="/">
+                            TRANG CHỦ
+                        </Link>
+                    </li>
+                    <li
+                        id="activities"
+                        className={`tag ${
+                            activeTab === "activities" ? "active" : ""
+                        }`}
+                    >
+                        <Link
+                            onClick={() => setActiveTab("activities")}
+                            to="/Activity"
+                        >
+                            HOẠT ĐỘNG
+                        </Link>
+                    </li>
+                    <li
+                        id="plight"
+                        className={`tag ${
+                            activeTab === "plight" ? "active" : ""
+                        }`}
+                    >
+                        <Link
+                            onClick={() => setActiveTab("plight")}
+                            to="/plight"
+                        >
+                            HOÀN CẢNH KHÓ KHĂN
+                        </Link>
+                    </li>
+                    <li
+                        id="donation"
+                        className={`tag ${
+                            activeTab === "donation" ? "active" : ""
+                        }`}
+                    >
+                        <Link
+                            onClick={() => setActiveTab("donation")}
+                            to="/donation"
+                        >
+                            TÀI TRỢ
+                        </Link>
+                    </li>
+                    {renderSearchForm()}
+                    {renderDropdown()}
+                </ul>
+            </nav>
+        );
+    };
+
+    return (
+        <header className="site-header">
+            {renderTopHeading()}
             <div className={`nav-bar ${sticky}`} id="nav-bar">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 d-flex flex-wrap justify-content-between align-items-center">
-                            <div className="site-branding d-flex align-items-center">
-                                <Link className="d-block" to="/" rel="home">
-                                    <img
-                                        className="d-block"
-                                        src={img}
-                                        alt="logo"
-                                    />
-                                </Link>
-                            </div>
-                            {/* .site-branding */}
-                            <nav
-                                className={`site-navigation d-flex justify-content-end align-items-center ${
-                                    showSideMenu ? "show" : ""
-                                }`}
-                            >
-                                <ul className="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-                                    <li
-                                        id="activities"
-                                        className={`tag ${
-                                            activeTab === "activities"
-                                                ? "active"
-                                                : ""
-                                        }`}
-                                    >
-                                        <Link
-                                            onClick={() =>
-                                                setActiveTab("activities")
-                                            }
-                                            to="/"
-                                        >
-                                            HOẠT ĐỘNG
-                                        </Link>
-                                    </li>
-                                    <li
-                                        id="plight"
-                                        className={`tag ${
-                                            activeTab === "plight"
-                                                ? "active"
-                                                : ""
-                                        }`}
-                                    >
-                                        <Link
-                                            onClick={() =>
-                                                setActiveTab("plight")
-                                            }
-                                            to="/plight"
-                                        >
-                                            HOÀN CẢNH KHÓ KHĂN
-                                        </Link>
-                                    </li>
-                                    <li
-                                        id="donation"
-                                        className={`tag ${
-                                            activeTab === "donation"
-                                                ? "active"
-                                                : ""
-                                        }`}
-                                    >
-                                        <Link
-                                            onClick={() =>
-                                                setActiveTab("donation")
-                                            }
-                                            to="/donation"
-                                        >
-                                            NHÀ TÀI TRỢ
-                                        </Link>
-                                    </li>
-                                    <div className="div-search">
-                                        <input
-                                            type="text"
-                                            name="search"
-                                            placeholder="Tìm kiếm..."
-                                        />
-                                        <button>
-                                            <img
-                                                src={icon_search}
-                                                alt="icon search in here"
-                                            />
-                                        </button>
-                                    </div>
-
-                                    <div
-                                        ref={dropdownRef}
-                                        className="icon_account_user"
-                                    >
-                                        <button
-                                            className={`dropbtn`}
-                                            onClick={() =>
-                                                setShowDropdownMenu(
-                                                    !showDropdownMenu
-                                                )
-                                            }
-                                        >
-                                            <img
-                                                src={icon_user}
-                                                alt="icon user in here"
-                                            />
-                                        </button>
-                                        <div
-                                            id="userInforDropdown"
-                                            className={`dropdown-content ${
-                                                showDropdownMenu ? "show" : ""
-                                            }`}
-                                        >
-                                            {!auth.uid ? (
-                                                <>
-                                                    <Link
-                                                        className="userLogin"
-                                                        to="/login"
-                                                    >
-                                                        Đăng nhập
-                                                    </Link>
-                                                    <Link
-                                                        className="userRegister"
-                                                        to="/register"
-                                                    >
-                                                        Đăng ký
-                                                    </Link>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <Link
-                                                        className="userProfile"
-                                                        to="/profile"
-                                                    >
-                                                        Profile
-                                                    </Link>{" "}
-                                                    <Link
-                                                        className="userLogout"
-                                                        to="/"
-                                                        onClick={logout}
-                                                    >
-                                                        Đăng xuất
-                                                    </Link>
-                                                </>
-                                            )}
-                                        </div>
-                                    </div>
-                                </ul>
-                            </nav>
-                            {/* .site-navigation */}
-                            <div className="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center "></div>
-
-                            <div
-                                className={`hamburger-menu d-lg-none ${
-                                    showSideMenu ? "open" : ""
-                                }`}
-                                onClick={() => setShowSideMenu(!showSideMenu)}
-                            >
-                                <span />
-                                <span />
-                                <span />
-                                <span />
-                            </div>
-                            {/* .hamburger-menu */}
+                            {renderLogo()}
+                            {renderNavBarMenu()}
+                            {renderHamburgerMenu()}
                         </div>
-                        {/* .col */}
                     </div>
-                    {/* .row */}
                 </div>
-                {/* .container */}
             </div>
-            {/* .nav-bar */}
         </header>
     );
 };
