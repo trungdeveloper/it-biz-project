@@ -106,6 +106,9 @@ a:hover, a:active {
     .site-branding {
         width: auto;
     }
+    .site-navigation ul {
+        top: -420px;
+    }
 }
 
 /* active tag */
@@ -162,21 +165,20 @@ button:focus {
 /* dropdown */
 
 .dropbtn {
-    margin-right: -65px;
-    padding-left: 50px;
+    margin-right: 5px;
     background: none;
-    color: white;
-    font-size: 16px;
+    font-size: 30px;
     border: none;
     cursor: pointer;
   }
    
   .dropdown {
+    margin-right: 7px;
     position: relative;
     display: inline-block;
   }
   .dropdown-content {
-      right: -25px;
+    right: 0px;
     display: none;
     position: absolute;
     background-color: #f1f1f1;
@@ -261,7 +263,7 @@ button:focus {
 --------------------------------*/
 .site-navigation ul {
     position: fixed;
-    top: 0;
+    /* top: 0; */
     left: -350px;
     z-index: 9999;
     width: 320px;
@@ -314,6 +316,7 @@ button:focus {
     .site-navigation ul li a {
         padding: 49px 0 30px;
     }
+    
 }
 
 .site-navigation ul li a:hover,
@@ -345,3 +348,65 @@ nav.site-navigation.d-flex.justify-content-end.align-items-center {
 }
 
 
+@media screen and (max-width: 1199px) {
+
+    .site-navigation ul {
+        overflow: inherit;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    .div-search{
+        padding-top: 0px;
+        padding-left: 15px;
+        border-radius: 20px;
+    }
+    .div-search input{
+        position: absolute;
+        border-radius: 20px;
+        outline: none;
+        border-color: black;
+        margin: 15px 0px;
+    }
+    .div-search button {
+        margin: 15px 0px;
+        bottom: 0px;
+        left: 200px;
+        position: relative;
+        border: none;
+        background: none;
+    }
+    .justify-content-lg-end .icon_account_user {
+        padding-top: 0px;
+        justify-content: flex-end!important;
+    }
+    .dropbtn {
+        display: none;
+    }
+    .dropdown-content { 
+        width: 100%;
+        display: block;
+        left: auto;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: visible;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 99999;
+        margin-top: 10px;
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 5px 30px;
+        text-decoration: none;
+        display: block;
+        background: #fff;
+    }
+    .flex-column {
+        flex-direction: column!important;
+    }
+    .d-lg-none {
+        display: unset !important;
+      }
+    .hamburger-menu{
+        margin: 0;
+    }
+}

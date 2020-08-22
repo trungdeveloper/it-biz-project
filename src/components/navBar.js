@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import "./navBar.css";
 const img = require("../assets/image/logo-menu.svg");
 // const icon_search = require("../assets/image/Vector.svg");
-const icon_user = require("../assets/image/user.svg");
+// const icon_user = require("../assets/image/user.svg");
 
 const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("activities");
@@ -86,12 +86,12 @@ const NavBar = ({ auth, logout }) => {
 
     const renderDropdown = () => {
         return (
-            <dichuav ref={dropdownRef} className="icon_account_user">
+            <div ref={dropdownRef} className="icon_account_user">
                 <button
                     className={`dropbtn`}
                     onClick={() => setShowDropdownMenu(!showDropdownMenu)}
                 >
-                    <img src={icon_user} alt="icon user in here" />
+                    <i className="fa fa-user"></i>
                 </button>
                 <div
                     id="userInforDropdown"
@@ -123,7 +123,7 @@ const NavBar = ({ auth, logout }) => {
                         </>
                     )}
                 </div>
-            </dichuav>
+            </div>
         );
     };
 
