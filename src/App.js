@@ -7,11 +7,12 @@ import { Donation } from "./pages/donation/donation";
 import { Activity } from "./pages/acitivity/activity";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
+import { CategoryPage } from "./admin/page/category/categoryPage";
 export default function App() {
     return (
         <Router>
             <div>
-                <NavBar />
+                {/* <NavBar /> */}
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/Plight" component={Plight} />
@@ -19,6 +20,7 @@ export default function App() {
                     <Route path="/Activity" component={Activity} />
                     <Route path="/Login" component={Login} />
                     <Route path="/Register" component={Register} />
+                    <Route path="/category" component={CategoryPage} />
                 </Switch>
             </div>
         </Router>

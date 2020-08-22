@@ -9,8 +9,6 @@ const img = require("../assets/image/logo-menu.svg");
 const icon_search = require("../assets/image/Vector.svg");
 const icon_user = require("../assets/image/user.svg");
 
-
-
 const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("activities");
     const [sticky, setSticky] = React.useState("");
