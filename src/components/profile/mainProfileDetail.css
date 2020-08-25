@@ -1,0 +1,37 @@
+div#changepassword, div#donate, div#donated {
+    display: none;
+}
+div#myinformation {
+    display: block;
+}
+.image-radius>img{
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.user_profile {
+    padding-top: 25px;
+}
+.user_profile .col-lg-8 .form-group {
+    padding: 25px 0px;
+}
+button.profile-btn-update {
+    background-color: #006600;
+    color: white;
+    border: none;
+    outline: none;
+    outline-color: none;
+}
+button.profile-btn-update:hover {
+    color: black;
+}
+button.prifle-btn-detele {
+    background-color: red;
+    border: none;
+    color: white;
+    margin: 15px;
+}
+label.tablinks {
+    font-size: 20px;
+    padding-left: 15px;
+}
