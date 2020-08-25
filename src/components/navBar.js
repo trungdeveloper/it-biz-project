@@ -66,7 +66,7 @@ const NavBar = ({ auth, logout }) => {
                         </div>
                         <div className="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                             <div className="donate-btn">
-                                <Link to="#">Tài Trợ Ngay</Link>
+                                <Link to="donate">Tài Trợ Ngay</Link>
                             </div>
                         </div>
                     </div>

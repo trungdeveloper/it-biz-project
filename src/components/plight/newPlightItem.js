@@ -13,7 +13,11 @@ export const NewPlightItem = () => {
         <div className="cause-wrap d-flex flex-wrap justify-content-between">
             <figure className="m-0">
                 <Link to="/PlightDetail">
-                    <img src={IMG} alt="Logo" style={{ height: "300px", width: "250px" }}/>
+                    <img
+                        src={IMG}
+                        alt="Logo"
+                        style={{ height: "300px", width: "250px" }}
+                    />
                 </Link>
             </figure>
             <div className="cause-content-wrap">
@@ -39,7 +43,9 @@ export const NewPlightItem = () => {
                     </p>
                 </div>
                 <div className="entry-footer mt-5">
-                    <Link to="#" className="btn gradient-bg mr-2">Tài trợ</Link>
+                    <Link to="/donate" className="btn gradient-bg mr-2">
+                        Tài trợ
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,11 +1,6 @@
 import React from "react";
-import "../../assets/css/bootstrap.min.css";
-import "../../assets/css/font-awesome.min.css";
-import "../../assets/css/elegant-fonts.css";
-import "../../assets/css/themify-icons.css";
-import "../../assets/css/swiper.min.css";
-import "../../assets/style.css";
 import IMG from "../../images/chung-tay-vi-nguoi-ngheo.jpg";
+import { Link } from "react-router-dom";
 
 export const Carousel = () => {
     return (
@@ -30,9 +25,15 @@ export const Carousel = () => {
                                         </p>
                                     </div>
 
-                                    <footer className="entry-footer d-flex flex-wrap align-items-center mt-5">
-                                        <button type="button" class="btn btn-success">Tài trợ ngay</button>
-                                    </footer>
+                                    <div className="entry-footer d-flex flex-wrap align-items-center mt-5">
+                                        <Link
+                                            to="/donate"
+                                            type="button"
+                                            className="btn btn-success"
+                                        >
+                                            Tài trợ ngay
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
