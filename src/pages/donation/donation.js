@@ -13,7 +13,10 @@ export const Donation = () => {
         <div>
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3" style={{ marginTop: "20px" }}>
+                    <div
+                        className="col-xs-3 col-sm-6 col-md-6 col-lg-3"
+                        style={{ marginTop: "20px" }}
+                    >
                         <CategoryBar />
                     </div>
                     <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
@@ -27,7 +30,7 @@ export const Donation = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3"/>
+                    <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3" />
                     <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
                         <Product />
                     </div>

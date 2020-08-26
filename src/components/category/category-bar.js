@@ -6,7 +6,9 @@ export const CategoryBar = () => {
     return (
         <ul className="ul-category">
             <li>
-                <Link className="active" to="#home">Danh mục</Link>
+                <Link className="active" to="#home">
+                    Danh mục
+                </Link>
             </li>
             <li>
                 <Link to="#">Đồ Gia Dụng</Link>

@@ -11,7 +11,9 @@ import { Link } from "react-router-dom";
 export const UserDonation = () => {
     return (
         <div className="container">
-            <h3 style={{ marginBottom: "30px", marginTop: "30px" }}>Vật Phẩm Đã Cho</h3>
+            <h3 style={{ marginBottom: "30px", marginTop: "30px" }}>
+                Vật Phẩm Đã Cho
+            </h3>
             <table className="table table-striped">
                 <thead>
                     <tr className="info">
@@ -26,13 +28,18 @@ export const UserDonation = () => {
                     <tr className="success">
                         <td>Ấm siêu tốc</td>
                         <td>
-                            <img src={IMG} style={{ height: "100px", width: "100px" }}/>
+                            <img
+                                src={IMG}
+                                style={{ height: "100px", width: "100px" }}
+                            />
                         </td>
                         <td>Đã trao</td>
                         <td>Bé A</td>
                         <td>
                             <Link to="#">
-                                <button className="btn btn-primary">Cập nhật</button>
+                                <button className="btn btn-primary">
+                                    Cập nhật
+                                </button>
                             </Link>
                             <Link to=" #">
                                 <button className="btn btn-danger">Xoá</button>
