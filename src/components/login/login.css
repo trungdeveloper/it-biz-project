@@ -47,14 +47,6 @@
         background: #006600 !important;
         color: white !important;
     }
-
-    .login_btn:hover {
-        width: 100%;
-        background: #006600 !important;
-        color: white !important;
-        border-color: #006000;
-    }
-
     .login_btn:focus {
         box-shadow: none !important;
         outline: 0px !important;
@@ -89,3 +81,4 @@
         text-align: center;
         color: red;
     }
+    
