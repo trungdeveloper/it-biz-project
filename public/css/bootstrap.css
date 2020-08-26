@@ -5937,7 +5937,6 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 @media (min-width: 992px) {
-  
   .d-lg-inline {
     display: inline !important;
   }

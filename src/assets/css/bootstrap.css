@@ -310,10 +310,10 @@ button {
   border-radius: 0;
 }
 
-button:focus {
+/* button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
-}
+} */
 
 input,
 button,
@@ -5937,9 +5937,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 @media (min-width: 992px) {
-  .d-lg-none {
-    display: none !important;
-  }
+  
   .d-lg-inline {
     display: inline !important;
   }
@@ -5969,6 +5967,9 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 @media (min-width: 1200px) {
+  .d-lg-none {
+    display: none !important;
+  }
   .d-xl-none {
     display: none !important;
   }
@@ -6127,6 +6128,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 .justify-content-center {
   -ms-flex-pack: center !important;
       justify-content: center !important;
+      float: none;
 }
 
 .justify-content-between {
@@ -6463,10 +6465,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 @media (min-width: 992px) {
-  .flex-lg-row {
-    -ms-flex-direction: row !important;
-        flex-direction: row !important;
-  }
+  
   .flex-lg-column {
     -ms-flex-direction: column !important;
         flex-direction: column !important;
@@ -6582,6 +6581,10 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 @media (min-width: 1200px) {
+  .flex-lg-row {
+    -ms-flex-direction: row !important;
+        flex-direction: row !important;
+  }
   .flex-xl-row {
     -ms-flex-direction: row !important;
         flex-direction: row !important;
