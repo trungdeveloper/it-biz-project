@@ -1,6 +1,7 @@
 import React from "react";
 import "./DonationForm.css";
 import "../../assets/style.css";
+import { ProgressModal } from "../../util/ProgressModal";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { donateRequest } from "../../redux/donation/actions";
@@ -12,7 +13,8 @@ const DonationForm = ({ donate, progress }) => {
         description: "",
         status: "new",
     });
-    console.log("Upload is " + progress + "% done");
+    const [showModal, setShowModal] = React.useState(false);
+    console.log("Upload is " + showModal + "% done");
     const inputRef = React.useRef();
 
     const [image, setImage] = React.useState(null);
@@ -27,8 +29,9 @@ const DonationForm = ({ donate, progress }) => {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        setShowModal(true);
         inputRef.current.value = "";
-        donate(state, image);
+        // donate(state, image);
         setState({
             name: "",
             status: "new",
@@ -105,6 +108,10 @@ const DonationForm = ({ donate, progress }) => {
                         <div className="donations-btn-background" />
                         <button onClick={handleSubmitForm}>Gửi</button>
                     </div>
+                    <ProgressModal
+                        show={showModal}
+                        handleClose={setShowModal}
+                    />
                 </form>
             </div>
         </div>
