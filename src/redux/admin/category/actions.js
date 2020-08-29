@@ -26,3 +26,17 @@ export const deleteCategory = (id, ownProps) => {
             });
     };
 };
+export const updateCategory = (category, id, props) => {
+    return (dispatch) => {
+        props.firestore
+            .collection("categories")
+            .doc(id)
+            .update(category)
+            .then(() => {
+                dispatch({ type: types.UPDATE_CATEGORY_SUCCESS });
+            })
+            .catch((err) => {
+                dispatch({ type: types.UPDATE_CATEGORY_FAILURE, err });
+            });
+    };
+};

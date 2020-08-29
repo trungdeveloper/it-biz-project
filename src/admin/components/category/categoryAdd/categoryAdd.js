@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withFirestore } from 'react-redux-firebase'
 import { Redirect } from 'react-router-dom'
-import "../../../../assets/css/cssAdmin/style.css";
-import { createCategory } from "../../../../redux/category/actions";
+import "../../../cssAdmin/style.css";
+import { createCategory } from "../../../../redux/admin/category/actions";
 class CreateCategory extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +28,7 @@ class CreateCategory extends Component {
                 id="form-th"
                 style={{ display: "none" }}
             >
-                <h3>Thể Loại</h3>
+                <h3>ThêmThể Loại</h3>
                 <form onSubmit={this.handleSubmit} id="form-th">
                     <div className="form-group">
                         <label htmlFor="name" className="col-form-label">
@@ -42,11 +42,12 @@ class CreateCategory extends Component {
                         />
                     </div>
                     <button className="btn btn-success"
+                    style={{ marginLeft: "30px" }}
                         onClick={() =>
                             (document.getElementById(
                                 "form-th"
                             ).style.display = "none")
-                        }>Cập nhật</button>
+                        }>Thêm Mới</button>
                     <button
                         onClick={() =>
                             (document.getElementById(
@@ -56,7 +57,7 @@ class CreateCategory extends Component {
                         className="btn btn-danger"
                         style={{ marginLeft: "10px" }}
                     >
-                        cancel
+                        Hủy
                         </button>
                 </form>
             </div>

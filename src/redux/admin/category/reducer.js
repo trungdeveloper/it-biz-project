@@ -26,7 +26,11 @@ const categoryReducer = (state = initialState, action) => {
         case types.UPDATE_CATEGORY_FAILURE:
             return {
                 ...state,
-                isCate: false,
+                category: action.payload,
+            };
+        case types.UPDATE_CATEGORY_SUCCESS:
+            return {
+                ...state,
                 error: action.error,
             };
         case types.GET_CATEGORY_SUCCESS:

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../assets/css/cssAdmin/style.css";
+import "../../cssAdmin/style.css";
 const img = require("../../../assets/image/logo-menu.svg");
 export const Header = () => {
     return (

@@ -3,19 +3,18 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
 import "../../../cssAdmin/style.css";
-import CategoryItem from "./categoryItem";
+import DonationItem from "./donationItem";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
-const CategoryList = (props) => {
-    const categories = props.categories;
-
-    const categoryItems =
-        categories &&
-        categories.map((c) => <CategoryItem key={c.name} category={c} />);
+const DonationList = (props) => {
+    const donations = props.donations;
+    const donationItems =
+        donations &&
+        donations.map((c) => <DonationItem key={c.id} donation={c} />);
     return (
         <div className="row">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="card">
-                    <h5 className="card-header">Danh sách thể loại</h5>
+                    <h5 className="card-header">Danh sách tài trợ</h5>
                     <div className="row" style={{ marginTop: "15px" }}>
                         <div className="col-sm-12 col-md-6"></div>
                         <div className="col-sm-12 col-md-6">
@@ -50,10 +49,14 @@ const CategoryList = (props) => {
                                 <MDBTableHead>
                                     <tr>
                                         <th>Tên</th>
+                                        <th>Tóm tắt</th>
+                                        <th>Thể Loại</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Hình ảnh</th>
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>
-                                <MDBTableBody>{categoryItems}</MDBTableBody>
+                                <MDBTableBody>{donationItems}</MDBTableBody>
                             </MDBTable>
                         </div>
                     </div>
@@ -65,11 +68,11 @@ const CategoryList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        categories: state.firestore.ordered.categories,
+        donations: state.firestore.ordered.donation,
     };
 };
 
 export default compose(
     connect(mapStateToProps),
-    firestoreConnect([{ collection: "categories" }])
-)(CategoryList);
+    firestoreConnect([{ collection: "donation" }])
+)(DonationList);

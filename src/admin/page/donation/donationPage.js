@@ -1,10 +1,11 @@
 import React from "react";
 import "../../cssAdmin/style.css";
-import { Category } from "../../components//category/category";
-export const CategoryPage = () => {
+import { Donation } from "../../components/donation/donation";
+export const DonationPage = () => {
     return (
         <div className="dashboard-main-wrapper">
-            <Category />
+            hello vi
+            <Donation />
         </div>
     );
 };

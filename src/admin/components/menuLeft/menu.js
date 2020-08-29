@@ -1,12 +1,12 @@
 import React from "react";
-import "../../../assets/css/cssAdmin/style.css";
+import "../../cssAdmin/style.css";
 import { Link } from "react-router-dom";
 export const Menu = () => {
     return (
         <div className="nav-left-sidebar sidebar-dark">
             <div className="menu-list">
                 <nav className="navbar navbar-expand-lg navbar-light">
-                    <Link className="d-xl-none d-lg-none" to="/">
+                    <Link className="d-xl-none d-lg-none" to="/category">
                         Thể Loại
                     </Link>
                     <button
@@ -26,7 +26,7 @@ export const Menu = () => {
                             <li className="nav-item ">
                                 <Link
                                     className="nav-link active"
-                                    to="/"
+                                    to="/category"
                                     data-toggle="collapse"
                                     aria-expanded="false"
                                     data-target="#submenu-1"
@@ -42,14 +42,13 @@ export const Menu = () => {
                             <li className="nav-item">
                                 <Link
                                     className="nav-link"
-                                    to="/"
+                                    to="/donationAdmin"
                                     data-toggle="collapse"
                                     aria-expanded="false"
                                     data-target="#submenu-2"
                                     aria-controls="submenu-2"
                                 >
-                                    <i className="fa fa-fw fa-rocket"></i>Hoạt
-                                    động
+                                    Tài trợ
                                 </Link>
                             </li>
                             <li className="nav-item">
