@@ -166,7 +166,7 @@ const NavBar = ({ auth, logout }) => {
                     showSideMenu ? "show" : ""
                 }`}
             >
-                <ul className="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                <ul className=" flex-column flex-lg-row justify-content-lg-end align-content-center">
                     <li
                         id="home"
                         className={`tag ${

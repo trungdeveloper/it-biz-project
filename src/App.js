@@ -14,6 +14,7 @@ import { UserProfile } from "./pages/profile/userProfile";
 import { UserHistory } from "./pages/profile/userHistory";
 import { Footer } from "./components/home/footer";
 import { DonationForm } from "./pages/profile/DonationForm";
+import { Profile } from "./pages/profile/mainProfile";
 
 export default function App() {
     return (
@@ -25,6 +26,7 @@ export default function App() {
                     <Route path="/Login" component={Login} />
                     <Route path="/Register" component={Register} />
                     <Route path="/UserProfile" component={UserProfile} />
+                    <Route path="/profile" component={Profile} />
                     <Route path="/DonationForm" component={DonationForm} />
                     <Route path="/UserHistory" component={UserHistory} />
                     <Route path="/Donation" component={Donation} />

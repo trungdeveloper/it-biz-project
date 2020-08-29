@@ -7,7 +7,7 @@ body {
 }
 
 img {
-    vertical-align: baseline;
+    /* vertical-align: baseline; */
 }
 
 /*--------------------------------------------------------------
@@ -105,9 +105,6 @@ a:hover, a:active {
  @media screen and (min-width: 992px){ 
     .site-branding {
         width: auto;
-    }
-    .site-navigation ul {
-        top: -420px;
     }
 }
 
@@ -263,7 +260,7 @@ button:focus {
 --------------------------------*/
 .site-navigation ul {
     position: fixed;
-    /* top: 0; */
+    top: 0;
     left: -350px;
     z-index: 9999;
     width: 320px;
@@ -367,7 +364,7 @@ nav.site-navigation.d-flex.justify-content-end.align-items-center {
         margin: 15px 0px;
     }
     .div-search button {
-        margin: 15px 0px;
+        margin: 16px -10px;
         bottom: 0px;
         left: 200px;
         position: relative;
@@ -408,5 +405,9 @@ nav.site-navigation.d-flex.justify-content-end.align-items-center {
       }
     .hamburger-menu{
         margin: 0;
+    }
+    .d-flex {
+        display: -ms-flexbox!important;
+        /* display: unset!important; */
     }
 }
