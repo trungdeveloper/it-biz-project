@@ -49,11 +49,13 @@ const DonationList = (props) => {
                                 <MDBTableHead>
                                     <tr>
                                         <th>Tên</th>
+                                        <th>Ngày</th>
                                         <th>Tóm tắt</th>
                                         <th>Thể Loại</th>
                                         <th>Trạng Thái</th>
                                         <th>Hình ảnh</th>
                                         <th>Hành Động</th>
+                                        <th>Chấp nhận</th>
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>{donationItems}</MDBTableBody>

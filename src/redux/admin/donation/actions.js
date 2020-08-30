@@ -29,7 +29,20 @@ export const updateDonation = (data, image, firebaseActions, callback) => {
         );
     };
 };
-
+export const acceptDonation = (donation, id, props) => {
+    return (dispatch) => {
+        props.firestore
+            .collection("donation")
+            .doc(id)
+            .update(donation)
+            .then(() => {
+                dispatch({ type: types.UPDATE_DONATION_SUCCESS });
+            })
+            .catch((err) => {
+                dispatch({ type: types.UPDATE_DONATION_SUCCESS, err });
+            });
+    };
+};
 export const UpdateDonateSuccess = (data) => {
     return {
         type: types.UPDATE_DONATION_SUCCESS,

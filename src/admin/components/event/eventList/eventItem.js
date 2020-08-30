@@ -48,12 +48,12 @@ const EventItem = (props) => {
                     style={{ border: "none" }}
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    readOnly={!isEditable}
+                    disabled={!isEditable}
                     required="required"
                 />
             </td>
             <td>
-                <Input
+                <textarea
                     type="text"
                     style={{ border: "none" }}
                     value={content}

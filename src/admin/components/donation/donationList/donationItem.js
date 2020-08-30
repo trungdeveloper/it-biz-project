@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import {
     deleteDonation,
     updateDonation,
+    acceptDonation,
 } from "../../../../redux/admin/donation/actions";
 import { Input } from "reactstrap";
 const DonationItem = (props) => {
@@ -17,12 +18,25 @@ const DonationItem = (props) => {
     const [description, setDescription] = useState(donation.description);
     const [category, setCate] = useState(donation.cate);
     const [status, setStatus] = useState(donation.status);
+    const [date, setDate] = useState(donation.date);
     const [image, setImage] = React.useState(donation.imgUrl);
     const [newImage, updateNewImage] = useState(null);
-
     const delDonation = () => {
         props.deleteDonation(donation.id);
     };
+
+    const acceptDonation = () => {
+        const dataAccept = {
+            name: donation.name,
+            description: donation.description,
+            category: donation.cate,
+            status: donation.status,
+            date: donation.date,
+            accept: true,
+        };
+        props.acceptDonation(dataAccept, donation.id);
+    };
+    //console.log(donation.date.toLocaleDateString.toString());
     const updateDonation = () => {
         const id = donation.id;
         const dataUpdate = {
@@ -31,6 +45,8 @@ const DonationItem = (props) => {
             description,
             category,
             status,
+            date,
+            accept: donation.accept,
         };
         const firebaseActions = {
             firebase: props.firebase,
@@ -60,12 +76,23 @@ const DonationItem = (props) => {
                 />
             </td>
             <td>
-                <Input
+                <td>
+                    <Input
+                        type={isEditable ? "date" : "text"}
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        readOnly={!isEditable}
+                        required="required"
+                    />
+                </td>
+            </td>
+            <td>
+                <textarea
                     type="text"
                     style={{ border: "none" }}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    readOnly={!isEditable}
+                    disabled={!isEditable}
                     required="required"
                 />
             </td>
@@ -173,6 +200,16 @@ const DonationItem = (props) => {
                     Xóa
                 </button>
             </td>
+            <td>
+                {/* {!donation.accept ? (accept = "disabled") : (accept = "enable")} */}
+                <button
+                    className="btn btn-danger"
+                    disabled={donation.accept}
+                    onClick={acceptDonation}
+                >
+                    chấp nhận
+                </button>
+            </td>
         </tr>
     );
 };
@@ -181,6 +218,8 @@ const mapDispatchToProps = (dispatch, props) => {
         deleteDonation: (id) => dispatch(deleteDonation(id, props)),
         updateDonation: (data, image, firebaseActions, callback) =>
             dispatch(updateDonation(data, image, firebaseActions, callback)),
+        acceptDonation: (donation, id) =>
+            dispatch(acceptDonation(donation, id, props)),
     };
 };
 const mapStateToProps = (state, props) => {

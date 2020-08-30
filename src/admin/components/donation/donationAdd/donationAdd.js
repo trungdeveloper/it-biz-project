@@ -3,14 +3,19 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { donateRequest } from "../../../../redux/admin/donation/actions";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
-
+//import { Link, RichText, Date, Moment } from "prismic-reactjs";
 const DonationAdd = ({ donate, categories }) => {
+    // const date = Date(document.data.date);
+    // const formattedDate = Moment(date).format("LL");
     const [state, setState] = React.useState({
         name: "",
         description: "",
         status: "Còn mới",
         cate: "Thời Trang",
+        date: "",
+        accept: false,
     });
+
     const inputRef = React.useRef();
     const [image, setImage] = React.useState(null);
 
@@ -30,6 +35,7 @@ const DonationAdd = ({ donate, categories }) => {
             status: "Còn mới",
             description: "",
             cate: "Thời Trang",
+            date: "",
         });
         setImage(null);
         document.getElementById("form-Dona").style.display = "none";
@@ -69,6 +75,20 @@ const DonationAdd = ({ donate, categories }) => {
                                 id="description"
                                 placeholder="Nhập chi tiết vật phẩm"
                                 value={state.description}
+                                onChange={handleOnChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label htmlFor="">Ngày Tài trợ vật phẩm</label>
+                        </div>
+                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input
+                                type="date"
+                                className="form-control"
+                                id="date"
+                                value={state.date}
                                 onChange={handleOnChange}
                             />
                         </div>
