@@ -20,6 +20,7 @@ export const updateDonation = (data, image, firebaseActions, callback) => {
         UpdateUpload(
             data,
             image,
+            "/donation",
             firebaseActions,
             callback,
             dispatch,

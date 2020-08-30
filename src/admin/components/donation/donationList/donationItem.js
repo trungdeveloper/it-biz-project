@@ -1,5 +1,5 @@
 /* eslint-disable no-const-assign */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
@@ -46,11 +46,6 @@ const DonationItem = (props) => {
         );
         setIsEdit(false);
     };
-
-    useEffect(() => {
-        const { firebase, firestore } = props;
-        return () => {};
-    }, []);
 
     return (
         <tr>

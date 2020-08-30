@@ -9,6 +9,7 @@ import Login from "./components/login/login";
 import Register from "./components/register/register";
 import { CategoryPage } from "./admin/page/category/categoryPage";
 import { DonationPage } from "./admin/page/donation/donationPage";
+import { EventPage } from "./admin/page/event/eventPage";
 export default function App() {
     return (
         <Router>
@@ -23,6 +24,7 @@ export default function App() {
                     <Route path="/Register" component={Register} />
                     <Route path="/category" component={CategoryPage} />
                     <Route path="/donationAdmin" component={DonationPage} />
+                    <Route path="/eventAdmin" component={EventPage} />
                 </Switch>
             </div>
         </Router>

@@ -5,6 +5,7 @@ import { firestoreReducer } from "redux-firestore";
 import { firebaseReducer } from "react-redux-firebase";
 import categoryReducer from "./admin/category/reducer";
 import donationReducer from "./admin/donation/reducer";
+import eventReducerAdmin from "./admin/event/reducer";
 const rootReducer = combineReducers({
     event: eventReducer,
     auth: authReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     firestore: firestoreReducer,
     cate: categoryReducer,
     donation: donationReducer,
+    eventAdmin: eventReducerAdmin,
 });
 
 export default rootReducer;

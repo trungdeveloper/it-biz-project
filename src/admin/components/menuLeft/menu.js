@@ -1,6 +1,7 @@
 import React from "react";
 import "../../cssAdmin/style.css";
 import { Link } from "react-router-dom";
+import $ from "jquery";
 export const Menu = () => {
     return (
         <div className="nav-left-sidebar sidebar-dark">
@@ -23,72 +24,73 @@ export const Menu = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav flex-column">
                             <li className="nav-divider">Menu</li>
-                            <li className="nav-item ">
-                                <Link
-                                    className="nav-link active"
-                                    to="/category"
-                                    data-toggle="collapse"
-                                    aria-expanded="false"
-                                    data-target="#submenu-1"
-                                    aria-controls="submenu-1"
-                                >
-                                    <i className="fa fa-fw fa-user-circle"></i>
-                                    Thể Loại
-                                    <span className="badge badge-success">
-                                        6
-                                    </span>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="nav-link"
-                                    to="/donationAdmin"
-                                    data-toggle="collapse"
-                                    aria-expanded="false"
-                                    data-target="#submenu-2"
-                                    aria-controls="submenu-2"
-                                >
-                                    Tài trợ
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="nav-link"
-                                    to="/"
-                                    data-toggle="collapse"
-                                    aria-expanded="false"
-                                    data-target="#submenu-3"
-                                    aria-controls="submenu-3"
-                                >
-                                    <i className="fas fa-fw fa-chart-pie"></i>
-                                    Chart
-                                </Link>
-                            </li>
-                            <li className="nav-item ">
-                                <Link
-                                    className="nav-link"
-                                    to="/"
-                                    data-toggle="collapse"
-                                    aria-expanded="false"
-                                    data-target="#submenu-4"
-                                    aria-controls="submenu-4"
-                                >
-                                    <i className="fab fa-fw fa-wpforms"></i>
-                                    Forms
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="nav-link"
-                                    to="/"
-                                    data-toggle="collapse"
-                                    aria-expanded="false"
-                                    data-target="#submenu-5"
-                                    aria-controls="submenu-5"
-                                >
-                                    <i className="fas fa-fw fa-table"></i>Tables
-                                </Link>
-                            </li>
+                            <Link
+                                className="nav-link nav-link-1 "
+                                to="/category"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-1"
+                                aria-controls="submenu-1"
+                                id="nav-link-1"
+                                onClick={() => {
+                                    $(".nav-link-1").addClass("active");
+                                }}
+                            >
+                                Thể Loại
+                            </Link>
+                            <Link
+                                className="nav-link nav-link-2"
+                                to="/donationAdmin"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-2"
+                                aria-controls="submenu-2"
+                                onClick={() => {
+                                    $(".nav-link-2").addClass("active");
+                                }}
+                            >
+                                Tài Trợ
+                            </Link>
+                            <Link
+                                className="nav-link nav-link-3"
+                                to="/eventAdmin"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-3"
+                                aria-controls="submenu-3"
+                                onClick={() => {
+                                    $(".nav-link-3").addClass("active");
+                                }}
+                            >
+                                <i className="fas fa-fw fa-chart-pie"></i>
+                                Sự Kiện
+                            </Link>
+                            <Link
+                                className="nav-link nav-link-4"
+                                to="/"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-4"
+                                aria-controls="submenu-4"
+                                onClick={() => {
+                                    $(".nav-link-4").addClass("active");
+                                }}
+                            >
+                                Forms
+                            </Link>
+                            <Link
+                                className="nav-link nav-link-5"
+                                to="/"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-5"
+                                aria-controls="submenu-5"
+                                onClick={() => {
+                                    $(".nav-link-5").addClass("active");
+                                }}
+                            >
+                                <i className="fas fa-fw fa-table"></i>Tables
+                            </Link>
                         </ul>
                     </div>
                 </nav>
