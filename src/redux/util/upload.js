@@ -28,7 +28,7 @@ export const Upload = (
                 () => {
                     uploadTask.snapshot.ref
                         .getDownloadURL()
-                        .then(function (downloadURL) {
+                        .then((downloadURL) => {
                             firestore
                                 .collection(path)
                                 .doc(res.id)
@@ -36,7 +36,14 @@ export const Upload = (
                                     ...object,
                                     imgUrl: downloadURL,
                                 })
-                                .then(() => dispatch(successAction(object)));
+                                .then(() =>
+                                    dispatch(
+                                        successAction({
+                                            ...object,
+                                            imgUrl: downloadURL,
+                                        })
+                                    )
+                                );
                         });
                 }
             );

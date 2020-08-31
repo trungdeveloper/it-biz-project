@@ -5,16 +5,16 @@ import { ProgressModal } from "../../util/ProgressModal";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { donateRequest } from "../../redux/donation/actions";
-import { withFirestore } from "react-redux-firebase";
+import { firestoreConnect, withFirestore } from "react-redux-firebase";
+import { Redirect } from "react-router";
 
-const DonationForm = ({ donate, progress }) => {
+const DonationForm = ({ donate, progress, categories, uid }) => {
     const [state, setState] = React.useState({
         name: "",
         description: "",
         status: "new",
     });
     const [showModal, setShowModal] = React.useState(false);
-    console.log("Upload is " + showModal + "% done");
     const inputRef = React.useRef();
 
     const [image, setImage] = React.useState(null);
@@ -29,17 +29,25 @@ const DonationForm = ({ donate, progress }) => {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        let date = new Date();
+        const dd = String(date.getDate()).padStart(2, "0");
+        const mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const yyyy = date.getFullYear();
+        date = dd + "/" + mm + "/" + yyyy;
         setShowModal(true);
         inputRef.current.value = "";
-        // donate(state, image);
+        donate({ ...state, uid, accept: false, date }, image);
         setState({
             name: "",
             status: "new",
             description: "",
+            category: "",
         });
         setImage(null);
     };
-    return (
+    return !uid ? (
+        <Redirect to="/login" />
+    ) : (
         <div className="donations-wrapper">
             <div className="donations-container">
                 <header className="donations-title">Tài trợ</header>
@@ -61,25 +69,11 @@ const DonationForm = ({ donate, progress }) => {
                     </div>
                     <div className="form-group">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <label htmlFor="">Chi tiết vật phẩm</label>
-                        </div>
-                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="description"
-                                placeholder="Nhập chi tiết vật phẩm"
-                                value={state.description}
-                                onChange={handleOnChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <label htmlFor="">Trạng thái</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
+                                className="form-control"
                                 value={state.status}
                                 id="status"
                                 onChange={handleOnChange}
@@ -87,6 +81,26 @@ const DonationForm = ({ donate, progress }) => {
                                 <option value="new">Còn mới</option>
                                 <option value="old">Đã qua sử dụng</option>
                                 <option value="mini-broken">Hư hỏng nhẹ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label htmlFor="">Danh mục</label>
+                        </div>
+                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <select
+                                className="form-control"
+                                value={state.status}
+                                id="category"
+                                onChange={handleOnChange}
+                            >
+                                {categories &&
+                                    categories.map((cate) => (
+                                        <option key={cate.id} value={cate.name}>
+                                            {cate.name}
+                                        </option>
+                                    ))}
                             </select>
                         </div>
                     </div>
@@ -103,6 +117,21 @@ const DonationForm = ({ donate, progress }) => {
                             />
                         </div>
                     </div>
+                    <div className="form-group">
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label htmlFor="">Thông tin thêm</label>
+                        </div>
+                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="description"
+                                placeholder="Thông tin thêm"
+                                value={state.description}
+                                onChange={handleOnChange}
+                            />
+                        </div>
+                    </div>
 
                     <div className="donations-button">
                         <div className="donations-btn-background" />
@@ -111,6 +140,7 @@ const DonationForm = ({ donate, progress }) => {
                     <ProgressModal
                         show={showModal}
                         handleClose={setShowModal}
+                        progress={progress}
                     />
                 </form>
             </div>
@@ -121,6 +151,8 @@ const DonationForm = ({ donate, progress }) => {
 const mapStateToProps = (state) => {
     return {
         progress: state.donation.progress,
+        categories: state.firestore.ordered.categories,
+        uid: state.firebase.auth.uid,
     };
 };
 
@@ -133,5 +165,6 @@ const mapDispatchToProps = (dispatch, props) => {
 
 export default compose(
     withFirestore,
+    firestoreConnect([{ collection: "categories" }]),
     connect(mapStateToProps, mapDispatchToProps)
 )(DonationForm);

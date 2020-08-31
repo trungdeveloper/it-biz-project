@@ -11,9 +11,9 @@ const donationReducer = (state = initialState, action) => {
         case types.POST_DONATION_SUCCESS:
             return {
                 ...state,
-                donations: [...action.payload],
+                donations: [...state.donations, action.payload],
                 error: null,
-                progress: null,
+                progress: 100,
             };
         case types.POST_DONATION_FAILURE:
             return {

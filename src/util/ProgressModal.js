@@ -1,7 +1,8 @@
-import { Button, Modal } from "react-bootstrap";
 import React from "react";
+import { Button, Modal, ProgressBar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export const ProgressModal = ({ show, handleClose }) => {
+export const ProgressModal = ({ show, handleClose, progress }) => {
     console.log(show);
     return (
         <Modal
@@ -12,17 +13,28 @@ export const ProgressModal = ({ show, handleClose }) => {
             centered
         >
             <Modal.Header closeButton>
-                <Modal.Title>Modal title</Modal.Title>
+                <Modal.Title>Đăng bài</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                I will not close if you click outside me. Don't even try to
-                press escape key.
+                <ProgressBar
+                    animated
+                    now={progress}
+                    label={`${Math.floor(progress)}%`}
+                />
+                {progress === 100 && (
+                    <p>
+                        Bài đăng đã được gởi đến quản trị viên. Chúng tôi sẽ
+                        liên hệ với bạn sớm nhất qua email hoặc số điện thoại
+                    </p>
+                )}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => handleClose(false)}>
-                    Close
+                    Đóng
                 </Button>
-                <Button variant="primary">Understood</Button>
+                <Link to="/">
+                    <Button variant="primary">Quay về trang chủ</Button>
+                </Link>
             </Modal.Footer>
         </Modal>
     );

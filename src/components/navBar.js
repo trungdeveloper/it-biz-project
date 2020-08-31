@@ -8,7 +8,7 @@ import "./navBar.css";
 const img = require("../assets/image/logo-menu.svg");
 
 const NavBar = ({ auth, logout }) => {
-    const [activeTab, setActiveTab] = React.useState("activities");
+    const [activeTab, setActiveTab] = React.useState("home");
     const [sticky, setSticky] = React.useState("");
     const [showSideMenu, setShowSideMenu] = React.useState(false);
     const [showDropdownMenu, setShowDropdownMenu] = React.useState(false);
