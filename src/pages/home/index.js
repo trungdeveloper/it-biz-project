@@ -31,7 +31,7 @@ export const Home = () => {
                                 </div>
                             </div>
                             <Event />
-                            <div style={{ marginBottom: "50px" }}></div>
+                            <div style={{ marginBottom: "50px" }} />
                             <Event />
                         </div>
                         <div className="col-12 col-lg-6">

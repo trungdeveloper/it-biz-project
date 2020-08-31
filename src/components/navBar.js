@@ -8,7 +8,7 @@ import "./navBar.css";
 const img = require("../assets/image/logo-menu.svg");
 
 const NavBar = ({ auth, logout }) => {
-    const [activeTab, setActiveTab] = React.useState("activities");
+    const [activeTab, setActiveTab] = React.useState("home");
     const [sticky, setSticky] = React.useState("");
     const [showSideMenu, setShowSideMenu] = React.useState(false);
     const [showDropdownMenu, setShowDropdownMenu] = React.useState(false);
@@ -66,7 +66,7 @@ const NavBar = ({ auth, logout }) => {
                         </div>
                         <div className="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                             <div className="donate-btn">
-                                <Link to="#">Tài Trợ Ngay</Link>
+                                <Link to="donate">Tài Trợ Ngay</Link>
                             </div>
                         </div>
                     </div>

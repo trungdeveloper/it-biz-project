@@ -262,7 +262,7 @@ button:focus {
     position: fixed;
     top: 0;
     left: -350px;
-    z-index: 9999;
+    z-index: 99;
     width: 320px;
     max-width: calc(100% - 120px);
     height: 100%;

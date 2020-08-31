@@ -13,7 +13,7 @@ import { ActivityDetail } from "./pages/acitivity/activityDetail";
 import { UserProfile } from "./pages/profile/userProfile";
 import { UserHistory } from "./pages/profile/userHistory";
 import { Footer } from "./components/home/footer";
-import { DonationForm } from "./pages/profile/DonationForm";
+import DonationForm from "./pages/profile/DonationForm";
 import { Profile } from "./pages/profile/mainProfile";
 
 export default function App() {
@@ -26,10 +26,10 @@ export default function App() {
                     <Route path="/Login" component={Login} />
                     <Route path="/Register" component={Register} />
                     <Route path="/UserProfile" component={UserProfile} />
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/DonationForm" component={DonationForm} />
                     <Route path="/UserHistory" component={UserHistory} />
+                    <Route path="/profile" component={Profile} />
                     <Route path="/Donation" component={Donation} />
+                    <Route path="/Donate" component={DonationForm} />
                     <Route path="/DonationDetail" component={DonationDetail} />
                     <Route path="/Plight" component={Plight} />
                     <Route path="/PlightDetail" component={PlightDetail} />
