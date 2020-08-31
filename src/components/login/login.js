@@ -28,6 +28,12 @@ const Login = ({ auth, login, authError }) => {
                                 {authError ? <p>{authError}</p> : null}
                             </div>
                             <div className="input-group mb-3">
+                                <span className="input-group-addon">
+                                    <i
+                                        className="fa fa-envelope fa"
+                                        aria-hidden="true"
+                                    />
+                                </span>
                                 <input
                                     id="email"
                                     type="email"
@@ -38,7 +44,10 @@ const Login = ({ auth, login, authError }) => {
                                     placeholder="Email"
                                 />
                             </div>
-                            <div className="input-group mb-2">
+                            <div className="input-group mb-3">
+                                <span className="input-group-addon">
+                                    <i className="fa fa-lock fa-lg"></i>
+                                </span>
                                 <input
                                     id="password"
                                     type="password"

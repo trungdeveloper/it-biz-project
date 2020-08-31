@@ -103,181 +103,169 @@ const Register = (props) => {
         //     {error && <p>{error}</p>}
         // </div>
 
-        <div className="container">
-            <div className="row main">
-                <div className="panel-heading">
-                    <div className="panel-title text-center">
-                        <h1 className="title"></h1>
-                        <hr />
+        <div className="container h-100">
+            <div className="d-flex justify-content-center h-100">
+                <div className="user_card">
+                    <div className="d-flex justify-content-center">
+                        <div className="brand_logo_container">
+                            <img src={IMG} className="brand_logo" alt="Logo" />
+                        </div>
                     </div>
-                </div>
-                <div className="main-login main-center">
-                    <form className="form-horizontal" method="post" action="#">
-                        <div className="d-flex justify-content-center">
-                            <div className="brand_icon_container">
-                                <img
-                                    src={IMG}
-                                    className="brand_logo"
-                                    alt="Logo"
-                                />
+                    <div className="d-flex justify-content-center form_container">
+                        <form className="form-horizontal">
+                            <div className="alert">
+                                {error && <p>{error}</p>}
                             </div>
-                        </div>
-                        <div className="form-group">
-                            <label
-                                htmlFor="name"
-                                className="cols-sm-2 control-label"
-                            >
-                                Họ và Tên
-                            </label>
-                            <div className="cols-sm-10">
-                                <div className="input-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        name="name"
-                                        id="name"
-                                        onChange={(val) =>
-                                            setName(val.target.value)
-                                        }
-                                        placeholder="Họ và Tên"
-                                    />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i
+                                                className="fa fa-user fa"
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name="name"
+                                            id="name"
+                                            onChange={(val) =>
+                                                setName(val.target.value)
+                                            }
+                                            placeholder="Họ và Tên"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="form-group">
-                            <label
-                                htmlFor="email"
-                                className="cols-sm-2 control-label"
-                            >
-                                Số điện Thoại
-                            </label>
-                            <div className="cols-sm-10">
-                                <div className="input-group">
-                                    <input
-                                        type="text"
-                                        value={phone}
-                                        className="form-control"
-                                        name="phone"
-                                        id="phone"
-                                        onChange={(val) =>
-                                            setPhone(val.target.value)
-                                        }
-                                        placeholder="Số điện Thoại"
-                                    />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i
+                                                className="fa fa-phone fa"
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+                                        <input
+                                            type="text"
+                                            value={phone}
+                                            className="form-control"
+                                            name="phone"
+                                            id="phone"
+                                            onChange={(val) =>
+                                                setPhone(val.target.value)
+                                            }
+                                            placeholder="Số điện Thoại"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="form-group">
-                            <label
-                                htmlFor="username"
-                                className="cols-sm-2 control-label"
-                            >
-                                Email
-                            </label>
-                            <div className="cols-sm-10">
-                                <div className="input-group">
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        name="email"
-                                        id="email"
-                                        value={email}
-                                        onChange={(val) =>
-                                            setEmail(val.target.value)
-                                        }
-                                        placeholder="Nhập email của bạn"
-                                    />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i
+                                                className="fa fa-envelope fa"
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+                                        <input
+                                            type="email"
+                                            className="form-control"
+                                            name="email"
+                                            id="email"
+                                            value={email}
+                                            onChange={(val) =>
+                                                setEmail(val.target.value)
+                                            }
+                                            placeholder="Nhập email của bạn"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="form-group">
-                            <label
-                                htmlFor="username"
-                                className="cols-sm-2 control-label"
-                            >
-                                Địa chỉ
-                            </label>
-                            <div className="cols-sm-10">
-                                <div className="input-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        name="address"
-                                        id="address"
-                                        value={address}
-                                        onChange={(val) =>
-                                            setAddress(val.target.value)
-                                        }
-                                        placeholder="Nhập địa chỉ của bạn"
-                                    />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i className="fa fa-map"></i>
+                                        </span>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name="address"
+                                            id="address"
+                                            value={address}
+                                            onChange={(val) =>
+                                                setAddress(val.target.value)
+                                            }
+                                            placeholder="Nhập địa chỉ của bạn"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="form-group">
-                            <label
-                                htmlFor="password"
-                                className="cols-sm-2 control-label"
-                            >
-                                Mật khẩu
-                            </label>
-                            <div className="cols-sm-10">
-                                <div className="input-group">
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        name="password"
-                                        id="password"
-                                        value={password}
-                                        onChange={(val) =>
-                                            setPassword(val.target.value)
-                                        }
-                                        placeholder="Nhập mật khẩu của bạn"
-                                    />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i className="fa fa-lock fa-lg"></i>
+                                        </span>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            name="password"
+                                            id="password"
+                                            value={password}
+                                            onChange={(val) =>
+                                                setPassword(val.target.value)
+                                            }
+                                            placeholder="Nhập mật khẩu của bạn"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="form-group">
-                            <label
-                                htmlFor="confirm"
-                                className="cols-sm-2 control-label"
-                            >
-                                Xác nhận mật khẩu
-                            </label>
-                            <div className="cols-sm-10">
-                                <div className="input-group">
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        name="confirm"
-                                        id="confirm"
-                                        value={confirmPassword}
-                                        onChange={(val) =>
-                                            setConfirmPassword(val.target.value)
-                                        }
-                                        placeholder="Xác nhận mật khẩu của bạn"
-                                    />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i className="fa fa-lock fa-lg"></i>
+                                        </span>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            name="confirm"
+                                            id="confirm"
+                                            value={confirmPassword}
+                                            onChange={(val) =>
+                                                setConfirmPassword(
+                                                    val.target.value
+                                                )
+                                            }
+                                            placeholder="Xác nhận mật khẩu của bạn"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="form-group ">
-                            <button
-                                type="button"
-                                className="btn btn-primary btn-lg btn-block login-button"
-                                onClick={handleSubmit}
-                            >
-                                ĐĂNG KÝ
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-primary btn-lg btn-block login-button"
-                            >
-                                THOÁT
-                            </button>
-                        </div>
-                        <div className="login-register">
-                            <Link to="/login">Đăng nhập</Link>
-                        </div>
-                    </form>
+                            <div className="form-group register_container">
+                                <button
+                                    type="button"
+                                    className="btn btn-primary btn-lg btn-block login-button"
+                                    onClick={handleSubmit}
+                                >
+                                    ĐĂNG KÝ
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn btn-primary btn-lg btn-block login-button"
+                                >
+                                    THOÁT
+                                </button>
+                            </div>
+                            <div className="login-register">
+                                <Link to="/login">Đăng nhập</Link>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
