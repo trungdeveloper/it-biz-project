@@ -6,8 +6,6 @@ import { firebaseConnect, withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
 import "./navBar.css";
 const img = require("../assets/image/logo-menu.svg");
-// const icon_search = require("../assets/image/Vector.svg");
-// const icon_user = require("../assets/image/user.svg");
 
 const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("activities");
@@ -19,10 +17,13 @@ const NavBar = ({ auth, logout }) => {
 
     const handleScroll = () => {
         let header = document.getElementById("nav-bar");
+        const body = document.querySelector("#root").childNodes[1];
         if (window.pageYOffset > header.offsetTop) {
             setSticky("fixed");
+            body.style.marginTop = "155px";
         } else {
             setSticky("");
+            body.style.marginTop = "0px";
         }
     };
 
