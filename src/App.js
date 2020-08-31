@@ -19,7 +19,7 @@ import { Profile } from "./pages/profile/mainProfile";
 export default function App() {
     return (
         <Router>
-            <div>
+            <>
                 <NavBar />
                 <Switch>
                     <Route exact path="/" component={Home} />
@@ -37,7 +37,7 @@ export default function App() {
                     <Route path="/ActivityDetail" component={ActivityDetail} />
                 </Switch>
                 <Footer />
-            </div>
+            </>
         </Router>
     );
 }
