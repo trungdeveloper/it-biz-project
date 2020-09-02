@@ -4,6 +4,32 @@ import { Link } from "react-router-dom";
 
 export const ProgressModal = ({ show, handleClose, progress }) => {
     console.log(show);
+
+    const renderContent = () => {
+        return progress ? (
+            <>
+                <ProgressBar
+                    animated
+                    now={progress}
+                    label={`${Math.floor(progress)}%`}
+                />
+                {progress === 100 && (
+                    <p>
+                        Bài đăng đã được gởi đến quản trị viên. Chúng tôi sẽ
+                        liên hệ với bạn sớm nhất qua email hoặc số điện thoại đã
+                        đăng ký.
+                    </p>
+                )}
+            </>
+        ) : (
+            <>
+                <p>
+                    Hoàn cảnh đã được gởi đến quản trị viên. Chúng tôi sẽ liên
+                    hệ với bạn sớm nhất qua email hoặc số điện thoại đã đăng ký.
+                </p>
+            </>
+        );
+    };
     return (
         <Modal
             show={show}
@@ -15,19 +41,7 @@ export const ProgressModal = ({ show, handleClose, progress }) => {
             <Modal.Header closeButton>
                 <Modal.Title>Đăng bài</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                <ProgressBar
-                    animated
-                    now={progress}
-                    label={`${Math.floor(progress)}%`}
-                />
-                {progress === 100 && (
-                    <p>
-                        Bài đăng đã được gởi đến quản trị viên. Chúng tôi sẽ
-                        liên hệ với bạn sớm nhất qua email hoặc số điện thoại
-                    </p>
-                )}
-            </Modal.Body>
+            <Modal.Body>{renderContent()}</Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => handleClose(false)}>
                     Đóng

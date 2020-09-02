@@ -1,5 +1,5 @@
 import React from "react";
-import "./DonationForm.css";
+import "./donate.css";
 import "../../assets/style.css";
 import { ProgressModal } from "../../util/ProgressModal";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ import { donateRequest } from "../../redux/donation/actions";
 import { firestoreConnect, withFirestore } from "react-redux-firebase";
 import { Redirect } from "react-router";
 
-const DonationForm = ({ donate, progress, categories, uid }) => {
+const Donate = ({ donate, progress, categories, uid }) => {
     const [state, setState] = React.useState({
         name: "",
         description: "",
@@ -31,7 +31,7 @@ const DonationForm = ({ donate, progress, categories, uid }) => {
         e.preventDefault();
         let date = new Date();
         const dd = String(date.getDate()).padStart(2, "0");
-        const mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const mm = String(date.getMonth() + 1).padStart(2, "0");
         const yyyy = date.getFullYear();
         date = dd + "/" + mm + "/" + yyyy;
         setShowModal(true);
@@ -140,7 +140,6 @@ const DonationForm = ({ donate, progress, categories, uid }) => {
                     <ProgressModal
                         show={showModal}
                         handleClose={setShowModal}
-                        progress={progress}
                     />
                 </form>
             </div>
@@ -167,4 +166,4 @@ export default compose(
     withFirestore,
     firestoreConnect([{ collection: "categories" }]),
     connect(mapStateToProps, mapDispatchToProps)
-)(DonationForm);
+)(Donate);

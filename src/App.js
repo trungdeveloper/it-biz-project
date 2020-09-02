@@ -13,14 +13,15 @@ import { ActivityDetail } from "./pages/acitivity/activityDetail";
 import { UserProfile } from "./pages/profile/userProfile";
 import { UserHistory } from "./pages/profile/userHistory";
 import { Footer } from "./components/home/footer";
-import DonationForm from "./pages/profile/DonationForm";
+import DonationForm from "./pages/donate/donate";
 import { Profile } from "./pages/profile/mainProfile";
+import SharePlight from "./pages/share-plight/share-plight";
 
 export default function App() {
     return (
         <Router>
+            <NavBar />
             <div className="content">
-                <NavBar />
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/Login" component={Login} />
@@ -35,9 +36,10 @@ export default function App() {
                     <Route path="/PlightDetail" component={PlightDetail} />
                     <Route path="/Activity" component={Activity} />
                     <Route path="/ActivityDetail" component={ActivityDetail} />
+                    <Route path="/sharePlight" component={SharePlight} />
                 </Switch>
-                <Footer />
             </div>
+            <Footer />
         </Router>
     );
 }
