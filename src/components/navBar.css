@@ -37,6 +37,12 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Site Header
 --------------------------------------------------------------*/
+.site-header{
+    width: 100%;
+    position: fixed;
+    top:0; 
+    z-index: 1000;
+}
 /*
 # Header Bar
 --------------------------------*/
@@ -78,8 +84,21 @@ a:hover, a:active {
 # Header Bar Donate Button
 --------------------------------*/
 
+.share-btn a {
+    margin: 0 5px;
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    text-decoration: navajowhite;
+    background: #FF8000;
+    border: 2px solid black;
+}
 
 .donate-btn a {
+    margin: 0 5px;
     display: inline-block;
     padding: 20px 40px;
     font-size: 14px;
@@ -88,6 +107,7 @@ a:hover, a:active {
     color: #fff;
     text-decoration: navajowhite;
     background: #006600;
+    border: 2px solid black;
 }
 
 /*
@@ -411,3 +431,7 @@ nav.site-navigation.d-flex.justify-content-end.align-items-center {
         /* display: unset!important; */
     }
 }
+
+.content{
+    margin-top: 150px;
+ }

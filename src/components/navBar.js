@@ -9,26 +9,26 @@ const img = require("../assets/image/logo-menu.svg");
 
 const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("home");
-    const [sticky, setSticky] = React.useState("");
+    // const [sticky, setSticky] = React.useState("");
     const [showSideMenu, setShowSideMenu] = React.useState(false);
     const [showDropdownMenu, setShowDropdownMenu] = React.useState(false);
 
     const dropdownRef = React.useRef(null);
 
-    const handleScroll = () => {
-        let header = document.getElementById("nav-bar");
-        const body = document.querySelector("#root").childNodes[1];
-        if (window.pageYOffset > header.offsetTop) {
-            setSticky("fixed");
-            body.style.marginTop = "155px";
-        } else {
-            setSticky("");
-            body.style.marginTop = "0px";
-        }
-    };
+    // const handleScroll = () => {
+    //     let header = document.getElementById("nav-bar");
+    //     const body = document.querySelector("#root").childNodes[1];
+    //     if (window.pageYOffset > header.offsetTop) {
+    //         // setSticky("fixed");
+    //         body.style.marginTop = "155px";
+    //     } else {
+    //         setSticky("");
+    //         body.style.marginTop = "0px";
+    //     }
+    // };
 
     React.useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        // window.addEventListener("scroll", handleScroll);
 
         function handleClickOutside(event) {
             if (
@@ -43,7 +43,7 @@ const NavBar = ({ auth, logout }) => {
         document.addEventListener("mousedown", handleClickOutside);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            // window.removeEventListener("scroll", handleScroll);
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
@@ -53,7 +53,7 @@ const NavBar = ({ auth, logout }) => {
             <div className="top-header-bar">
                 <div className="container">
                     <div className="row flex-wrap justify-content-center justify-content-lg-between align-items-lg-center">
-                        <div className="col-12 col-lg-8 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
+                        <div className="col-12 col-lg-6 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
                             <div className="header-bar-email">
                                 MAIL: <Link to="#">contact@ourcharity.com</Link>
                             </div>
@@ -64,7 +64,10 @@ const NavBar = ({ auth, logout }) => {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
+                        <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
+                            <div className="share-btn">
+                                <Link to="share">Chia Sẻ Hoàn Cảnh</Link>
+                            </div>
                             <div className="donate-btn">
                                 <Link to="donate">Tài Trợ Ngay</Link>
                             </div>
@@ -227,7 +230,7 @@ const NavBar = ({ auth, logout }) => {
     return (
         <header className="site-header">
             {renderTopHeading()}
-            <div className={`nav-bar ${sticky}`} id="nav-bar">
+            <div className="nav-bar" id="nav-bar">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 d-flex flex-wrap justify-content-between align-items-center">
