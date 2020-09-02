@@ -45,7 +45,10 @@ const Login = ({ auth, login, authError }) => {
                                 />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-addon">
+                                <span
+                                    className="input-group-addon"
+                                    id="input-group-addon"
+                                >
                                     <i className="fa fa-lock fa-lg"></i>
                                 </span>
                                 <input
