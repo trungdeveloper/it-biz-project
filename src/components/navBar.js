@@ -9,27 +9,12 @@ const img = require("../assets/image/logo-menu.svg");
 
 const NavBar = ({ auth, logout }) => {
     const [activeTab, setActiveTab] = React.useState("home");
-    // const [sticky, setSticky] = React.useState("");
     const [showSideMenu, setShowSideMenu] = React.useState(false);
     const [showDropdownMenu, setShowDropdownMenu] = React.useState(false);
 
     const dropdownRef = React.useRef(null);
 
-    // const handleScroll = () => {
-    //     let header = document.getElementById("nav-bar");
-    //     const body = document.querySelector("#root").childNodes[1];
-    //     if (window.pageYOffset > header.offsetTop) {
-    //         // setSticky("fixed");
-    //         body.style.marginTop = "155px";
-    //     } else {
-    //         setSticky("");
-    //         body.style.marginTop = "0px";
-    //     }
-    // };
-
     React.useEffect(() => {
-        // window.addEventListener("scroll", handleScroll);
-
         function handleClickOutside(event) {
             if (
                 dropdownRef.current &&
@@ -43,7 +28,6 @@ const NavBar = ({ auth, logout }) => {
         document.addEventListener("mousedown", handleClickOutside);
 
         return () => {
-            // window.removeEventListener("scroll", handleScroll);
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
@@ -66,7 +50,7 @@ const NavBar = ({ auth, logout }) => {
                         </div>
                         <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                             <div className="share-btn">
-                                <Link to="share">Chia Sẻ Hoàn Cảnh</Link>
+                                <Link to="SharePlight">Chia Sẻ Hoàn Cảnh</Link>
                             </div>
                             <div className="donate-btn">
                                 <Link to="donate">Tài Trợ Ngay</Link>
