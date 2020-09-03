@@ -1,5 +1,5 @@
 import React from "react";
-import "./mainProfileDetail.css";
+import "./profileDetail.css";
 export const ChangePassword = () => {
     return (
         <div className="container">

@@ -1,5 +1,5 @@
 import React from "react";
-import "./mainProfileDetail.css";
+import "./profileDetail.css";
 export const UserDonate = () => {
     return (
         <div className="container">

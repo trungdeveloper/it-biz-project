@@ -1,51 +1,153 @@
 import React from "react";
-import "../../assets/css/bootstrap.min.css";
-import "../../assets/css/font-awesome.min.css";
-import "../../assets/css/elegant-fonts.css";
-import "../../assets/css/themify-icons.css";
-import "../../assets/css/swiper.min.css";
-import "../../assets/style.css";
-import IMG from "../../assets/images/oshomah.jpg";
+import "./profileDetail.css";
+import IMG from "../../assets/image/user.png";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
+import { ProgressModal } from "../../util/ProgressModal";
+const ProfileDetail = ({ profile, user, firestore }) => {
+    const [state, setState] = React.useState({
+        username: "",
+        address: "",
+        phone: "",
+    });
 
-export const ProfileDetail = () => {
+    const [email, setEmail] = React.useState("");
+    const [showModal, setShowModal] = React.useState(false);
+
+    React.useEffect(() => {
+        profile &&
+            setState({
+                username: profile.username,
+                address: profile.address,
+                phone: profile.phone,
+            });
+        user && setEmail(user.email);
+    }, [profile, user]);
+
+    const handlerOnChange = (e) => {
+        const { id, value } = e.target;
+        setState((prevState) => ({
+            ...prevState,
+            [id]: value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setShowModal(true);
+        firestore.collection("users").doc(user.uid).set(state);
+    };
     return (
-        <div className="row">
-            <div className="col-md-2"></div>
-            <div className="cause-wrap d-flex flex-wrap justify-content-between col-md-8">
-                <figure className="m-0" style={{ marginLeft: "20px" }}>
-                    <img src={IMG} alt="Logo"
-                        style={{height: "150px", width: "150px", borderRadius: "50%",marginLeft: "40px",}}
-                    />
-                </figure>
-
-                <div className="cause-content-wrap">
-                    <form>
-                        <div className="row" style={{ marginBottom: "15px" }}>
-                            <label className="col-md-3" htmlFor="fname">Họ và tên: </label>
-                            <input className="col-md-8" type="text" id="fname" name="fname"/>
+        <div className="container">
+            <div className="row">
+                <div className="user_profile">
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div className="title">
+                            <h5>Thông tin của tôi</h5>
                         </div>
-                        <div className="row" style={{ marginBottom: "15px" }}>
-                            <label className="col-md-3" htmlFor="fname">Email: </label>
-                            <input className="col-md-8" type="text" id="fname"name="fname"/>
-                        </div>
-                        <div className="row" style={{ marginBottom: "15px" }}>
-                            <label className="col-md-3" htmlFor="fname">SĐT: </label>
-                            <input className="col-md-8" type="text" id="fname" name="fname" />
-                        </div>
-                        <div className="row" style={{ marginBottom: "15px" }}>
-                            <label className="col-md-3" htmlFor="fname">Địa chỉ: </label>
-                            <input className="col-md-8" type="text"id="fname" name="fname"/>
-                        </div>
-                        <div className="row" style={{ marginBottom: "15px" }}>
-                            <div className="col-md-9"></div>
-                            <div className="col-md-3">
-                                <button className="btn gradient-bg mr-2" type="submit">Cập nhật</button>
+                        <form>
+                            <div className="image-profile">
+                                <div className="image-radius">
+                                    <img src={IMG} alt="" />
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <label>Họ và tên</label>
+                                </div>
+                                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <input
+                                        id="username"
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Nhập họ tên"
+                                        value={state.username}
+                                        onChange={handlerOnChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <label>Địa chỉ</label>
+                                </div>
+                                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <input
+                                        id="address"
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Nhập địa chỉ"
+                                        value={state.address}
+                                        onChange={handlerOnChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <label>Số điện thoại</label>
+                                </div>
+                                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <input
+                                        id="phone"
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Nhập số điện thoại"
+                                        value={state.phone}
+                                        onChange={handlerOnChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <label>Email</label>
+                                </div>
+                                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        value={email}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4" />
+                                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <button
+                                        type="submit"
+                                        className="profile-btn-update"
+                                        onClick={handleSubmit}
+                                    >
+                                        Cập nhật
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div className="col-md-2"></div>
+            <ProgressModal
+                show={showModal}
+                handleClose={setShowModal}
+                text="Cập nhật thông tin thành công."
+            />
         </div>
     );
 };
+
+const mapStateToProps = (state) => {
+    const user = state.firebase.auth;
+    return {
+        profile: state.firestore.data.users?.[user.uid],
+        user,
+    };
+};
+
+export default compose(
+    firestoreConnect(["users"]),
+    connect(mapStateToProps)
+)(ProfileDetail);

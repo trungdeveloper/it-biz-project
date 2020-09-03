@@ -29,6 +29,7 @@ export const UserDonation = () => {
                         <td>Ấm siêu tốc</td>
                         <td>
                             <img
+                                alt=""
                                 src={IMG}
                                 style={{ height: "100px", width: "100px" }}
                             />

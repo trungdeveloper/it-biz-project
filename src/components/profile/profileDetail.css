@@ -20,7 +20,6 @@ button.profile-btn-update {
     color: white;
     border: none;
     outline: none;
-    outline-color: none;
 }
 button.profile-btn-update:hover {
     color: black;
