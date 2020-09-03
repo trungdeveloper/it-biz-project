@@ -2,11 +2,12 @@ import React from "react";
 import { Button, Modal, ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const ProgressModal = ({ show, handleClose, progress }) => {
-    console.log(show);
-
+export const ProgressModal = ({ show, handleClose, progress, text }) => {
     const renderContent = () => {
-        return progress ? (
+        if (text) {
+            return <p>{text}</p>;
+        }
+        return progress !== undefined ? (
             <>
                 <ProgressBar
                     animated

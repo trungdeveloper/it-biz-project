@@ -1,6 +1,6 @@
 import React from "react";
 import "./mainProfile.css";
-import { MainProfileDetail } from "../../components/profile/mainProfileDetail";
+import ProfileDetail from "../../components/profile/profileDetail";
 import { ChangePassword } from "../../components/profile/mainProfileChangePass";
 import { ReceiveDonation } from "../../components/profile/receiveDonation";
 import { SideBar } from "../../components/profile/sideBar";
@@ -18,7 +18,7 @@ export const Profile = () => {
                         <Route
                             exact
                             path="/profile"
-                            component={MainProfileDetail}
+                            component={ProfileDetail}
                         />
                         <Route
                             path="/profile/changepassword"

@@ -139,6 +139,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
                     </div>
                     <ProgressModal
                         show={showModal}
+                        progress={progress}
                         handleClose={setShowModal}
                     />
                 </form>
@@ -164,6 +165,6 @@ const mapDispatchToProps = (dispatch, props) => {
 
 export default compose(
     withFirestore,
-    firestoreConnect([{ collection: "categories" }]),
+    firestoreConnect(["categories"]),
     connect(mapStateToProps, mapDispatchToProps)
 )(Donate);
