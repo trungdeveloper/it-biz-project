@@ -41,6 +41,7 @@ const ProfileDetail = ({ profile, user, firestore }) => {
             .set(state)
             .then(() => setShowModal(true));
     };
+
     return (
         <div className="container">
             <div className="row">
