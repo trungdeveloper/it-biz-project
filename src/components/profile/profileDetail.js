@@ -35,8 +35,11 @@ const ProfileDetail = ({ profile, user, firestore }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setShowModal(true);
-        firestore.collection("users").doc(user.uid).set(state);
+        firestore
+            .collection("users")
+            .doc(user.uid)
+            .set(state)
+            .then(() => setShowModal(true));
     };
     return (
         <div className="container">
