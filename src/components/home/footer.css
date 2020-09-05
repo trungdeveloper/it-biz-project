@@ -1,0 +1,140 @@
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer-widgets {
+    position: relative;
+    padding: 96px 0 90px;
+    font-weight: 500;
+    color: #929191;
+    background: url("../../assets/image/foot-bg.jpg") no-repeat center;
+    background-size: cover;
+    z-index: 99;
+}
+
+.footer-widgets::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 101%;
+    background: rgba(22,22,22,.92);
+}
+
+.footer-widgets h2 {
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.footer-widgets ul {
+    padding: 12px 0 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-widgets ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-widgets ul li a {
+    color: #a2a1a1;
+    text-decoration: none;
+}
+
+.footer-widgets ul li a:hover {
+    color: green;
+}
+
+.foot-about p {
+    font-size: 14px;
+    line-height: 2;
+    color: #929191;
+}
+
+.foot-about ul li {
+    margin-right: 28px;
+}
+
+.foot-about ul li a {
+    color: #fff;
+}
+
+.foot-latest-news ul li {
+    display: block;
+    margin-bottom: 36px;
+}
+
+.foot-latest-news ul li h3 {
+    font-size: 14px;
+}
+
+.foot-latest-news ul li .posted-date {
+    font-size: 12px;
+    color: green;
+}
+
+.foot-contact ul li {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.foot-contact ul li .fa {
+    width: 28px;
+    margin-right: 10px;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.foot-contact ul li span {
+    width: calc(100% - 3px);
+}
+
+/*
+# Subscribe
+--------------------------------*/
+.subscribe-form {
+    margin-top: 50px;
+}
+
+.subscribe-form input[type="email"] {
+    width: calc(100% - 70px);
+    padding: 12px 16px;
+    border: 0;
+    font-size: 12px;
+    line-height: 1;
+    background: #fff;
+    color: #131212;
+    outline: none;
+}
+
+.subscribe-form input[type="email"]::placeholder {
+    color: #9b9a9a;
+    font-style: italic;
+}
+
+.subscribe-form button {
+    width: 68px;
+    padding: 13px 0 14px;
+    border: 0;
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+    background: green;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.footer-bar {
+    padding: 30px 0;
+    font-size: 12px;
+    color: #7b7b7b;
+    background: #131212;
+    text-align: center;
+}
