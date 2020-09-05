@@ -3,17 +3,15 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { donateRequest } from "../../../../redux/admin/donation/actions";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
-//import { Link, RichText, Date, Moment } from "prismic-reactjs";
+import { RiReplyAllLine, RiFolderAddLine } from "react-icons/ri";
 const DonationAdd = ({ donate, categories }) => {
-    // const date = Date(document.data.date);
-    // const formattedDate = Moment(date).format("LL");
     const [state, setState] = React.useState({
         name: "",
         description: "",
         status: "Còn mới",
-        cate: "Thời Trang",
+        category: "Thời Trang",
         date: "",
-        accept: false,
+        accept: true,
     });
 
     const inputRef = React.useRef();
@@ -34,7 +32,7 @@ const DonationAdd = ({ donate, categories }) => {
             name: "",
             status: "Còn mới",
             description: "",
-            cate: "Thời Trang",
+            category: "Thời Trang",
             date: "",
         });
         setImage(null);
@@ -120,8 +118,8 @@ const DonationAdd = ({ donate, categories }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
-                                value={state.cate}
-                                id="cate"
+                                value={state.category}
+                                id="category"
                                 onChange={handleOnChange}
                                 style={{
                                     width: "615px",
@@ -157,10 +155,10 @@ const DonationAdd = ({ donate, categories }) => {
 
                         <button
                             className="btn btn-success"
-                            style={{ marginLeft: "30px" }}
+                            style={{ marginLeft: "40px" }}
                             onClick={handleSubmitForm}
                         >
-                            Thêm Mới
+                            <RiFolderAddLine />
                         </button>
                         <button
                             onClick={() =>
@@ -171,7 +169,7 @@ const DonationAdd = ({ donate, categories }) => {
                             className="btn btn-danger"
                             style={{ marginLeft: "10px" }}
                         >
-                            Hủy
+                            <RiReplyAllLine />
                         </button>
                     </div>
                 </form>

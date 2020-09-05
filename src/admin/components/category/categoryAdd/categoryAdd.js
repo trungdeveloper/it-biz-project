@@ -5,6 +5,7 @@ import { compose } from 'redux'
 import { withFirestore } from 'react-redux-firebase'
 import { Redirect } from 'react-router-dom'
 import "../../../cssAdmin/style.css";
+import { RiReplyAllLine ,RiFolderAddLine} from "react-icons/ri";
 import { createCategory } from "../../../../redux/admin/category/actions";
 class CreateCategory extends Component {
     constructor(props) {
@@ -47,7 +48,7 @@ class CreateCategory extends Component {
                             (document.getElementById(
                                 "form-th"
                             ).style.display = "none")
-                        }>Thêm Mới</button>
+                        }><RiFolderAddLine/></button>
                     <button
                         onClick={() =>
                             (document.getElementById(
@@ -57,7 +58,7 @@ class CreateCategory extends Component {
                         className="btn btn-danger"
                         style={{ marginLeft: "10px" }}
                     >
-                        Hủy
+                        <RiReplyAllLine />
                         </button>
                 </form>
             </div>

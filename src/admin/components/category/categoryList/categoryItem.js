@@ -4,6 +4,9 @@ import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
+import { BsFillTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
+import { RiReplyAllLine } from "react-icons/ri";
 import {
     deleteCategory,
     updateCategory,
@@ -39,28 +42,35 @@ const CategoryItem = (props) => {
                 {!isEditable ? (
                     <button
                         className="mr-10 btn btn-success"
+                        style={{ marginRight: "8%" }}
                         onClick={() => setIsEdit(!isEditable)}
                     >
-                        Sửa
+                        <AiFillEdit />
                     </button>
                 ) : (
                     <span>
                         <button
+                            style={{ marginRight: "8%" }}
                             className="mr-10 btn btn-success"
                             onClick={updateCategory}
                         >
-                            Sửa
+                            <AiFillEdit />
                         </button>
                         <button
                             onClick={() => setIsEdit(!isEditable)}
                             className="mr-10 btn btn-warning"
+                            style={{ marginRight: "8%" }}
                         >
-                            Hủy
+                            <RiReplyAllLine />
                         </button>
                     </span>
                 )}
-                <button className="btn btn-danger" onClick={delCategory}>
-                    Xóa
+                <button
+                    className="btn btn-danger"
+                    style={{ marginRight: "8%" }}
+                    onClick={delCategory}
+                >
+                    <BsFillTrashFill />
                 </button>
             </td>
         </tr>

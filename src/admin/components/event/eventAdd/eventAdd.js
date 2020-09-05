@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-// import { donateRequest } from "../../../../redux/admin/donation/actions";
+import { RiReplyAllLine, RiFolderAddLine } from "react-icons/ri";
 import { eventRequest } from "../../../../redux/admin/event/actions";
 import { withFirestore } from "react-redux-firebase";
 
@@ -107,10 +107,10 @@ const EventAdd = ({ event }) => {
 
                         <button
                             className="btn btn-success"
-                            style={{ marginLeft: "30px" }}
+                            style={{ marginLeft: "40px" }}
                             onClick={handleSubmitForm}
                         >
-                            Thêm Mới
+                            <RiFolderAddLine />
                         </button>
                         <button
                             onClick={() =>
@@ -121,7 +121,7 @@ const EventAdd = ({ event }) => {
                             className="btn btn-danger"
                             style={{ marginLeft: "10px" }}
                         >
-                            Hủy
+                            <RiReplyAllLine />
                         </button>
                     </div>
                 </form>

@@ -4,6 +4,10 @@ import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
+import { BsFillTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
+import { FcAcceptDatabase } from "react-icons/fc";
+import { RiReplyAllLine } from "react-icons/ri";
 import {
     deleteDonation,
     updateDonation,
@@ -16,7 +20,7 @@ const DonationItem = (props) => {
     const donation = props.donation;
     const [name, setName] = useState(donation.name);
     const [description, setDescription] = useState(donation.description);
-    const [category, setCate] = useState(donation.cate);
+    const [category, setCate] = useState(donation.category);
     const [status, setStatus] = useState(donation.status);
     const [date, setDate] = useState(donation.date);
     const [image, setImage] = React.useState(donation.imgUrl);
@@ -29,7 +33,7 @@ const DonationItem = (props) => {
         const dataAccept = {
             name: donation.name,
             description: donation.description,
-            category: donation.cate,
+            category: donation.category,
             status: donation.status,
             date: donation.date,
             accept: true,
@@ -178,7 +182,7 @@ const DonationItem = (props) => {
                         className="mr-10 btn btn-success"
                         onClick={() => setIsEdit(!isEditable)}
                     >
-                        Sửa
+                        <AiFillEdit />
                     </button>
                 ) : (
                     <span>
@@ -186,28 +190,28 @@ const DonationItem = (props) => {
                             className="mr-10 btn btn-success"
                             onClick={updateDonation}
                         >
-                            Sửa
+                            <AiFillEdit />
                         </button>
                         <button
                             onClick={() => setIsEdit(!isEditable)}
                             className="mr-10 btn btn-warning"
                         >
-                            Hủy
+                            <RiReplyAllLine />
                         </button>
                     </span>
                 )}
                 <button className="btn btn-danger" onClick={delDonation}>
-                    Xóa
+                    <BsFillTrashFill />
                 </button>
             </td>
             <td>
                 {/* {!donation.accept ? (accept = "disabled") : (accept = "enable")} */}
                 <button
-                    className="btn btn-danger"
+                    className="btn btn-warning"
                     disabled={donation.accept}
                     onClick={acceptDonation}
                 >
-                    chấp nhận
+                    <FcAcceptDatabase />
                 </button>
             </td>
         </tr>

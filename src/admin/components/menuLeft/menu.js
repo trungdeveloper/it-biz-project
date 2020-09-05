@@ -1,6 +1,7 @@
 import React from "react";
 import "../../cssAdmin/style.css";
 import { Link } from "react-router-dom";
+import { BsFillHouseDoorFill } from "react-icons/bs";
 import $ from "jquery";
 export const Menu = () => {
     return (
@@ -23,7 +24,10 @@ export const Menu = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav flex-column">
-                            <li className="nav-divider">Menu</li>
+                            <li className="nav-divider">
+                                {" "}
+                                <BsFillHouseDoorFill /> Menu
+                            </li>
                             <Link
                                 className="nav-link nav-link-1 "
                                 to="/category"
@@ -62,7 +66,6 @@ export const Menu = () => {
                                     $(".nav-link-3").addClass("active");
                                 }}
                             >
-                                <i className="fas fa-fw fa-chart-pie"></i>
                                 Sự Kiện
                             </Link>
                             <Link
@@ -76,9 +79,9 @@ export const Menu = () => {
                                     $(".nav-link-4").addClass("active");
                                 }}
                             >
-                                Forms
+                                Hoàn cảnh
                             </Link>
-                            <Link
+                            {/* <Link
                                 className="nav-link nav-link-5"
                                 to="/"
                                 data-toggle="collapse"
@@ -89,8 +92,8 @@ export const Menu = () => {
                                     $(".nav-link-5").addClass("active");
                                 }}
                             >
-                                <i className="fas fa-fw fa-table"></i>Tables
-                            </Link>
+                                Tables
+                            </Link> */}
                         </ul>
                     </div>
                 </nav>

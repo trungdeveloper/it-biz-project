@@ -4,8 +4,6 @@ import { Menu } from "../menuLeft/menu";
 import { Header } from "../header/header";
 import DonationList from "../donation/donationList/donationList";
 import DonationAdd from "../donation/donationAdd/donationAdd";
-// import CategoryList from "../category/categoryList/categoryList";
-// import CategoryAdd from "../category/categoryAdd/categoryAdd";
 export const Donation = () => {
     return (
         <div className="dashboard-main-wrapper">

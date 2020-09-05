@@ -4,6 +4,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
 import "../../../cssAdmin/style.css";
 import CategoryItem from "./categoryItem";
+import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 const CategoryList = (props) => {
     const categories = props.categories;
@@ -33,7 +34,7 @@ const CategoryList = (props) => {
                                 </div>
                                 <div className="col-3">
                                     <button className="btn btn-success">
-                                        Tìm Kiếm
+                                        <BsSearch />
                                     </button>
                                 </div>
                             </div>

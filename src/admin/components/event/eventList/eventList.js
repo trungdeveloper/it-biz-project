@@ -4,6 +4,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
 import "../../../cssAdmin/style.css";
 import EventItem from "./eventItem";
+import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 const EventList = (props) => {
     const events = props.events;
@@ -31,7 +32,7 @@ const EventList = (props) => {
                                 </div>
                                 <div className="col-3">
                                     <button className="btn btn-success">
-                                        Tìm Kiếm
+                                        <BsSearch />
                                     </button>
                                 </div>
                             </div>

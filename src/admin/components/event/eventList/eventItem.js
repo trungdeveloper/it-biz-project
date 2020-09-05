@@ -9,6 +9,9 @@ import {
     updateEvent,
 } from "../../../../redux/admin/event/actions";
 import { Input } from "reactstrap";
+import { BsFillTrashFill } from "react-icons/bs";
+import { AiFillEdit } from "react-icons/ai";
+import { RiReplyAllLine } from "react-icons/ri";
 const EventItem = (props) => {
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
@@ -103,27 +106,29 @@ const EventItem = (props) => {
                     <button
                         className="mr-10 btn btn-success"
                         onClick={() => setIsEdit(!isEditable)}
+                        style={{ marginRight: "8%" }}
                     >
-                        Sửa
+                        <AiFillEdit />
                     </button>
                 ) : (
                     <span>
                         <button
                             className="mr-10 btn btn-success"
                             onClick={updateEvent}
+                            style={{ marginRight: "8%" }}
                         >
-                            Sửa
+                            <AiFillEdit />
                         </button>
                         <button
                             onClick={() => setIsEdit(!isEditable)}
                             className="mr-10 btn btn-warning"
                         >
-                            Hủy
+                            <RiReplyAllLine />
                         </button>
                     </span>
                 )}
                 <button className="btn btn-danger" onClick={delEvent}>
-                    Xóa
+                    <BsFillTrashFill />
                 </button>
             </td>
         </tr>
