@@ -1,25 +1,25 @@
 import React from "react";
+import IMG from "../../assets/images/amsieutoc1.jpg";
 export const ReceiveDonation = () => {
     return (
         <div className="container">
             <div className="row">
                 <div className="user_profile">
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div className="title">
                             <h5>Thông tin nhận tài trợ</h5>
                         </div>
-                    </div>
-                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <table className="table table-bordered table-hover">
-                            <form />
                             <thead>
                                 <tr>
                                     <th />
-                                    <th>Ngày</th>
-                                    <th>Vật phẩm được nhận</th>
+                                    <th>Tên vật phẩm</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Trạng thái</th>
+                                    <th>Người trào tặng</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="userdonate">
                                 <tr>
                                     <td>
                                         <input
@@ -28,8 +28,12 @@ export const ReceiveDonation = () => {
                                             id="dele[]"
                                         />
                                     </td>
-                                    <td>31/05/2020</td>
                                     <td>Ấm siêu tốc</td>
+                                    <td>
+                                        <img src={IMG} />
+                                    </td>
+                                    <td>Đã tặng</td>
+                                    <td>Nguyễn Văn A</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -39,8 +43,12 @@ export const ReceiveDonation = () => {
                                             id="dele[]"
                                         />
                                     </td>
-                                    <td>31/05/2020</td>
-                                    <td>Ly nước</td>
+                                    <td>Ấm siêu tốc</td>
+                                    <td>
+                                        <img src={IMG} />
+                                    </td>
+                                    <td>Đã tặng</td>
+                                    <td>Nguyễn Văn A</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -50,11 +58,12 @@ export const ReceiveDonation = () => {
                                             id="dele[]"
                                         />
                                     </td>
-                                    <td>31/05/2020</td>
+                                    <td>Ấm siêu tốc</td>
                                     <td>
-                                        Nhận tài trợ 1 ấm siêu tốc từ bà Nguyễn
-                                        Thị B tại Hòa Vang, Đà Nẵng
+                                        <img src={IMG} />
                                     </td>
+                                    <td>Đã tặng</td>
+                                    <td>Nguyễn Văn A</td>
                                 </tr>
                             </tbody>
                         </table>

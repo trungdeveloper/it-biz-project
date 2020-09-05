@@ -4,7 +4,7 @@ import eventReducer from "./event/reducer";
 import authReducer from "./authentication/reducer";
 import donationReducer from "./donation/reducer";
 import { firestoreReducer } from "redux-firestore";
-import plightReducer from "./plight/reducer";
+// import plightReducer from "./plight/reducer";
 
 const rootReducer = combineReducers({
     firebase: firebaseReducer,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     event: eventReducer,
     auth: authReducer,
     donation: donationReducer,
-    plight: plightReducer,
+    // plight: plightReducer,
 });
 
 export default rootReducer;

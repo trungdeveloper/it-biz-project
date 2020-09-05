@@ -14,7 +14,7 @@ import { UserHistory } from "./pages/profile/userHistory";
 import { Footer } from "./components/home/footer";
 import DonationForm from "./pages/donate/donate";
 import { Profile } from "./pages/profile/profile";
-import SharePlight from "./pages/share-plight/share-plight";
+// import SharePlight from "./pages/share-plight/share-plight";
 
 export default function App() {
     return (
@@ -34,7 +34,7 @@ export default function App() {
                     <Route path="/PlightDetail" component={PlightDetail} />
                     <Route path="/Activity" component={Activity} />
                     <Route path="/ActivityDetail" component={ActivityDetail} />
-                    <Route path="/sharePlight" component={SharePlight} />
+                    {/* <Route path="/sharePlight" component={SharePlight} /> */}
                 </Switch>
             </div>
             <Footer />

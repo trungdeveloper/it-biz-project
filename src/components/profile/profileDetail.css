@@ -11,6 +11,7 @@ div#myinformation {
 }
 .user_profile {
     padding-top: 25px;
+    width: 100%;
 }
 .user_profile .col-lg-8 .form-group {
     padding: 25px 0px;
@@ -33,4 +34,14 @@ button.prifle-btn-detele {
 label.tablinks {
     font-size: 20px;
     padding-left: 15px;
+}
+tbody.userdonate td img{
+    width: 100%;
+    height: 200px;
+}
+li.tablinks.active1:active{
+    border-bottom: #006600;
+}
+th{
+    text-align: center;
 }

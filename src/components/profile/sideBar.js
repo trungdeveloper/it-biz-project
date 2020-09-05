@@ -11,7 +11,7 @@ export const SideBar = () => {
                 <Link to="/profile">Thông tin của tôi</Link>
             </li>
             <li className="dropdown">
-                <Link to="">
+                <Link to="#">
                     Lịch sử hoạt động <i className="fa fa-angle-down" />
                 </Link>
                 <ul className="dropdown">
