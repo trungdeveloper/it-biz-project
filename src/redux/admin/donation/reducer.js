@@ -6,7 +6,7 @@ const initialState = {
     progress: null,
 };
 
-const donationReducer = (state = initialState, action) => {
+const adminDonationReducer = (state = initialState, action) => {
     switch (action.type) {
         // case types.ADD_CATEGORY_SUCCESS:
         //     return {
@@ -86,4 +86,4 @@ const donationReducer = (state = initialState, action) => {
     }
 };
 
-export default donationReducer;
+export default adminDonationReducer;

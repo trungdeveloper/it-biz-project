@@ -19,10 +19,12 @@ import SharePlight from "./pages/share-plight/share-plight";
 import { CategoryPage } from "./admin/page/category/categoryPage";
 import { DonationPage } from "./admin/page/donation/donationPage";
 import { EventPage } from "./admin/page/event/eventPage";
+import { useSelector } from "react-redux";
 export default function App() {
+    const uid = useSelector((state) => state.firebase.auth.uid);
     return (
         <Router>
-            <NavBar />
+            {uid !== "" && <NavBar />}
             <div className="content">
                 <Switch>
                     <Route exact path="/" component={Home} />

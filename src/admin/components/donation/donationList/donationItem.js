@@ -14,6 +14,7 @@ import {
     acceptDonation,
 } from "../../../../redux/admin/donation/actions";
 import { Input } from "reactstrap";
+import { ModalItem } from "./modalItem";
 const DonationItem = (props) => {
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
@@ -28,6 +29,7 @@ const DonationItem = (props) => {
     const delDonation = () => {
         props.deleteDonation(donation.id);
     };
+    const [showModal, setShowModal] = React.useState(false);
 
     const acceptDonation = () => {
         const dataAccept = {
@@ -40,7 +42,6 @@ const DonationItem = (props) => {
         };
         props.acceptDonation(dataAccept, donation.id);
     };
-    //console.log(donation.date.toLocaleDateString.toString());
     const updateDonation = () => {
         const id = donation.id;
         const dataUpdate = {
@@ -214,6 +215,20 @@ const DonationItem = (props) => {
                     <FcAcceptDatabase />
                 </button>
             </td>
+            <td>
+                {/* {!donation.accept ? (accept = "disabled") : (accept = "enable")} */}
+                <button
+                    className="btn btn-warning"
+                    onClick={() => setShowModal(true)}
+                >
+                    <FcAcceptDatabase />
+                </button>
+                <ModalItem
+                    item={donation}
+                    show={showModal}
+                    handleClose={setShowModal}
+                />
+            </td>
         </tr>
     );
 };
@@ -230,7 +245,6 @@ const mapStateToProps = (state, props) => {
     const id = props.donation.id;
     const donations = state.firestore.data.donation;
     const donation = donations ? { ...donations[id], id } : null;
-    //console.log(donations);
     return {
         categories: state.firestore.ordered.categories,
         donation,
