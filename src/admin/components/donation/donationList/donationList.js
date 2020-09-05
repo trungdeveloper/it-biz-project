@@ -69,13 +69,19 @@ const DonationList = (props) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
+    const donations = !props.request
+        ? state.firestore.ordered.donation
+        : state.firestore.ordered.donation?.filter(
+              (e) => e.category === "Nội Thất"
+          );
+    console.log(donations);
     return {
-        donations: state.firestore.ordered.donation,
+        donations,
     };
 };
 
 export default compose(
     connect(mapStateToProps),
-    firestoreConnect([{ collection: "donation" }])
+    firestoreConnect(["donation"])
 )(DonationList);

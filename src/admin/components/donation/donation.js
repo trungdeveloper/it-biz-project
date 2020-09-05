@@ -4,7 +4,7 @@ import { Menu } from "../menuLeft/menu";
 import { Header } from "../header/header";
 import DonationList from "../donation/donationList/donationList";
 import DonationAdd from "../donation/donationAdd/donationAdd";
-export const Donation = () => {
+export const Donation = ({ request }) => {
     return (
         <div className="dashboard-main-wrapper">
             <Header />
@@ -27,7 +27,7 @@ export const Donation = () => {
                         {/* <CategoryAdd />
                         <DonationList /> */}
                         <DonationAdd />
-                        <DonationList />
+                        <DonationList request={request} />
                     </div>
                 </div>
             </div>
