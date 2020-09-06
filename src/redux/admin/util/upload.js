@@ -56,7 +56,7 @@ export const UpdateUpload = (
     successAction,
     failureAction
 ) => {
-    const { id, name, description, category, status, date, accept } = data;
+    const { id, name, description, category, status, date, isused, uid } = data;
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`donation${image.name}`).put(image);
@@ -85,7 +85,8 @@ export const UpdateUpload = (
                             category: category,
                             status: status,
                             date: date,
-                            accept: accept,
+                            uid: uid,
+                            isused: isused,
                         })
                         .then(() => {
                             dispatch(successAction(data));

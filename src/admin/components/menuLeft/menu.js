@@ -81,9 +81,9 @@ export const Menu = () => {
                             >
                                 Hoàn cảnh
                             </Link>
-                            {/* <Link
+                            <Link
                                 className="nav-link nav-link-5"
-                                to="/"
+                                to="/donationRequestAdmin"
                                 data-toggle="collapse"
                                 aria-expanded="false"
                                 data-target="#submenu-5"
@@ -92,8 +92,8 @@ export const Menu = () => {
                                     $(".nav-link-5").addClass("active");
                                 }}
                             >
-                                Tables
-                            </Link> */}
+                                Yêu cầu hoàn cảnh
+                            </Link>
                         </ul>
                     </div>
                 </nav>

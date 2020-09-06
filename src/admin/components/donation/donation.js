@@ -20,7 +20,7 @@ export const Donation = ({ request }) => {
                                     "form-Dona"
                                 ).style.display = "block")
                             }
-                            style={{ marginBottom: "1rem" }}
+                            style={{ marginTop: "-10rem" }}
                         >
                             Thêm Mới Tài trợ
                         </button>

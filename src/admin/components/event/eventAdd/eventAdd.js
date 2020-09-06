@@ -34,8 +34,8 @@ const EventAdd = ({ event }) => {
         document.getElementById("form-event").style.display = "none";
     };
     return (
-        <div className="donations-wrapper">
-            <div className="donations-container">
+        <div className="donations-wrapperjhj">
+            <div className="donations-containerjjh">
                 <form
                     className="donations-form"
                     id="form-event"
@@ -57,12 +57,16 @@ const EventAdd = ({ event }) => {
                             />
                         </div>
                     </div>
-                    <div className="form-group">
+                    <div
+                        className="form-group"
+                        style={{ marginBottom: "10px" }}
+                    >
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <label htmlFor="">Nôi Dung sự kiện</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <textarea
+                                style={{ marginBottom: "20px" }}
                                 rows="10"
                                 type="text"
                                 className="form-control"
@@ -73,12 +77,16 @@ const EventAdd = ({ event }) => {
                             />
                         </div>
                     </div>
-                    <div className="form-group">
+                    <div
+                        className="form-group"
+                        style={{ marginBottom: "10px" }}
+                    >
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <label htmlFor="">Ngày Sự kiện diễn ra:</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <input
+                                style={{ marginBottom: "20px" }}
                                 type="date"
                                 className="form-control"
                                 id="date"
@@ -94,6 +102,7 @@ const EventAdd = ({ event }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <input
+                                style={{ marginBottom: "20px" }}
                                 ref={inputRef}
                                 type="file"
                                 className="form-control"
@@ -102,12 +111,12 @@ const EventAdd = ({ event }) => {
                         </div>
                     </div>
 
-                    <div className="donations-button">
+                    <div className="donations-buttonrre">
                         <div className="donations-btn-background" />
 
                         <button
                             className="btn btn-success"
-                            style={{ marginLeft: "40px" }}
+                            style={{ marginLeft: "40px", width: "50px" }}
                             onClick={handleSubmitForm}
                         >
                             <RiFolderAddLine />
@@ -119,7 +128,11 @@ const EventAdd = ({ event }) => {
                                 ).style.display = "none")
                             }
                             className="btn btn-danger"
-                            style={{ marginLeft: "10px" }}
+                            style={{
+                                marginLeft: "10px",
+                                width: "50px",
+                                backgroundColor: "#dc3545",
+                            }}
                         >
                             <RiReplyAllLine />
                         </button>

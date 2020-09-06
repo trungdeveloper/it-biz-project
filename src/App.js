@@ -20,11 +20,12 @@ import { CategoryPage } from "./admin/page/category/categoryPage";
 import { DonationPage } from "./admin/page/donation/donationPage";
 import { EventPage } from "./admin/page/event/eventPage";
 import { useSelector } from "react-redux";
+import { DonationRequestPage } from "./admin/page/donation/donationRequest";
 export default function App() {
     const uid = useSelector((state) => state.firebase.auth.uid);
     return (
         <Router>
-            {uid !== "" && <NavBar />}
+            {/* {uid !== "" && <NavBar />} */}
             <div className="content">
                 <Switch>
                     <Route exact path="/" component={Home} />
@@ -43,6 +44,10 @@ export default function App() {
                     <Route path="/category" component={CategoryPage} />
                     <Route path="/donationAdmin" component={DonationPage} />
                     <Route path="/eventAdmin" component={EventPage} />
+                    <Route
+                        path="/donationRequestAdmin"
+                        component={DonationRequestPage}
+                    />
                 </Switch>
             </div>
             <Footer />

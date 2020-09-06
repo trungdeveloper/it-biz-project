@@ -8,10 +8,11 @@ const DonationAdd = ({ donate, categories }) => {
     const [state, setState] = React.useState({
         name: "",
         description: "",
-        status: "Còn mới",
+        isused: "Còn mới",
         category: "Thời Trang",
         date: "",
-        accept: true,
+        status: "Đang Đăng",
+        uid: "6xX4JP83ncSAYYwimBXzwtIu10T2",
     });
 
     const inputRef = React.useRef();
@@ -30,21 +31,27 @@ const DonationAdd = ({ donate, categories }) => {
         donate(state, image);
         setState({
             name: "",
-            status: "Còn mới",
+            isused: "Còn mới",
             description: "",
             category: "Thời Trang",
             date: "",
+            status: "Đang Đăng",
+            uid: "6xX4JP83ncSAYYwimBXzwtIu10T2",
         });
         setImage(null);
         document.getElementById("form-Dona").style.display = "none";
     };
     return (
-        <div className="donations-wrapper">
-            <div className="donations-container">
+        <div className="donations-wrapperffg">
+            <div className="donations-containerggf">
                 <form
                     className="donations-form"
                     id="form-Dona"
-                    style={{ display: "none", marginBottom: "10PX" }}
+                    style={{
+                        display: "none",
+                        marginBottom: "10PX",
+                        marginTop: "0rem",
+                    }}
                 >
                     <h1>Tài trợ</h1>
                     <div className="form-group">
@@ -67,7 +74,7 @@ const DonationAdd = ({ donate, categories }) => {
                             <label htmlFor="">Chi tiết vật phẩm</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <input
+                            <textarea
                                 type="text"
                                 className="form-control"
                                 id="description"
@@ -83,6 +90,7 @@ const DonationAdd = ({ donate, categories }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <input
+                                style={{ marginTop: "10px" }}
                                 type="date"
                                 className="form-control"
                                 id="date"
@@ -97,8 +105,8 @@ const DonationAdd = ({ donate, categories }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
-                                value={state.status}
-                                id="status"
+                                value={state.isused}
+                                id="isused"
                                 onChange={handleOnChange}
                                 style={{
                                     width: "615px",
@@ -113,6 +121,8 @@ const DonationAdd = ({ donate, categories }) => {
                                 <option value="Hư hỏng nhẹ">Hư hỏng nhẹ</option>
                             </select>
                         </div>
+                    </div>
+                    <div className="form-group">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <label htmlFor="">Thể Loại</label>
                         </div>
@@ -151,11 +161,11 @@ const DonationAdd = ({ donate, categories }) => {
                     </div>
 
                     <div className="donations-button">
-                        <div className="donations-btn-background" />
+                        <div className="donations-btn-background1" />
 
                         <button
                             className="btn btn-success"
-                            style={{ marginLeft: "40px" }}
+                            style={{ marginLeft: "40px", width: "50px" }}
                             onClick={handleSubmitForm}
                         >
                             <RiFolderAddLine />
@@ -167,7 +177,11 @@ const DonationAdd = ({ donate, categories }) => {
                                 ).style.display = "none")
                             }
                             className="btn btn-danger"
-                            style={{ marginLeft: "10px" }}
+                            style={{
+                                marginLeft: "10px",
+                                width: "50px",
+                                backgroundColor: "#dc3545",
+                            }}
                         >
                             <RiReplyAllLine />
                         </button>

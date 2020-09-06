@@ -12,7 +12,7 @@ const DonationList = (props) => {
         donations &&
         donations.map((c) => <DonationItem key={c.id} donation={c} />);
     return (
-        <div className="row">
+        <div className="row" style={{ marginTop: "0rem" }}>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="card">
                     <h5 className="card-header">Danh sách tài trợ</h5>
@@ -54,9 +54,7 @@ const DonationList = (props) => {
                                         <th>Tóm tắt</th>
                                         <th>Thể Loại</th>
                                         <th>Trạng Thái</th>
-                                        <th>Hình ảnh</th>
                                         <th>Hành Động</th>
-                                        <th>Chấp nhận</th>
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>{donationItems}</MDBTableBody>
@@ -73,9 +71,9 @@ const mapStateToProps = (state, props) => {
     const donations = !props.request
         ? state.firestore.ordered.donation
         : state.firestore.ordered.donation?.filter(
-              (e) => e.category === "Nội Thất"
+              (e) => e.status === "Đang Đợi"
           );
-    console.log(donations);
+    //console.log(donations);
     return {
         donations,
     };
