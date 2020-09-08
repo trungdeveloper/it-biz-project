@@ -5,7 +5,7 @@ import { compose } from "redux";
 import { withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import { ProgressModal } from "../../util/ProgressModal";
+import { CustomModal } from "../../util/CustomModal";
 import { addPlight } from "../../redux/plight/actions";
 
 const SharePlight = ({ uid, addPlight }) => {
@@ -113,10 +113,7 @@ const SharePlight = ({ uid, addPlight }) => {
                         <div className="donateneed-btn-background"></div>
                         <button type="submit">Gửi</button>
                     </div>
-                    <ProgressModal
-                        show={showModal}
-                        handleClose={setShowModal}
-                    />
+                    <CustomModal show={showModal} handleClose={setShowModal} />
                 </form>
             </div>
         </div>

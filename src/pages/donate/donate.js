@@ -1,7 +1,7 @@
 import React from "react";
 import "./donate.css";
 import "../../assets/style.css";
-import { ProgressModal } from "../../util/ProgressModal";
+import { CustomModal } from "../../util/CustomModal";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { donateRequest } from "../../redux/donation/actions";
@@ -137,7 +137,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
                         <div className="donations-btn-background" />
                         <button onClick={handleSubmitForm}>Gửi</button>
                     </div>
-                    <ProgressModal
+                    <CustomModal
                         show={showModal}
                         progress={progress}
                         handleClose={setShowModal}

@@ -4,7 +4,7 @@ import IMG from "../../assets/image/user.png";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import { ProgressModal } from "../../util/ProgressModal";
+import { CustomModal } from "../../util/CustomModal";
 const ProfileDetail = ({ profile, user, firestore }) => {
     const [state, setState] = React.useState({
         username: "",
@@ -134,7 +134,7 @@ const ProfileDetail = ({ profile, user, firestore }) => {
                     </div>
                 </div>
             </div>
-            <ProgressModal
+            <CustomModal
                 show={showModal}
                 handleClose={setShowModal}
                 text="Cập nhật thông tin thành công."
