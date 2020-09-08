@@ -27,39 +27,49 @@ const Login = ({ auth, login, authError }) => {
                             <div className="alert">
                                 {authError ? <p>{authError}</p> : null}
                             </div>
-                            <div className="input-group mb-3">
-                                <span className="input-group-addon">
-                                    <i
-                                        className="fa fa-envelope fa"
-                                        aria-hidden="true"
-                                    />
-                                </span>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    value={email}
-                                    onChange={(val) =>
-                                        setEmail(val.target.value)
-                                    }
-                                    placeholder="Email"
-                                />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span className="input-group-addon">
+                                            <i
+                                                className="fa fa-envelope fa"
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+                                        <input
+                                            className="form-control"
+                                            id="email"
+                                            type="email"
+                                            value={email}
+                                            onChange={(val) =>
+                                                setEmail(val.target.value)
+                                            }
+                                            placeholder="Email"
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <div className="input-group mb-3">
-                                <span
-                                    className="input-group-addon"
-                                    id="input-group-addon"
-                                >
-                                    <i className="fa fa-lock fa-lg"></i>
-                                </span>
-                                <input
-                                    id="password"
-                                    type="password"
-                                    value={password}
-                                    onChange={(val) =>
-                                        setPassword(val.target.value)
-                                    }
-                                    placeholder="Mật KhẩU"
-                                />
+                            <div className="form-group">
+                                <div className="cols-sm-10">
+                                    <div className="input-group">
+                                        <span
+                                            className="input-group-addon"
+                                            id="input-group-addon"
+                                        >
+                                            <i className="fa fa-lock fa-lg"></i>
+                                        </span>
+                                        <input
+                                            className="form-control"
+                                            id="password"
+                                            type="password"
+                                            value={password}
+                                            onChange={(val) =>
+                                                setPassword(val.target.value)
+                                            }
+                                            placeholder="Mật KhẩU"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <div className="d-flex justify-content-center mt-3 login_container">
                                 <button
