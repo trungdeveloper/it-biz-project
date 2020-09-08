@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal, ProgressBar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const ProgressModal = ({ show, handleClose, progress, text }) => {
+export const CustomModal = ({ show, handleClose, progress, text }) => {
     const renderContent = () => {
         if (text) {
             return <p>{text}</p>;

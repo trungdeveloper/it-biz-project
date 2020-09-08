@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import "./register.css";
 import IMG from "../../assets/image/user.svg";
+import { CustomModal } from "../../util/CustomModal";
 
 const Register = (props) => {
     const [name, setName] = React.useState("");
@@ -16,14 +17,16 @@ const Register = (props) => {
     const [password, setPassword] = React.useState("");
     const [confirmPassword, setConfirmPassword] = React.useState("");
     const { auth, error, register } = props;
+    const [showModal, setShowModal] = React.useState(false);
 
     const handleSubmit = () => {
-        password === confirmPassword
-            ? register({ name, email, phone, address, password })
-            : alert("mat khau sai");
+        if (password === confirmPassword) {
+            register({ name, email, phone, address, password });
+            setShowModal(true);
+        } else alert("Mật khẩu xác nhận không trùng khớp sai");
     };
 
-    return auth.uid ? (
+    return auth.emailVerified ? (
         <Redirect to={"/"} />
     ) : (
         <div className="container h-100">
@@ -191,6 +194,11 @@ const Register = (props) => {
                     </div>
                 </div>
             </div>
+            <CustomModal
+                show={showModal}
+                handleClose={setShowModal}
+                text={`Email xác minh đã được gởi tới email ${email}. Vui lòng xác nhận email để đăng nhập`}
+            />
         </div>
     );
 };

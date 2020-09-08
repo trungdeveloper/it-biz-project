@@ -11,7 +11,7 @@ import IMG from "../../assets/image/user.svg";
 const Login = ({ auth, login, authError }) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    return auth.uid ? (
+    return auth.emailVerified ? (
         <Redirect to={"/"} />
     ) : (
         <div className="container h-100">
