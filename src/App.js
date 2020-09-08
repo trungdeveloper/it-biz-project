@@ -27,7 +27,8 @@ export default function App() {
                     <Route path="/Register" component={Register} />
                     <Route path="/UserHistory" component={UserHistory} />
                     <Route path="/profile" component={Profile} />
-                    <Route path="/Donation" component={Donation} />
+                    <Route exact path="/Donation" component={Donation} />
+                    <Route path="/Donation/:id_category" component={Donation} />
                     <Route path="/Donate" component={DonationForm} />
                     <Route path="/DonationDetail" component={DonationDetail} />
                     <Route path="/Plight" component={Plight} />
