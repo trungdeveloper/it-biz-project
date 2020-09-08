@@ -8,7 +8,7 @@
     .user_card {
         width: 350px;
         margin-top: auto;
-        margin-bottom: auto;
+        /* margin-bottom: auto; */
         background: #fff;
         position: relative;
         display: flex;
@@ -77,17 +77,13 @@
       .alert {
         position: relative;
         padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
+        /* margin-bottom: 1rem; */
         border: 1px solid transparent;
         border-radius: .25rem;
         text-align: center;
         color: red;
     }
 
-   /* .input-group #password, .input-group #email{
-    width: 100%;
-    }
-     */
 
      #input-group-addon{
         padding: .375rem .75rem;
@@ -100,4 +96,8 @@
         background-color: #e9ecef;
         border: 1px solid #ced4da;
         border-radius: .25rem;
+     }
+
+     .form-group{
+        padding: 0 20px !important;
      }
