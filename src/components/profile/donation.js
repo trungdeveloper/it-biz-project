@@ -1,73 +1,70 @@
 import React from "react";
 import "./profileDetail.css";
+import IMG from "../../assets/images/amsieutoc.jpg";
 export const UserDonate = () => {
     return (
         <div className="container">
             <div className="row">
                 <div className="user_profile">
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div className="title">
                             <h5>Thông tin tài trợ</h5>
                         </div>
-                    </div>
-                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <table className="table table-bordered table-hover">
-                            <form />
-                            <thead>
+                            <thead className="user-table">
                                 <tr>
-                                    <th />
-                                    <th>Ngày</th>
-                                    <th>Vật phẩm &amp; Người nhận</th>
+                                    <th>Tên vật phẩm</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Mô tả</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hoàn cảnh được cho</th>
+                                    <th>Hành động</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="user-table">
                                 <tr>
+                                    <td>Ấm siêu tốc</td>
                                     <td>
-                                        <input
-                                            type="checkbox"
-                                            name="dele[]"
-                                            id="dele[]"
-                                        />
+                                        Đang dư mấy cái ấm siêu tốc,
+                                        <br /> sử dụng được nhưng không có nhu
+                                        cầu, muốn tặng lại cho ai cần
                                     </td>
-                                    <td>31/05/2020</td>
                                     <td>
-                                        Tài trợ 1 ấm siêu tốc cho bà Nguyễn Thị
-                                        B tại Hòa Vang, Đà Nẵng
+                                        <img src={IMG} />
+                                    </td>
+                                    <td>Đang chờ xét duyệt</td>
+                                    <td></td>
+                                    <td className="action">
+                                        <button
+                                            type="button"
+                                            className="btn btn-warning"
+                                        >
+                                            Sửa
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-danger"
+                                        >
+                                            Xóa
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>Ấm siêu tốc</td>
                                     <td>
-                                        <input
-                                            type="checkbox"
-                                            name="dele[]"
-                                            id="dele[]"
-                                        />
+                                        Đang dư mấy cái ấm siêu tốc,
+                                        <br /> sử dụng được nhưng không có nhu
+                                        cầu, muốn tặng lại cho ai cần
                                     </td>
-                                    <td>31/05/2020</td>
                                     <td>
-                                        Tài trợ 1 ấm siêu tốc cho bà Nguyễn Thị
-                                        B tại Hòa Vang, Đà Nẵng
+                                        <img src={IMG} />
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input
-                                            type="checkbox"
-                                            name="dele[]"
-                                            id="dele[]"
-                                        />
-                                    </td>
-                                    <td>31/05/2020</td>
-                                    <td>
-                                        Tài trợ 1 ấm siêu tốc cho bà Nguyễn Thị
-                                        B tại Hòa Vang, Đà Nẵng
-                                    </td>
+                                    <td>Đã trào tặng</td>
+                                    <td>Nguyễn Thị B</td>
+                                    <td className="action"></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="submit" className="prifle-btn-detele">
-                            Xóa
-                        </button>
                     </div>
                 </div>
             </div>
