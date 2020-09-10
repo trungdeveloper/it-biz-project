@@ -85,7 +85,7 @@ const SharePlight = ({ uid, addPlight }) => {
                             <input
                                 type="text"
                                 className="form-control"
-                                id="product"
+                                id="need"
                                 value={state.need}
                                 onChange={onHandleChange}
                             />
