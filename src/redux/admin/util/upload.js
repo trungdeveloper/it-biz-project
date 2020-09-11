@@ -146,3 +146,53 @@ export const UpdateUploadEvent = (
         }
     );
 };
+export const UpdateUploadPlight = (
+    data,
+    image,
+    path,
+    firebaseActions,
+    callback,
+    dispatch,
+    successAction,
+    failureAction
+) => {
+    const { id, title, description, contact, status, uid } = data;
+    const { firebase, firestore } = firebaseActions;
+    const storageRef = firebase.storage().ref();
+    const uploadTask = storageRef.child(`plight${image.name}`).put(image);
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log(progress);
+        },
+        (error) => {
+            console.log(error);
+        },
+        () => {
+            uploadTask.snapshot.ref
+                .getDownloadURL()
+                .then(function (downloadURL) {
+                    callback(downloadURL);
+                    firestore
+                        .collection(path)
+                        .doc(id)
+                        .update({
+                            imgUrl: downloadURL,
+                            title: title,
+                            description: description,
+                            contact: contact,
+                            status: status,
+                            uid: uid,
+                        })
+                        .then(() => {
+                            dispatch(successAction(data));
+                        })
+                        .catch((err) => {
+                            dispatch(failureAction(err));
+                        });
+                });
+        }
+    );
+};

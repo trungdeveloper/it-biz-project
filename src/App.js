@@ -15,7 +15,7 @@ import { Footer } from "./components/home/footer";
 import DonationForm from "./pages/donate/donate";
 import { Profile } from "./pages/profile/profile";
 import SharePlight from "./pages/share-plight/share-plight";
-
+import { PlightPage } from "./admin/page/plight/plightPage";
 import { CategoryPage } from "./admin/page/category/categoryPage";
 import { DonationPage } from "./admin/page/donation/donationPage";
 import { EventPage } from "./admin/page/event/eventPage";
@@ -48,6 +48,7 @@ export default function App() {
                         path="/donationRequestAdmin"
                         component={DonationRequestPage}
                     />
+                    <Route path="/plightAdmin" component={PlightPage} />
                 </Switch>
             </div>
             <Footer />

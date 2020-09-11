@@ -70,7 +70,7 @@ export const Menu = () => {
                             </Link>
                             <Link
                                 className="nav-link nav-link-4"
-                                to="/"
+                                to="/plightAdmin"
                                 data-toggle="collapse"
                                 aria-expanded="false"
                                 data-target="#submenu-4"

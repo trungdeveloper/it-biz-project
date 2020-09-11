@@ -2,9 +2,9 @@ import React from "react";
 import "../../cssAdmin/style.css";
 import { Menu } from "../menuLeft/menu";
 import { Header } from "../header/header";
-import DonationList from "../donation/donationList/donationList";
-import DonationAdd from "../donation/donationAdd/donationAdd";
-export const Donation = ({ request }) => {
+import PlightList from "../plight/plightList/plightList";
+import PlightAdd from "../plight/plightAdd/plightAdd";
+export const Plight = ({ request }) => {
     return (
         <div className="dashboard-main-wrapper">
             <Header />
@@ -17,17 +17,16 @@ export const Donation = ({ request }) => {
                             id=" btn-add"
                             onClick={() =>
                                 (document.getElementById(
-                                    "form-Dona"
-                                ).style.display = "block")``
+                                    "form-plight"
+                                ).style.display = "block")
                             }
                             style={{ marginTop: "-10rem" }}
                         >
                             Thêm Mới Tài trợ
                         </button>
-                        {/* <CategoryAdd />
-                        <DonationList /> */}
-                        <DonationAdd />
-                        <DonationList request={request} />
+
+                        <PlightAdd />
+                        <PlightList request={request} />
                     </div>
                 </div>
             </div>
