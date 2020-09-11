@@ -166,14 +166,14 @@ const NavBar = ({ auth, logout }) => {
                         </Link>
                     </li>
                     <li
-                        id="activities"
+                        id="donated"
                         className={`tag ${
-                            activeTab === "activities" ? "active" : ""
+                            activeTab === "donated" ? "active" : ""
                         }`}
                     >
                         <Link
-                            onClick={() => setActiveTab("activities")}
-                            to="/Activity"
+                            onClick={() => setActiveTab("donated")}
+                            to="/donated"
                         >
                             HOẠT ĐỘNG
                         </Link>

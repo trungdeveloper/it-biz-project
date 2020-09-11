@@ -8,7 +8,7 @@ import { Switch, Route } from "react-router";
 import { UserDonate } from "../../components/profile/donation";
 export const Profile = () => {
     return (
-        <div className="container">
+        <div>
             <div className="row">
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <SideBar />

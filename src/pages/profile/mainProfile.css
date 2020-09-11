@@ -3,6 +3,7 @@ ul.profile-category {
     margin: 25px 0px;
     padding: 0;
     background-color: #f1f1f1;
+    margin-left: 30px;
 }
 ul.profile-category>li:first-child{
     background-color: #3B6E23;
@@ -19,14 +20,6 @@ ul.profile-category li a{
 ul.profile-category li a:hover:not(.active){
     background-color: #131212;
     color: white;
-}
-ul.dropdown {
-    list-style: none;
-    padding: 8px 16px;
-    display: none;
-}
-li.dropdown:hover ul.dropdown {
-    display: block;
 }
 i.fa.fa-angle-down {
     font-size: 25px;

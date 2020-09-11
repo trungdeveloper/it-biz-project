@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 import IMG from "../../assets/images/amsieutoc1.jpg";
 export const ReceiveDonation = () => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <div className="container">
             <div className="row">
@@ -29,7 +34,13 @@ export const ReceiveDonation = () => {
                                         được, cảm ơn nhiều.
                                     </td>
                                     <td>
-                                        <img src={IMG} />
+                                        <button
+                                            type="button"
+                                            onClick={handleShow}
+                                            className="btn btn-info"
+                                        >
+                                            Hình ảnh
+                                        </button>
                                     </td>
                                     <td>Đang chờ xét duyệt</td>
                                     <td></td>
@@ -56,7 +67,13 @@ export const ReceiveDonation = () => {
                                         được, cảm ơn nhiều.
                                     </td>
                                     <td>
-                                        <img src={IMG} />
+                                        <button
+                                            type="button"
+                                            onClick={handleShow}
+                                            className="btn btn-info"
+                                        >
+                                            Hình ảnh
+                                        </button>
                                     </td>
                                     <td>Đã nhận</td>
                                     <td>Nguyễn Văn A</td>
@@ -64,6 +81,32 @@ export const ReceiveDonation = () => {
                                 </tr>
                             </tbody>
                         </table>
+                        <Modal
+                            show={show}
+                            onHide={handleClose}
+                            backdrop="static"
+                            aria-labelledby="contained-modal-title-vcenter"
+                            size="sm"
+                            centered
+                            keyboard={false}
+                        >
+                            <Modal.Header closeButton>
+                                <Modal.Title id="contained-modal-title-vcenter">
+                                    Hình ảnh
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body className="modal-image">
+                                <img src={IMG} />
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button
+                                    variant="secondary"
+                                    onClick={handleClose}
+                                >
+                                    Thoát
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 </div>
             </div>

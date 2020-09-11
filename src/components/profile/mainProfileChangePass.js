@@ -5,12 +5,10 @@ export const ChangePassword = () => {
         <div className="container">
             <div className="row">
                 <div className="user_profile">
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div className="title">
                             <h5>Thay đổi mật khẩu</h5>
                         </div>
-                    </div>
-                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <form className="profile-infor">
                             <div className="form-group">
                                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
