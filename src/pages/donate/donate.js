@@ -12,12 +12,11 @@ const Donate = ({ donate, progress, categories, uid }) => {
     const [state, setState] = React.useState({
         name: "",
         description: "",
-        status: "new",
+        condition: "new",
     });
     const [showModal, setShowModal] = React.useState(false);
-    const inputRef = React.useRef();
-
     const [image, setImage] = React.useState(null);
+    const inputRef = React.useRef();
 
     const handleOnChange = (e) => {
         const { id, value } = e.target;
@@ -36,7 +35,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
         date = dd + "/" + mm + "/" + yyyy;
         setShowModal(true);
         inputRef.current.value = "";
-        donate({ ...state, uid, accept: false, date }, image);
+        donate({ ...state, uid, status: "chờ xác nhận", date }, image);
         setState({
             name: "",
             status: "new",
@@ -69,13 +68,13 @@ const Donate = ({ donate, progress, categories, uid }) => {
                     </div>
                     <div className="form-group">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <label htmlFor="">Trạng thái</label>
+                            <label htmlFor="">Tình trạng sữ dụng</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
                                 className="form-control"
-                                value={state.status}
-                                id="status"
+                                value={state.condition}
+                                id="condition"
                                 onChange={handleOnChange}
                             >
                                 <option value="new">Còn mới</option>
@@ -122,7 +121,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
                             <label htmlFor="">Thông tin thêm</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <input
+                            <textarea
                                 type="text"
                                 className="form-control"
                                 id="description"
@@ -132,7 +131,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
                             />
                         </div>
                     </div>
-
+                    <br />
                     <div className="donations-button">
                         <div className="donations-btn-background" />
                         <button onClick={handleSubmitForm}>Gửi</button>

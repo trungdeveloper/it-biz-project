@@ -8,7 +8,7 @@ import { Redirect } from "react-router";
 import { CustomModal } from "../../util/CustomModal";
 import { addPlight } from "../../redux/plight/actions";
 
-const SharePlight = ({ uid, addPlight }) => {
+const SharePlight = ({ uid, addPlight, progress }) => {
     const [state, setState] = useState({
         name: "",
         address: "",
@@ -16,6 +16,8 @@ const SharePlight = ({ uid, addPlight }) => {
         message: "",
     });
     const [showModal, setShowModal] = React.useState(false);
+    const [image, setImage] = React.useState(null);
+    const inputRef = React.useRef();
 
     const onHandleChange = (e) => {
         const { id, value } = e.target;
@@ -32,13 +34,13 @@ const SharePlight = ({ uid, addPlight }) => {
         const mm = String(date.getMonth() + 1).padStart(2, "0");
         const yyyy = date.getFullYear();
         date = dd + "/" + mm + "/" + yyyy;
-        addPlight({ ...state, date, uid, accept: false });
+        addPlight({ ...state, date, uid, status: "waiting" }, image);
         setShowModal(true);
         setState({
             name: "",
             address: "",
             need: "",
-            message: "",
+            description: "",
         });
     };
 
@@ -91,7 +93,19 @@ const SharePlight = ({ uid, addPlight }) => {
                             />
                         </div>
                     </div>
-
+                    <div className="form-group">
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label htmlFor="">Ảnh vật phẩm</label>
+                        </div>
+                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input
+                                ref={inputRef}
+                                type="file"
+                                className="form-control"
+                                onChange={(e) => setImage(e.target.files[0])}
+                            />
+                        </div>
+                    </div>
                     <div className="form-group">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <label htmlFor="">Mô tả hoàn cảnh</label>
@@ -102,18 +116,22 @@ const SharePlight = ({ uid, addPlight }) => {
                                 cols="30"
                                 className="form-control"
                                 type="text"
-                                id="message"
-                                value={state.message}
+                                id="description"
+                                value={state.description}
                                 onChange={onHandleChange}
                             />
                         </div>
                     </div>
 
                     <div className="donateneed-button">
-                        <div className="donateneed-btn-background"></div>
+                        <div className="donateneed-btn-background" />
                         <button type="submit">Gửi</button>
                     </div>
-                    <CustomModal show={showModal} handleClose={setShowModal} />
+                    <CustomModal
+                        show={showModal}
+                        progress={progress}
+                        handleClose={setShowModal}
+                    />
                 </form>
             </div>
         </div>
@@ -123,12 +141,13 @@ const SharePlight = ({ uid, addPlight }) => {
 const mapStateToProps = (state) => {
     return {
         uid: state.firebase.auth.uid,
+        progress: state.plight.progress,
     };
 };
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        addPlight: (plight) => dispatch(addPlight(plight, props)),
+        addPlight: (plight, image) => dispatch(addPlight(plight, image, props)),
     };
 };
 
