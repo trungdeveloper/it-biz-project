@@ -4,7 +4,7 @@ import { Home } from "./pages/home/index";
 import NavBar from "./components/navBar";
 import { Plight } from "./pages/plight/plight";
 import { Donation } from "./pages/donation/donation";
-import { Activity } from "./pages/acitivity/activity";
+// import { Activity } from "./pages/acitivity/activity";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import { DonationDetail } from "./pages/donation/donationDetail";
@@ -15,6 +15,7 @@ import { Footer } from "./components/home/footer";
 import DonationForm from "./pages/donate/donate";
 import { Profile } from "./pages/profile/profile";
 import SharePlight from "./pages/share-plight/share-plight";
+import { Donated } from "./pages/donated/donated";
 
 export default function App() {
     return (
@@ -33,7 +34,7 @@ export default function App() {
                     <Route path="/DonationDetail" component={DonationDetail} />
                     <Route path="/Plight" component={Plight} />
                     <Route path="/PlightDetail" component={PlightDetail} />
-                    <Route path="/Activity" component={Activity} />
+                    <Route path="/donated" component={Donated} />
                     <Route path="/ActivityDetail" component={ActivityDetail} />
                     <Route path="/sharePlight" component={SharePlight} />
                 </Switch>

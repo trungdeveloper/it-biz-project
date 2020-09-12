@@ -386,7 +386,7 @@ a:hover, a:active {
     .hero-slider .pagination-wrap,
     .hero-slider .swiper-button-next,
     .hero-slider .swiper-button-prev{
-        display: none;
+        display: block;
     }
 
     .hero-content-overlay footer{
@@ -394,6 +394,15 @@ a:hover, a:active {
     }
 }
 
+@media screen and (max-width: 768px){
+    .hero-content-overlay p,
+    .hero-slider .pagination-wrap,
+    .hero-slider .swiper-button-next,
+    .hero-slider .swiper-button-prev{
+        display: none;
+    }
+
+}
 /*--------------------------------------------------------------
 # Elements Page
 --------------------------------------------------------------*/
