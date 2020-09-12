@@ -8,10 +8,10 @@ const DonationAdd = ({ donate, categories }) => {
     const [state, setState] = React.useState({
         name: "",
         description: "",
-        isused: "Còn mới",
+        condition: "Còn mới",
         category: "Thời Trang",
         date: "",
-        status: "Đang Đăng",
+        status: "Xác nhận",
         uid: "6xX4JP83ncSAYYwimBXzwtIu10T2",
     });
 
@@ -31,12 +31,12 @@ const DonationAdd = ({ donate, categories }) => {
         donate(state, image);
         setState({
             name: "",
-            isused: "Còn mới",
+            condition: "Còn mới",
             description: "",
             category: "Thời Trang",
             date: "",
-            status: "Đang Đăng",
-            uid: "6xX4JP83ncSAYYwimBXzwtIu10T2",
+            status: "Xác nhận",
+            uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
         });
         setImage(null);
         document.getElementById("form-Dona").style.display = "none";
@@ -105,8 +105,8 @@ const DonationAdd = ({ donate, categories }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
-                                value={state.isused}
-                                id="isused"
+                                value={state.condition}
+                                id="condition"
                                 onChange={handleOnChange}
                                 style={{
                                     width: "615px",

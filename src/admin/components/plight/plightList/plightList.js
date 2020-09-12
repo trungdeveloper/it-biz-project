@@ -40,19 +40,13 @@ const PlightList = (props) => {
                     </div>
                     <div className="card-body">
                         <div className="table-responsive">
-                            <MDBTable
-                                striped
-                                bordered
-                                small
-                                //  className="table table-striped table-bordered first"
-                            >
+                            <MDBTable striped bordered small>
                                 <MDBTableHead>
                                     <tr>
-                                        <th>Tên</th>
-                                        <th>Ngày</th>
-                                        <th>Tóm tắt</th>
-                                        <th>Thể Loại</th>
-                                        <th>Trạng Thái</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Chi Tiết</th>
+                                        <th>Tình trang</th>
+                                        <th>Liên hệ</th>
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>
@@ -70,7 +64,7 @@ const mapStateToProps = (state, props) => {
     const plights = !props.request
         ? state.firestore.ordered.plight
         : state.firestore.ordered.plight?.filter(
-              (e) => e.status === "Đang Đợi"
+              (e) => e.status === "Chờ xác nhận"
           );
     //console.log(donations);
     return {

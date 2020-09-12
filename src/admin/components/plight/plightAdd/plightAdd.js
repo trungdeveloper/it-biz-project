@@ -6,11 +6,10 @@ import { withFirestore } from "react-redux-firebase";
 import { RiReplyAllLine, RiFolderAddLine } from "react-icons/ri";
 const PlightAdd = ({ plight }) => {
     const [state, setState] = React.useState({
-        title: "",
+        need: "",
         description: "",
         address: "",
-        contact: "",
-        status: "Đang Đăng",
+        status: "Xác nhận",
         uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
     });
 
@@ -29,11 +28,11 @@ const PlightAdd = ({ plight }) => {
         inputRef.current.value = "";
         plight(state, image);
         setState({
-            title: "",
+            need: "",
             description: "",
             address: "",
             contact: "",
-            status: "Đang Đăng",
+            status: "Xác nhận",
             uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
         });
         setImage(null);
@@ -60,9 +59,9 @@ const PlightAdd = ({ plight }) => {
                             <input
                                 type="text"
                                 className="form-control"
-                                id="title"
+                                id="need"
                                 placeholder="Nhập tiêu đề hoàn cảnh"
-                                value={state.title}
+                                value={state.need}
                                 onChange={handleOnChange}
                             />
                         </div>

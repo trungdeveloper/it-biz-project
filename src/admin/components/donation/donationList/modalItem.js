@@ -32,7 +32,7 @@ const ModalItem = ({
     const [name, setName] = useState(donation.name);
     const [description, setDescription] = useState(donation.description);
     const [category, setCate] = useState(donation.category);
-    const [isused, setIsued] = useState(donation.isused);
+    const [condition, setCondition] = useState(donation.condition);
     const [date, setDate] = useState(donation.date);
     const [status, setStatus] = useState(donation.status);
     const [image, setImage] = React.useState(donation.imgUrl);
@@ -42,10 +42,10 @@ const ModalItem = ({
             name: donation.name,
             description: donation.description,
             category: donation.category,
-            status: "Đang Đăng",
+            status: "Xác nhận",
             date: donation.date,
             uid: donation.uid,
-            isused: donation.isused,
+            condition: donation.condition,
         };
         acceptDonation(dataAccept, donation.id);
     };
@@ -54,10 +54,10 @@ const ModalItem = ({
             name: donation.name,
             description: donation.description,
             category: donation.category,
-            status: "Hủy bài đăng",
+            status: "Từ chối",
             date: donation.date,
             uid: donation.uid,
-            isused: donation.isused,
+            condition: donation.condition,
         };
         acceptDonation(dataAccept, donation.id);
     };
@@ -69,7 +69,7 @@ const ModalItem = ({
             status: "Đã Trao Tặng",
             date: donation.date,
             uid: donation.uid,
-            isused: donation.isused,
+            condition: donation.condition,
         };
         acceptDonation(dataAccept, donation.id);
     };
@@ -80,7 +80,7 @@ const ModalItem = ({
             name,
             description,
             category,
-            isused,
+            condition,
             date,
             uid: donation.uid,
             status: status,
@@ -180,16 +180,16 @@ const ModalItem = ({
                             <Input
                                 type="text"
                                 style={{ border: "none" }}
-                                value={isused}
-                                onChange={(e) => setIsued(e.target.value)}
+                                value={condition}
+                                onChange={(e) => setCondition(e.target.value)}
                                 readOnly={!isEditable}
                                 required="required"
                             />
                         ) : (
                             <select
-                                value={isused}
-                                id="isused"
-                                onChange={(e) => setStatus(e.target.value)}
+                                value={condition}
+                                id="condition"
+                                onChange={(e) => setCondition(e.target.value)}
                                 style={{ height: "36px", border: "none" }}
                             >
                                 <option value="Còn mới">Còn mới</option>
@@ -217,18 +217,18 @@ const ModalItem = ({
                             />
                         ) : (
                             <select
-                                value={isused}
-                                id="isused"
+                                value={status}
+                                id="status"
                                 onChange={(e) => setStatus(e.target.value)}
                                 style={{ height: "36px", border: "none" }}
                             >
-                                <option value="Đang Đợi">Đang Đợi</option>
-                                <option value="Đang đăng">Đang đăng</option>
-                                <option value="Hủy bài đăng">
-                                    Hủy bài đăng
+                                <option value="Chờ xác nhận">
+                                    Chờ xác nhận
                                 </option>
-                                <option value="Đã Trao Tặng">
-                                    Đã Trao Tặng
+                                <option value="Xác nhận">Xác nhận</option>
+                                <option value="Từ chối">Từ chối</option>
+                                <option value="Đã trao tăng">
+                                    Đã trao tăng
                                 </option>
                             </select>
                         )}

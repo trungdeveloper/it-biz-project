@@ -18,7 +18,7 @@ export const Donation = ({ request }) => {
                             onClick={() =>
                                 (document.getElementById(
                                     "form-Dona"
-                                ).style.display = "block")``
+                                ).style.display = "block")
                             }
                             style={{ marginTop: "-10rem" }}
                         >

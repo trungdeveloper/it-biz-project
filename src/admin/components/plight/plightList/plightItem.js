@@ -10,7 +10,7 @@ const DonationItem = (props) => {
 
     return (
         <tr>
-            <td>{plight.title}</td>
+            <td>{plight.need}</td>
             <td>{plight.address}</td>
             <td>{plight.contact}</td>
             <td>{plight.status}</td>

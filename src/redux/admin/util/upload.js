@@ -56,7 +56,16 @@ export const UpdateUpload = (
     successAction,
     failureAction
 ) => {
-    const { id, name, description, category, status, date, isused, uid } = data;
+    const {
+        id,
+        name,
+        description,
+        category,
+        status,
+        date,
+        condition,
+        uid,
+    } = data;
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`donation${image.name}`).put(image);
@@ -86,7 +95,7 @@ export const UpdateUpload = (
                             status: status,
                             date: date,
                             uid: uid,
-                            isused: isused,
+                            condition: condition,
                         })
                         .then(() => {
                             dispatch(successAction(data));
@@ -156,7 +165,7 @@ export const UpdateUploadPlight = (
     successAction,
     failureAction
 ) => {
-    const { id, title, description, contact, status, uid } = data;
+    const { id, need, description, status, uid } = data;
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`plight${image.name}`).put(image);
@@ -180,9 +189,8 @@ export const UpdateUploadPlight = (
                         .doc(id)
                         .update({
                             imgUrl: downloadURL,
-                            title: title,
+                            need: need,
                             description: description,
-                            contact: contact,
                             status: status,
                             uid: uid,
                         })

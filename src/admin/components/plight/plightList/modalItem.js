@@ -28,10 +28,9 @@ const ModalItem = ({
 }) => {
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
-    const [title, setTitle] = useState(plight.name);
+    const [need, setNeed] = useState(plight.need);
     const [description, setDescription] = useState(plight.description);
     const [address, setAddress] = useState(plight.address);
-    const [contact, setContact] = useState(plight.contact);
     const [status, setStatus] = useState(plight.status);
     const [image, setImage] = React.useState(plight.imgUrl);
     const [newImage, updateNewImage] = useState(null);
@@ -103,8 +102,8 @@ const ModalItem = ({
                         <Input
                             type="text"
                             style={{ border: "none" }}
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            value={need}
+                            onChange={(e) => setNeed(e.target.value)}
                             readOnly={!isEditable}
                             required="required"
                         />
@@ -115,7 +114,7 @@ const ModalItem = ({
                         <label htmlFor="">Chi tiết hoàn cảnh</label>
                     </div>
                     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <Input
+                        <textarea
                             type="text"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
@@ -157,7 +156,7 @@ const ModalItem = ({
                         <label htmlFor="">Địa chỉ hoàn cảnh</label>
                     </div>
                     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <textarea
+                        <Input
                             type="text"
                             style={{ border: "none", width: "100%" }}
                             value={address}
@@ -188,13 +187,13 @@ const ModalItem = ({
                                 onChange={(e) => setStatus(e.target.value)}
                                 style={{ height: "36px", border: "none" }}
                             >
-                                <option value="Đang Đợi">Đang Đợi</option>
-                                <option value="Đang đăng">Đang đăng</option>
-                                <option value="Hủy bài đăng">
-                                    Hủy bài đăng
+                                <option value="Chờ xác nhận">
+                                    Chờ xác nhận
                                 </option>
-                                <option value="Đã Trao Tặng">
-                                    Đã Trao Tặng
+                                <option value="Xác nhận">Xác nhận</option>
+                                <option value="Từ chối">Từ chối</option>
+                                <option value="Đã trao tăng">
+                                    Đã trao tăng
                                 </option>
                             </select>
                         )}
@@ -301,7 +300,7 @@ const ModalItem = ({
                             Hủy
                         </button>
                     ) : null}
-                    {plight.status === "Đang Đăng" ? (
+                    {/* {plight.status === "Đang Đăng" ? (
                         <button
                             className="btn btn-warning"
                             style={{
@@ -312,7 +311,7 @@ const ModalItem = ({
                         >
                             Tài trợ
                         </button>
-                    ) : null}
+                    ) : null} */}
                 </div>
             </Form>
         );
