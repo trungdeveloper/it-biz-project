@@ -1,12 +1,25 @@
 import * as types from "./types";
+import { Upload } from "../util/upload";
 
-export const addPlight = (plight, props) => {
+export const addPlight = (plight, image, props) => {
     return (dispatch) => {
-        props.firestore
-            .collection("plight")
-            .add(plight)
-            .then(() => dispatch(postSuccess(plight)))
-            .catch((err) => dispatch(postFailure(err)));
+        Upload(
+            props,
+            "plight",
+            plight,
+            image,
+            dispatch,
+            loadingProcess,
+            postSuccess,
+            postFailure
+        );
+    };
+};
+
+export const loadingProcess = (progress) => {
+    return {
+        type: types.POST_PLIGHT_PROGRESS,
+        progress,
     };
 };
 
