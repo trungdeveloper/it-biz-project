@@ -92,6 +92,19 @@ export const Menu = () => {
                                     $(".nav-link-5").addClass("active");
                                 }}
                             >
+                                Yêu cầu Tài trợ
+                            </Link>
+                            <Link
+                                className="nav-link nav-link-6"
+                                to="/plightRequestAdmin"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-5"
+                                aria-controls="submenu-5"
+                                onClick={() => {
+                                    $(".nav-link-6").addClass("active");
+                                }}
+                            >
                                 Yêu cầu hoàn cảnh
                             </Link>
                         </ul>

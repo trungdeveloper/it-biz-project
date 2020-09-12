@@ -21,6 +21,7 @@ import { DonationPage } from "./admin/page/donation/donationPage";
 import { EventPage } from "./admin/page/event/eventPage";
 import { useSelector } from "react-redux";
 import { DonationRequestPage } from "./admin/page/donation/donationRequest";
+import { PlightRequestPage } from "./admin/page/plight/plightRequestPage";
 export default function App() {
     const uid = useSelector((state) => state.firebase.auth.uid);
     return (
@@ -49,6 +50,10 @@ export default function App() {
                         component={DonationRequestPage}
                     />
                     <Route path="/plightAdmin" component={PlightPage} />
+                    <Route
+                        path="/plightRequestAdmin"
+                        component={PlightRequestPage}
+                    />
                 </Switch>
             </div>
             <Footer />
