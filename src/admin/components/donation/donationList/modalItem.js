@@ -66,7 +66,7 @@ const ModalItem = ({
             name: donation.name,
             description: donation.description,
             category: donation.category,
-            status: "Đã Trao Tặng",
+            status: "Đã trao tặng",
             date: donation.date,
             uid: donation.uid,
             condition: donation.condition,

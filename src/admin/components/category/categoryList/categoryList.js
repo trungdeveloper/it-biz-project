@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 const CategoryList = (props) => {
     const categories = props.categories;
-
+    const [search, setSearch] = useState("");
     const categoryItems =
         categories &&
         categories.map((c) => <CategoryItem key={c.name} category={c} />);
@@ -26,6 +26,10 @@ const CategoryList = (props) => {
                                     className="dataTables_filter col-9"
                                 >
                                     <input
+                                        value={search}
+                                        onChange={(e) =>
+                                            setSearch(e.target.value)
+                                        }
                                         type="search"
                                         className="form-control form-control-sm"
                                         placeholder=""

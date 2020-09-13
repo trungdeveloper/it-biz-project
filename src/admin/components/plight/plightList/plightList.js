@@ -6,6 +6,7 @@ import "../../../cssAdmin/style.css";
 import PlightItem from "./plightItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
+
 const PlightList = (props) => {
     const plights = props.plights;
     const plihtItems =
