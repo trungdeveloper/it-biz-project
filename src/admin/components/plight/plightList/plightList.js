@@ -23,7 +23,32 @@ const PlightList = (props) => {
                 donorId,
                 plightId,
             })
-            .then((response) => console.log(response))
+            .then(() => {
+                /**
+                 * Start to handle update the status
+                 */
+                props.firestore
+                    .collection("donation")
+                    .doc(donorId)
+                    .update({
+                        status: "trao tanged",
+                    })
+                    .then(() => {})
+                    .catch((error) => {
+                        console.log(error);
+                    });
+
+                props.firestore
+                    .collection("plight")
+                    .doc(plightId)
+                    .update({
+                        status: "trao tanged",
+                    })
+                    .then(() => {})
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            })
             .catch((error) => {
                 console.log(error);
             });

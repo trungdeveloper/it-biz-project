@@ -28,6 +28,7 @@ export const deleteCategory = (id, ownProps) => {
 };
 export const updateCategory = (category, id, props) => {
     return (dispatch) => {
+        console.log(category);
         props.firestore
             .collection("categories")
             .doc(id)
