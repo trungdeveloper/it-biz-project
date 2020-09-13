@@ -6,6 +6,7 @@ import "../../../cssAdmin/style.css";
 import DonationItem from "./donationItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
+import "./donation.style.scss";
 const DonationList = (props) => {
     const donations = props.donations;
     const donationItems =

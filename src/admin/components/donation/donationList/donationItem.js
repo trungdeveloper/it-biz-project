@@ -1,12 +1,15 @@
 /* eslint-disable no-const-assign */
-import React from "react";
+import React, { useState } from "react";
 import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore } from "react-redux-firebase";
 import ModalItem from "./modalItem";
+import { Redirect } from "react-router-dom";
+
 const DonationItem = (props) => {
     const donation = props.donation;
     const [showModal, setShowModal] = React.useState(false);
+    const [goNow, updateGoNow] = useState(false);
 
     return (
         <tr>
@@ -21,6 +24,15 @@ const DonationItem = (props) => {
                 >
                     Xem chi tết
                 </button>
+                <button
+                    onClick={() => {
+                        updateGoNow(true);
+                    }}
+                    className="button button--default"
+                >
+                    Tài trợ
+                </button>
+                {goNow && <Redirect to={`/plightAdmin?id=${donation.id}`} />}
                 <ModalItem
                     donation={donation}
                     show={showModal}

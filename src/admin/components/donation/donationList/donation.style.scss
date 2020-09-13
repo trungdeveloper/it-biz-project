@@ -1,0 +1,23 @@
+.button {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+
+  &--default {
+    border-radius: 2px;
+    background-color: #3B6F23;
+    border-color: #3B6F23;
+    margin-left: 5px;
+    color: #fff;
+  }
+}
