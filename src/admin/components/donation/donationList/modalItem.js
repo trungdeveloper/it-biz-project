@@ -31,7 +31,12 @@ const ModalItem = ({
     const inputRef = React.useRef();
     const [name, setName] = useState(donation.name);
     const [description, setDescription] = useState(donation.description);
-    const [category, setCate] = useState(donation.category);
+    const [category_id, setCate] = useState(
+        categories &&
+            categories.map((cate) =>
+                cate.id === donation.category_id ? cate.name : null
+            )
+    );
     const [condition, setCondition] = useState(donation.condition);
     const [date, setDate] = useState(donation.date);
     const [status, setStatus] = useState(donation.status);
@@ -41,8 +46,8 @@ const ModalItem = ({
         const dataAccept = {
             name: donation.name,
             description: donation.description,
-            category: donation.category,
-            status: "Xác nhận",
+            category_id: donation.category_id,
+            status: "xác nhận",
             date: donation.date,
             uid: donation.uid,
             condition: donation.condition,
@@ -53,20 +58,8 @@ const ModalItem = ({
         const dataAccept = {
             name: donation.name,
             description: donation.description,
-            category: donation.category,
-            status: "Từ chối",
-            date: donation.date,
-            uid: donation.uid,
-            condition: donation.condition,
-        };
-        acceptDonation(dataAccept, donation.id);
-    };
-    const donationProduct = () => {
-        const dataAccept = {
-            name: donation.name,
-            description: donation.description,
-            category: donation.category,
-            status: "Đã trao tặng",
+            category_id: donation.category_id,
+            status: "từ chối",
             date: donation.date,
             uid: donation.uid,
             condition: donation.condition,
@@ -79,7 +72,7 @@ const ModalItem = ({
             id,
             name,
             description,
-            category,
+            category_id,
             condition,
             date,
             uid: donation.uid,
@@ -243,21 +236,22 @@ const ModalItem = ({
                             <Input
                                 type="text"
                                 style={{ border: "none" }}
-                                value={category}
+                                value={category_id}
                                 onChange={(e) => setCate(e.target.value)}
                                 readOnly={!isEditable}
                                 required="required"
                             />
                         ) : (
                             <select
-                                value={category}
-                                id="cate"
+                                value={category_id}
+                                id="category_id"
                                 onChange={(e) => setCate(e.target.value)}
                                 style={{ height: "36px", border: "none" }}
                             >
+                                <option>Thể Loại</option>
                                 {categories &&
                                     categories.map((cate) => (
-                                        <option key={cate.id} value={cate.name}>
+                                        <option key={cate.id} value={cate.id}>
                                             {cate.name}
                                         </option>
                                     ))}
@@ -341,24 +335,24 @@ const ModalItem = ({
                     >
                         <BsFillTrashFill />
                     </button>
-                    {donation.status === "Đang Đợi" ? (
+                    {donation.status === "chờ xác nhận" ? (
                         <button
                             className="btn btn-warning"
                             style={{
-                                width: "50px",
+                                width: "150px",
                                 backgroundColor: "#ffc107",
                                 marginRight: "10px",
                             }}
                             onClick={acceptDonations}
                         >
-                            <FcAcceptDatabase />
+                            Xác nhận
                         </button>
                     ) : null}
-                    {donation.status === "Đang Đợi" ? (
+                    {donation.status === "chờ xác nhận" ? (
                         <button
                             className="btn btn-danger"
                             style={{
-                                width: "100px",
+                                width: "70px",
                                 backgroundColor: "#dc3545",
                             }}
                             onClick={cancelDonations}
@@ -366,7 +360,7 @@ const ModalItem = ({
                             Hủy
                         </button>
                     ) : null}
-                    {donation.status === "Đang Đăng" ? (
+                    {/* {donation.status === "Đang Đăng" ? (
                         <button
                             className="btn btn-warning"
                             style={{
@@ -377,7 +371,7 @@ const ModalItem = ({
                         >
                             Tài trợ
                         </button>
-                    ) : null}
+                    ) : null} */}
                 </div>
             </Form>
         );

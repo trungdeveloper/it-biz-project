@@ -52,7 +52,6 @@ const DonationList = (props) => {
                                         <th>Tên</th>
                                         <th>Ngày</th>
                                         <th>Tóm tắt</th>
-                                        <th>Thể Loại</th>
                                         <th>Trạng Thái</th>
                                         <th>Hành Động</th>
                                     </tr>

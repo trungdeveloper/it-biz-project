@@ -29,20 +29,20 @@ export const updatePlight = (data, image, firebaseActions, callback) => {
         );
     };
 };
-// export const acceptPLIGHT = (PLIGHT, id, props) => {
-//     return (dispatch) => {
-//         props.firestore
-//             .collection("PLIGHT")
-//             .doc(id)
-//             .update(PLIGHT)
-//             .then(() => {
-//                 dispatch({ type: types.UPDATE_PLIGHT_SUCCESS });
-//             })
-//             .catch((err) => {
-//                 dispatch({ type: types.UPDATE_PLIGHT_SUCCESS, err });
-//             });
-//     };
-// };
+export const acceptPlight = (plight, id, props) => {
+    return (dispatch) => {
+        props.firestore
+            .collection("plight")
+            .doc(id)
+            .update(plight)
+            .then(() => {
+                dispatch({ type: types.UPDATE_PLIGHT_SUCCESS });
+            })
+            .catch((err) => {
+                dispatch({ type: types.UPDATE_PLIGHT_SUCCESS, err });
+            });
+    };
+};
 export const UpdatePlightSuccess = (data) => {
     return {
         type: types.UPDATE_PLIGHT_SUCCESS,

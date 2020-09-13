@@ -9,10 +9,10 @@ const DonationAdd = ({ donate, categories }) => {
         name: "",
         description: "",
         condition: "Còn mới",
-        category: "Thời Trang",
+        category_id: "",
         date: "",
-        status: "Xác nhận",
-        uid: "6xX4JP83ncSAYYwimBXzwtIu10T2",
+        status: "xác nhận",
+        uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
     });
 
     const inputRef = React.useRef();
@@ -33,9 +33,9 @@ const DonationAdd = ({ donate, categories }) => {
             name: "",
             condition: "Còn mới",
             description: "",
-            category: "Thời Trang",
+            category_id: "",
             date: "",
-            status: "Xác nhận",
+            status: "xác nhận",
             uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
         });
         setImage(null);
@@ -128,8 +128,8 @@ const DonationAdd = ({ donate, categories }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
-                                value={state.category}
-                                id="category"
+                                value={state.category_id}
+                                id="category_id"
                                 onChange={handleOnChange}
                                 style={{
                                     width: "615px",
@@ -137,9 +137,10 @@ const DonationAdd = ({ donate, categories }) => {
                                     border: "1px solid #ced4da",
                                 }}
                             >
+                                <option>Thể Loại</option>
                                 {categories &&
                                     categories.map((cate) => (
-                                        <option key={cate.id} value={cate.name}>
+                                        <option key={cate.id} value={cate.id}>
                                             {cate.name}
                                         </option>
                                     ))}

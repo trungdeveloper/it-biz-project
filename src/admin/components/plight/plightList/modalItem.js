@@ -13,7 +13,7 @@ import { connect } from "react-redux";
 import {
     deletePlight,
     updatePlight,
-    // acceptPlight,
+    acceptPlight,
 } from "../../../../redux/admin/plight/actions";
 import { Input } from "reactstrap";
 const ModalItem = ({
@@ -23,7 +23,7 @@ const ModalItem = ({
     plight,
     users,
     deletePlight,
-    // acceptPlight,
+    acceptPlight,
     updatePlight,
 }) => {
     const [isEditable, setIsEdit] = useState(false);
@@ -34,60 +34,45 @@ const ModalItem = ({
     const [status, setStatus] = useState(plight.status);
     const [image, setImage] = React.useState(plight.imgUrl);
     const [newImage, updateNewImage] = useState(null);
-    // const acceptDonations = () => {
-    //     const dataAccept = {
-    //         name: donation.name,
-    //         description: donation.description,
-    //         category: donation.category,
-    //         status: "Đang Đăng",
-    //         date: donation.date,
-    //         uid: donation.uid,
-    //         isused: donation.isused,
-    //     };
-    //     acceptDonation(dataAccept, donation.id);
-    // };
-    // const cancelDonations = () => {
-    //     const dataAccept = {
-    //         name: donation.name,
-    //         description: donation.description,
-    //         category: donation.category,
-    //         status: "Hủy bài đăng",
-    //         date: donation.date,
-    //         uid: donation.uid,
-    //         isused: donation.isused,
-    //     };
-    //     acceptDonation(dataAccept, donation.id);
-    // };
-    // const donationProduct = () => {
-    //     const dataAccept = {
-    //         name: donation.name,
-    //         description: donation.description,
-    //         category: donation.category,
-    //         status: "Đã Trao Tặng",
-    //         date: donation.date,
-    //         uid: donation.uid,
-    //         isused: donation.isused,
-    //     };
-    //     acceptDonation(dataAccept, donation.id);
-    // };
-    // const updatePlight = () => {
-    //     const id = plight.id;
-    //     const dataUpdate = {
-    //         title,
-    //         description,
-    //         address,
-    //         contact,
-    //         status,
-    //         uid: plight.uid,
-    //     };
-    //     const firebaseActions = {
-    //         firebase: props.firebase,
-    //     };
-    //     updatePlight(dataUpdate, newImage, firebaseActions, (imageUrl) => {
-    //         setImage(imageUrl);
-    //     });
-    //     setIsEdit(false);
-    // };
+    const acceptPlights = () => {
+        const dataAccept = {
+            need,
+            description,
+            address,
+            status: "xác nhận",
+            uid: plight.uid,
+            imgUrl: plight.imgUrl,
+        };
+        acceptPlight(dataAccept, plight.id);
+    };
+    const cancelPlights = () => {
+        const dataAccept = {
+            need,
+            description,
+            address,
+            status: "từ chối",
+            uid: plight.uid,
+            imgUrl: plight.imgUrl,
+        };
+        acceptPlight(dataAccept, plight.id);
+    };
+    const updatePlights = () => {
+        //  const id = plight.id;
+        const dataUpdate = {
+            need,
+            description,
+            address,
+            status,
+            uid: plight.uid,
+        };
+        const firebaseActions = {
+            firebase: props.firebase,
+        };
+        updatePlight(dataUpdate, newImage, firebaseActions, (imageUrl) => {
+            setImage(imageUrl);
+        });
+        setIsEdit(false);
+    };
     const delPlight = () => {
         deletePlight(plight.id);
     };
@@ -242,7 +227,7 @@ const ModalItem = ({
                         <span>
                             <button
                                 className=" btn btn-success"
-                                //onClick={ updatePlight}
+                                onClick={updatePlights}
                                 style={{
                                     width: "50px",
                                     height: "50px",
@@ -275,7 +260,7 @@ const ModalItem = ({
                     >
                         <BsFillTrashFill />
                     </button>
-                    {plight.status === "Đang Đợi" ? (
+                    {plight.status === "chờ xác nhận" ? (
                         <button
                             className="btn btn-warning"
                             style={{
@@ -283,35 +268,23 @@ const ModalItem = ({
                                 backgroundColor: "#ffc107",
                                 marginRight: "10px",
                             }}
-                            /// onClick={acceptPlight}
+                            onClick={acceptPlights}
                         >
                             <FcAcceptDatabase />
                         </button>
                     ) : null}
-                    {plight.status === "Đang Đợi" ? (
+                    {plight.status === "chờ xác nhận" ? (
                         <button
                             className="btn btn-danger"
                             style={{
                                 width: "100px",
                                 backgroundColor: "#dc3545",
                             }}
-                            //onClick={cancelDonations}
+                            onClick={cancelPlights}
                         >
                             Hủy
                         </button>
                     ) : null}
-                    {/* {plight.status === "Đang Đăng" ? (
-                        <button
-                            className="btn btn-warning"
-                            style={{
-                                width: "70px",
-                                backgroundColor: "#ffc107",
-                            }}
-                            // onClick={donationProduct}
-                        >
-                            Tài trợ
-                        </button>
-                    ) : null} */}
                 </div>
             </Form>
         );
@@ -342,7 +315,7 @@ const mapDispatchToProps = (dispatch, props) => {
         deletePlight: (id) => dispatch(deletePlight(id, props)),
         updatePlight: (data, image, firebaseActions, callback) =>
             dispatch(updatePlight(data, image, firebaseActions, callback)),
-        // acceptPlight: (plight, id) => dispatch(acceptPlight(plight, id, props)),
+        acceptPlight: (plight, id) => dispatch(acceptPlight(plight, id, props)),
     };
 };
 const mapStateToProps = (state, props) => {

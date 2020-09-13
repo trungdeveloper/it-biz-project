@@ -13,7 +13,6 @@ const DonationItem = (props) => {
             <td>{donation.name}</td>
             <td>{donation.date}</td>
             <td>{donation.description}</td>
-            <td>{donation.category}</td>
             <td>{donation.status}</td>
             <td>
                 <button
