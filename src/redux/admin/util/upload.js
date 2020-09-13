@@ -119,6 +119,7 @@ export const UpdateUploadEvent = (
 ) => {
     const { id, title, content, date } = data;
     const { firebase, firestore } = firebaseActions;
+    console.log(firestore);
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`event${image.name}`).put(image);
     uploadTask.on(
@@ -169,6 +170,10 @@ export const UpdateUploadPlight = (
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`plight${image.name}`).put(image);
+
+    console.log("====================================");
+    console.log("Start to handle for saving the data");
+    console.log("====================================");
     uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -184,6 +189,19 @@ export const UpdateUploadPlight = (
                 .getDownloadURL()
                 .then(function (downloadURL) {
                     callback(downloadURL);
+                    console.log("====================================");
+                    console.log("Data checking");
+                    console.log("====================================");
+                    console.log("path", path);
+                    console.log("id", id);
+                    console.log("dataEnd", {
+                        imgUrl: downloadURL,
+                        need: need,
+                        description: description,
+                        status: status,
+                        uid: uid,
+                    });
+                    console.log("firestore", firestore);
                     firestore
                         .collection(path)
                         .doc(id)

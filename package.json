@@ -28,7 +28,8 @@
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5",
     "redux-firestore": "^0.13.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "node-sass": "4.14.1"
   },
   "scripts": {
     "start": "cross-env BROWSER='none' react-scripts start",

@@ -9,6 +9,7 @@ import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
+import "./modal.style.scss";
 
 import {
     deletePlight,
@@ -25,6 +26,8 @@ const ModalItem = ({
     deletePlight,
     acceptPlight,
     updatePlight,
+    firebase,
+    firestore,
 }) => {
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
@@ -57,21 +60,44 @@ const ModalItem = ({
         acceptPlight(dataAccept, plight.id);
     };
     const updatePlights = () => {
-        //  const id = plight.id;
+        const id = plight.id;
         const dataUpdate = {
             need,
             description,
             address,
             status,
             uid: plight.uid,
+            id,
         };
+
+        console.log("data inputed", dataUpdate);
+
+        /**
+         * Destructure firebase
+         */
         const firebaseActions = {
-            firebase: props.firebase,
+            firebase,
+            firestore,
         };
-        updatePlight(dataUpdate, newImage, firebaseActions, (imageUrl) => {
-            setImage(imageUrl);
-        });
-        setIsEdit(false);
+
+        if (newImage) {
+            /**
+             * Precessing for saving the data from user
+             */
+            updatePlight(dataUpdate, newImage, firebaseActions, (imageUrl) => {
+                setImage(imageUrl);
+            });
+
+            /**
+             * Update the status of the modal
+             */
+            setIsEdit(false);
+        } else {
+            /**
+             * TODO: Error handle when user dont update any images
+             */
+            console.log("Please insert an image.");
+        }
     };
     const delPlight = () => {
         deletePlight(plight.id);
@@ -227,7 +253,11 @@ const ModalItem = ({
                         <span>
                             <button
                                 className=" btn btn-success"
-                                onClick={updatePlights}
+                                type="button"
+                                onClick={(e) => {
+                                    updatePlights();
+                                    e.preventDefault();
+                                }}
                                 style={{
                                     width: "50px",
                                     height: "50px",
