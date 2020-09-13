@@ -71,7 +71,7 @@ const mapStateToProps = (state, props) => {
     const donations = !props.request
         ? state.firestore.ordered.donation
         : state.firestore.ordered.donation?.filter(
-              (e) => e.status === "Chờ xác nhận"
+              (e) => e.status === "chờ xác nhận"
           );
     //console.log(donations);
     return {
