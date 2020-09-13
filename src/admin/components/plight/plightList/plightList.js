@@ -9,8 +9,36 @@ import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 
 const PlightList = (props) => {
     const plights = props.plights;
+
+    const handleSaveDonation = (donorId, plightId) => {
+        console.log([donorId, plightId]);
+        console.log(props.firestore);
+
+        /**
+         * Hanlde for saving donations
+         */
+        props.firestore
+            .collection("donated")
+            .add({
+                donorId,
+                plightId,
+            })
+            .then((response) => console.log(response))
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     const plihtItems =
-        plights && plights.map((c) => <PlightItem key={c.id} plight={c} />);
+        plights &&
+        plights.map((c) => (
+            <PlightItem
+                handleSaveDonation={handleSaveDonation}
+                key={c.id}
+                plight={c}
+            />
+        ));
+
     return (
         <div className="row" style={{ marginTop: "0rem" }}>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -70,6 +98,8 @@ const mapStateToProps = (state, props) => {
     //console.log(donations);
     return {
         plights,
+        firebase: state.firebase,
+        firestore: state.firestore,
     };
 };
 

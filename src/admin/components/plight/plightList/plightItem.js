@@ -5,9 +5,12 @@ import { compose } from "redux";
 import { withFirestore } from "react-redux-firebase";
 import ModalItem from "./modalItem";
 import { connect } from "react-redux";
-const DonationItem = (props, firebase) => {
+import { getParameter } from "../../../../redux/util/helpers";
+const DonationItem = (props) => {
     const plight = props.plight;
     const [showModal, setShowModal] = useState(false);
+    const id = getParameter("id");
+
     return (
         <tr>
             <td>{plight.need}</td>
@@ -23,6 +26,14 @@ const DonationItem = (props, firebase) => {
                     }}
                 >
                     Xem chi tết
+                </button>
+                <button
+                    onClick={() => {
+                        props.handleSaveDonation(id, plight.id);
+                    }}
+                    className="button button--default"
+                >
+                    Nhận trài trợ
                 </button>
                 <ModalItem
                     plight={plight}
