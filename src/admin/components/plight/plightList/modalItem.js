@@ -286,7 +286,10 @@ const ModalItem = ({
                             backgroundColor: "#dc3545",
                             marginRight: "10px",
                         }}
-                        onClick={delPlight}
+                        onClick={(e) => {
+                            delPlight();
+                            e.preventDefault();
+                        }}
                     >
                         <BsFillTrashFill />
                     </button>
