@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
@@ -10,6 +10,26 @@ const EventList = (props) => {
     const events = props.events;
     const eventItems =
         events && events.map((c) => <EventItem key={c.id} event={c} />);
+    const keyword = useRef("");
+    const [searchData, updateSearchData] = useState([]);
+
+    const handleForSearch = () => {
+        let key = keyword.current.value;
+        key = key.toLowerCase();
+
+        const result = events.filter(
+            (item) => item.title.toLowerCase().indexOf(key) !== -1
+        );
+
+        if (result) {
+            updateSearchData(result);
+        } else {
+            updateSearchData([]);
+        }
+    };
+    const searchItem = searchData.map((c) => (
+        <EventItem key={c.id} event={c} />
+    ));
     return (
         <div className="row">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -24,6 +44,7 @@ const EventList = (props) => {
                                     className="dataTables_filter col-9"
                                 >
                                     <input
+                                        ref={keyword}
                                         type="search"
                                         className="form-control form-control-sm"
                                         placeholder=""
@@ -31,7 +52,10 @@ const EventList = (props) => {
                                     />
                                 </div>
                                 <div className="col-3">
-                                    <button className="btn btn-success">
+                                    <button
+                                        onClick={handleForSearch}
+                                        className="btn btn-success"
+                                    >
                                         <BsSearch />
                                     </button>
                                 </div>
@@ -55,7 +79,11 @@ const EventList = (props) => {
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>
-                                <MDBTableBody>{eventItems}</MDBTableBody>
+                                <MDBTableBody>
+                                    {searchData.length
+                                        ? searchItem
+                                        : eventItems}
+                                </MDBTableBody>
                             </MDBTable>
                         </div>
                     </div>

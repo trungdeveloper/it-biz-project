@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
@@ -8,10 +8,29 @@ import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 const CategoryList = (props) => {
     const categories = props.categories;
-    const [search, setSearch] = useState("");
     const categoryItems =
         categories &&
         categories.map((c) => <CategoryItem key={c.name} category={c} />);
+    const keyword = useRef("");
+    const [searchData, updateSearchData] = useState([]);
+
+    const handleForSearch = () => {
+        let key = keyword.current.value;
+        key = key.toLowerCase();
+
+        const result = categories.filter(
+            (item) => item.name.toLowerCase().indexOf(key) !== -1
+        );
+
+        if (result) {
+            updateSearchData(result);
+        } else {
+            updateSearchData([]);
+        }
+    };
+    const searchItem = searchData.map((c) => (
+        <CategoryItem key={c.id} category={c} />
+    ));
     return (
         <div className="row">
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -26,10 +45,7 @@ const CategoryList = (props) => {
                                     className="dataTables_filter col-9"
                                 >
                                     <input
-                                        value={search}
-                                        onChange={(e) =>
-                                            setSearch(e.target.value)
-                                        }
+                                        ref={keyword}
                                         type="search"
                                         className="form-control form-control-sm"
                                         placeholder=""
@@ -37,7 +53,10 @@ const CategoryList = (props) => {
                                     />
                                 </div>
                                 <div className="col-3">
-                                    <button className="btn btn-success">
+                                    <button
+                                        onClick={handleForSearch}
+                                        className="btn btn-success"
+                                    >
                                         <BsSearch />
                                     </button>
                                 </div>
@@ -58,7 +77,11 @@ const CategoryList = (props) => {
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>
-                                <MDBTableBody>{categoryItems}</MDBTableBody>
+                                <MDBTableBody>
+                                    {searchData.length
+                                        ? searchItem
+                                        : categoryItems}
+                                </MDBTableBody>
                             </MDBTable>
                         </div>
                     </div>
