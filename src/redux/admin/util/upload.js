@@ -60,12 +60,13 @@ export const UpdateUpload = (
         id,
         name,
         description,
-        category,
+        category_id,
         status,
         date,
         condition,
         uid,
     } = data;
+    console.log("date", data);
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`donation${image.name}`).put(image);
@@ -91,7 +92,7 @@ export const UpdateUpload = (
                             imgUrl: downloadURL,
                             name: name,
                             description: description,
-                            category: category,
+                            category_id: category_id,
                             status: status,
                             date: date,
                             uid: uid,
@@ -170,10 +171,6 @@ export const UpdateUploadPlight = (
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`plight${image.name}`).put(image);
-
-    console.log("====================================");
-    console.log("Start to handle for saving the data");
-    console.log("====================================");
     uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -189,19 +186,6 @@ export const UpdateUploadPlight = (
                 .getDownloadURL()
                 .then(function (downloadURL) {
                     callback(downloadURL);
-                    console.log("====================================");
-                    console.log("Data checking");
-                    console.log("====================================");
-                    console.log("path", path);
-                    console.log("id", id);
-                    console.log("dataEnd", {
-                        imgUrl: downloadURL,
-                        need: need,
-                        description: description,
-                        status: status,
-                        uid: uid,
-                    });
-                    console.log("firestore", firestore);
                     firestore
                         .collection(path)
                         .doc(id)

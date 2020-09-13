@@ -17,6 +17,7 @@ import {
     acceptPlight,
 } from "../../../../redux/admin/plight/actions";
 import { Input } from "reactstrap";
+import { acceptDonation } from "../../../../redux/admin/donation/actions";
 const ModalItem = ({
     props,
     show,
@@ -69,8 +70,6 @@ const ModalItem = ({
             uid: plight.uid,
             id,
         };
-
-        console.log("data inputed", dataUpdate);
 
         /**
          * Destructure firebase
@@ -301,7 +300,10 @@ const ModalItem = ({
                                 backgroundColor: "#ffc107",
                                 marginRight: "10px",
                             }}
-                            onClick={acceptPlights}
+                            onClick={(e) => {
+                                acceptPlights();
+                                e.preventDefault();
+                            }}
                         >
                             <FcAcceptDatabase />
                         </button>
@@ -313,7 +315,10 @@ const ModalItem = ({
                                 width: "100px",
                                 backgroundColor: "#dc3545",
                             }}
-                            onClick={cancelPlights}
+                            onClick={(e) => {
+                                cancelPlights();
+                                e.preventDefault();
+                            }}
                         >
                             Hủy
                         </button>

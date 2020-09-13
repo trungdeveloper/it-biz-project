@@ -3,7 +3,6 @@ import { Button, Form, Modal } from "react-bootstrap";
 //import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
-import { FcAcceptDatabase } from "react-icons/fc";
 import { RiReplyAllLine } from "react-icons/ri";
 import "../../../cssAdmin/style.css";
 import { compose } from "redux";
@@ -17,7 +16,6 @@ import {
 } from "../../../../redux/admin/donation/actions";
 import { Input } from "reactstrap";
 const ModalItem = ({
-    props,
     show,
     handleClose,
     donation,
@@ -26,6 +24,8 @@ const ModalItem = ({
     deleteDonation,
     acceptDonation,
     updateDonation,
+    firebase,
+    firestore,
 }) => {
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
@@ -44,32 +44,19 @@ const ModalItem = ({
     const [newImage, updateNewImage] = useState(null);
     const acceptDonations = () => {
         const dataAccept = {
-            name: donation.name,
-            description: donation.description,
-            category_id: donation.category_id,
             status: "xác nhận",
-            date: donation.date,
-            uid: donation.uid,
-            condition: donation.condition,
         };
         acceptDonation(dataAccept, donation.id);
     };
     const cancelDonations = () => {
         const dataAccept = {
-            name: donation.name,
-            description: donation.description,
-            category_id: donation.category_id,
             status: "từ chối",
-            date: donation.date,
-            uid: donation.uid,
-            condition: donation.condition,
         };
         acceptDonation(dataAccept, donation.id);
     };
     const updateDonations = () => {
         const id = donation.id;
         const dataUpdate = {
-            id,
             name,
             description,
             category_id,
@@ -77,14 +64,36 @@ const ModalItem = ({
             date,
             uid: donation.uid,
             status: status,
+            id,
         };
         const firebaseActions = {
-            firebase: props.firebase,
+            firebase,
+            firestore,
         };
-        updateDonation(dataUpdate, newImage, firebaseActions, (imageUrl) => {
-            setImage(imageUrl);
-        });
-        setIsEdit(false);
+
+        if (newImage) {
+            /**
+             * Precessing for saving the data from user
+             */
+            updateDonation(
+                dataUpdate,
+                newImage,
+                firebaseActions,
+                (imageUrl) => {
+                    setImage(imageUrl);
+                }
+            );
+
+            /**
+             * Update the status of the modal
+             */
+            setIsEdit(false);
+        } else {
+            /**
+             * TODO: Error handle when user dont update any images
+             */
+            console.log("Please insert an image.");
+        }
     };
     const delDonation = () => {
         deleteDonation(donation.id);
@@ -302,7 +311,10 @@ const ModalItem = ({
                         <span>
                             <button
                                 className=" btn btn-success"
-                                onClick={updateDonations}
+                                onClick={(e) => {
+                                    updateDonations();
+                                    e.preventDefault();
+                                }}
                                 style={{
                                     width: "50px",
                                     height: "50px",
@@ -331,7 +343,10 @@ const ModalItem = ({
                             backgroundColor: "#dc3545",
                             marginRight: "10px",
                         }}
-                        onClick={delDonation}
+                        onClick={(e) => {
+                            delDonation();
+                            e.preventDefault();
+                        }}
                     >
                         <BsFillTrashFill />
                     </button>
@@ -343,7 +358,10 @@ const ModalItem = ({
                                 backgroundColor: "#ffc107",
                                 marginRight: "10px",
                             }}
-                            onClick={acceptDonations}
+                            onClick={() => {
+                                acceptDonations();
+                                // e.preventDefault();
+                            }}
                         >
                             Xác nhận
                         </button>
@@ -355,23 +373,14 @@ const ModalItem = ({
                                 width: "70px",
                                 backgroundColor: "#dc3545",
                             }}
-                            onClick={cancelDonations}
+                            onClick={() => {
+                                cancelDonations();
+                                // e.preventDefault();
+                            }}
                         >
                             Hủy
                         </button>
                     ) : null}
-                    {/* {donation.status === "Đang Đăng" ? (
-                        <button
-                            className="btn btn-warning"
-                            style={{
-                                width: "70px",
-                                backgroundColor: "#ffc107",
-                            }}
-                            onClick={donationProduct}
-                        >
-                            Tài trợ
-                        </button>
-                    ) : null} */}
                 </div>
             </Form>
         );
@@ -384,7 +393,6 @@ const ModalItem = ({
             keyboard={false}
             centered
             size="lg"
-            onApprove={delDonation}
         >
             <Modal.Header closeButton>
                 <Modal.Title>Tài trợ</Modal.Title>

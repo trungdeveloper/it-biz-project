@@ -20,8 +20,8 @@ const PlightList = (props) => {
         props.firestore
             .collection("donated")
             .add({
-                donorId,
-                plightId,
+                donation_id: donorId,
+                plight_id: plightId,
             })
             .then(() => {
                 /**
