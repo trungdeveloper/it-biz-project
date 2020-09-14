@@ -16,7 +16,6 @@ import { Profile } from "./pages/profile/profile";
 import SharePlight from "./pages/share-plight/share-plight";
 import { Donated } from "./pages/donated/donated";
 import ScrollToTop from "./scroll-to-top";
-// import { Activity } from "./pages/acitivity/activity";
 
 export default function App() {
     return (
