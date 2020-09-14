@@ -192,14 +192,14 @@ const NavBar = ({ auth, logout }) => {
                         </Link>
                     </li>
                     <li
-                        id="donation"
+                        id="donationPage"
                         className={`tag ${
-                            activeTab === "donation" ? "active" : ""
+                            activeTab === "donationPage" ? "active" : ""
                         }`}
                     >
                         <Link
-                            onClick={() => setActiveTab("donation")}
-                            to="/donation"
+                            onClick={() => setActiveTab("donationPage")}
+                            to="/donationPage"
                         >
                             TÀI TRỢ
                         </Link>
