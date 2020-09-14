@@ -8,7 +8,6 @@ import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 const DonatedList = (props) => {
     const donateds = props.donated;
-    console.log("aliiii", donateds);
     const donatedItems =
         donateds && donateds.map((c) => <DonatedItem key={c.id} donated={c} />);
     // const keyword = useRef("");
@@ -75,10 +74,9 @@ const DonatedList = (props) => {
                             >
                                 <MDBTableHead>
                                     <tr>
-                                        <th>Tên</th>
-                                        <th>Ngày</th>
-                                        <th>Tóm tắt</th>
-                                        <th>Trạng Thái</th>
+                                        <th>Tên tài trợ</th>
+                                        <th>Hoang cảnh</th>
+                                        <th>Tình trạng</th>
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>
@@ -92,8 +90,7 @@ const DonatedList = (props) => {
     );
 };
 
-const mapStateToProps = (state, props) => {
-    console.log("vi", state.firestore.ordered.donated);
+const mapStateToProps = (state) => {
     return {
         donated: state.firestore.ordered.donated,
     };

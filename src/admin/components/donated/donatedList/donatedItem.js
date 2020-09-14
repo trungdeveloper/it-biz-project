@@ -12,46 +12,80 @@ const DonatedItem = (props) => {
     const plights = props.plight;
     // const [showModal, setShowModal] = React.useState(false);
     // const [goNow, updateGoNow] = useState(false);
-
+    const deleteDonated = () => {
+        props.firestore
+            .collection("donated")
+            .doc(donated.id)
+            .delete()
+            .then(() => {
+                props.firestore
+                    .collection("donation")
+                    .doc(donated.donation_id)
+                    .update({
+                        status: "xác nhận",
+                    })
+                    .then(() => {})
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                props.firestore
+                    .collection("plight")
+                    .doc(donated.plight_id)
+                    .update({
+                        status: "xác nhận",
+                    })
+                    .then(() => {})
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return (
         <tr>
-            {plights &&
-                plights.map((plight) => (
-                    <td key={plight.id}>
-                        {donated.plight_id === plight.id ? plight.need : null}
-                    </td>
-                ))}
-            {donations &&
-                donations.map((donation) => (
-                    <td key={donation.id}>
-                        {donated.donation_id === donation.id
+            <td>
+                {plights &&
+                    plights.map((plight) =>
+                        donated.plight_id === plight.id ? plight.need : null
+                    )}
+            </td>
+            <td>
+                {donations &&
+                    donations.map((donation) =>
+                        donated.donation_id === donation.id
                             ? donation.name
-                            : null}
-                    </td>
-                ))}
-
+                            : null
+                    )}
+            </td>
+            <td>{donated.status}</td>
             <td>
                 <button
                     className="btn btn-warning"
-                    //  onClick={() => setShowModal(true)}
+                    onClick={() => deleteDonated()}
                 >
-                    Xem chi tết
+                    Xóa
                 </button>
-
-                {/* {goNow && <Redirect to={`/plightAdmin?id=${donation.id}`} />}
+            </td>
+            {/* {goNow && <Redirect to={`/plightAdmin?id=${donation.id}`} />}
                 <ModalItem
                     donation={donation}
                     show={showModal}
                     handleClose={setShowModal}
                 /> */}
-            </td>
         </tr>
     );
 };
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
+    const id = props.donated.id;
+    const donateds = state.firestore.data.donated;
+    const donated = donateds ? { ...donateds[id], id } : null;
     return {
         donation: state.firestore.ordered.donation,
         plight: state.firestore.ordered.plight,
+        firestore: state.firestore,
+        // donated,
     };
 };
 export default compose(

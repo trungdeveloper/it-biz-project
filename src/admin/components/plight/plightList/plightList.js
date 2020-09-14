@@ -11,9 +11,6 @@ const PlightList = (props) => {
     const plights = props.plights;
 
     const handleSaveDonation = (donorId, plightId) => {
-        console.log([donorId, plightId]);
-        console.log(props.firestore);
-
         /**
          * Hanlde for saving donations
          */
@@ -22,6 +19,7 @@ const PlightList = (props) => {
             .add({
                 donation_id: donorId,
                 plight_id: plightId,
+                status: "chờ trao tặng",
             })
             .then(() => {
                 /**
@@ -31,18 +29,17 @@ const PlightList = (props) => {
                     .collection("donation")
                     .doc(donorId)
                     .update({
-                        status: "trao tanged",
+                        status: "chờ trao tăng",
                     })
                     .then(() => {})
                     .catch((error) => {
                         console.log(error);
                     });
-
                 props.firestore
                     .collection("plight")
                     .doc(plightId)
                     .update({
-                        status: "trao tanged",
+                        status: "chờ trao tăng",
                     })
                     .then(() => {})
                     .catch((error) => {
