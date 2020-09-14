@@ -11,14 +11,14 @@ const CategoryBar = () => {
     return (
         <ul className="ul-category">
             <li>
-                <Link className="active" to="#home">
+                <Link className="active" to="/donation">
                     Danh mục
                 </Link>
             </li>
             {categories &&
                 categories.map((cate) => (
                     <li key={cate.id}>
-                        <Link to={`/donation/${cate.id}`}>{cate.name}</Link>
+                        <Link to={`/donationPage/${cate.id}`}>{cate.name}</Link>
                     </li>
                 ))}
         </ul>

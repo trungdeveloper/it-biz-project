@@ -112,7 +112,7 @@ const SharePlight = ({ uid, addPlight, progress }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <textarea
-                                rows="3"
+                                rows="6"
                                 cols="30"
                                 className="form-control"
                                 type="text"

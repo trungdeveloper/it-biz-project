@@ -1,8 +1,12 @@
 import React from "react";
-import IMG from "../../assets/images/amsieutoc.jpg";
-import { Link } from "react-router-dom";
+import { firestoreConnect } from "react-redux-firebase";
+import { useSelector } from "react-redux";
+import { compose } from "redux";
 
-export const Product = () => {
+const DonationSummary = ({ donation }) => {
+    const users = useSelector((state) => state.firestore.ordered.users);
+    const user = users?.find((user) => user.id === donation.uid);
+
     return (
         <div>
             <div className="swiper-container causes-slider ">
@@ -11,7 +15,7 @@ export const Product = () => {
                         <div className="cause-wrap">
                             <figure>
                                 <img
-                                    src={IMG}
+                                    src={donation.imgUrl}
                                     alt="Logo"
                                     style={{
                                         height: "200px",
@@ -22,31 +26,25 @@ export const Product = () => {
                             <div className="cause-content-wrap">
                                 <header className="entry-header d-flex flex-wrap align-items-center">
                                     <h3 className="entry-title w-100 m-0">
-                                        <Link to="#">Ấm siêu tốc</Link>
+                                        {donation.name}
                                     </h3>
 
                                     <div className="posted-date">
-                                        <Link to="#">5/8/2020</Link>
+                                        {donation.date}
                                     </div>
 
                                     <div className="posted-date">
-                                        <Link to="#">
-                                            101B Lê Hữu Trác, Sơn Trà, Đà Nẵng
-                                        </Link>
+                                        {donation.address}
                                     </div>
                                     <div className="cats-links ">
-                                        <Link to="#">Nguyễn Văn A</Link>
+                                        {user && user.username}
                                     </div>
                                 </header>
                                 <div
                                     className="description entry-content"
                                     style={{ marginTop: "5px" }}
                                 >
-                                    <p>
-                                        Dung tích: 1.7 lít Chân đế 360 độ có thể
-                                        tháo rời. Thân ấm bằng nhựa chịu nhiệt.
-                                        Nắp và vòi rót dùng dễ dàng.
-                                    </p>
+                                    <p>{donation.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -56,3 +54,5 @@ export const Product = () => {
         </div>
     );
 };
+
+export default compose(firestoreConnect(["users"]))(DonationSummary);

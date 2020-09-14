@@ -11,6 +11,7 @@ import { Redirect } from "react-router";
 const Donate = ({ donate, progress, categories, uid }) => {
     const [state, setState] = React.useState({
         name: "",
+        category_id: categories?.[0].id,
         description: "",
         condition: "new",
     });
@@ -90,13 +91,13 @@ const Donate = ({ donate, progress, categories, uid }) => {
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
                                 className="form-control"
-                                value={state.status}
-                                id="category"
+                                value={state.category_id}
+                                id="category_id"
                                 onChange={handleOnChange}
                             >
                                 {categories &&
                                     categories.map((cate) => (
-                                        <option key={cate.id} value={cate.name}>
+                                        <option key={cate.id} value={cate.id}>
                                             {cate.name}
                                         </option>
                                     ))}
@@ -126,6 +127,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
                                 className="form-control"
                                 id="description"
                                 placeholder="Thông tin thêm"
+                                rows={6}
                                 value={state.description}
                                 onChange={handleOnChange}
                             />
