@@ -11,7 +11,7 @@ const CategoryBar = () => {
     return (
         <ul className="ul-category">
             <li>
-                <Link className="active" to="/donation">
+                <Link className="active" to="/donationPage">
                     Danh mục
                 </Link>
             </li>

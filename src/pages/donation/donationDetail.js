@@ -51,15 +51,11 @@ const DonationDetail = (props) => {
                             </div>
                         </div>
                     </div>
-                    <RandomDonation />
+                    <RandomDonation except={donationId} />
                 </div>
             </div>
         </div>
     );
 };
 
-export default compose(
-    firestoreConnect((props) => [
-        { collection: "donation", doc: props.match.params.donation_id },
-    ])
-)(DonationDetail);
+export default compose(firestoreConnect(["donation"]))(DonationDetail);
