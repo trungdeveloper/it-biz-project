@@ -1,0 +1,19 @@
+.donationDetailContent{
+    margin-top: "20px";
+}
+.donationDetailContent img, .donationDetailContent .entry-content,.donationDetailContent .section-heading .entry-title {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.donationDetailContent .section-heading .entry-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 2px;
+    background: #006600;
+    left: 15px;
+}

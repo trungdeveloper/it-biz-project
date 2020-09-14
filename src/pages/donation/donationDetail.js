@@ -3,6 +3,7 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 import RandomDonation from "../../components/donation/ramdomDonation";
+import "./donationDetail.css";
 
 const DonationDetail = (props) => {
     const users = useSelector((state) => state.firestore.ordered.users);
@@ -14,7 +15,7 @@ const DonationDetail = (props) => {
 
     const renderDonationDetail = () => {
         return (
-            <div className="row" style={{ marginTop: "20px" }}>
+            <div className="row donationDetailContent">
                 <div className="col-12 col-lg-5 order-1 order-lg-1">
                     <img src={donation.imgUrl} alt="" />
                 </div>
