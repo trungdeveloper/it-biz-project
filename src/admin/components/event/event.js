@@ -1,6 +1,6 @@
 import React from "react";
 import "../../cssAdmin/style.css";
-import { Menu } from "../menuLeft/menu";
+import Menu from "../menuLeft/menu";
 import { Header } from "../header/header";
 import EventAdd from "../event/eventAdd/eventAdd";
 import EventList from "../event/eventList/eventList";

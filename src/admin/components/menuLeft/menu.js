@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../cssAdmin/style.css";
 import { Link } from "react-router-dom";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import $ from "jquery";
-export const Menu = () => {
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { connect } from "react-redux";
+const Menu = (plight, donation) => {
+    const plights = plight.plight;
+    const donations = donation.donation;
+    let demplight = 0;
+    let demdonation = 0;
+    donations &&
+        donations.map((d) =>
+            d.status === "chờ xác nhận"
+                ? (demdonation = demdonation + 1)
+                : demdonation
+        );
+    plights &&
+        plights.map((p) =>
+            p.status === "chờ xác nhận"
+                ? (demplight = demplight + 1)
+                : demplight
+        );
+
+    console.log("plight", plight.plight);
     return (
         <div className="nav-left-sidebar sidebar-dark">
             <div className="menu-list">
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <Link className="d-xl-none d-lg-none" to="/category">
-                        Thể Loại
+                        Menu
                     </Link>
                     <button
                         className="navbar-toggler"
@@ -92,7 +113,17 @@ export const Menu = () => {
                                     $(".nav-link-5").addClass("active");
                                 }}
                             >
-                                Yêu cầu Tài trợ
+                                Yêu cầu Tài trợ (
+                                <p
+                                    style={
+                                        demdonation != 0
+                                            ? { color: "red" }
+                                            : null
+                                    }
+                                >
+                                    {demdonation}
+                                </p>
+                                )
                             </Link>
                             <Link
                                 className="nav-link nav-link-6"
@@ -105,7 +136,15 @@ export const Menu = () => {
                                     $(".nav-link-6").addClass("active");
                                 }}
                             >
-                                Yêu cầu hoàn cảnh
+                                Yêu cầu hoàn cảnh(
+                                <p
+                                    style={
+                                        demplight != 0 ? { color: "red" } : null
+                                    }
+                                >
+                                    {demplight}
+                                </p>
+                                )
                             </Link>
                         </ul>
                     </div>
@@ -114,3 +153,15 @@ export const Menu = () => {
         </div>
     );
 };
+const mapStateToProps = (state) => {
+    return {
+        plight: state.firestore.ordered.plight,
+        donation: state.firestore.ordered.donation,
+    };
+};
+
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([{ collection: "plight" }]),
+    firestoreConnect([{ collection: "donation" }])
+)(Menu);

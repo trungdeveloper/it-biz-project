@@ -27,14 +27,16 @@ const DonationItem = (props) => {
                 >
                     Xem chi tết
                 </button>
-                <button
-                    onClick={() => {
-                        props.handleSaveDonation(id, plight.id);
-                    }}
-                    className="button button--default"
-                >
-                    Nhận trài trợ
-                </button>
+                {plight.status === "xác nhận" ? (
+                    <button
+                        onClick={() => {
+                            props.handleSaveDonation(id, plight.id);
+                        }}
+                        className="button button--default"
+                    >
+                        Nhận trài trợ
+                    </button>
+                ) : null}
                 <ModalItem
                     plight={plight}
                     show={showModal}

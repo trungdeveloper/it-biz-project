@@ -1,6 +1,6 @@
 import React from "react";
 import "../../cssAdmin/style.css";
-import { Menu } from "../menuLeft/menu";
+import Menu from "../menuLeft/menu";
 import { Header } from "../header/header";
 import CategoryList from "../category/categoryList/categoryList";
 import CategoryAdd from "../category/categoryAdd/categoryAdd";

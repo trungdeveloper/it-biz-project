@@ -34,7 +34,11 @@ a:hover, a:active {
     outline: 0;
     list-style: none;
 }
-
+.navbar .navbar-expand-lg .navbar-light {
+    position: relative;
+    padding: 14px;
+    width: 204px;
+}
 /*--------------------------------------------------------------
 # Site Header
 --------------------------------------------------------------*/

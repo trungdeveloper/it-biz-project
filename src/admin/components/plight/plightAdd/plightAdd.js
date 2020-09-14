@@ -9,7 +9,7 @@ const PlightAdd = ({ plight }) => {
         need: "",
         description: "",
         address: "",
-        status: "Xác nhận",
+        status: "xác nhận",
         uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
     });
 

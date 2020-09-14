@@ -24,14 +24,17 @@ const DonationItem = (props) => {
                 >
                     Xem chi tết
                 </button>
-                <button
-                    onClick={() => {
-                        updateGoNow(true);
-                    }}
-                    className="button button--default"
-                >
-                    Tài trợ
-                </button>
+                {donation.status === "xác nhận" ? (
+                    <button
+                        onClick={() => {
+                            updateGoNow(true);
+                        }}
+                        className="button button--default"
+                    >
+                        Tài trợ
+                    </button>
+                ) : null}
+
                 {goNow && <Redirect to={`/plightAdmin?id=${donation.id}`} />}
                 <ModalItem
                     donation={donation}
