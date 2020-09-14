@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./donate.css";
 import "../../assets/style.css";
 import { CustomModal } from "../../util/CustomModal";
@@ -11,7 +11,7 @@ import { Redirect } from "react-router";
 const Donate = ({ donate, progress, categories, uid }) => {
     const [state, setState] = React.useState({
         name: "",
-        category_id: categories?.[0].id,
+        category_id: "",
         description: "",
         condition: "new",
     });
@@ -27,6 +27,14 @@ const Donate = ({ donate, progress, categories, uid }) => {
         }));
     };
 
+    useEffect(() => {
+        categories &&
+            setState((prevState) => ({
+                ...prevState,
+                category_id: categories?.[0].id,
+            }));
+    }, [categories]);
+
     const handleSubmitForm = (e) => {
         e.preventDefault();
         let date = new Date();
@@ -41,7 +49,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
             name: "",
             status: "new",
             description: "",
-            category: "",
+            category: categories?.[0].id,
         });
         setImage(null);
     };
