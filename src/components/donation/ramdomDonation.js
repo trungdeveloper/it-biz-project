@@ -4,6 +4,7 @@ import DonationSummary from "./donation-summary";
 import { useSelector } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import "./donation.css";
 
 const RandomDonation = ({ except }) => {
     const donations = useSelector((state) => state.firestore.ordered.donation);
@@ -22,13 +23,13 @@ const RandomDonation = ({ except }) => {
             console.log(filterDonations);
         }
     }
-
+    
     return (
         <>
             {randomDonation.map((donation) => (
                 <div
                     key={donation.id}
-                    className="col-xs-3 col-sm-6 col-md-6 col-lg-3"
+                    className="col-xs-3 col-sm-6 col-md-6 col-lg-3 donation"
                 >
                     <Link to={`/donationDetail/${donation.id}`}>
                         <DonationSummary donation={donation} />

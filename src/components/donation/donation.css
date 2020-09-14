@@ -1,0 +1,6 @@
+.donation a{
+    color: black;
+}
+.donation a:hover {
+    color: #006000;
+}
