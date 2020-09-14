@@ -90,6 +90,19 @@ const Menu = (plight, donation) => {
                                 Sự Kiện
                             </Link>
                             <Link
+                                className="nav-link nav-link-7"
+                                to="/donatedAdmin"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-3"
+                                aria-controls="submenu-3"
+                                onClick={() => {
+                                    $(".nav-link-7").addClass("active");
+                                }}
+                            >
+                                Đã tài trợ
+                            </Link>
+                            <Link
                                 className="nav-link nav-link-4"
                                 to="/plightAdmin"
                                 data-toggle="collapse"
