@@ -16,6 +16,7 @@ import { Profile } from "./pages/profile/profile";
 import SharePlight from "./pages/share-plight/share-plight";
 import { Donated } from "./pages/donated/donated";
 import ScrollToTop from "./scroll-to-top";
+import { InsertData } from "./pages/insert-data";
 
 export default function App() {
     return (
@@ -52,6 +53,7 @@ export default function App() {
                             component={ActivityDetail}
                         />
                         <Route path="/sharePlight" component={SharePlight} />
+                        <Route path="/insertData" component={InsertData} />
                     </Switch>
                 </div>
                 <Footer />

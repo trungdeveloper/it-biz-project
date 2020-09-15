@@ -23,7 +23,7 @@ const RandomDonation = ({ except }) => {
             console.log(filterDonations);
         }
     }
-    
+
     return (
         <>
             {randomDonation.map((donation) => (
