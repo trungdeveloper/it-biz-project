@@ -2,6 +2,7 @@ import React from "react";
 import { firestoreConnect } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 import { compose } from "redux";
+import "./donation.css";
 
 const DonationSummary = ({ donation }) => {
     const users = useSelector((state) => state.firestore.ordered.users);
@@ -14,14 +15,7 @@ const DonationSummary = ({ donation }) => {
                     <div className="swiper-slide">
                         <div className="cause-wrap">
                             <figure>
-                                <img
-                                    src={donation.imgUrl}
-                                    alt="Logo"
-                                    style={{
-                                        height: "200px",
-                                        width: "340px",
-                                    }}
-                                />
+                                <img src={donation.imgUrl} alt="Logo" />
                             </figure>
                             <div className="cause-content-wrap">
                                 <header className="entry-header d-flex flex-wrap align-items-center">

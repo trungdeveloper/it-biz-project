@@ -14,12 +14,7 @@ export const Donated = () => {
             <div className="row">
                 <div className="donated-page">
                     <div className="section-heading">
-                        <h2
-                            className="entry-title"
-                            style={{ marginBottom: "20px" }}
-                        >
-                            Hoạt động trao tặng
-                        </h2>
+                        <h2 className="entry-title">Hoạt động trao tặng</h2>
                     </div>
                     <table className="table table-bordered table-hover">
                         <thead className="donated-table">

@@ -4,6 +4,7 @@
 .donationDetailContent img, .donationDetailContent .entry-content,.donationDetailContent .section-heading .entry-title {
     width: 100%;
     padding: 0 15px;
+    max-height: 260px;
 }
 
 .donationDetailContent .section-heading .entry-title::before {

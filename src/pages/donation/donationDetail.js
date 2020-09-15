@@ -15,11 +15,11 @@ const DonationDetail = (props) => {
 
     const renderDonationDetail = () => {
         return (
-            <div className="row donationDetailContent">
-                <div className="col-12 col-lg-5 order-1 order-lg-1">
+            <>
+                <div className="col-5 col-lg-5 order-1 order-lg-1">
                     <img src={donation.imgUrl} alt="" />
                 </div>
-                <div className="col-12 col-lg-7 order-2 order-lg-2">
+                <div className="col-7 col-lg-7 order-2 order-lg-2">
                     <div className="section-heading">
                         <h2 className="entry-title"> {donation.name}</h2>
                     </div>
@@ -32,14 +32,14 @@ const DonationDetail = (props) => {
                         <p>Địa chỉ: {user?.address}</p>
                     </div>
                 </div>
-            </div>
+            </>
         );
     };
 
     return (
         <div>
             <div className="container">
-                <div className="row">
+                <div className="row donationDetailContent">
                     {donation && renderDonationDetail(donation)}
                 </div>
                 <div className="row" style={{ marginTop: "20px" }}>
