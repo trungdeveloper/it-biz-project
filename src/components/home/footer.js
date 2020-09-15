@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
     return (
-        <div>
             <footer className="site-footer">
                 <div className="footer-widgets">
                     <div className="container">
@@ -140,7 +139,5 @@ export const Footer = () => {
                 </div>
                 {/* .footer-widgets */}
             </footer>
-            {/* .site-footer */}
-        </div>
     );
 };
