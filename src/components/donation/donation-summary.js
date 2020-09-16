@@ -22,16 +22,10 @@ const DonationSummary = ({ donation }) => {
                                     <h3 className="entry-title w-100 m-0">
                                         {donation.name}
                                     </h3>
-
                                     <div className="posted-date">
-                                        {donation.date}
-                                    </div>
-
-                                    <div className="posted-date">
-                                        {donation.address}
-                                    </div>
-                                    <div className="cats-links ">
-                                        {user && user.username}
+                                        {`${donation.date} | ${
+                                            user && user.address
+                                        } | ${user && user.username}`}
                                     </div>
                                 </header>
                                 <div

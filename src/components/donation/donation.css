@@ -9,3 +9,13 @@
     width: 100%;
     height: 200px;
 }
+
+.donation a h3{
+    font-size: 18px;
+}
+.posted-date ,.cats-links{
+    font-size: 11px;
+}
+.description p{
+    margin-top: 15px;
+}
