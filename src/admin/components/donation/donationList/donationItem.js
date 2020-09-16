@@ -5,7 +5,8 @@ import { compose } from "redux";
 import { withFirestore } from "react-redux-firebase";
 import ModalItem from "./modalItem";
 import { Redirect } from "react-router-dom";
-
+import { BsFillEyeFill } from "react-icons/bs";
+import { FcDonate } from "react-icons/fc";
 const DonationItem = (props) => {
     const donation = props.donation;
     const [showModal, setShowModal] = React.useState(false);
@@ -13,16 +14,16 @@ const DonationItem = (props) => {
 
     return (
         <tr>
-            <td>{donation.name}</td>
+            <td style={{ width: "20%" }}>{donation.name}</td>
             <td>{donation.date}</td>
-            <td>{donation.description}</td>
+            <td style={{ width: "40%" }}>{donation.description}</td>
             <td>{donation.status}</td>
             <td>
                 <button
                     className="btn btn-warning"
                     onClick={() => setShowModal(true)}
                 >
-                    Xem chi tết
+                    <BsFillEyeFill />
                 </button>
                 {donation.status === "xác nhận" ? (
                     <button
@@ -31,7 +32,7 @@ const DonationItem = (props) => {
                         }}
                         className="button button--default"
                     >
-                        Tài trợ
+                        <FcDonate />
                     </button>
                 ) : null}
 

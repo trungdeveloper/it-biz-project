@@ -5,7 +5,7 @@ import { compose } from "redux";
 import { withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
 import { BsFillTrashFill } from "react-icons/bs";
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiFillBackward } from "react-icons/ai";
 import { RiReplyAllLine } from "react-icons/ri";
 import {
     deleteCategory,
@@ -61,7 +61,7 @@ const CategoryItem = (props) => {
                             className="mr-10 btn btn-warning"
                             style={{ marginRight: "8%" }}
                         >
-                            <RiReplyAllLine />
+                            <AiFillBackward />
                         </button>
                     </span>
                 )}

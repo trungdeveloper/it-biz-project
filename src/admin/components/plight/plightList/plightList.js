@@ -121,7 +121,6 @@ const PlightList = (props) => {
                                         <th>Tiêu đề</th>
                                         <th>Chi Tiết</th>
                                         <th>Tình trang</th>
-                                        <th>Liên hệ</th>
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>

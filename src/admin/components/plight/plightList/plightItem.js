@@ -6,6 +6,8 @@ import { withFirestore } from "react-redux-firebase";
 import ModalItem from "./modalItem";
 import { connect } from "react-redux";
 import { getParameter } from "../../../../redux/util/helpers";
+import { BsFillEyeFill } from "react-icons/bs";
+import { BiDonateBlood } from "react-icons/bi";
 const DonationItem = (props) => {
     const plight = props.plight;
     const [showModal, setShowModal] = useState(false);
@@ -13,10 +15,9 @@ const DonationItem = (props) => {
 
     return (
         <tr>
-            <td>{plight.need}</td>
-            <td>{plight.address}</td>
-            <td>{plight.contact}</td>
-            <td>{plight.status}</td>
+            <td style={{ width: "20%" }}>{plight.need}</td>
+            <td style={{ width: "40%" }}>{plight.address}</td>
+            <td style={{ width: "20%" }}>{plight.status}</td>
             <td>
                 <button
                     className="btn btn-warning"
@@ -25,7 +26,7 @@ const DonationItem = (props) => {
                         setShowModal(true);
                     }}
                 >
-                    Xem chi tết
+                    <BsFillEyeFill />
                 </button>
                 {plight.status === "xác nhận" ? (
                     <button
@@ -34,7 +35,7 @@ const DonationItem = (props) => {
                         }}
                         className="button button--default"
                     >
-                        Nhận trài trợ
+                        <BiDonateBlood />
                     </button>
                 ) : null}
                 <ModalItem

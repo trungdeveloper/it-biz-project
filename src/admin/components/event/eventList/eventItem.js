@@ -45,7 +45,7 @@ const EventItem = (props) => {
 
     return (
         <tr>
-            <td>
+            <td style={{ width: "20%" }}>
                 <Input
                     type="text"
                     style={{ border: "none" }}
@@ -55,17 +55,22 @@ const EventItem = (props) => {
                     required="required"
                 />
             </td>
-            <td>
+            <td style={{ width: "20%" }}>
                 <textarea
                     type="text"
-                    style={{ border: "none" }}
+                    style={{
+                        border: "none",
+                        backgroundColor: "#e9ecef",
+                        width: "100%",
+                    }}
                     value={content}
+                    rows="3"
                     onChange={(e) => setContent(e.target.value)}
                     readOnly={!isEditable}
                     required="required"
                 />
             </td>
-            <td>
+            <td style={{ width: "20%" }}>
                 <Input
                     type="date"
                     style={{ border: "none" }}

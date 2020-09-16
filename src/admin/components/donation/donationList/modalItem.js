@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 //import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
-import { AiFillEdit } from "react-icons/ai";
-import { RiReplyAllLine } from "react-icons/ri";
+import { FcCancel, FcApproval } from "react-icons/fc";
+import { AiFillEdit, AiFillBackward } from "react-icons/ai";
 import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
@@ -299,13 +299,21 @@ const ModalItem = ({
                 </div>
                 <div className="donations-button">
                     {!isEditable ? (
-                        <button
-                            className="mr-10 btn btn-success"
-                            onClick={() => setIsEdit(!isEditable)}
-                            style={{ width: "50px", marginRight: "10px" }}
-                        >
-                            <AiFillEdit />
-                        </button>
+                        <span>
+                            {donation.status !== "trao tặng" &&
+                            donation.status != "chờ trao tặng" ? (
+                                <button
+                                    className="mr-10 btn btn-success"
+                                    onClick={() => setIsEdit(!isEditable)}
+                                    style={{
+                                        width: "50px",
+                                        marginRight: "10px",
+                                    }}
+                                >
+                                    <AiFillEdit />
+                                </button>
+                            ) : null}
+                        </span>
                     ) : (
                         <span>
                             <button
@@ -331,29 +339,33 @@ const ModalItem = ({
                                     marginRight: "10px",
                                 }}
                             >
-                                <RiReplyAllLine />
+                                <AiFillBackward />
                             </button>
                         </span>
                     )}
-                    <button
-                        className="btn btn-danger"
-                        style={{
-                            width: "50px",
-                            backgroundColor: "#dc3545",
-                            marginRight: "10px",
-                        }}
-                        onClick={(e) => {
-                            delDonation();
-                            e.preventDefault();
-                        }}
-                    >
-                        <BsFillTrashFill />
-                    </button>
+                    {donation.status !== "trao tặng" &&
+                    donation.status != "chờ trao tặng" ? (
+                        <button
+                            className="btn btn-danger"
+                            style={{
+                                width: "50px",
+                                backgroundColor: "#dc3545",
+                                marginRight: "10px",
+                            }}
+                            onClick={(e) => {
+                                delDonation();
+                                e.preventDefault();
+                            }}
+                        >
+                            <BsFillTrashFill />
+                        </button>
+                    ) : null}
+
                     {donation.status === "chờ xác nhận" ? (
                         <button
                             className="btn btn-warning"
                             style={{
-                                width: "150px",
+                                width: "50px",
                                 backgroundColor: "#ffc107",
                                 marginRight: "10px",
                             }}
@@ -362,14 +374,14 @@ const ModalItem = ({
                                 // e.preventDefault();
                             }}
                         >
-                            Xác nhận
+                            <FcApproval />
                         </button>
                     ) : null}
                     {donation.status === "chờ xác nhận" ? (
                         <button
                             className="btn btn-danger"
                             style={{
-                                width: "70px",
+                                width: "50px",
                                 backgroundColor: "#dc3545",
                             }}
                             onClick={() => {
@@ -377,7 +389,7 @@ const ModalItem = ({
                                 // e.preventDefault();
                             }}
                         >
-                            Hủy
+                            <FcCancel />
                         </button>
                     ) : null}
                 </div>
@@ -398,7 +410,7 @@ const ModalItem = ({
             </Modal.Header>
             <Modal.Body>{renderContent(donation)}</Modal.Body>
             <Modal.Footer style={{ marginTop: "50px" }}>
-                <Button variant="secondary" onClick={() => handleClose(false)}>
+                <Button variant="danger" onClick={() => handleClose(false)}>
                     Đóng
                 </Button>
             </Modal.Footer>

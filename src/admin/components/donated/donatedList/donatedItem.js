@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
-//import ModalItem from "./modalItem";
-// import { Redirect } from "react-router-dom";
-
+import { BsFillTrashFill } from "react-icons/bs";
+import { AiFillEdit, AiFillBackward } from "react-icons/ai";
 import { Input } from "reactstrap";
 import { connect } from "react-redux";
 const DonatedItem = (props) => {
@@ -106,13 +105,13 @@ const DonatedItem = (props) => {
     };
     return (
         <tr>
-            <td>
+            <td style={{ width: "20%" }}>
                 {plights &&
                     plights.map((plight) =>
                         donated.plight_id === plight.id ? plight.need : null
                     )}
             </td>
-            <td>
+            <td style={{ width: "20%" }}>
                 {donations &&
                     donations.map((donation) =>
                         donated.donation_id === donation.id
@@ -120,8 +119,8 @@ const DonatedItem = (props) => {
                             : null
                     )}
             </td>
-            <td>{donated.status}</td>
-            <td>
+            <td style={{ width: "15%" }}>{donated.status}</td>
+            <td style={{ width: "15%" }}>
                 {isEditable ? (
                     <Input
                         type="date"
@@ -135,11 +134,12 @@ const DonatedItem = (props) => {
                     donated.date
                 )}
             </td>
-            <td>
+            <td style={{ width: "15%" }}>
                 {isEditable ? (
                     <input
                         ref={inputRef}
                         type="file"
+                        style={{ width: "100%" }}
                         className="form-control"
                         accept="image/*"
                         onChange={(e) => {
@@ -164,25 +164,33 @@ const DonatedItem = (props) => {
                         style={{ marginRight: "5%" }}
                         onClick={() => deleteDonated()}
                     >
-                        Xóa
+                        <BsFillTrashFill />
                     </button>
                 ) : null}
                 {donated.status === "chờ trao tặng" && isEditable ? (
-                    <button
-                        className="btn btn-danger"
-                        style={{ marginRight: "5%" }}
-                        onClick={() => donatedUpdate()}
-                    >
-                        xong
-                    </button>
+                    <span>
+                        <button
+                            className="btn btn-success"
+                            style={{ marginRight: "5%" }}
+                            onClick={() => donatedUpdate()}
+                        >
+                            <AiFillEdit />
+                        </button>{" "}
+                        <button
+                            onClick={() => setIsEdit(!isEditable)}
+                            className="mr-10 btn btn-warning"
+                            style={{ marginRight: "8%" }}
+                        >
+                            <AiFillBackward />
+                        </button>
+                    </span>
                 ) : null}
                 {donated.status === "chờ trao tặng" && !isEditable ? (
                     <button
-                        className="btn btn-danger"
-                        style={{ marginRight: "5%" }}
+                        className="btn btn-success"
                         onClick={() => setIsEdit(true)}
                     >
-                        xong
+                        <AiFillEdit />
                     </button>
                 ) : null}
             </td>
