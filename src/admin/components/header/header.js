@@ -21,7 +21,7 @@ export const Header = () => {
                     className="collapse navbar-collapse "
                     id="navbarSupportedContent"
                 >
-                    <ul className="navbar-nav ml-auto navbar-right-top">
+                    {/* <ul className="navbar-nav ml-auto navbar-right-top">
                         <li className="nav-item dropdown nav-user">
                             <div
                                 className="dropdown-menu dropdown-menu-right nav-user-dropdown"
@@ -46,7 +46,7 @@ export const Header = () => {
                                 </a>
                             </div>
                         </li>
-                    </ul>
+                    </ul> */}
                 </div>
             </nav>
         </div>

@@ -6,6 +6,7 @@ import "../../../cssAdmin/style.css";
 import DonatedItem from "./donatedItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
+
 const DonatedList = (props) => {
     const donateds = props.donated;
     const donatedItems =
@@ -75,8 +76,10 @@ const DonatedList = (props) => {
                                 <MDBTableHead>
                                     <tr>
                                         <th>Tên tài trợ</th>
-                                        <th>Hoang cảnh</th>
+                                        <th>Hoàn cảnh</th>
                                         <th>Tình trạng</th>
+                                        <th>Ngày trao tặng</th>
+                                        <th>Hình ảnh</th>
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>

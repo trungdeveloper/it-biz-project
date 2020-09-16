@@ -76,11 +76,6 @@ const adminDonationReducer = (state = initialState, action) => {
                 ...state,
                 progress: action.progress,
             };
-        case types.GET_DONATION_SUCCESS:
-            return {
-                ...state,
-                donation: action.payload,
-            };
         default:
             return state;
     }

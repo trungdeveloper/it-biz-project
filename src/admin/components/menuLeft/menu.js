@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../cssAdmin/style.css";
 import { Link } from "react-router-dom";
 import { BsFillHouseDoorFill } from "react-icons/bs";
@@ -28,7 +28,10 @@ const Menu = (plight, donation) => {
     return (
         <div className="nav-left-sidebar sidebar-dark">
             <div className="menu-list">
-                <nav className="navbar navbar-expand-lg navbar-light">
+                <nav
+                    className="navbar navbar-expand-lg navbar-light"
+                    style={{ width: "199px" }}
+                >
                     <Link className="d-xl-none d-lg-none" to="/category">
                         Menu
                     </Link>
@@ -77,19 +80,6 @@ const Menu = (plight, donation) => {
                                 Tài Trợ
                             </Link>
                             <Link
-                                className="nav-link nav-link-3"
-                                to="/eventAdmin"
-                                data-toggle="collapse"
-                                aria-expanded="false"
-                                data-target="#submenu-3"
-                                aria-controls="submenu-3"
-                                onClick={() => {
-                                    $(".nav-link-3").addClass("active");
-                                }}
-                            >
-                                Sự Kiện
-                            </Link>
-                            <Link
                                 className="nav-link nav-link-7"
                                 to="/donatedAdmin"
                                 data-toggle="collapse"
@@ -101,19 +91,6 @@ const Menu = (plight, donation) => {
                                 }}
                             >
                                 Đã tài trợ
-                            </Link>
-                            <Link
-                                className="nav-link nav-link-4"
-                                to="/plightAdmin"
-                                data-toggle="collapse"
-                                aria-expanded="false"
-                                data-target="#submenu-4"
-                                aria-controls="submenu-4"
-                                onClick={() => {
-                                    $(".nav-link-4").addClass("active");
-                                }}
-                            >
-                                Hoàn cảnh
                             </Link>
                             <Link
                                 className="nav-link nav-link-5"
@@ -129,7 +106,7 @@ const Menu = (plight, donation) => {
                                 Yêu cầu Tài trợ (
                                 <p
                                     style={
-                                        demdonation != 0
+                                        demdonation !== 0
                                             ? { color: "red" }
                                             : null
                                     }
@@ -138,6 +115,21 @@ const Menu = (plight, donation) => {
                                 </p>
                                 )
                             </Link>
+
+                            <Link
+                                className="nav-link nav-link-4"
+                                to="/plightAdmin"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-4"
+                                aria-controls="submenu-4"
+                                onClick={() => {
+                                    $(".nav-link-4").addClass("active");
+                                }}
+                            >
+                                Hoàn cảnh
+                            </Link>
+
                             <Link
                                 className="nav-link nav-link-6"
                                 to="/plightRequestAdmin"
@@ -152,12 +144,27 @@ const Menu = (plight, donation) => {
                                 Yêu cầu hoàn cảnh(
                                 <p
                                     style={
-                                        demplight != 0 ? { color: "red" } : null
+                                        demplight !== 0
+                                            ? { color: "red" }
+                                            : null
                                     }
                                 >
                                     {demplight}
                                 </p>
                                 )
+                            </Link>
+                            <Link
+                                className="nav-link nav-link-3"
+                                to="/eventAdmin"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                data-target="#submenu-3"
+                                aria-controls="submenu-3"
+                                onClick={() => {
+                                    $(".nav-link-3").addClass("active");
+                                }}
+                            >
+                                Sự Kiện
                             </Link>
                         </ul>
                     </div>

@@ -14,6 +14,7 @@ const PlightList = (props) => {
         /**
          * Hanlde for saving donations
          */
+
         props.firestore
             .collection("donated")
             .add({

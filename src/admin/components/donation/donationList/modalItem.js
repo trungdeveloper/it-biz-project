@@ -8,7 +8,6 @@ import "../../../cssAdmin/style.css";
 import { compose } from "redux";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
-
 import {
     deleteDonation,
     updateDonation,
