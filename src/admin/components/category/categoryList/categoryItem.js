@@ -16,14 +16,18 @@ const CategoryItem = (props) => {
     const [isEditable, setIsEdit] = useState(false);
     const category = props.category;
     const [name, setName] = useState(category.name);
-
+    const [message, setMessage] = useState("");
     const delCategory = () => {
         props.deleteCategory(category.id);
     };
     const updateCategory = () => {
-        setIsEdit(false);
-        console.log(!isEditable);
-        props.updateCategory({ name }, category.id);
+        if (name !== "") {
+            props.updateCategory({ name }, category.id);
+            setMessage("");
+            setIsEdit(false);
+        } else {
+            setMessage("Nhập tên thể loại");
+        }
     };
 
     return (
@@ -37,6 +41,7 @@ const CategoryItem = (props) => {
                     readOnly={!isEditable}
                     required="required"
                 />
+                <p style={{ color: "red" }}>{message}</p>
             </td>
             <td>
                 {!isEditable ? (

@@ -24,7 +24,7 @@ const Menu = (plight, donation) => {
                 : demplight
         );
 
-    console.log("plight", plight.plight);
+    console.log("plight", plights);
     return (
         <div className="nav-left-sidebar sidebar-dark">
             <div className="menu-list">

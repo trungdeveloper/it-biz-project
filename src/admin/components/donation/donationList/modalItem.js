@@ -41,19 +41,53 @@ const ModalItem = ({
     const [status, setStatus] = useState(donation.status);
     const [image, setImage] = React.useState(donation.imgUrl);
     const [newImage, updateNewImage] = useState(null);
+    const [errorName, setErrorName] = useState("");
+    const [errorDescription, setErrorDescription] = useState("");
+    const [errorCondition, setErrorCondition] = useState("");
+    const [errorCategory_id, setErrorCategory_id] = useState("");
+    const [errorDate, setErrorDate] = useState("");
+    const [errorImage, setErrorImage] = useState("");
+
     const acceptDonations = () => {
         const dataAccept = {
             status: "xác nhận",
         };
         acceptDonation(dataAccept, donation.id);
+        // firestore
+        //     .collection("donation")
+        //     .doc(donation.id)
+        //     .update({
+        //         status: "xác nhận",
+        //     })
+        //     .then(() => {})
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
     };
     const cancelDonations = () => {
         const dataAccept = {
             status: "từ chối",
         };
         acceptDonation(dataAccept, donation.id);
+        // firestore;
+        // firestore
+        //     .collection("donation")
+        //     .doc(donation.id)
+        //     .update({
+        //         status: "từ chối",
+        //     })
+        //     .then(() => {})
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
     };
     const updateDonations = () => {
+        setErrorName("");
+        setErrorDescription("");
+        setErrorCondition("");
+        setErrorCategory_id("");
+        setErrorDate("");
+        setErrorImage("");
         const id = donation.id;
         const dataUpdate = {
             name,
@@ -70,7 +104,14 @@ const ModalItem = ({
             firestore,
         };
 
-        if (newImage) {
+        if (
+            newImage !== null &&
+            name !== null &&
+            description !== null &&
+            category_id !== null &&
+            condition !== null &&
+            date !== null
+        ) {
             /**
              * Precessing for saving the data from user
              */
@@ -87,11 +128,24 @@ const ModalItem = ({
              * Update the status of the modal
              */
             setIsEdit(false);
-        } else {
-            /**
-             * TODO: Error handle when user dont update any images
-             */
-            console.log("Please insert an image.");
+        }
+        if (name === "") {
+            setErrorName("Nhập tên vật phẩm");
+        }
+        if (description === "") {
+            setErrorDescription("Nhập chi tiết vật phẩm");
+        }
+        if (condition === "") {
+            setErrorCondition("Chọn trạng thái vật phẩm");
+        }
+        if (category_id === "") {
+            setErrorCategory_id("Chọn thể loại vật phẩm");
+        }
+        if (date === "") {
+            setErrorDate("Nhập ngày tặng vật phẩm");
+        }
+        if (newImage === null) {
+            setErrorImage("chọn ảnh vật phẩm");
         }
     };
     const delDonation = () => {
@@ -113,6 +167,7 @@ const ModalItem = ({
                             readOnly={!isEditable}
                             required="required"
                         />
+                        <p style={{ color: "red" }}>{errorName}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -128,6 +183,7 @@ const ModalItem = ({
                             style={{ border: "none" }}
                             required="required"
                         />
+                        <p style={{ color: "red" }}>{errorDate}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -170,6 +226,7 @@ const ModalItem = ({
                             disabled={!isEditable}
                             required="required"
                         />
+                        <p style={{ color: "red" }}>{errorDescription}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -200,6 +257,7 @@ const ModalItem = ({
                                 <option value="Hư hỏng nhẹ">Hư hỏng nhẹ</option>
                             </select>
                         )}
+                        <p style={{ color: "red" }}>{errorCondition}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -233,6 +291,7 @@ const ModalItem = ({
                                 </option>
                             </select>
                         )}
+                        <p style={{ color: "red" }}>{}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -264,7 +323,8 @@ const ModalItem = ({
                                         </option>
                                     ))}
                             </select>
-                        )}{" "}
+                        )}
+                        <p style={{ color: "red" }}>{errorCategory_id}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -295,6 +355,7 @@ const ModalItem = ({
                                 }}
                             />
                         )}
+                        <p style={{ color: "red" }}>{errorImage}</p>
                     </div>
                 </div>
                 <div className="donations-button">
@@ -434,6 +495,8 @@ const mapStateToProps = (state, props) => {
     return {
         categories: state.firestore.ordered.categories,
         users: state.firestore.ordered.users,
+        firebase: state.firebase,
+        firestore: state.firestore,
         donation,
     };
 };

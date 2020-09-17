@@ -7,6 +7,7 @@ import DonationItem from "./donationItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 import "./donation.style.scss";
+import IMG from "./../../../../assets/image/loading.gif";
 const DonationList = (props) => {
     const donations = props.donations;
     const donationItems =
@@ -84,9 +85,21 @@ const DonationList = (props) => {
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>
-                                    {searchData.length
-                                        ? searchItem
-                                        : donationItems}
+                                    {searchData && donationItems ? (
+                                        searchData.length ? (
+                                            searchItem
+                                        ) : (
+                                            donationItems
+                                        )
+                                    ) : (
+                                        <img
+                                            src={IMG}
+                                            style={{
+                                                marginLeft: "50%",
+                                                width: "50%",
+                                            }}
+                                        />
+                                    )}
                                 </MDBTableBody>
                             </MDBTable>
                         </div>

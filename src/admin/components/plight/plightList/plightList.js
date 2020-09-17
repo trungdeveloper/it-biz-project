@@ -6,10 +6,10 @@ import "../../../cssAdmin/style.css";
 import PlightItem from "./plightItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
-
+import IMG from "./../../../../assets/image/loading.gif";
 const PlightList = (props) => {
     const plights = props.plights;
-
+    console.log("vi", plights);
     const handleSaveDonation = (donorId, plightId) => {
         /**
          * Hanlde for saving donations
@@ -81,6 +81,8 @@ const PlightList = (props) => {
     const searchItem = searchData.map((c) => (
         <PlightItem key={c.id} plight={c} />
     ));
+    // console.log("vi111", plihtItems.keys(props.plight).length);
+
     return (
         <div className="row" style={{ marginTop: "0rem" }}>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -125,9 +127,25 @@ const PlightList = (props) => {
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>
-                                    {searchData.length
-                                        ? searchItem
-                                        : plihtItems}
+                                    {searchData && plihtItems ? (
+                                        searchData.length ? (
+                                            searchItem
+                                        ) : (
+                                            plihtItems
+                                        )
+                                    ) : (
+                                        <img
+                                            src={IMG}
+                                            style={{
+                                                marginLeft: "40%",
+                                                width: "50%",
+                                            }}
+                                        />
+                                    )}
+                                    {/* {console.log("hoa", searchData.length)}
+                                    {searchData.length === 0 ? (
+                                        <h1>Không có hoàn cảnh nào</h1>
+                                    ) : null} */}
                                 </MDBTableBody>
                             </MDBTable>
                         </div>

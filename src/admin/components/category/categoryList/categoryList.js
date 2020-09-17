@@ -6,6 +6,7 @@ import "../../../cssAdmin/style.css";
 import CategoryItem from "./categoryItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
+import IMG from "./../../../../assets/image/loading.gif";
 const CategoryList = (props) => {
     const categories = props.categories;
     const categoryItems =
@@ -78,9 +79,21 @@ const CategoryList = (props) => {
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>
-                                    {searchData.length
-                                        ? searchItem
-                                        : categoryItems}
+                                    {searchData && categoryItems ? (
+                                        searchData.length ? (
+                                            searchItem
+                                        ) : (
+                                            categoryItems
+                                        )
+                                    ) : (
+                                        <img
+                                            src={IMG}
+                                            style={{
+                                                marginLeft: "40%",
+                                                width: "50%",
+                                            }}
+                                        />
+                                    )}
                                 </MDBTableBody>
                             </MDBTable>
                         </div>

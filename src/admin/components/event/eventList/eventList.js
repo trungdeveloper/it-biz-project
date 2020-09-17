@@ -6,6 +6,7 @@ import "../../../cssAdmin/style.css";
 import EventItem from "./eventItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
+import IMG from "./../../../../assets/image/loading.gif";
 const EventList = (props) => {
     const events = props.events;
     const eventItems =
@@ -80,9 +81,21 @@ const EventList = (props) => {
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>
-                                    {searchData.length
-                                        ? searchItem
-                                        : eventItems}
+                                    {searchData && eventItems ? (
+                                        searchData.length ? (
+                                            searchItem
+                                        ) : (
+                                            eventItems
+                                        )
+                                    ) : (
+                                        <img
+                                            src={IMG}
+                                            style={{
+                                                marginLeft: "60%",
+                                                width: "50%",
+                                            }}
+                                        />
+                                    )}
                                 </MDBTableBody>
                             </MDBTable>
                         </div>

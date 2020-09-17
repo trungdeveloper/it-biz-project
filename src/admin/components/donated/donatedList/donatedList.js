@@ -6,32 +6,11 @@ import "../../../cssAdmin/style.css";
 import DonatedItem from "./donatedItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
-
+import IMG from "./../../../../assets/image/loading.gif";
 const DonatedList = (props) => {
     const donateds = props.donated;
     const donatedItems =
         donateds && donateds.map((c) => <DonatedItem key={c.id} donated={c} />);
-    // const keyword = useRef("");
-    // const [searchData, updateSearchData] = useState([]);
-
-    // const handleForSearch = () => {
-    //     let key = keyword.current.value;
-    //     key = key.toLowerCase();
-
-    //     const result = donations.filter(
-    //         (item) => item.name.toLowerCase().indexOf(key) !== -1
-    //     );
-
-    //     if (result) {
-    //         updateSearchData(result);
-    //     } else {
-    //         updateSearchData([]);
-    //     }
-    // };
-
-    // const searchItem = searchData.map((c) => (
-    //     <DonationItem key={c.id} donation={c} />
-    // ));
 
     return (
         <div className="row" style={{ marginTop: "0rem" }}>
@@ -83,7 +62,19 @@ const DonatedList = (props) => {
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>
-                                <MDBTableBody>{donatedItems}</MDBTableBody>
+                                <MDBTableBody>
+                                    {donatedItems ? (
+                                        donatedItems
+                                    ) : (
+                                        <img
+                                            src={IMG}
+                                            style={{
+                                                marginLeft: "70%",
+                                                width: "60%",
+                                            }}
+                                        />
+                                    )}
+                                </MDBTableBody>
                             </MDBTable>
                         </div>
                     </div>

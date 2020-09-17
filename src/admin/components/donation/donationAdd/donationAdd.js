@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { donateRequest } from "../../../../redux/admin/donation/actions";
 import { withFirestore, firestoreConnect } from "react-redux-firebase";
-import { RiReplyAllLine, RiFolderAddLine } from "react-icons/ri";
+import { FcCancel } from "react-icons/fc";
+import { RiFolderAddLine } from "react-icons/ri";
 const DonationAdd = ({ donate, categories }) => {
     const [state, setState] = React.useState({
         name: "",
         description: "",
-        condition: "Còn mới",
+        condition: "",
         category_id: "",
         date: "",
         status: "xác nhận",
         uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
     });
-
+    const [errorName, setErrorName] = useState("");
+    const [errorDescription, setErrorDescription] = useState("");
+    const [errorCondition, setErrorCondition] = useState("");
+    const [errorCategory_id, setErrorCategory_id] = useState("");
+    const [errorDate, setErrorDate] = useState("");
+    const [errorImage, setErrorImage] = useState("");
     const inputRef = React.useRef();
     const [image, setImage] = React.useState(null);
 
@@ -27,22 +33,55 @@ const DonationAdd = ({ donate, categories }) => {
     };
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        setErrorName("");
+        setErrorDescription("");
+        setErrorCondition("");
+        setErrorCategory_id("");
+        setErrorDate("");
+        setErrorImage("");
         inputRef.current.value = "";
-        donate(state, image);
-        setState({
-            name: "",
-            condition: "Còn mới",
-            description: "",
-            category_id: "",
-            date: "",
-            status: "xác nhận",
-            uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
-        });
-        setImage(null);
-        document.getElementById("form-Dona").style.display = "none";
+        if (
+            state.name !== null &&
+            state.condition !== null &&
+            state.description !== null &&
+            state.category_id !== null &&
+            state.date !== null &&
+            image !== null
+        ) {
+            donate(state, image);
+            setState({
+                name: "",
+                condition: "",
+                description: "",
+                category_id: "",
+                date: "",
+                status: "xác nhận",
+                uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
+            });
+            setImage(null);
+            document.getElementById("form-Dona").style.display = "none";
+        }
+        if (state.name === "") {
+            setErrorName("Nhập tên vật phẩm");
+        }
+        if (state.description === "") {
+            setErrorDescription("Nhập chi tiết vật phẩm");
+        }
+        if (state.condition === "") {
+            setErrorCondition("Chọn trạng thái vật phẩm");
+        }
+        if (state.category_id === "") {
+            setErrorCategory_id("Chọn thể loại vật phẩm");
+        }
+        if (state.date === "") {
+            setErrorDate("Nhập ngày tặng vật phẩm");
+        }
+        if (image === null) {
+            setErrorImage("chọn ảnh vật phẩm");
+        }
     };
     return (
-        <div className="donations-wrapperffg">
+        <div className="donations-wrapperffg" style={{ borderStyle: "groove" }}>
             <div className="donations-containerggf">
                 <form
                     className="donations-form"
@@ -67,6 +106,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 value={state.name}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorName}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -82,6 +122,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 value={state.description}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorDescription}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -90,13 +131,18 @@ const DonationAdd = ({ donate, categories }) => {
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <input
-                                style={{ marginTop: "10px" }}
+                                style={{
+                                    marginTop: "10px",
+                                    marginBottom: "10px",
+                                }}
                                 type="date"
                                 className="form-control"
+                                dateFormat="DD/MM/YYYY"
                                 id="date"
                                 value={state.date}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorDate}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -109,17 +155,20 @@ const DonationAdd = ({ donate, categories }) => {
                                 id="condition"
                                 onChange={handleOnChange}
                                 style={{
-                                    width: "615px",
+                                    width: "640px",
                                     height: "36px",
                                     border: "1px solid #ced4da",
                                 }}
                             >
+                                {" "}
+                                <option value="Còn mới">Trạng thái</option>
                                 <option value="Còn mới">Còn mới</option>
                                 <option value="Đã qua sử dụng">
                                     Đã qua sử dụng
                                 </option>
                                 <option value="Hư hỏng nhẹ">Hư hỏng nhẹ</option>
                             </select>
+                            <p style={{ color: "red" }}>{errorCondition}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -132,7 +181,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 id="category_id"
                                 onChange={handleOnChange}
                                 style={{
-                                    width: "615px",
+                                    width: "640px",
                                     height: "36px",
                                     border: "1px solid #ced4da",
                                 }}
@@ -145,6 +194,7 @@ const DonationAdd = ({ donate, categories }) => {
                                         </option>
                                     ))}
                             </select>
+                            <p style={{ color: "red" }}>{errorCategory_id}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -158,6 +208,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 className="form-control"
                                 onChange={(e) => setImage(e.target.files[0])}
                             />
+                            <p style={{ color: "red" }}>{errorImage}</p>
                         </div>
                     </div>
 
@@ -184,7 +235,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 backgroundColor: "#dc3545",
                             }}
                         >
-                            <RiReplyAllLine />
+                            <FcCancel />
                         </button>
                     </div>
                 </form>

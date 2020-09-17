@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { RiReplyAllLine, RiFolderAddLine } from "react-icons/ri";
+import { RiFolderAddLine } from "react-icons/ri";
 import { eventRequest } from "../../../../redux/admin/event/actions";
 import { withFirestore } from "react-redux-firebase";
-
+import { FcCancel } from "react-icons/fc";
 const EventAdd = ({ event }) => {
     const [state, setState] = React.useState({
         title: "",
@@ -34,7 +34,7 @@ const EventAdd = ({ event }) => {
         document.getElementById("form-event").style.display = "none";
     };
     return (
-        <div className="donations-wrapperjhj">
+        <div className="donations-wrapperjhj" style={{ borderStyle: "groove" }}>
             <div className="donations-containerjjh">
                 <form
                     className="donations-form"
@@ -134,7 +134,7 @@ const EventAdd = ({ event }) => {
                                 backgroundColor: "#dc3545",
                             }}
                         >
-                            <RiReplyAllLine />
+                            <FcCancel />
                         </button>
                     </div>
                 </form>

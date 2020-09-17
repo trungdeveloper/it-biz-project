@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { plightRequest } from "../../../../redux/admin/plight/actions";
 import { withFirestore } from "react-redux-firebase";
-import { RiReplyAllLine, RiFolderAddLine } from "react-icons/ri";
+import { RiFolderAddLine } from "react-icons/ri";
+import { FcCancel } from "react-icons/fc";
+
 const PlightAdd = ({ plight }) => {
     const [state, setState] = React.useState({
         need: "",
@@ -39,7 +41,7 @@ const PlightAdd = ({ plight }) => {
         document.getElementById("form-plight").style.display = "none";
     };
     return (
-        <div className="donations-wrapperffg">
+        <div className="donations-wrapperffg" style={{ borderStyle: "groove" }}>
             <div className="donations-containerggf">
                 <form
                     className="donations-form"
@@ -148,7 +150,7 @@ const PlightAdd = ({ plight }) => {
                                 backgroundColor: "#dc3545",
                             }}
                         >
-                            <RiReplyAllLine />
+                            <FcCancel />
                         </button>
                     </div>
                 </form>
