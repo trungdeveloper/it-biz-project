@@ -7,6 +7,7 @@ import "../../assets/css/swiper.min.css";
 import "../../assets/style.css";
 import IMG from "../../assets/images/oshomah.jpg";
 import { Link } from "react-router-dom";
+import "./plight-style.css";
 
 export const NewPlightItem = () => {
     return (

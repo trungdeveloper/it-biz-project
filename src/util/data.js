@@ -49,16 +49,142 @@ export const donations = [
         uid: "RmPBVIBeorScBX8wvGmuGU5iDB52",
     },
     {
-        id: "e",
-        category_id: "CmrmGnwBpG7VjWQpiDxK  ",
+        id: "0m4nvftaWaHm7JWrxF1g",
+        category_id: "0ozuvAiihxN2X4nlC3Zd",
         condition: "new",
         date: "12/09/2020",
-        description: "Máy tính Dell Corei3 Ram 8G",
+        description:
+            "Chuyển sang dùng năng lượng mặt trời nên muốn cho những ai cần sử dụng.",
         imgUrl:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donation%2Fmay-tinh-ban.jfif?alt=media&token=8502eec1-d80a-4658-83be-b41075da7afa",
-        name: "Máy tính bàn Dell",
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationmay%20nuoc%20nong.jfif?alt=media&token=0c4f2367-8400-4af6-a1ae-07bc1d7344dc",
+        name: "Máy nước nóng",
         status: "chờ xác nhận",
-        uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "AKure7TBFhXP9s7WfNs0",
+        category_id: "CmrmGnwBpG7VjWQpiDxK",
+        condition: "old",
+        date: "12/09/2020",
+        description: "Đã sử dụng được 3 năm còn sử dụng rất tốt",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationban-tiep-khach.jfif?alt=media&token=7f73bf2b-6e0c-4322-89b7-9c433bc36b90",
+        name: "Bàn tiếp khách",
+        status: "chờ xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+
+    {
+        id: "C8JsjDGXbrNkq0MwRz3d",
+        category_id: "0ozuvAiihxN2X4nlC3Zd",
+        condition: "old",
+        date: "12/09/2020",
+        description: "Laptop dell thế hệ 4 corei7 Ram 4G",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationlaptop.jfif?alt=media&token=20586ba6-83d3-4aee-877d-9bbd00fe0c3c",
+        name: "Laptop",
+        status: "chờ xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "Jj7ftDXROFs6NfT275zb",
+        category_id: "TavfOBQsAVeYNQqBw18z",
+        condition: "old",
+        date: "12/09/2020",
+        description: "Đã sử dụng được 3 năm còn sử dụng rất tốt",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationm%C3%A1y%20s%E1%BB%9Bi%20c%E1%BB%8F.jfif?alt=media&token=6ef16bb7-a8f4-46e5-9f55-60d79ea2f24f",
+        name: "Máy sới cỏ",
+        status: "chờ xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "QzX0VfQiKPzCyo47fXNV",
+        category_id: "ZqWbjKWDt2vFXUXAkogA",
+        condition: "old",
+        date: "12/09/2020",
+        description: "Còn mới, cân nặng khoản 40kg cao 1,6m trở lại",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationao%20dai.jfif?alt=media&token=f2ade252-4d31-4be0-ae1d-4a02c3fee681",
+        name: "Áo dài sinh viên",
+        status: "chờ xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "ScD84I85Bjq8Zd4HOi6V",
+        category_id: "0ozuvAiihxN2X4nlC3Zd",
+        condition: "new",
+        date: "12/09/2020",
+        description:
+            "Bàn ủi Delites công suất 1100 W ủi hiệu quả.Mặt đế nhôm chống dính lướt nhẹ, lướt êm trên mọi chất liệu vải.Thiết kế mũi nhọn, rãnh cúc giúp dễ dàng ủi mọi vị trí.Dây nguồn xoay 360 độ sử dụng thuận tiện.",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationban-la.jfif?alt=media&token=3769524d-7a84-4170-8c3f-6ef27e66d37b",
+        name: "Bàn ủi khô Delites BUK03",
+        status: "chờ xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "inBjYYmQPsCqqMOXq3Uu",
+        category_id: "soN9xqfYXlRZXWy3MKzY",
+        condition: "new",
+        date: "12/09/2020",
+        description: "Sách mới",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationbo%20sach%20lop%208.jfif?alt=media&token=2934601a-be8c-45cc-ad52-969c4337e549",
+        name: "Bộ sách lớp 8",
+        status: "chờ xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "noWX4Adv0V7NZJTOJfE2",
+        category_id: "TavfOBQsAVeYNQqBw18z",
+        condition: "new",
+        date: "12/09/2020",
+        description:
+            "Lớp vỏ bên ngoài bị rỉ xét, nhưng còn dùng rất tốt. Gia đình chuyển sang dùng loại mới nên không dùng nữa.",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationbo%20sach%20lop%208.jfif?alt=media&token=2934601a-be8c-45cc-ad52-969c4337e549",
+        name: "Máy bơm nước",
+        status: "chờ xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "rA7of9xK3k24fydZWHhx",
+        category_id: "CmrmGnwBpG7VjWQpiDxK",
+        condition: "new",
+        date: "12/09/2020",
+        description:
+            "Lớp vỏ bên ngoài bị rỉ xét, nhưng còn dùng rất tốt. Gia đình chuyển sang dùng loại mới nên không dùng nữa.",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationtivi.jfif?alt=media&token=0873c751-01be-47bd-8d6b-f9c9c2612cb9",
+        name: "Ti Vi",
+        status: "chờ xác nhận",
+        uid: "3wsq01iWJOaCDtCLLZX8VurJBTw2",
+    },
+    {
+        id: "rq61XDXqqKrhH1S30E5s",
+        category_id: "0ozuvAiihxN2X4nlC3Zd",
+        condition: "old",
+        date: "12/09/2020",
+        description: "Còn dùng khá tốt.",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationmay%20qu%E1%BA%A1t.jfif?alt=media&token=867b9285-efce-4048-b0af-580469e4e17d",
+        name: "Máy quạt",
+        status: "chờ xác nhận",
+        uid: "mz77vCShOER3eeTvqa1BepW7iiN2",
+    },
+    {
+        id: "u8ZLtMDpFEI643r6gtsd",
+        category_id: "0ozuvAiihxN2X4nlC3Zd",
+        condition: "old",
+        date: "12/09/2020",
+        description:
+            "Còn sử dụng được, không dùng nữa nên muốn cho những ai cần.",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationbep%20ga%20doi.jfif?alt=media&token=2855cc46-11e7-4e6f-9929-eb53c00a98bc",
+        name: "Bếp gas  ",
+        status: "chờ xác nhận",
+        uid: "mz77vCShOER3eeTvqa1BepW7iiN2",
     },
 ];
 
@@ -108,61 +234,88 @@ export const plights = [
         status: "Xác nhận",
         uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
     },
+    {
+        id: "O43ihEiKmnVD4xOq8XKp",
+        address: "xa cư êbur - buôn dhă prong-tp Buôn Ma Thuật,Đak Lak",
+        description:
+            "Em Hồ văn Tài là người dân tộc Ba Na, hiện tại em đang học tại trường nội trú của huyện. Vì bố mẹ đau yếu nên sau mỗi giờ trên lớp em đều phải đạp xe 20km để về nhà lo cơm nước và chăm sóc cho 2 em nhỏ. En cần các nhà hảo tâm tài trợ cho em một chiếc xe đạp điện để em đỡ vất vả hơn. ",
+        need: "Xe đạp điện",
+        status: "Xác nhận",
+        uid: "3wsq01iWJOaCDtCLLZX8VurJBTw2",
+    },
+    {
+        id: "2swVGY8NmRWRCOMupKgr",
+        address: "Thôn Thuận Ninh - Xã Bình Tân -Tây Sơn - Bình Định",
+        description:
+            "Chị Hồ Thị Có ngụ thôn Thuận Ninh , Xã Bình Tân, Tây Sơn, Bình Định. Gia đình chị thuộc diện khó khăn của xã, năm 2013 chồng chị mang căng bệnh ung thư và qua đời để lại cho chị 2 con thơ. Chi vất quả đi làm ở một sưởng làm ghế nhựa để nuôi con, không may vào năm 2017 trên đường đi làm về chị gặp tai nạn và mất đi đôi chân. Vì phải lo cho hai con thơ cơm ăn áo mặc nên chị phải ngồi trên chiếc xe lăn để đi làm. Chị rất cần các nhà hảo tâm có thể tài trợ cho chị một chiếc xe ba bánh để chị thuận tiện hơn trong việc đi lại.",
+        need: "Xe Ba Bánh",
+        status: "waiting",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "TCo3aQboaHlBH7pyyvEy",
+        address: "K111/9 đường 2 Tháng 9 (quận Hải Châu)",
+        description:
+            "Hiện tại em Lê Thành Tâm là học sinh lớp 7a1 Trường Trung học cơ sở Tây Sơn, gia đình nghèo khổ bố bệnh nặng không lao động được một mình mẹ là lao động chính nuôi cả gia đình. Em cần các nhà hảo tâm tài trợ cho em một chiếc xe đạp để đến trường mỗi ngày.",
+        need: "Sách giáo khoa lớp 4",
+        status: "Xác nhận",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
 ];
 
 export const donated = [
     {
-        id: "1",
-        id_donation: "b",
-        id_plight: "aa",
+        id: "YB3uoGC9SgHUmXRREERP",
+        donation_id: "c",
+        plight_id: "bb",
         image:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donation%2Fxe-ba-banh-cho-nguoi-khuyet-tat.jfif?alt=media&token=724dca3d-4246-407f-b0b3-0cd34c0e1adc",
         status: "done",
     },
     {
-        id: "2",
-        id_donation: "b",
-        id_plight: "aa",
+        id: "EcZL9bUbOeXbe0UN7Yu0",
+        donation_id: "d",
+        plight_id: "TCo3aQboaHlBH7pyyvEy",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "3",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "TCo3aQboaHlBH7pyyvEy",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "4",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "5",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "6",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "7",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",

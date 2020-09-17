@@ -3,7 +3,7 @@
 }
 .donationDetailContent img, .donationDetailContent .entry-content,.donationDetailContent .section-heading .entry-title {
     width: 100%;
-    padding: 0 15px;
+    padding: 15px;
     max-height: 260px;
 }
 
@@ -17,4 +17,36 @@
     border-radius: 2px;
     background: #006600;
     left: 15px;
+}
+
+.entry-title    {
+    font-size: 18px;
+    color: black;
+}
+.posted-date{
+    color: black;
+}
+
+.cause-content-wrap{
+    color: black;
+    min-height: 140px;
+    background: #F2F2F2;
+}
+
+.cause-wrap {
+    border: 1px solid rgb(224, 224, 224);
+    margin-top: 50px;
+}
+
+.description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-top: 15px;
+}
+
+.donation{
+    margin-bottom: 30px;
 }

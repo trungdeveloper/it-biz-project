@@ -36,7 +36,7 @@ const DonationPage = (props) => {
                                 donationOutput.map((donation) => (
                                     <div
                                         key={donation.id}
-                                        className="col-xs-12 col-sm-12 col-md-6 col-lg-4"
+                                        className="col-xs-12 col-sm-12 col-md-6 col-lg-4 donation"
                                     >
                                         <Link
                                             to={`/donationDetail/${donation.id}`}
