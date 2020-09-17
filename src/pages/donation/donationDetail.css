@@ -29,6 +29,8 @@
 
 .cause-content-wrap{
     color: black;
+    min-height: 140px;
+    background: #F2F2F2;
 }
 
 .cause-wrap {
@@ -36,3 +38,15 @@
     margin-top: 50px;
 }
 
+.description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-top: 15px;
+}
+
+.donation{
+    margin-bottom: 30px;
+}

@@ -156,10 +156,35 @@ export const donations = [
         description:
             "Lớp vỏ bên ngoài bị rỉ xét, nhưng còn dùng rất tốt. Gia đình chuyển sang dùng loại mới nên không dùng nữa.",
         imgUrl:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationbo%20sach%20lop%208.jfif?alt=media&token=2934601a-be8c-45cc-ad52-969c4337e549",
-        name: "Máy bơm nước",
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationtivi.jfif?alt=media&token=0873c751-01be-47bd-8d6b-f9c9c2612cb9",
+        name: "Ti Vi",
         status: "chờ xác nhận",
-        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+        uid: "3wsq01iWJOaCDtCLLZX8VurJBTw2",
+    },
+    {
+        id: "rq61XDXqqKrhH1S30E5s",
+        category_id: "0ozuvAiihxN2X4nlC3Zd",
+        condition: "old",
+        date: "12/09/2020",
+        description: "Còn dùng khá tốt.",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationmay%20qu%E1%BA%A1t.jfif?alt=media&token=867b9285-efce-4048-b0af-580469e4e17d",
+        name: "Máy quạt",
+        status: "chờ xác nhận",
+        uid: "mz77vCShOER3eeTvqa1BepW7iiN2",
+    },
+    {
+        id: "u8ZLtMDpFEI643r6gtsd",
+        category_id: "0ozuvAiihxN2X4nlC3Zd",
+        condition: "old",
+        date: "12/09/2020",
+        description:
+            "Còn sử dụng được, không dùng nữa nên muốn cho những ai cần.",
+        imgUrl:
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donationbep%20ga%20doi.jfif?alt=media&token=2855cc46-11e7-4e6f-9929-eb53c00a98bc",
+        name: "Bếp gas  ",
+        status: "chờ xác nhận",
+        uid: "mz77vCShOER3eeTvqa1BepW7iiN2",
     },
 ];
 
@@ -210,78 +235,87 @@ export const plights = [
         uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
     },
     {
-        id: "ff",
+        id: "O43ihEiKmnVD4xOq8XKp",
         address: "xa cư êbur - buôn dhă prong-tp Buôn Ma Thuật,Đak Lak",
         description:
             "Em Hồ văn Tài là người dân tộc Ba Na, hiện tại em đang học tại trường nội trú của huyện. Vì bố mẹ đau yếu nên sau mỗi giờ trên lớp em đều phải đạp xe 20km để về nhà lo cơm nước và chăm sóc cho 2 em nhỏ. En cần các nhà hảo tâm tài trợ cho em một chiếc xe đạp điện để em đỡ vất vả hơn. ",
         need: "Xe đạp điện",
         status: "Xác nhận",
-        uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
+        uid: "3wsq01iWJOaCDtCLLZX8VurJBTw2",
     },
     {
-        id: "gg",
+        id: "2swVGY8NmRWRCOMupKgr",
         address: "Thôn Thuận Ninh - Xã Bình Tân -Tây Sơn - Bình Định",
         description:
             "Chị Hồ Thị Có ngụ thôn Thuận Ninh , Xã Bình Tân, Tây Sơn, Bình Định. Gia đình chị thuộc diện khó khăn của xã, năm 2013 chồng chị mang căng bệnh ung thư và qua đời để lại cho chị 2 con thơ. Chi vất quả đi làm ở một sưởng làm ghế nhựa để nuôi con, không may vào năm 2017 trên đường đi làm về chị gặp tai nạn và mất đi đôi chân. Vì phải lo cho hai con thơ cơm ăn áo mặc nên chị phải ngồi trên chiếc xe lăn để đi làm. Chị rất cần các nhà hảo tâm có thể tài trợ cho chị một chiếc xe ba bánh để chị thuận tiện hơn trong việc đi lại.",
         need: "Xe Ba Bánh",
+        status: "waiting",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
+    },
+    {
+        id: "TCo3aQboaHlBH7pyyvEy",
+        address: "K111/9 đường 2 Tháng 9 (quận Hải Châu)",
+        description:
+            "Hiện tại em Lê Thành Tâm là học sinh lớp 7a1 Trường Trung học cơ sở Tây Sơn, gia đình nghèo khổ bố bệnh nặng không lao động được một mình mẹ là lao động chính nuôi cả gia đình. Em cần các nhà hảo tâm tài trợ cho em một chiếc xe đạp để đến trường mỗi ngày.",
+        need: "Sách giáo khoa lớp 4",
         status: "Xác nhận",
-        uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
+        uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
     },
 ];
 
 export const donated = [
     {
-        id: "1",
-        id_donation: "b",
-        id_plight: "aa",
+        id: "YB3uoGC9SgHUmXRREERP",
+        donation_id: "c",
+        plight_id: "bb",
         image:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
+            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donation%2Fxe-ba-banh-cho-nguoi-khuyet-tat.jfif?alt=media&token=724dca3d-4246-407f-b0b3-0cd34c0e1adc",
         status: "done",
     },
     {
-        id: "2",
-        id_donation: "b",
-        id_plight: "aa",
+        id: "EcZL9bUbOeXbe0UN7Yu0",
+        donation_id: "d",
+        plight_id: "TCo3aQboaHlBH7pyyvEy",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "3",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "TCo3aQboaHlBH7pyyvEy",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "4",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "5",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "6",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
     },
     {
         id: "7",
-        id_donation: "b",
-        id_plight: "aa",
+        donation_id: "b",
+        plight_id: "aa",
         image:
             "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
         status: "done",
