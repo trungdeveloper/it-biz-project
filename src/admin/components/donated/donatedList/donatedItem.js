@@ -110,10 +110,10 @@ const DonatedItem = (props) => {
                 }
             );
         }
-        if (date === "") {
+        if (date == "") {
             setErrorDate("Nhập địa chỉ");
         }
-        if (image === "") {
+        if (image == "") {
             setErrorImage("Nhập ảnh ");
         }
     };
@@ -122,13 +122,13 @@ const DonatedItem = (props) => {
             <td style={{ width: "20%" }}>
                 {plights &&
                     plights.map((plight) =>
-                        donated.plight_id === plight.id ? plight.need : null
+                        donated.plight_id == plight.id ? plight.need : null
                     )}
             </td>
             <td style={{ width: "20%" }}>
                 {donations &&
                     donations.map((donation) =>
-                        donated.donation_id === donation.id
+                        donated.donation_id == donation.id
                             ? donation.name
                             : null
                     )}

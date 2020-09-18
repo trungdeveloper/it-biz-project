@@ -32,10 +32,10 @@ const EventAdd = ({ event }) => {
         setErrorImage("");
         inputRef.current.value = "";
         if (
-            state.title !== null &&
-            state.content !== null &&
-            state.date !== null &&
-            image !== null
+            state.title != null &&
+            state.content != null &&
+            state.date != null &&
+            image != null
         ) {
             event(state, image);
             setState({
@@ -46,16 +46,16 @@ const EventAdd = ({ event }) => {
             setImage(null);
             document.getElementById("form-event").style.display = "none";
         }
-        if (state.title === "") {
+        if (state.title == "") {
             setErrorTitle("Nhập tiêu đề sự kiện");
         }
-        if (state.content === "") {
+        if (state.content == "") {
             setErrorContent("Nhập nội dung sự kiện");
         }
-        if (state.date === "") {
+        if (state.date == "") {
             setErrorDate("Nhập ngày diễn ra sự kiện");
         }
-        if (image === null) {
+        if (image == null) {
             setErrorImage("Nhập ảnh sự kiện");
         }
     };

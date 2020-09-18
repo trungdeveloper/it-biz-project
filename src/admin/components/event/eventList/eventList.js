@@ -94,6 +94,7 @@ const EventList = (props) => {
                                                 marginLeft: "60%",
                                                 width: "50%",
                                             }}
+                                            alt="notfound"
                                         />
                                     )}
                                 </MDBTableBody>

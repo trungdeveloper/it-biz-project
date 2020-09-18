@@ -21,28 +21,65 @@ const EventItem = (props) => {
     const [date, setDate] = useState(event.date);
     const [image, setImage] = React.useState(event.imgUrl);
     const [newImage, updateNewImage] = useState(null);
-
+    const [erroTitle, setErrorTitle] = useState("");
+    const [errorContent, setErrorContent] = useState("");
+    const [errorDate, setErrorDate] = useState("");
+    const [errorImage, setErrorImage] = useState("");
     const delEvent = () => {
         props.deleteEvent(event.id);
     };
     const updateEvent = () => {
-        const id = event.id;
-        const dataUpdate = {
-            id,
-            title,
-            content,
-            date,
-        };
-        const firebaseActions = {
-            firebase: props.firebase,
-            firestore: props.firestore,
-        };
-        props.updateEvent(dataUpdate, newImage, firebaseActions, (imageUrl) => {
-            setImage(imageUrl);
-        });
+        setErrorTitle("");
+        setErrorContent("");
+        setErrorDate("");
+        setErrorImage("");
+        if (
+            title != null &&
+            content != null &&
+            date != null &&
+            newImage != null
+        ) {
+            const id = event.id;
+            const dataUpdate = {
+                id,
+                title,
+                content,
+                date,
+            };
+            const firebaseActions = {
+                firebase: props.firebase,
+                firestore: props.firestore,
+            };
+            props.updateEvent(
+                dataUpdate,
+                newImage,
+                firebaseActions,
+                (imageUrl) => {
+                    setImage(imageUrl);
+                }
+            );
+            setIsEdit(false);
+        }
+        if (title === "") {
+            setErrorTitle("Nhập tiêu đề sự kiện");
+        }
+        if (content === "") {
+            setErrorContent("Nhập nội dung sự kiện");
+        }
+        if (date === "") {
+            setErrorDate("Nhập ngày diễn ra sự kiện");
+        }
+        if (newImage === null) {
+            setErrorImage("Nhập ảnh sự kiện");
+        }
+    };
+    const CancelUpdateEvent = () => {
+        setErrorTitle("");
+        setErrorContent("");
+        setErrorDate("");
+        setErrorImage("");
         setIsEdit(false);
     };
-
     return (
         <tr>
             <td style={{ width: "20%" }}>
@@ -54,6 +91,7 @@ const EventItem = (props) => {
                     disabled={!isEditable}
                     required="required"
                 />
+                <p style={{ color: "red" }}>{erroTitle}</p>
             </td>
             <td style={{ width: "20%" }}>
                 <textarea
@@ -69,6 +107,7 @@ const EventItem = (props) => {
                     readOnly={!isEditable}
                     required="required"
                 />
+                <p style={{ color: "red" }}>{errorContent}</p>
             </td>
             <td style={{ width: "20%" }}>
                 <Input
@@ -79,6 +118,7 @@ const EventItem = (props) => {
                     readOnly={!isEditable}
                     required="required"
                 />
+                <p style={{ color: "red" }}>{errorDate}</p>
             </td>
             <td>
                 {/* HOTFIX: Should be handle display the image after post to the firebase */}
@@ -105,6 +145,7 @@ const EventItem = (props) => {
                         }}
                     />
                 )}
+                <p style={{ color: "red" }}>{errorImage}</p>
             </td>
             <td>
                 {!isEditable ? (
@@ -125,7 +166,7 @@ const EventItem = (props) => {
                             <AiFillEdit />
                         </button>
                         <button
-                            onClick={() => setIsEdit(!isEditable)}
+                            onClick={CancelUpdateEvent}
                             className="mr-10 btn btn-warning"
                         >
                             <RiReplyAllLine />

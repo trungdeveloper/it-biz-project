@@ -6,7 +6,6 @@ import { withFirestore } from "react-redux-firebase";
 import { connect } from "react-redux";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillEdit, AiFillBackward } from "react-icons/ai";
-import { RiReplyAllLine } from "react-icons/ri";
 import {
     deleteCategory,
     updateCategory,

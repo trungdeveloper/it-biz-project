@@ -86,9 +86,9 @@ const ModalItem = ({
 
         if (
             newImage &&
-            need !== null &&
-            description !== null &&
-            address !== null
+            need != null &&
+            description != null &&
+            address != null
         ) {
             /**
              * Precessing for saving the data from user
@@ -289,8 +289,8 @@ const ModalItem = ({
                             </button>
                         </span>
                     )}
-                    {plight.status !== "chờ trao tặng" &&
-                    plight.status !== "trao tặng" ? (
+                    {plight.status != "chờ trao tặng" &&
+                    plight.status != "trao tặng" ? (
                         <button
                             className="btn btn-danger"
                             style={{

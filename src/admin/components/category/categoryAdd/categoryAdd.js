@@ -3,9 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withFirestore } from 'react-redux-firebase'
-import { Redirect } from 'react-router-dom'
 import "../../../cssAdmin/style.css";
-import { RiReplyAllLine ,RiFolderAddLine} from "react-icons/ri";
+import {  RiFolderAddLine} from "react-icons/ri";
 import { createCategory } from "../../../../redux/admin/category/actions";
 import { FcCancel } from "react-icons/fc";
 class CreateCategory extends Component {
@@ -32,11 +31,11 @@ class CreateCategory extends Component {
     handleSubmit = (e) => {
         var {name}=this.state;
         e.preventDefault();
-        if(name!==''){
+        if(name!=''){
             this.props.CreateCategory(this.state);
             document.getElementById("form-th").style.display = "none"
         }
-        if(name===''){
+        if(name==''){
             this.setState({
                 message: 'Nhập thể loại'
             })
@@ -64,7 +63,7 @@ class CreateCategory extends Component {
                         <p id='message' style={{color:"red"}}>{this.state.message}</p>
                     </div>
                     <button 
-                    onclick={()=>{this.setState({button: 1})}}
+                   // onclick={()=>{this.setState({button: 1})}}
                     className="btn btn-success"
                     style={{ marginLeft: "30px" }} ><RiFolderAddLine/></button>
                     <button

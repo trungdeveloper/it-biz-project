@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";

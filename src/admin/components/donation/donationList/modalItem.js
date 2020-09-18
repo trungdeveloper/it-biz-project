@@ -53,33 +53,12 @@ const ModalItem = ({
             status: "xác nhận",
         };
         acceptDonation(dataAccept, donation.id);
-        // firestore
-        //     .collection("donation")
-        //     .doc(donation.id)
-        //     .update({
-        //         status: "xác nhận",
-        //     })
-        //     .then(() => {})
-        //     .catch((error) => {
-        //         console.log(error);
-        //     });
     };
     const cancelDonations = () => {
         const dataAccept = {
             status: "từ chối",
         };
         acceptDonation(dataAccept, donation.id);
-        // firestore;
-        // firestore
-        //     .collection("donation")
-        //     .doc(donation.id)
-        //     .update({
-        //         status: "từ chối",
-        //     })
-        //     .then(() => {})
-        //     .catch((error) => {
-        //         console.log(error);
-        //     });
     };
     const updateDonations = () => {
         setErrorName("");
@@ -105,12 +84,12 @@ const ModalItem = ({
         };
 
         if (
-            newImage !== null &&
-            name !== null &&
-            description !== null &&
-            category_id !== null &&
-            condition !== null &&
-            date !== null
+            newImage != null &&
+            name != null &&
+            description != null &&
+            category_id != null &&
+            condition != null &&
+            date != null
         ) {
             /**
              * Precessing for saving the data from user
@@ -315,7 +294,7 @@ const ModalItem = ({
                     </div>
                     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <img
-                            src={image && image}
+                            src={image}
                             data-image={image}
                             data-tracking="codehub"
                             style={{
@@ -343,7 +322,7 @@ const ModalItem = ({
                 <div className="donations-button">
                     {!isEditable ? (
                         <span>
-                            {donation.status !== "trao tặng" &&
+                            {donation.status != "trao tặng" &&
                             donation.status != "chờ trao tặng" ? (
                                 <button
                                     className="mr-10 btn btn-success"
@@ -386,7 +365,7 @@ const ModalItem = ({
                             </button>
                         </span>
                     )}
-                    {donation.status !== "trao tặng" &&
+                    {donation.status != "trao tặng" &&
                     donation.status != "chờ trao tặng" ? (
                         <button
                             className="btn btn-danger"
@@ -473,7 +452,6 @@ const mapStateToProps = (state, props) => {
     const id = props.donation.id;
     const donations = state.firestore.data.donation;
     const donation = donations ? { ...donations[id], id } : null;
-    console.log(donation);
     return {
         categories: state.firestore.ordered.categories,
         users: state.firestore.ordered.users,
