@@ -16,6 +16,8 @@ const DonatedItem = (props) => {
     const [image, setImage] = React.useState("");
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
+    const [errorDate, setErrorDate] = useState("");
+    const [errorImage, setErrorImage] = useState("");
     const deleteDonated = () => {
         props.firestore
             .collection("donated")
@@ -48,60 +50,72 @@ const DonatedItem = (props) => {
             });
     };
     const donatedUpdate = () => {
-        const storageRef = props.firebase.storage().ref();
-        const uploadTask = storageRef.child(`donated${image.name}`).put(image);
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                const progress =
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log(progress);
-            },
-            (error) => {
-                console.log(error);
-            },
-            () => {
-                uploadTask.snapshot.ref
-                    .getDownloadURL()
-                    .then(function (downloadURL) {
-                        // callback(downloadURL);
-                        firestore
-                            .collection("donated")
-                            .doc(donated.id)
-                            .update({
-                                imgUrl: downloadURL,
-                                date: date,
-                                status: "trao tặng",
-                            })
-                            .then(() => {
-                                props.firestore
-                                    .collection("donation")
-                                    .doc(donated.donation_id)
-                                    .update({
-                                        status: "trao tặng",
-                                    })
-                                    .then(() => {})
-                                    .catch((error) => {
-                                        console.log(error);
-                                    });
-                                props.firestore
-                                    .collection("plight")
-                                    .doc(donated.plight_id)
-                                    .update({
-                                        status: "trao tặng",
-                                    })
-                                    .then(() => {})
-                                    .catch((error) => {
-                                        console.log(error);
-                                    });
-                                setIsEdit(false);
-                            })
-                            .catch((err) => {
-                                console.log(err);
-                            });
-                    });
-            }
-        );
+        setErrorDate("");
+        setErrorImage("");
+        if (date !== "" && image !== "") {
+            const storageRef = props.firebase.storage().ref();
+            const uploadTask = storageRef
+                .child(`donated${image.name}`)
+                .put(image);
+            uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    const progress =
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log(progress);
+                },
+                (error) => {
+                    console.log(error);
+                },
+                () => {
+                    uploadTask.snapshot.ref
+                        .getDownloadURL()
+                        .then(function (downloadURL) {
+                            // callback(downloadURL);
+                            firestore
+                                .collection("donated")
+                                .doc(donated.id)
+                                .update({
+                                    imgUrl: downloadURL,
+                                    date: date,
+                                    status: "trao tặng",
+                                })
+                                .then(() => {
+                                    props.firestore
+                                        .collection("donation")
+                                        .doc(donated.donation_id)
+                                        .update({
+                                            status: "trao tặng",
+                                        })
+                                        .then(() => {})
+                                        .catch((error) => {
+                                            console.log(error);
+                                        });
+                                    props.firestore
+                                        .collection("plight")
+                                        .doc(donated.plight_id)
+                                        .update({
+                                            status: "trao tặng",
+                                        })
+                                        .then(() => {})
+                                        .catch((error) => {
+                                            console.log(error);
+                                        });
+                                    setIsEdit(false);
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                });
+                        });
+                }
+            );
+        }
+        if (date === "") {
+            setErrorDate("Nhập địa chỉ");
+        }
+        if (image === "") {
+            setErrorImage("Nhập ảnh ");
+        }
     };
     return (
         <tr>
@@ -133,6 +147,7 @@ const DonatedItem = (props) => {
                 ) : (
                     donated.date
                 )}
+                <p style={{ color: "red" }}>{errorDate}</p>
             </td>
             <td style={{ width: "15%" }}>
                 {isEditable ? (
@@ -156,7 +171,9 @@ const DonatedItem = (props) => {
                         src={donated.imgUrl}
                     ></img>
                 )}
+                <p style={{ color: "red" }}>{errorImage}</p>
             </td>
+
             <td>
                 {donated.status === "chờ trao tặng" ? (
                     <button

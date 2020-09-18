@@ -22,28 +22,7 @@ class CreateCategory extends Component {
             message:''
         })
     }
-    checkValidation=()=>{
-        var {name}=this.state;
-        console.log('name',name);
-        var count = 0,
-        error='';
-
-        if(name == ''){
-            console.log('222');
-            error = 'Nhập tên thể loại';
-            count++;
-        } else{
-            console.log('33');
-            error='';
-            count=0;
-        }
-        this.setState({
-            message:error
-        })
-        return count;
-    }
     handleCancelne = () =>{
-        console.log('gggg');
         this.setState({
             message: ''
         })
@@ -51,18 +30,19 @@ class CreateCategory extends Component {
     }
     
     handleSubmit = (e) => {
+        var {name}=this.state;
         e.preventDefault();
-        if(this.state.button == 1){
-            if(this.checkValidation()==0){
-                this.props.CreateCategory(this.state);
-                document.getElementById("form-th").style.display = "none"
-            }
-        }else{
-            this.handleCancelne();
+        if(name!==''){
+            this.props.CreateCategory(this.state);
+            document.getElementById("form-th").style.display = "none"
+        }
+        if(name===''){
+            this.setState({
+                message: 'Nhập thể loại'
+            })
         }
     }
     render() {
-        console.log('hihi',this.state);
         return (
             <div
                 className="card-body border-top"
@@ -88,12 +68,9 @@ class CreateCategory extends Component {
                     className="btn btn-success"
                     style={{ marginLeft: "30px" }} ><RiFolderAddLine/></button>
                     <button
-                        // onClick={() =>
-                        //     (document.getElementById(
-                        //         "form-th"
-                        //     ).style.display = "none")
-                        // }
-                        onclick={()=>{this.setState({button: 2})}}
+                        onclick={()=>(document.getElementById(
+                            "form-th"
+                        ).style.display = "none")}
                         className="btn btn-danger"
                         style={{ marginLeft: "10px" }}
                     >
