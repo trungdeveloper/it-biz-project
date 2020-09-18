@@ -25,12 +25,17 @@ const Register = (props) => {
     const validateAll = () =>{
         const msg = {}
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const phonenumber = /^[0-9\b]+$/;
         if(isEmpty(name)){
             msg.name = "Vui lòng nhập tên của bạn"
         }
 
         if(isEmpty(phone)){
             msg.phone = "Vui lòng số điện thoại của bạn"
+        }else if(phonenumber.test(phone) === false){
+            msg.phone = "Số điện thoại bắt buộc phải nhập chữ số"
+        }else if(phone.length !=10){
+            msg.phone = "Số điện thoại không hợp lệ"
         }
 
         if(isEmpty(email)){
