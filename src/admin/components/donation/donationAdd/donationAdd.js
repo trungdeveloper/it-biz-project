@@ -141,6 +141,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 id="date"
                                 value={state.date}
                                 onChange={handleOnChange}
+                                placeholder="Ngày Tài trợ vật phẩm"
                             />
                             <p style={{ color: "red" }}>{errorDate}</p>
                         </div>

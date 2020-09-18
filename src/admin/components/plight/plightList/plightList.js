@@ -9,7 +9,6 @@ import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 import IMG from "./../../../../assets/image/loading.gif";
 const PlightList = (props) => {
     const plights = props.plights;
-    console.log("vi", plights);
     const handleSaveDonation = (donorId, plightId) => {
         /**
          * Hanlde for saving donations

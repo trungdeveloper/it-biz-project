@@ -35,6 +35,10 @@ const ModalItem = ({
     const [status, setStatus] = useState(plight.status);
     const [image, setImage] = React.useState(plight.imgUrl);
     const [newImage, updateNewImage] = useState(null);
+    const [errorNeed, setErrorNeed] = useState("");
+    const [errorDescription, setErrorDescription] = useState("");
+    const [errorAddress, setErrorAddress] = useState("");
+    const [errorImage, setErrorImage] = useState("");
     const acceptPlights = () => {
         const dataAccept = {
             need,
@@ -58,6 +62,10 @@ const ModalItem = ({
         acceptPlight(dataAccept, plight.id);
     };
     const updatePlights = () => {
+        setErrorNeed("");
+        setErrorDescription("");
+        setErrorAddress("");
+        setErrorImage("");
         const id = plight.id;
         const dataUpdate = {
             need,
@@ -76,7 +84,12 @@ const ModalItem = ({
             firestore,
         };
 
-        if (newImage) {
+        if (
+            newImage &&
+            need !== null &&
+            description !== null &&
+            address !== null
+        ) {
             /**
              * Precessing for saving the data from user
              */
@@ -88,11 +101,18 @@ const ModalItem = ({
              * Update the status of the modal
              */
             setIsEdit(false);
-        } else {
-            /**
-             * TODO: Error handle when user dont update any images
-             */
-            console.log("Please insert an image.");
+        }
+        if (need === "") {
+            setErrorNeed("Nhập Vật phẩm hoàn cảnh cần");
+        }
+        if (description === "") {
+            setErrorDescription("Nhập chi tiết chi tiết hoàn cảnh");
+        }
+        if (address === "") {
+            setErrorAddress("Nhập địa chỉ");
+        }
+        if (image === null) {
+            setErrorImage("Nhập ảnh hoàn cảnh");
         }
     };
     const delPlight = () => {
@@ -114,6 +134,7 @@ const ModalItem = ({
                             readOnly={!isEditable}
                             required="required"
                         />
+                        <p style={{ color: "red" }}>{errorNeed}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -129,6 +150,7 @@ const ModalItem = ({
                             style={{ border: "none" }}
                             required="required"
                         />
+                        <p style={{ color: "red" }}>{errorDescription}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -171,6 +193,7 @@ const ModalItem = ({
                             disabled={!isEditable}
                             required="required"
                         />
+                        <p style={{ color: "red" }}>{errorAddress}</p>
                     </div>
                 </div>
                 <div className="form-group">
@@ -178,32 +201,14 @@ const ModalItem = ({
                         <label htmlFor="">Trạng thái bài đăng</label>
                     </div>
                     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        {!isEditable ? (
-                            <Input
-                                type="text"
-                                style={{ border: "none" }}
-                                value={status}
-                                onChange={(e) => setStatus(e.target.value)}
-                                readOnly={!isEditable}
-                                required="required"
-                            />
-                        ) : (
-                            <select
-                                value={status}
-                                id="isused"
-                                onChange={(e) => setStatus(e.target.value)}
-                                style={{ height: "36px", border: "none" }}
-                            >
-                                <option value="Chờ xác nhận">
-                                    Chờ xác nhận
-                                </option>
-                                <option value="Xác nhận">Xác nhận</option>
-                                <option value="Từ chối">Từ chối</option>
-                                <option value="Đã trao tăng">
-                                    Đã trao tăng
-                                </option>
-                            </select>
-                        )}
+                        <Input
+                            type="text"
+                            style={{ border: "none" }}
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            readOnly={!isEditable}
+                            required="required"
+                        />
                     </div>
                 </div>
                 <div className="form-group">
@@ -234,6 +239,7 @@ const ModalItem = ({
                                 }}
                             />
                         )}
+                        <p style={{ color: "red" }}>{errorImage}</p>
                     </div>
                 </div>
                 <div className="donations-button">

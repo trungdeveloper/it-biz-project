@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { RiFolderAddLine } from "react-icons/ri";
@@ -13,7 +13,10 @@ const EventAdd = ({ event }) => {
     });
     const inputRef = React.useRef();
     const [image, setImage] = React.useState(null);
-
+    const [erroTitle, setErrorTitle] = useState("");
+    const [errorContent, setErrorContent] = useState("");
+    const [errorDate, setErrorDate] = useState("");
+    const [errorImage, setErrorImage] = useState("");
     const handleOnChange = (e) => {
         const { id, value } = e.target;
         setState((prevState) => ({
@@ -23,15 +26,38 @@ const EventAdd = ({ event }) => {
     };
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        setErrorTitle("");
+        setErrorContent("");
+        setErrorDate("");
+        setErrorImage("");
         inputRef.current.value = "";
-        event(state, image);
-        setState({
-            title: "",
-            content: "",
-            date: "",
-        });
-        setImage(null);
-        document.getElementById("form-event").style.display = "none";
+        if (
+            state.title !== null &&
+            state.content !== null &&
+            state.date !== null &&
+            image !== null
+        ) {
+            event(state, image);
+            setState({
+                title: "",
+                content: "",
+                date: "",
+            });
+            setImage(null);
+            document.getElementById("form-event").style.display = "none";
+        }
+        if (state.title === "") {
+            setErrorTitle("Nhập tiêu đề sự kiện");
+        }
+        if (state.content === "") {
+            setErrorContent("Nhập nội dung sự kiện");
+        }
+        if (state.date === "") {
+            setErrorDate("Nhập ngày diễn ra sự kiện");
+        }
+        if (image === null) {
+            setErrorImage("Nhập ảnh sự kiện");
+        }
     };
     return (
         <div className="donations-wrapperjhj" style={{ borderStyle: "groove" }}>
@@ -55,6 +81,7 @@ const EventAdd = ({ event }) => {
                                 value={state.title}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{erroTitle}</p>
                         </div>
                     </div>
                     <div
@@ -75,6 +102,7 @@ const EventAdd = ({ event }) => {
                                 value={state.content}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorContent}</p>
                         </div>
                     </div>
                     <div
@@ -94,6 +122,7 @@ const EventAdd = ({ event }) => {
                                 value={state.date}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorDate}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -108,6 +137,7 @@ const EventAdd = ({ event }) => {
                                 className="form-control"
                                 onChange={(e) => setImage(e.target.files[0])}
                             />
+                            <p style={{ color: "red" }}>{errorImage}</p>
                         </div>
                     </div>
 

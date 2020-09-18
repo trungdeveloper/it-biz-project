@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { plightRequest } from "../../../../redux/admin/plight/actions";
@@ -17,7 +17,10 @@ const PlightAdd = ({ plight }) => {
 
     const inputRef = React.useRef();
     const [image, setImage] = React.useState(null);
-
+    const [errorNeed, setErrorNeed] = useState("");
+    const [errorDescription, setErrorDescription] = useState("");
+    const [errorAddress, setErrorAddress] = useState("");
+    const [errorImage, setErrorImage] = useState("");
     const handleOnChange = (e) => {
         const { id, value } = e.target;
         setState((prevState) => ({
@@ -27,18 +30,41 @@ const PlightAdd = ({ plight }) => {
     };
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        setErrorNeed("");
+        setErrorDescription("");
+        setErrorAddress("");
+        setErrorImage("");
         inputRef.current.value = "";
-        plight(state, image);
-        setState({
-            need: "",
-            description: "",
-            address: "",
-            contact: "",
-            status: "Xác nhận",
-            uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
-        });
-        setImage(null);
-        document.getElementById("form-plight").style.display = "none";
+        if (
+            state.need !== null &&
+            state.description !== null &&
+            state.address !== null &&
+            image !== null
+        ) {
+            plight(state, image);
+            setState({
+                need: "",
+                description: "",
+                address: "",
+                contact: "",
+                status: "Xác nhận",
+                uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
+            });
+            setImage(null);
+            document.getElementById("form-plight").style.display = "none";
+        }
+        if (state.need === "") {
+            setErrorNeed("Nhập Vật phẩm hoàn cảnh cần");
+        }
+        if (state.description === "") {
+            setErrorDescription("Nhập chi tiết chi tiết hoàn cảnh");
+        }
+        if (state.address === "") {
+            setErrorAddress("Nhập địa chỉ");
+        }
+        if (image === null) {
+            setErrorImage("Nhập ảnh hoàn cảnh");
+        }
     };
     return (
         <div className="donations-wrapperffg" style={{ borderStyle: "groove" }}>
@@ -66,6 +92,7 @@ const PlightAdd = ({ plight }) => {
                                 value={state.need}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorNeed}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -81,6 +108,7 @@ const PlightAdd = ({ plight }) => {
                                 value={state.description}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorDescription}</p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -97,26 +125,12 @@ const PlightAdd = ({ plight }) => {
                                 value={state.address}
                                 onChange={handleOnChange}
                             />
+                            <p style={{ color: "red" }}>{errorAddress}</p>
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <label htmlFor="">Liên hệ số điện thoại</label>
-                        </div>
-                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <input
-                                style={{ marginTop: "10px" }}
-                                type="text"
-                                className="form-control"
-                                id="contact"
-                                value={state.contact}
-                                onChange={handleOnChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <label htmlFor="">Ảnh vật phẩm</label>
+                            <label htmlFor="">Ảnh Hoàn cảnh</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <input
@@ -125,6 +139,7 @@ const PlightAdd = ({ plight }) => {
                                 className="form-control"
                                 onChange={(e) => setImage(e.target.files[0])}
                             />
+                            <p style={{ color: "red" }}>{errorImage}</p>
                         </div>
                     </div>
                     <div className="donations-button">

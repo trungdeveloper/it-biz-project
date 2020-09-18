@@ -265,32 +265,14 @@ const ModalItem = ({
                         <label htmlFor="">Trạng thái bài đăng</label>
                     </div>
                     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        {!isEditable ? (
-                            <Input
-                                type="text"
-                                style={{ border: "none" }}
-                                value={status}
-                                onChange={(e) => setStatus(e.target.value)}
-                                readOnly={!isEditable}
-                                required="required"
-                            />
-                        ) : (
-                            <select
-                                value={status}
-                                id="status"
-                                onChange={(e) => setStatus(e.target.value)}
-                                style={{ height: "36px", border: "none" }}
-                            >
-                                <option value="Chờ xác nhận">
-                                    Chờ xác nhận
-                                </option>
-                                <option value="Xác nhận">Xác nhận</option>
-                                <option value="Từ chối">Từ chối</option>
-                                <option value="Đã trao tăng">
-                                    Đã trao tăng
-                                </option>
-                            </select>
-                        )}
+                        <Input
+                            type="text"
+                            style={{ border: "none" }}
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            readOnly={!isEditable}
+                            required="required"
+                        />
                         <p style={{ color: "red" }}>{}</p>
                     </div>
                 </div>
