@@ -7,6 +7,7 @@ import { compose } from "redux";
 import { donateRequest } from "../../redux/donation/actions";
 import { firestoreConnect, withFirestore } from "react-redux-firebase";
 import { Redirect } from "react-router";
+import isEmpty from 'validator/lib/isEmpty';
 
 const Donate = ({ donate, progress, categories, uid }) => {
     const [state, setState] = React.useState({
@@ -18,6 +19,22 @@ const Donate = ({ donate, progress, categories, uid }) => {
     const [showModal, setShowModal] = React.useState(false);
     const [image, setImage] = React.useState(null);
     const inputRef = React.useRef();
+    const [validationMsg, setValidationMsg] = React.useState("");
+
+    const validateAll = () => {
+        const msg = {};
+
+        if(isEmpty(state.name)){
+            msg.name = "Vui lòng nhập tên vật phẩm";
+        }
+        if(isEmpty(state.description)){
+            msg.description = "Vui lòng nhập vào trường này";
+        }
+        setValidationMsg(msg)
+        if(Object.keys(msg).length > 0) return false;
+        return true;
+
+    }
 
     const handleOnChange = (e) => {
         const { id, value } = e.target;
@@ -42,6 +59,8 @@ const Donate = ({ donate, progress, categories, uid }) => {
         const mm = String(date.getMonth() + 1).padStart(2, "0");
         const yyyy = date.getFullYear();
         date = dd + "/" + mm + "/" + yyyy;
+        const isValid = validateAll();
+        if(!isValid) return;
         setShowModal(true);
         inputRef.current.value = "";
         donate({ ...state, uid, status: "chờ xác nhận", date }, image);
@@ -73,11 +92,12 @@ const Donate = ({ donate, progress, categories, uid }) => {
                                 value={state.name}
                                 onChange={handleOnChange}
                             />
+                            <p className="text-red-400 text-xs italic">{validationMsg.name}</p>
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <label htmlFor="">Tình trạng sữ dụng</label>
+                            <label htmlFor="">Tình trạng sử dụng</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <select
@@ -135,10 +155,11 @@ const Donate = ({ donate, progress, categories, uid }) => {
                                 className="form-control"
                                 id="description"
                                 placeholder="Thông tin thêm"
-                                rows={6}
+                                rows={5}
                                 value={state.description}
                                 onChange={handleOnChange}
                             />
+                            <p className="text-red-400 text-xs italic">{validationMsg.description}</p>
                         </div>
                     </div>
                     <br />

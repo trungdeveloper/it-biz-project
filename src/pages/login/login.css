@@ -101,3 +101,7 @@
      .form_container .form-group{
         padding: 0 20px !important;
      }
+
+     p.text-red-400.text-xs.italic {
+        color: red;
+    }
