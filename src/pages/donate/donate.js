@@ -92,6 +92,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
                                 value={state.name}
                                 onChange={handleOnChange}
                             />
+                            <p className="text-red-400 text-xs italic">{validationMsg.name}</p>
                         </div>
                     </div>
                     <div className="form-group">
