@@ -195,8 +195,7 @@ const ModalItem = ({
                             type="text"
                             style={{ border: "none" }}
                             value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            readOnly={!isEditable}
+                            readOnly
                             required="required"
                         />
                     </div>
