@@ -9,7 +9,6 @@ import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 import IMG from "./../../../../assets/image/loading.gif";
 const PlightList = (props) => {
     const plights = props.plights;
-    const [errorDonated, setErrorDonated] = useState("");
     const handleSaveDonation = (donorId, plightId) => {
         /**
          * Hanlde for saving donations
@@ -145,7 +144,6 @@ const PlightList = (props) => {
                                             }}
                                         />
                                     )}{" "}
-                                    <p>{errorDonated}</p>
                                     {/* {console.log("hoa", searchData.length)}
                                     {searchData.length === 0 ? (
                                         <h1>Không có hoàn cảnh nào</h1>
