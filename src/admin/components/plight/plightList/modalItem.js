@@ -41,23 +41,13 @@ const ModalItem = ({
     const [errorImage, setErrorImage] = useState("");
     const acceptPlights = () => {
         const dataAccept = {
-            need,
-            description,
-            address,
             status: "xác nhận",
-            uid: plight.uid,
-            imgUrl: plight.imgUrl,
         };
         acceptPlight(dataAccept, plight.id);
     };
     const cancelPlights = () => {
         const dataAccept = {
-            need,
-            description,
-            address,
             status: "từ chối",
-            uid: plight.uid,
-            imgUrl: plight.imgUrl,
         };
         acceptPlight(dataAccept, plight.id);
     };
