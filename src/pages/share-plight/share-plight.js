@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { CustomModal } from "../../util/CustomModal";
 import { addPlight } from "../../redux/plight/actions";
-import isEmpty from 'validator/lib/isEmpty';
+import { isEmpty } from "validator";
 
 const SharePlight = ({ uid, addPlight, progress }) => {
     const [state, setState] = useState({
@@ -22,25 +22,24 @@ const SharePlight = ({ uid, addPlight, progress }) => {
     const [validationMsg, setValidationMsg] = React.useState("");
 
     const validateAll = () => {
-        const msg = {}
+        const msg = {};
 
-        if(isEmpty(state.name)){
-            msg.name = "Vui lòng nhập tên người nhận"
+        if (isEmpty(state.name)) {
+            msg.name = "Vui lòng nhập tên người nhận";
         }
-        if(isEmpty(state.address)){
-            msg.address = "Vui lòng nhập địa chỉ"
+        if (isEmpty(state.address)) {
+            msg.address = "Vui lòng nhập địa chỉ";
         }
-        if(isEmpty(state.need)){
-            msg.need = "Vui lòng nhập vật phẩm"
+        if (isEmpty(state.need)) {
+            msg.need = "Vui lòng nhập vật phẩm";
         }
-        if(isEmpty(state.description)){
-            msg.description = "Vui lòng nhập vật phẩm"
+        if (isEmpty(state.description)) {
+            msg.description = "Vui lòng nhập vật phẩm";
         }
-        setValidationMsg(msg)
-            if(Object.keys(msg).length > 0) return false
-            return true
-
-    }
+        setValidationMsg(msg);
+        if (Object.keys(msg).length > 0) return false;
+        return true;
+    };
     const onHandleChange = (e) => {
         const { id, value } = e.target;
         setState((prevState) => ({
@@ -51,14 +50,14 @@ const SharePlight = ({ uid, addPlight, progress }) => {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
+        const isValid = validateAll();
+        if (!isValid) return;
         let date = new Date();
         const dd = String(date.getDate()).padStart(2, "0");
         const mm = String(date.getMonth() + 1).padStart(2, "0");
         const yyyy = date.getFullYear();
         date = dd + "/" + mm + "/" + yyyy;
-        const isValid = validateAll();
-        if(!isValid) return;
-        addPlight({ ...state, date, uid, status: "waiting" }, image);
+        addPlight({ ...state, date, uid, status: "chờ xác nhận" }, image);
         setShowModal(true);
         setState({
             name: "",
@@ -87,7 +86,9 @@ const SharePlight = ({ uid, addPlight, progress }) => {
                                 value={state.name}
                                 onChange={onHandleChange}
                             />
-                            <p className="text-red-400 text-xs italic">{validationMsg.name}</p>
+                            <p className="text-red-400 text-xs italic">
+                                {validationMsg.name}
+                            </p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -102,7 +103,9 @@ const SharePlight = ({ uid, addPlight, progress }) => {
                                 value={state.address}
                                 onChange={onHandleChange}
                             />
-                            <p className="text-red-400 text-xs italic">{validationMsg.address}</p>
+                            <p className="text-red-400 text-xs italic">
+                                {validationMsg.address}
+                            </p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -117,7 +120,9 @@ const SharePlight = ({ uid, addPlight, progress }) => {
                                 value={state.need}
                                 onChange={onHandleChange}
                             />
-                            <p className="text-red-400 text-xs italic">{validationMsg.need}</p>
+                            <p className="text-red-400 text-xs italic">
+                                {validationMsg.need}
+                            </p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -147,7 +152,9 @@ const SharePlight = ({ uid, addPlight, progress }) => {
                                 value={state.description}
                                 onChange={onHandleChange}
                             />
-                            <p className="text-red-400 text-xs italic">{validationMsg.description}</p>
+                            <p className="text-red-400 text-xs italic">
+                                {validationMsg.description}
+                            </p>
                         </div>
                     </div>
 

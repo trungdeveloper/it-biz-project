@@ -7,7 +7,7 @@ import { compose } from "redux";
 import { donateRequest } from "../../redux/donation/actions";
 import { firestoreConnect, withFirestore } from "react-redux-firebase";
 import { Redirect } from "react-router";
-import isEmpty from 'validator/lib/isEmpty';
+import { isEmpty } from "validator";
 
 const Donate = ({ donate, progress, categories, uid }) => {
     const [state, setState] = React.useState({
@@ -24,17 +24,16 @@ const Donate = ({ donate, progress, categories, uid }) => {
     const validateAll = () => {
         const msg = {};
 
-        if(isEmpty(state.name)){
+        if (isEmpty(state.name)) {
             msg.name = "Vui lòng nhập tên vật phẩm";
         }
-        if(isEmpty(state.description)){
+        if (isEmpty(state.description)) {
             msg.description = "Vui lòng nhập vào trường này";
         }
-        setValidationMsg(msg)
-        if(Object.keys(msg).length > 0) return false;
+        setValidationMsg(msg);
+        if (Object.keys(msg).length > 0) return false;
         return true;
-
-    }
+    };
 
     const handleOnChange = (e) => {
         const { id, value } = e.target;
@@ -60,7 +59,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
         const yyyy = date.getFullYear();
         date = dd + "/" + mm + "/" + yyyy;
         const isValid = validateAll();
-        if(!isValid) return;
+        if (!isValid) return;
         setShowModal(true);
         inputRef.current.value = "";
         donate({ ...state, uid, status: "chờ xác nhận", date }, image);
@@ -92,7 +91,9 @@ const Donate = ({ donate, progress, categories, uid }) => {
                                 value={state.name}
                                 onChange={handleOnChange}
                             />
-                            <p className="text-red-400 text-xs italic">{validationMsg.name}</p>
+                            <p className="text-red-400 text-xs italic">
+                                {validationMsg.name}
+                            </p>
                         </div>
                     </div>
                     <div className="form-group">
@@ -159,7 +160,9 @@ const Donate = ({ donate, progress, categories, uid }) => {
                                 value={state.description}
                                 onChange={handleOnChange}
                             />
-                            <p className="text-red-400 text-xs italic">{validationMsg.description}</p>
+                            <p className="text-red-400 text-xs italic">
+                                {validationMsg.description}
+                            </p>
                         </div>
                     </div>
                     <br />
