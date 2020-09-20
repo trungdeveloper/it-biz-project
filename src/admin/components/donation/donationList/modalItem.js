@@ -32,9 +32,10 @@ const ModalItem = ({
     const [description, setDescription] = useState(donation.description);
     const [category_id, setCate] = useState(
         categories &&
-            categories.map((cate) =>
-                cate.id === donation.category_id ? cate.name : null
-            )
+            categories.map((cate) => {
+                // console.log(cate);
+                return cate.id === donation.category_id ? cate.name : null;
+            })
     );
     const [condition, setCondition] = useState(donation.condition);
     const [date, setDate] = useState(donation.date);
@@ -131,6 +132,17 @@ const ModalItem = ({
     const delDonation = () => {
         deleteDonation(donation.id);
     };
+
+    let categoryIdClone = "";
+
+    if (category_id) {
+        category_id.map((item) => {
+            if (item) {
+                categoryIdClone = item;
+            }
+        });
+    }
+
     const renderContent = (donation) => {
         return (
             <Form>
@@ -265,7 +277,7 @@ const ModalItem = ({
                             <Input
                                 type="text"
                                 style={{ border: "none" }}
-                                value={category_id}
+                                value={categoryIdClone}
                                 onChange={(e) => setCate(e.target.value)}
                                 readOnly={!isEditable}
                                 required="required"

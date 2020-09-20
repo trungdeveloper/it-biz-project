@@ -5,13 +5,34 @@ import { connect } from "react-redux";
 import "../../../cssAdmin/style.css";
 import CategoryItem from "./categoryItem";
 import { BsSearch } from "react-icons/bs";
+import Pagination from "react-js-pagination";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 import IMG from "./../../../../assets/image/loading.gif";
 const CategoryList = (props) => {
+    const [pageChange, handlePageChange] = useState({
+        activePage: 1,
+    });
+    const maxRecords = 10;
+    const maxDisplay = 5;
+
     const categories = props.categories;
     const categoryItems =
         categories &&
-        categories.map((c) => <CategoryItem key={c.name} category={c} />);
+        categories.map((c, index) => {
+            const start = maxRecords * pageChange.activePage - maxRecords;
+            const end = start + maxRecords;
+
+            /**
+             * DEV NOTES
+             * Render more than start point and less than end point
+             * In this case it will be return maxRecords + 1 items
+             * We can disable equal in the condition below - recommend disable for end point
+             */
+
+            if (index >= start && index < end) {
+                return <CategoryItem key={c.name} category={c} />;
+            }
+        });
     const keyword = useRef("");
     const [searchData, updateSearchData] = useState([]);
 
@@ -96,6 +117,18 @@ const CategoryList = (props) => {
                                     )}
                                 </MDBTableBody>
                             </MDBTable>
+                            <Pagination
+                                className="pagination"
+                                activePage={pageChange.activePage}
+                                itemsCountPerPage={maxRecords}
+                                totalItemsCount={
+                                    categories ? categories.length : 0
+                                }
+                                pageRangeDisplayed={maxDisplay}
+                                onChange={(index) => {
+                                    handlePageChange({ activePage: index });
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

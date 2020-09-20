@@ -6,9 +6,13 @@ import "../../../cssAdmin/style.css";
 import PlightItem from "./plightItem";
 import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
+import Pagination from "react-js-pagination";
+
 import IMG from "./../../../../assets/image/loading.gif";
 const PlightList = (props) => {
-    const plights = props.plights;
+    const [pageChange, handlePageChange] = useState({
+        activePage: 1,
+    });
     const handleSaveDonation = (donorId, plightId) => {
         /**
          * Hanlde for saving donations
@@ -53,16 +57,34 @@ const PlightList = (props) => {
             alert("Chọn vật phẩm tài trợ");
         }
     };
+    const maxRecords = 10;
+    const maxDisplay = 5;
 
+    const plights = props.plights;
     const plihtItems =
         plights &&
-        plights.map((c) => (
-            <PlightItem
-                handleSaveDonation={handleSaveDonation}
-                key={c.id}
-                plight={c}
-            />
-        ));
+        plights.map((c, index) => {
+            const start = maxRecords * pageChange.activePage - maxRecords;
+            const end = start + maxRecords;
+
+            /**
+             * DEV NOTES
+             * Render more than start point and less than end point
+             * In this case it will be return maxRecords + 1 items
+             * We can disable equal in the condition below - recommend disable for end point
+             */
+
+            if (index >= start && index < end) {
+                return (
+                    <PlightItem
+                        handleSaveDonation={handleSaveDonation}
+                        key={c.id}
+                        plight={c}
+                    />
+                );
+            }
+        });
+
     const keyword = useRef("");
     const [searchData, updateSearchData] = useState([]);
 
@@ -150,6 +172,16 @@ const PlightList = (props) => {
                                     ) : null} */}
                                 </MDBTableBody>
                             </MDBTable>
+                            <Pagination
+                                className="pagination"
+                                activePage={pageChange.activePage}
+                                itemsCountPerPage={maxRecords}
+                                totalItemsCount={plights ? plights.length : 0}
+                                pageRangeDisplayed={maxDisplay}
+                                onChange={(index) => {
+                                    handlePageChange({ activePage: index });
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

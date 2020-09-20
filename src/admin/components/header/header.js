@@ -4,9 +4,10 @@ import { logout } from "./../../../redux/authentication/actions";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "redux";
+import { firebaseConnect } from "react-redux-firebase";
 const img = require("../../../assets/image/logo-menu.svg");
 
-const Header = (props) => {
+const Header = ({ auth, logout }) => {
     return (
         <div className="dashboard-header">
             <nav className="navbar navbar-expand-lg bg-white fixed-top">
@@ -28,26 +29,33 @@ const Header = (props) => {
                 >
                     <Link
                         className="btn btn-success"
-                        style={{ marginLeft: "84%" }}
-                        //to="/"
-                        onClick={props.logout}
+                        style={{
+                            marginLeft: "84%",
+                            backgroundColor: "#006600",
+                            color: "white",
+                        }}
+                        to="/"
+                        onClick={logout}
                     >
-                        Đăng xuất
+                        ĐĂNG XUẤT
                     </Link>
                 </div>
             </nav>
         </div>
     );
 };
-// const mapStateToProps = (state) => {
-//     return {
-//         auth: state.firebase.auth,
-//     };
-// };
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth,
+    };
+};
 const mapDispatchToProps = (dispatch, props) => {
     return {
         logout: () => dispatch(logout(props)),
     };
 };
 
-export default compose(connect(null, mapDispatchToProps))(Header);
+export default compose(
+    firebaseConnect(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(Header);

@@ -8,11 +8,32 @@ import { BsSearch } from "react-icons/bs";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 import "./donation.style.scss";
 import IMG from "./../../../../assets/image/loading.gif";
+import Pagination from "react-js-pagination";
 const DonationList = (props) => {
+    const [pageChange, handlePageChange] = useState({
+        activePage: 1,
+    });
+    const maxRecords = 10;
+    const maxDisplay = 5;
+
     const donations = props.donations;
     const donationItems =
         donations &&
-        donations.map((c) => <DonationItem key={c.id} donation={c} />);
+        donations.map((c, index) => {
+            const start = maxRecords * pageChange.activePage - maxRecords;
+            const end = start + maxRecords;
+
+            /**
+             * DEV NOTES
+             * Render more than start point and less than end point
+             * In this case it will be return maxRecords + 1 items
+             * We can disable equal in the condition below - recommend disable for end point
+             */
+
+            if (index >= start && index < end) {
+                return <DonationItem key={c.id} donation={c} />;
+            }
+        });
     const keyword = useRef("");
     const [searchData, updateSearchData] = useState([]);
 
@@ -84,7 +105,7 @@ const DonationList = (props) => {
                                         <th>Hành Động</th>
                                     </tr>
                                 </MDBTableHead>
-                                <MDBTableBody>
+                                <MDBTableBody data="data-check">
                                     {searchData && donationItems ? (
                                         searchData.length ? (
                                             searchItem
@@ -102,6 +123,18 @@ const DonationList = (props) => {
                                     )}
                                 </MDBTableBody>
                             </MDBTable>
+                            <Pagination
+                                className="pagination"
+                                activePage={pageChange.activePage}
+                                itemsCountPerPage={maxRecords}
+                                totalItemsCount={
+                                    donations ? donations.length : 0
+                                }
+                                pageRangeDisplayed={maxDisplay}
+                                onChange={(index) => {
+                                    handlePageChange({ activePage: index });
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

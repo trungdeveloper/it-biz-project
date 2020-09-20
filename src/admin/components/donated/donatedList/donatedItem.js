@@ -52,6 +52,12 @@ const DonatedItem = (props) => {
     const donatedUpdate = () => {
         setErrorDate("");
         setErrorImage("");
+        const baseDatetime = new Date(date);
+        const day = baseDatetime.getDate();
+        const month = baseDatetime.getMonth() + 1;
+        const year = baseDatetime.getFullYear();
+        const dates = `${day}/${month}/${year}`;
+        setDate(dates);
         if (date !== "" && image !== "") {
             const storageRef = props.firebase.storage().ref();
             const uploadTask = storageRef

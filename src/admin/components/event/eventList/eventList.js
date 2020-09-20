@@ -5,12 +5,36 @@ import { connect } from "react-redux";
 import "../../../cssAdmin/style.css";
 import EventItem from "./eventItem";
 import { BsSearch } from "react-icons/bs";
+import Pagination from "react-js-pagination";
+
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 import IMG from "./../../../../assets/image/loading.gif";
 const EventList = (props) => {
+    const [pageChange, handlePageChange] = useState({
+        activePage: 1,
+    });
+    const maxRecords = 10;
+    const maxDisplay = 5;
+
     const events = props.events;
     const eventItems =
-        events && events.map((c) => <EventItem key={c.id} event={c} />);
+        events &&
+        events.map((c, index) => {
+            const start = maxRecords * pageChange.activePage - maxRecords;
+            const end = start + maxRecords;
+
+            /**
+             * DEV NOTES
+             * Render more than start point and less than end point
+             * In this case it will be return maxRecords + 1 items
+             * We can disable equal in the condition below - recommend disable for end point
+             */
+
+            if (index >= start && index < end) {
+                return <EventItem key={c.id} event={c} />;
+            }
+        });
+
     const keyword = useRef("");
     const [searchData, updateSearchData] = useState([]);
 
@@ -99,6 +123,16 @@ const EventList = (props) => {
                                     )}
                                 </MDBTableBody>
                             </MDBTable>
+                            <Pagination
+                                className="pagination"
+                                activePage={pageChange.activePage}
+                                itemsCountPerPage={maxRecords}
+                                totalItemsCount={events ? events.length : 0}
+                                pageRangeDisplayed={maxDisplay}
+                                onChange={(index) => {
+                                    handlePageChange({ activePage: index });
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
