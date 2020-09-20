@@ -1,7 +1,7 @@
 import React from "react";
 import "../../cssAdmin/style.css";
 import Menu from "../menuLeft/menu";
-import { Header } from "../header/header";
+import Header from "../header/header";
 import PlightList from "../plight/plightList/plightList";
 import PlightAdd from "../plight/plightAdd/plightAdd";
 export const Plight = ({ request }) => {

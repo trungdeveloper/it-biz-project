@@ -12,7 +12,6 @@ const DonationItem = (props) => {
     const plight = props.plight;
     const [showModal, setShowModal] = useState(false);
     const id = getParameter("id");
-
     return (
         <tr>
             <td style={{ width: "20%" }}>{plight.need}</td>
@@ -38,6 +37,8 @@ const DonationItem = (props) => {
                         <BiDonateBlood />
                     </button>
                 ) : null}
+                <p>{props.errorDonated}</p>
+
                 <ModalItem
                     plight={plight}
                     show={showModal}
@@ -57,13 +58,7 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {};
-};
-
-// export default compose(withFirestore)(DonationItem);
-
 export default compose(
     withFirestore,
-    connect(mapStateToProps, mapDispatchToProps)
+    connect(mapStateToProps, null)
 )(DonationItem);

@@ -1,7 +1,12 @@
 import React from "react";
 import "../../cssAdmin/style.css";
+import { logout } from "./../../../redux/authentication/actions";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { compose } from "redux";
 const img = require("../../../assets/image/logo-menu.svg");
-export const Header = () => {
+
+const Header = (props) => {
     return (
         <div className="dashboard-header">
             <nav className="navbar navbar-expand-lg bg-white fixed-top">
@@ -21,34 +26,28 @@ export const Header = () => {
                     className="collapse navbar-collapse "
                     id="navbarSupportedContent"
                 >
-                    {/* <ul className="navbar-nav ml-auto navbar-right-top">
-                        <li className="nav-item dropdown nav-user">
-                            <div
-                                className="dropdown-menu dropdown-menu-right nav-user-dropdown"
-                                aria-labelledby="navbarDropdownMenuLink2"
-                            >
-                                <div className="nav-user-info">
-                                    <h5 className="mb-0 text-white nav-user-name">
-                                        John Abraham{" "}
-                                    </h5>
-                                    <span className="status"></span>
-                                    <span className="ml-2">Available</span>
-                                </div>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-user mr-2"></i>Account
-                                </a>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-cog mr-2"></i>Setting
-                                </a>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-power-off mr-2"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-                    </ul> */}
+                    <Link
+                        className="btn btn-success"
+                        style={{ marginLeft: "84%" }}
+                        //to="/"
+                        onClick={props.logout}
+                    >
+                        Đăng xuất
+                    </Link>
                 </div>
             </nav>
         </div>
     );
 };
+// const mapStateToProps = (state) => {
+//     return {
+//         auth: state.firebase.auth,
+//     };
+// };
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        logout: () => dispatch(logout(props)),
+    };
+};
+
+export default compose(connect(null, mapDispatchToProps))(Header);

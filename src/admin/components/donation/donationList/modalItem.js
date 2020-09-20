@@ -48,11 +48,12 @@ const ModalItem = ({
     const [errorDate, setErrorDate] = useState("");
     const [errorImage, setErrorImage] = useState("");
 
-    const acceptDonations = () => {
+    const acceptDonations = (e) => {
         const dataAccept = {
             status: "xác nhận",
         };
         acceptDonation(dataAccept, donation.id);
+        // e.preventDefault();
     };
     const cancelDonations = () => {
         const dataAccept = {
@@ -353,7 +354,15 @@ const ModalItem = ({
                                 <AiFillEdit />
                             </button>
                             <button
-                                onClick={() => setIsEdit(!isEditable)}
+                                onClick={() => {
+                                    setIsEdit(!isEditable);
+                                    setErrorName("");
+                                    setErrorDescription("");
+                                    setErrorCondition("");
+                                    setErrorCategory_id("");
+                                    setErrorDate("");
+                                    setErrorImage("");
+                                }}
                                 className="mr-10 btn btn-warning"
                                 style={{
                                     width: "50px",
@@ -391,9 +400,9 @@ const ModalItem = ({
                                 backgroundColor: "#ffc107",
                                 marginRight: "10px",
                             }}
-                            onClick={() => {
+                            onClick={(e) => {
                                 acceptDonations();
-                                // e.preventDefault();
+                                e.preventDefault();
                             }}
                         >
                             <FcApproval />
@@ -406,9 +415,9 @@ const ModalItem = ({
                                 width: "50px",
                                 backgroundColor: "#dc3545",
                             }}
-                            onClick={() => {
+                            onClick={(e) => {
                                 cancelDonations();
-                                // e.preventDefault();
+                                e.preventDefault();
                             }}
                         >
                             <FcCancel />

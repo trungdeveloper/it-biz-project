@@ -9,46 +9,50 @@ import { MDBTable, MDBTableHead, MDBTableBody } from "mdbreact";
 import IMG from "./../../../../assets/image/loading.gif";
 const PlightList = (props) => {
     const plights = props.plights;
+    const [errorDonated, setErrorDonated] = useState("");
     const handleSaveDonation = (donorId, plightId) => {
         /**
          * Hanlde for saving donations
          */
-
-        props.firestore
-            .collection("donated")
-            .add({
-                donation_id: donorId,
-                plight_id: plightId,
-                status: "chờ trao tặng",
-            })
-            .then(() => {
-                /**
-                 * Start to handle update the status
-                 */
-                props.firestore
-                    .collection("donation")
-                    .doc(donorId)
-                    .update({
-                        status: "chờ trao tăng",
-                    })
-                    .then(() => {})
-                    .catch((error) => {
-                        console.log(error);
-                    });
-                props.firestore
-                    .collection("plight")
-                    .doc(plightId)
-                    .update({
-                        status: "chờ trao tăng",
-                    })
-                    .then(() => {})
-                    .catch((error) => {
-                        console.log(error);
-                    });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        if (donorId != null) {
+            props.firestore
+                .collection("donated")
+                .add({
+                    donation_id: donorId,
+                    plight_id: plightId,
+                    status: "chờ trao tặng",
+                })
+                .then(() => {
+                    /**
+                     * Start to handle update the status
+                     */
+                    props.firestore
+                        .collection("donation")
+                        .doc(donorId)
+                        .update({
+                            status: "chờ trao tăng",
+                        })
+                        .then(() => {})
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                    props.firestore
+                        .collection("plight")
+                        .doc(plightId)
+                        .update({
+                            status: "chờ trao tăng",
+                        })
+                        .then(() => {})
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        } else {
+            alert("Chọn vật phẩm tài trợ");
+        }
     };
 
     const plihtItems =
@@ -140,7 +144,8 @@ const PlightList = (props) => {
                                                 width: "50%",
                                             }}
                                         />
-                                    )}
+                                    )}{" "}
+                                    <p>{errorDonated}</p>
                                     {/* {console.log("hoa", searchData.length)}
                                     {searchData.length === 0 ? (
                                         <h1>Không có hoàn cảnh nào</h1>

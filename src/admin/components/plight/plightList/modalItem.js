@@ -111,7 +111,7 @@ const ModalItem = ({
         if (address === "") {
             setErrorAddress("Nhập địa chỉ");
         }
-        if (image === null) {
+        if (newImage === null) {
             setErrorImage("Nhập ảnh hoàn cảnh");
         }
     };
@@ -249,7 +249,13 @@ const ModalItem = ({
                             plight.status !== "trao tặng" ? (
                                 <button
                                     className="mr-10 btn btn-success"
-                                    onClick={() => setIsEdit(!isEditable)}
+                                    onClick={() => {
+                                        setIsEdit(!isEditable);
+                                        setErrorNeed("");
+                                        setErrorDescription("");
+                                        setErrorAddress("");
+                                        setErrorImage("");
+                                    }}
                                     style={{
                                         width: "50px",
                                         marginRight: "10px",
@@ -277,7 +283,13 @@ const ModalItem = ({
                                 <AiFillEdit />
                             </button>
                             <button
-                                onClick={() => setIsEdit(!isEditable)}
+                                onClick={() => {
+                                    setIsEdit(!isEditable);
+                                    setErrorNeed("");
+                                    setErrorDescription("");
+                                    setErrorAddress("");
+                                    setErrorImage("");
+                                }}
                                 className="mr-10 btn btn-warning"
                                 style={{
                                     width: "50px",

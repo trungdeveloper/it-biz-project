@@ -6,9 +6,9 @@ import $ from "jquery";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
-const Menu = (plight, donation) => {
-    const plights = plight.plight;
-    const donations = donation.donation;
+const Menu = (props) => {
+    const plights = props.plight;
+    const donations = props.donation;
     let demplight = 0;
     let demdonation = 0;
     donations &&
@@ -89,7 +89,7 @@ const Menu = (plight, donation) => {
                                     $(".nav-link-7").addClass("active");
                                 }}
                             >
-                                Đã tài trợ
+                                Đã Tài Trợ
                             </Link>
                             <Link
                                 className="nav-link nav-link-5"
@@ -102,7 +102,7 @@ const Menu = (plight, donation) => {
                                     $(".nav-link-5").addClass("active");
                                 }}
                             >
-                                Yêu cầu Tài trợ (
+                                Yêu Cầu Tài Trợ (
                                 <p
                                     style={
                                         demdonation !== 0
@@ -126,7 +126,7 @@ const Menu = (plight, donation) => {
                                     $(".nav-link-4").addClass("active");
                                 }}
                             >
-                                Hoàn cảnh
+                                Hoàn Cảnh
                             </Link>
 
                             <Link
@@ -140,7 +140,7 @@ const Menu = (plight, donation) => {
                                     $(".nav-link-6").addClass("active");
                                 }}
                             >
-                                Yêu cầu hoàn cảnh(
+                                Yêu Cầu hoàn cảnh(
                                 <p
                                     style={
                                         demplight !== 0
@@ -174,13 +174,13 @@ const Menu = (plight, donation) => {
 };
 const mapStateToProps = (state) => {
     return {
-        plight: state.firestore.ordered.plight,
         donation: state.firestore.ordered.donation,
+        plight: state.firestore.ordered.plight,
     };
 };
 
 export default compose(
     connect(mapStateToProps),
-    firestoreConnect([{ collection: "plight" }]),
-    firestoreConnect([{ collection: "donation" }])
+    firestoreConnect([{ collection: "donation" }]),
+    firestoreConnect([{ collection: "plight" }])
 )(Menu);

@@ -27,7 +27,7 @@ export default function App() {
     const uid = useSelector((state) => state.firebase.auth.uid);
     return (
         <Router>
-            {/* {uid !== "" && <NavBar />} */}
+            {uid !== "6D4lyxHfAhQW2694sQXHgVy0rNP2" ? <NavBar /> : null}
             <div className="content">
                 <Switch>
                     <Route exact path="/" component={Home} />
@@ -58,7 +58,7 @@ export default function App() {
                     <Route path="/donatedAdmin" component={DonatedPage} />
                 </Switch>
             </div>
-            <Footer />
+            {uid !== "6D4lyxHfAhQW2694sQXHgVy0rNP2" ? <Footer /> : null}
         </Router>
     );
 }

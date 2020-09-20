@@ -1,7 +1,7 @@
 import React from "react";
 import "../../cssAdmin/style.css";
 import Menu from "../menuLeft/menu";
-import { Header } from "../header/header";
+import Header from "../header/header";
 import DonationList from "../donation/donationList/donationList";
 import DonationAdd from "../donation/donationAdd/donationAdd";
 export const Donation = ({ request }) => {
