@@ -162,7 +162,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 id="condition"
                                 onChange={handleOnChange}
                                 style={{
-                                    width: "640px",
+                                    width: "850px",
                                     height: "36px",
                                     border: "1px solid #ced4da",
                                 }}
@@ -188,7 +188,7 @@ const DonationAdd = ({ donate, categories }) => {
                                 id="category_id"
                                 onChange={handleOnChange}
                                 style={{
-                                    width: "640px",
+                                    width: "850px",
                                     height: "36px",
                                     border: "1px solid #ced4da",
                                 }}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
@@ -33,7 +33,25 @@ const DonatedList = (props) => {
                 return <DonatedItem key={c.id} donated={c} />;
             }
         });
-
+    const keyword = useRef("");
+    const [keySearch, setSearchKey] = useState("");
+    const [searchData, updateSearchData] = useState([]);
+    const handleForSearch = () => {
+        // let key = keyword.current.value;
+        // key = key.toLowerCase();
+        //  console.log(keySearch);
+        const result = donateds.filter(
+            (item) => item.status.toLowerCase().indexOf(keySearch) !== -1
+        );
+        if (result) {
+            updateSearchData(result);
+        } else {
+            updateSearchData([]);
+        }
+    };
+    const searchItem = searchData.map((c) => (
+        <DonatedItem key={c.id} donated={c} />
+    ));
     return (
         <div className="row" style={{ marginTop: "0rem" }}>
             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -47,17 +65,31 @@ const DonatedList = (props) => {
                                     id="DataTables_Table_0_filter"
                                     className="dataTables_filter col-9"
                                 >
-                                    <input
-                                        // ref={keyword}
-                                        type="search"
-                                        className="form-control form-control-sm"
-                                        placeholder=""
-                                        aria-controls="DataTables_Table_0"
-                                    />
+                                    <select
+                                        ref={keyword}
+                                        //value={category_id}
+                                        id="search"
+                                        onChange={(e) =>
+                                            setSearchKey(e.target.value)
+                                        }
+                                        style={{
+                                            height: "36px",
+                                            width: "100%",
+                                            border: "block",
+                                        }}
+                                    >
+                                        <option>Tìm kiếm</option>
+                                        <option value="chờ trao tặng">
+                                            Chờ trao tặng
+                                        </option>
+                                        <option value="đã trao tặng">
+                                            Đã trao tặng
+                                        </option>
+                                    </select>
                                 </div>
                                 <div className="col-3">
                                     <button
-                                        // onClick={handleForSearch}
+                                        onClick={handleForSearch}
                                         className="btn btn-success"
                                     >
                                         <BsSearch />
@@ -85,15 +117,20 @@ const DonatedList = (props) => {
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>
-                                    {donatedItems ? (
-                                        donatedItems
+                                    {searchData && donatedItems ? (
+                                        searchData.length ? (
+                                            searchItem
+                                        ) : (
+                                            donatedItems
+                                        )
                                     ) : (
                                         <img
                                             src={IMG}
                                             style={{
-                                                marginLeft: "70%",
-                                                width: "60%",
+                                                marginLeft: "60%",
+                                                width: "50%",
                                             }}
+                                            alt="notfound"
                                         />
                                     )}
                                 </MDBTableBody>

@@ -49,6 +49,7 @@ const DonatedItem = (props) => {
                 console.log(error);
             });
     };
+
     const donatedUpdate = () => {
         setErrorDate("");
         setErrorImage("");
@@ -84,14 +85,14 @@ const DonatedItem = (props) => {
                                 .update({
                                     imgUrl: downloadURL,
                                     date: date,
-                                    status: "trao tặng",
+                                    status: "đã trao tặng",
                                 })
                                 .then(() => {
                                     props.firestore
                                         .collection("donation")
                                         .doc(donated.donation_id)
                                         .update({
-                                            status: "trao tặng",
+                                            status: "đã trao tặng",
                                         })
                                         .then(() => {})
                                         .catch((error) => {
@@ -101,7 +102,7 @@ const DonatedItem = (props) => {
                                         .collection("plight")
                                         .doc(donated.plight_id)
                                         .update({
-                                            status: "trao tặng",
+                                            status: "đã trao tặng",
                                         })
                                         .then(() => {})
                                         .catch((error) => {

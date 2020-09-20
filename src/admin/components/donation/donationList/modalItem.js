@@ -335,7 +335,7 @@ const ModalItem = ({
                 <div className="donations-button">
                     {!isEditable ? (
                         <span>
-                            {donation.status != "trao tặng" &&
+                            {donation.status != "đã trao tặng" &&
                             donation.status != "chờ trao tặng" ? (
                                 <button
                                     className="mr-10 btn btn-success"
@@ -386,7 +386,7 @@ const ModalItem = ({
                             </button>
                         </span>
                     )}
-                    {donation.status != "trao tặng" &&
+                    {donation.status != "đã trao tặng" &&
                     donation.status != "chờ trao tặng" ? (
                         <button
                             className="btn btn-danger"
