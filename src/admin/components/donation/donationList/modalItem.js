@@ -26,17 +26,20 @@ const ModalItem = ({
     firebase,
     firestore,
 }) => {
+    let categoryIdClone = "";
+    const category =
+        categories &&
+        categories.map((cate) => {
+            // console.log(cate);
+            return cate.id === donation.category_id
+                ? (categoryIdClone = cate.name)
+                : null;
+        });
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
     const [name, setName] = useState(donation.name);
     const [description, setDescription] = useState(donation.description);
-    const [category_id, setCate] = useState(
-        categories &&
-            categories.map((cate) => {
-                // console.log(cate);
-                return cate.id === donation.category_id ? cate.name : null;
-            })
-    );
+    const [category_id, setCate] = useState(categoryIdClone);
     const [condition, setCondition] = useState(donation.condition);
     const [date, setDate] = useState(donation.date);
     const [status, setStatus] = useState(donation.status);
@@ -62,22 +65,27 @@ const ModalItem = ({
         };
         acceptDonation(dataAccept, donation.id);
     };
-    const updateDonations = () => {
+    const updateDonations = (e) => {
         setErrorName("");
         setErrorDescription("");
         setErrorCondition("");
         setErrorCategory_id("");
         setErrorDate("");
         setErrorImage("");
+        const baseDatetime = new Date(date);
+        const day = baseDatetime.getDate();
+        const month = baseDatetime.getMonth() + 1;
+        const year = baseDatetime.getFullYear();
+        const dates = `${day}/${month}/${year}`;
         const id = donation.id;
         const dataUpdate = {
             name,
             description,
             category_id,
             condition,
-            date,
+            date: dates,
             uid: donation.uid,
-            status: status,
+            status,
             id,
         };
         const firebaseActions = {
@@ -93,6 +101,7 @@ const ModalItem = ({
             condition != null &&
             date != null
         ) {
+            console.log("vi", dataUpdate);
             /**
              * Precessing for saving the data from user
              */
@@ -128,21 +137,11 @@ const ModalItem = ({
         if (newImage === null) {
             setErrorImage("chọn ảnh vật phẩm");
         }
+        // e.preventDefault();
     };
     const delDonation = () => {
         deleteDonation(donation.id);
     };
-
-    let categoryIdClone = "";
-
-    if (category_id) {
-        category_id.map((item) => {
-            if (item) {
-                categoryIdClone = item;
-            }
-        });
-    }
-
     const renderContent = (donation) => {
         return (
             <Form>
@@ -240,7 +239,11 @@ const ModalItem = ({
                                 value={condition}
                                 id="condition"
                                 onChange={(e) => setCondition(e.target.value)}
-                                style={{ height: "36px", border: "none" }}
+                                style={{
+                                    height: "36px",
+                                    border: "none",
+                                    width: "450px",
+                                }}
                             >
                                 <option value="Còn mới">Còn mới</option>
                                 <option value="Đã qua sử dụng">
@@ -261,8 +264,8 @@ const ModalItem = ({
                             type="text"
                             style={{ border: "none" }}
                             value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                            readOnly={!isEditable}
+                            //  onChange={(e) => setStatus(e.target.value)}
+                            readOnly
                             required="required"
                         />
                         <p style={{ color: "red" }}>{}</p>
@@ -277,17 +280,21 @@ const ModalItem = ({
                             <Input
                                 type="text"
                                 style={{ border: "none" }}
-                                value={categoryIdClone}
-                                onChange={(e) => setCate(e.target.value)}
+                                value={category_id}
+                                //  onChange={(e) => setCate(e.target.value)}
                                 readOnly={!isEditable}
                                 required="required"
                             />
                         ) : (
                             <select
-                                value={category_id}
+                                // value={category_id}
                                 id="category_id"
                                 onChange={(e) => setCate(e.target.value)}
-                                style={{ height: "36px", border: "none" }}
+                                style={{
+                                    height: "36px",
+                                    border: "none",
+                                    width: "450px",
+                                }}
                             >
                                 <option>Thể Loại</option>
                                 {categories &&
@@ -335,8 +342,8 @@ const ModalItem = ({
                 <div className="donations-button">
                     {!isEditable ? (
                         <span>
-                            {donation.status != "đã trao tặng" &&
-                            donation.status != "chờ trao tặng" ? (
+                            {donation.status !== "đã trao tặng" &&
+                            donation.status !== "chờ trao tặng" ? (
                                 <button
                                     className="mr-10 btn btn-success"
                                     onClick={() => setIsEdit(!isEditable)}
@@ -386,8 +393,8 @@ const ModalItem = ({
                             </button>
                         </span>
                     )}
-                    {donation.status != "đã trao tặng" &&
-                    donation.status != "chờ trao tặng" ? (
+                    {donation.status !== "đã trao tặng" &&
+                    donation.status !== "chờ trao tặng" ? (
                         <button
                             className="btn btn-danger"
                             style={{

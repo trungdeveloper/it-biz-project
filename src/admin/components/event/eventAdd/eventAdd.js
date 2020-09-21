@@ -37,6 +37,11 @@ const EventAdd = ({ event }) => {
             state.date != null &&
             image != null
         ) {
+            const baseDatetime = new Date(state.date);
+            const day = baseDatetime.getDate();
+            const month = baseDatetime.getMonth() + 1;
+            const year = baseDatetime.getFullYear();
+            state.date = `${day}/${month}/${year}`;
             event(state, image);
             setState({
                 title: "",

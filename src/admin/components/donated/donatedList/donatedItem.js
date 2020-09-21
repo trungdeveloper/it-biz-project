@@ -58,7 +58,6 @@ const DonatedItem = (props) => {
         const month = baseDatetime.getMonth() + 1;
         const year = baseDatetime.getFullYear();
         const dates = `${day}/${month}/${year}`;
-        setDate(dates);
         if (date !== "" && image !== "") {
             const storageRef = props.firebase.storage().ref();
             const uploadTask = storageRef
@@ -84,7 +83,7 @@ const DonatedItem = (props) => {
                                 .doc(donated.id)
                                 .update({
                                     imgUrl: downloadURL,
-                                    date: date,
+                                    date: dates,
                                     status: "đã trao tặng",
                                 })
                                 .then(() => {
@@ -117,10 +116,10 @@ const DonatedItem = (props) => {
                 }
             );
         }
-        if (date == "") {
+        if (date === "") {
             setErrorDate("Nhập địa chỉ");
         }
-        if (image == "") {
+        if (image === "") {
             setErrorImage("Nhập ảnh ");
         }
     };
@@ -129,13 +128,13 @@ const DonatedItem = (props) => {
             <td style={{ width: "20%" }}>
                 {plights &&
                     plights.map((plight) =>
-                        donated.plight_id == plight.id ? plight.need : null
+                        donated.plight_id === plight.id ? plight.need : null
                     )}
             </td>
             <td style={{ width: "20%" }}>
                 {donations &&
                     donations.map((donation) =>
-                        donated.donation_id == donation.id
+                        donated.donation_id === donation.id
                             ? donation.name
                             : null
                     )}
@@ -226,7 +225,6 @@ const mapStateToProps = (state) => {
         donation: state.firestore.ordered.donation,
         plight: state.firestore.ordered.plight,
         firestore: state.firestore,
-        // donated,
     };
 };
 export default compose(

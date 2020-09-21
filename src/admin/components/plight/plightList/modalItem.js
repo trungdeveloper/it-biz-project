@@ -353,7 +353,7 @@ const ModalItem = ({
             size="lg"
         >
             <Modal.Header closeButton>
-                <Modal.Title>Tài trợ</Modal.Title>
+                <Modal.Title>Hoàn cảnh</Modal.Title>
             </Modal.Header>
             <Modal.Body>{renderContent(plight)}</Modal.Body>
             <Modal.Footer style={{ marginTop: "50px" }}>

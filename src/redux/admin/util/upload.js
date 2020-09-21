@@ -46,7 +46,7 @@ export const Upload = (
         });
 };
 // eslint-disable-next-line no-unused-vars
-export const UpdateUpload = (
+export const UpdateUploadDonation = (
     data,
     image,
     path,
@@ -66,7 +66,6 @@ export const UpdateUpload = (
         condition,
         uid,
     } = data;
-    console.log("date", data);
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`donation${image.name}`).put(image);

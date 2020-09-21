@@ -29,6 +29,11 @@ const EventItem = (props) => {
         props.deleteEvent(event.id);
     };
     const updateEvent = () => {
+        const baseDatetime = new Date(date);
+        const day = baseDatetime.getDate();
+        const month = baseDatetime.getMonth() + 1;
+        const year = baseDatetime.getFullYear();
+        const dates = `${day}/${month}/${year}`;
         setErrorTitle("");
         setErrorContent("");
         setErrorDate("");
@@ -44,7 +49,7 @@ const EventItem = (props) => {
                 id,
                 title,
                 content,
-                date,
+                date: dates,
             };
             const firebaseActions = {
                 firebase: props.firebase,

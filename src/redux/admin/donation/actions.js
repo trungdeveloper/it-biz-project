@@ -1,5 +1,5 @@
 import * as types from "./type";
-import { Upload, UpdateUpload } from "../util/upload";
+import { Upload, UpdateUploadDonation } from "../util/upload";
 
 export const donateRequest = (donation, image, props) => {
     return (dispatch) => {
@@ -17,7 +17,7 @@ export const donateRequest = (donation, image, props) => {
 };
 export const updateDonation = (data, image, firebaseActions, callback) => {
     return (dispatch) => {
-        UpdateUpload(
+        UpdateUploadDonation(
             data,
             image,
             "/donation",
