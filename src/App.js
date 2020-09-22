@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "./pages/home/index";
 import NavBar from "./components/navBar";
 import { Plight } from "./pages/plight/plight";
-import DonationPage from "./pages/donation/donation-page";
+import DonationShowcase from "./pages/donation/donation-page";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import DonationDetail from "./pages/donation/donationDetail";
@@ -31,7 +31,7 @@ export default function App() {
     return (
         <Router>
             <ScrollToTop>
-                <NavBar />
+                {uid !== "GxIEZwxv0ab7cNADjnojaIvrwKW2" ? <NavBar /> : null}
                 <div className="content">
                     <Switch>
                         <Route exact path="/" component={Home} />
@@ -42,11 +42,11 @@ export default function App() {
                         <Route
                             exact
                             path="/donationPage"
-                            component={DonationPage}
+                            component={DonationShowcase}
                         />
                         <Route
                             path="/donationPage/:id_category"
-                            component={DonationPage}
+                            component={DonationShowcase}
                         />
                         <Route path="/Donate" component={DonationForm} />
                         <Route
@@ -63,42 +63,24 @@ export default function App() {
                         />
                         <Route path="/sharePlight" component={SharePlight} />
                         <Route path="/insertData" component={InsertData} />
+                        <Route path="/sharePlight" component={SharePlight} />
+                        <Route path="/category" component={CategoryPage} />
+                        <Route path="/donationAdmin" component={DonationPage} />
+                        <Route path="/eventAdmin" component={EventPage} />
+                        <Route
+                            path="/donationRequestAdmin"
+                            component={DonationRequestPage}
+                        />
+                        <Route path="/plightAdmin" component={PlightPage} />
+                        <Route
+                            path="/plightRequestAdmin"
+                            component={PlightRequestPage}
+                        />
+                        <Route path="/donatedAdmin" component={DonatedPage} />
                     </Switch>
                 </div>
-                <Footer />
+                {uid !== "GxIEZwxv0ab7cNADjnojaIvrwKW2" ? <Footer /> : null}
             </ScrollToTop>
-            {uid !== "6D4lyxHfAhQW2694sQXHgVy0rNP2" ? <NavBar /> : null}
-            <div className="content">
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/Login" component={Login} />
-                    <Route path="/Register" component={Register} />
-                    <Route path="/UserHistory" component={UserHistory} />
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/Donation" component={Donation} />
-                    <Route path="/Donate" component={DonationForm} />
-                    <Route path="/DonationDetail" component={DonationDetail} />
-                    <Route path="/Plight" component={Plight} />
-                    <Route path="/PlightDetail" component={PlightDetail} />
-                    <Route path="/Activity" component={Activity} />
-                    <Route path="/ActivityDetail" component={ActivityDetail} />
-                    <Route path="/sharePlight" component={SharePlight} />
-                    <Route path="/category" component={CategoryPage} />
-                    <Route path="/donationAdmin" component={DonationPage} />
-                    <Route path="/eventAdmin" component={EventPage} />
-                    <Route
-                        path="/donationRequestAdmin"
-                        component={DonationRequestPage}
-                    />
-                    <Route path="/plightAdmin" component={PlightPage} />
-                    <Route
-                        path="/plightRequestAdmin"
-                        component={PlightRequestPage}
-                    />
-                    <Route path="/donatedAdmin" component={DonatedPage} />
-                </Switch>
-            </div>
-            {uid !== "6D4lyxHfAhQW2694sQXHgVy0rNP2" ? <Footer /> : null}
         </Router>
     );
 }

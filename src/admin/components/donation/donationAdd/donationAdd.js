@@ -13,7 +13,7 @@ const DonationAdd = ({ donate, categories }) => {
         category_id: "",
         date: "",
         status: "xác nhận",
-        uid: "6D4lyxHfAhQW2694sQXHgVy0rNP2",
+        uid: "GxIEZwxv0ab7cNADjnojaIvrwKW2",
     });
     const [errorName, setErrorName] = useState("");
     const [errorDescription, setErrorDescription] = useState("");
@@ -62,7 +62,7 @@ const DonationAdd = ({ donate, categories }) => {
                 category_id: "",
                 date: "",
                 status: "xác nhận",
-                uid: "6D4lyxHfAhQW2694sQXHgVy0rNP2",
+                uid: "GxIEZwxv0ab7cNADjnojaIvrwKW2",
             });
             setImage(null);
             document.getElementById("form-Dona").style.display = "none";

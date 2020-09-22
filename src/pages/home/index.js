@@ -5,9 +5,14 @@ import { NewPlightItem } from "../../components/plight/newPlightItem";
 import { PlightItem } from "../../components/plight/plightItem";
 import { Sponsor } from "../../components/home/sponsor";
 import RandomDonation from "../../components/donation/ramdomDonation";
+import { Redirect } from "react-router";
+import { useSelector } from "react-redux";
 
 export const Home = () => {
-    return (
+    const uid = useSelector((state) => state.firebase.auth.uid);
+    return uid === "GxIEZwxv0ab7cNADjnojaIvrwKW2" ? (
+        <Redirect to="/category" />
+    ) : (
         <div>
             <Carousel />
             <div className="featured-cause">

@@ -13,7 +13,7 @@ const PlightAdd = ({ plight }) => {
         address: "",
         status: "xác nhận",
         date: "",
-        uid: "6D4lyxHfAhQW2694sQXHgVy0rNP2",
+        uid: "GxIEZwxv0ab7cNADjnojaIvrwKW2",
     });
 
     const inputRef = React.useRef();
@@ -57,7 +57,7 @@ const PlightAdd = ({ plight }) => {
                 contact: "",
                 status: "xác nhận",
                 date: "",
-                uid: "6D4lyxHfAhQW2694sQXHgVy0rNP2",
+                uid: "GxIEZwxv0ab7cNADjnojaIvrwKW2",
             });
             setImage(null);
             document.getElementById("form-plight").style.display = "none";

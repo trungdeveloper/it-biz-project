@@ -276,7 +276,7 @@ export const plights = [
         imgUrl: "",
         name: "Hồ Thị Có",
         need: "Xe Ba Bánh",
-        status: "waiting",
+        status: "chờ xác nhận",
         uid: "mmsIWmol93fvJ7T4i6lGThf20xK2",
     },
     {
