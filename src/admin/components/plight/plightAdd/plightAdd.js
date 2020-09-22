@@ -12,6 +12,7 @@ const PlightAdd = ({ plight }) => {
         description: "",
         address: "",
         status: "xác nhận",
+        date: "",
         uid: "6D4lyxHfAhQW2694sQXHgVy0rNP2",
     });
 
@@ -21,6 +22,7 @@ const PlightAdd = ({ plight }) => {
     const [errorDescription, setErrorDescription] = useState("");
     const [errorAddress, setErrorAddress] = useState("");
     const [errorImage, setErrorImage] = useState("");
+    const [errorDate, setErrorDate] = useState("");
     const handleOnChange = (e) => {
         const { id, value } = e.target;
         setState((prevState) => ({
@@ -34,6 +36,12 @@ const PlightAdd = ({ plight }) => {
         setErrorDescription("");
         setErrorAddress("");
         setErrorImage("");
+        setErrorDate("");
+        const baseDatetime = new Date(state.date);
+        const day = baseDatetime.getDate();
+        const month = baseDatetime.getMonth() + 1;
+        const year = baseDatetime.getFullYear();
+        state.date = `${day}/${month}/${year}`;
         inputRef.current.value = "";
         if (
             state.need !== null &&
@@ -48,6 +56,7 @@ const PlightAdd = ({ plight }) => {
                 address: "",
                 contact: "",
                 status: "xác nhận",
+                date: "",
                 uid: "6D4lyxHfAhQW2694sQXHgVy0rNP2",
             });
             setImage(null);
@@ -64,6 +73,9 @@ const PlightAdd = ({ plight }) => {
         }
         if (image === null) {
             setErrorImage("Nhập ảnh hoàn cảnh");
+        }
+        if (state.date === "") {
+            setErrorDate("Nhập ảnh ngày xin tài trợ");
         }
     };
     return (
@@ -109,6 +121,27 @@ const PlightAdd = ({ plight }) => {
                                 onChange={handleOnChange}
                             />
                             <p style={{ color: "red" }}>{errorDescription}</p>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <label htmlFor="">Ngày hoàn cảnh cần</label>
+                        </div>
+                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input
+                                style={{
+                                    marginTop: "10px",
+                                    marginBottom: "10px",
+                                }}
+                                type="date"
+                                className="form-control"
+                                dateFormat="DD/MM/YYYY"
+                                id="date"
+                                value={state.date}
+                                onChange={handleOnChange}
+                                placeholder="Ngày Tài trợ vật phẩm"
+                            />
+                            <p style={{ color: "red" }}>{errorDate}</p>
                         </div>
                     </div>
                     <div className="form-group">

@@ -148,7 +148,6 @@ const DonatedItem = (props) => {
                         onChange={(e) => setDate(e.target.value)}
                         readOnly={!isEditable}
                         style={{ border: "none" }}
-                        required="required"
                     />
                 ) : (
                     donated.date
@@ -179,7 +178,6 @@ const DonatedItem = (props) => {
                 )}
                 <p style={{ color: "red" }}>{errorImage}</p>
             </td>
-<td></td>
             <td>
                 {donated.status === "chờ trao tặng" ? (
                     <button

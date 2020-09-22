@@ -65,25 +65,20 @@ const ModalItem = ({
         };
         acceptDonation(dataAccept, donation.id);
     };
-    const updateDonations = (e) => {
+    const updateDonations = () => {
         setErrorName("");
         setErrorDescription("");
         setErrorCondition("");
         setErrorCategory_id("");
         setErrorDate("");
         setErrorImage("");
-        const baseDatetime = new Date(date);
-        const day = baseDatetime.getDate();
-        const month = baseDatetime.getMonth() + 1;
-        const year = baseDatetime.getFullYear();
-        const dates = `${day}/${month}/${year}`;
         const id = donation.id;
         const dataUpdate = {
             name,
             description,
             category_id,
             condition,
-            date: dates,
+            date,
             uid: donation.uid,
             status,
             id,
@@ -101,7 +96,11 @@ const ModalItem = ({
             condition != null &&
             date != null
         ) {
-            console.log("vi", dataUpdate);
+            const baseDatetime = new Date(date);
+            const day = baseDatetime.getDate();
+            const month = baseDatetime.getMonth() + 1;
+            const year = baseDatetime.getFullYear();
+            setDate(`${day}/${month}/${year}`);
             /**
              * Precessing for saving the data from user
              */
@@ -172,7 +171,6 @@ const ModalItem = ({
                             onChange={(e) => setDate(e.target.value)}
                             readOnly={!isEditable}
                             style={{ border: "none" }}
-                            required="required"
                         />
                         <p style={{ color: "red" }}>{errorDate}</p>
                     </div>
@@ -287,7 +285,7 @@ const ModalItem = ({
                             />
                         ) : (
                             <select
-                                // value={category_id}
+                                value={category_id}
                                 id="category_id"
                                 onChange={(e) => setCate(e.target.value)}
                                 style={{
@@ -346,7 +344,9 @@ const ModalItem = ({
                             donation.status !== "chờ trao tặng" ? (
                                 <button
                                     className="mr-10 btn btn-success"
-                                    onClick={() => setIsEdit(!isEditable)}
+                                    onClick={(e) => {
+                                        setIsEdit(!isEditable),
+                                         e.preventDefault()}}
                                     style={{
                                         width: "50px",
                                         marginRight: "10px",

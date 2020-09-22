@@ -166,7 +166,7 @@ export const UpdateUploadPlight = (
     successAction,
     failureAction
 ) => {
-    const { id, need, description, status, uid } = data;
+    const { id, need, description, status, uid, date } = data;
     const { firebase, firestore } = firebaseActions;
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`plight${image.name}`).put(image);
@@ -193,6 +193,7 @@ export const UpdateUploadPlight = (
                             need: need,
                             description: description,
                             status: status,
+                            date: date,
                             uid: uid,
                         })
                         .then(() => {

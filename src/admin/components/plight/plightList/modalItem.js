@@ -33,12 +33,14 @@ const ModalItem = ({
     const [description, setDescription] = useState(plight.description);
     const [address, setAddress] = useState(plight.address);
     const [status, setStatus] = useState(plight.status);
+    const [date, setDate] = useState(plight.date);
     const [image, setImage] = React.useState(plight.imgUrl);
     const [newImage, updateNewImage] = useState(null);
     const [errorNeed, setErrorNeed] = useState("");
     const [errorDescription, setErrorDescription] = useState("");
     const [errorAddress, setErrorAddress] = useState("");
-    const [errorImage, setErrorImage] = useState("");
+    const [errorImage, setErrorImage] = useState(""); 
+    const [errorDate, setErrorDate] = useState("");
     const acceptPlights = () => {
         const dataAccept = {
             status: "xác nhận",
@@ -56,12 +58,14 @@ const ModalItem = ({
         setErrorDescription("");
         setErrorAddress("");
         setErrorImage("");
+        setErrorDate("");
         const id = plight.id;
         const dataUpdate = {
             need,
             description,
             address,
             status,
+            date,
             uid: plight.uid,
             id,
         };
@@ -78,8 +82,14 @@ const ModalItem = ({
             newImage &&
             need != null &&
             description != null &&
-            address != null
+            address != null &&
+            date != null
         ) {
+            const baseDatetime = new Date(date);
+            const day = baseDatetime.getDate();
+            const month = baseDatetime.getMonth() + 1;
+            const year = baseDatetime.getFullYear();
+            setDate(`${day}/${month}/${year}`);
             /**
              * Precessing for saving the data from user
              */
@@ -103,6 +113,9 @@ const ModalItem = ({
         }
         if (newImage === null) {
             setErrorImage("Nhập ảnh hoàn cảnh");
+        }
+        if (date === "") {
+            setErrorDate("Nhập ngày tặng vật phẩm");
         }
     };
     const delPlight = () => {
@@ -141,6 +154,22 @@ const ModalItem = ({
                             required="required"
                         />
                         <p style={{ color: "red" }}>{errorDescription}</p>
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <label htmlFor="">Ngày Tài trợ vật phẩm</label>
+                    </div>
+                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <Input
+                            type={isEditable ? "date" : "text"}
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                            readOnly={!isEditable}
+                            style={{ border: "none" }}
+                            required="required"
+                        />
+                        <p style={{ color: "red" }}>{errorDate}</p>
                     </div>
                 </div>
                 <div className="form-group">
