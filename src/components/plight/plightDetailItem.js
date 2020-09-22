@@ -12,7 +12,11 @@ export const PLightDetailItem = () => {
     return (
         <div className="cause-wrap d-flex flex-wrap justify-content-between">
             <figure className="m-0">
-                <img src={IMG} alt="Logo" style={{ height: "300px", width: "250px" }} />
+                <img
+                    src={IMG}
+                    alt="Logo"
+                    style={{ height: "300px", width: "250px" }}
+                />
             </figure>
             <div className="cause-content-wrap">
                 <div className="row">
@@ -49,7 +53,9 @@ export const PLightDetailItem = () => {
                 </div>
 
                 <div className="entry-footer mt-5">
-                    <Link to="#" className="btn gradient-bg mr-2">Trẻ em mồ côi</Link>
+                    <Link to="#" className="btn gradient-bg mr-2">
+                        Trẻ em mồ côi
+                    </Link>
                 </div>
             </div>
         </div>
