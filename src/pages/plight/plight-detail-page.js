@@ -1,21 +1,21 @@
 import React from "react";
-import "../../assets/css/bootstrap.min.css";
-import "../../assets/css/font-awesome.min.css";
-import "../../assets/css/elegant-fonts.css";
-import "../../assets/css/themify-icons.css";
-import "../../assets/css/swiper.min.css";
-import "../../assets/style.css";
-import { PLightDetailItem } from "../../components/plight/plightDetailItem";
-import { PlightItem } from "../../components/plight/plightItem";
+import PlightDetail from "../../components/plight/plightDetail";
+import RandomPlight from "../../components/plight/randomPlights";
+import { useSelector } from "react-redux";
 
-export const PlightDetail = () => {
+export const PlightDetailPage = (props) => {
+    const plightId = props.match.params.plight_id;
+    const plight = useSelector(
+        (state) => state.firestore.data.plight?.[plightId]
+    );
+
     return (
-        <div classNameName="single-page causes-page">
+        <div className="single-page causes-page">
             <div className="featured-cause">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-lg-12">
-                            <PLightDetailItem />
+                            <PlightDetail plight={plight} id={plightId} />
                         </div>
                     </div>
                 </div>
@@ -32,9 +32,7 @@ export const PlightDetail = () => {
                                 </div>
                             </div>
                         </div>
-                        <PlightItem />
-                        <PlightItem />
-                        <PlightItem />
+                        <RandomPlight />
                     </div>
                 </div>
             </div>

@@ -24,17 +24,17 @@ const Register = (props) => {
 
     const validateAll = () => {
         const msg = {};
-        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        const phonenumber = /^[0-9\b]+$/;
+        const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        const phoneNumber = /^[0-9\b]+$/;
         if (isEmpty(name)) {
             msg.name = "Vui lòng nhập tên của bạn";
         }
 
         if (isEmpty(phone)) {
             msg.phone = "Vui lòng số điện thoại của bạn";
-        } else if (phonenumber.test(phone) === false) {
+        } else if (phoneNumber.test(phone) === false) {
             msg.phone = "Số điện thoại bắt buộc phải nhập chữ số";
-        } else if (phone.length != 10) {
+        } else if (phone.length !== 10) {
             msg.phone = "Số điện thoại không hợp lệ";
         }
 
@@ -61,8 +61,7 @@ const Register = (props) => {
             msg.confirmPassword = "Mật khẩu không trùng khớp";
         }
         setValidationMsg(msg);
-        if (Object.keys(msg).length > 0) return false;
-        return true;
+        return Object.keys(msg).length <= 0;
     };
 
     const handleSubmit = () => {
@@ -169,7 +168,7 @@ const Register = (props) => {
                                 <div className="cols-sm-10">
                                     <div className="input-group">
                                         <span className="input-group-addon">
-                                            <i className="fa fa-map"></i>
+                                            <i className="fa fa-map" />
                                         </span>
                                         <input
                                             type="text"
@@ -192,7 +191,7 @@ const Register = (props) => {
                                 <div className="cols-sm-10">
                                     <div className="input-group">
                                         <span className="input-group-addon">
-                                            <i className="fa fa-lock fa-lg"></i>
+                                            <i className="fa fa-lock fa-lg" />
                                         </span>
                                         <input
                                             type="password"
@@ -215,7 +214,7 @@ const Register = (props) => {
                                 <div className="cols-sm-10">
                                     <div className="input-group">
                                         <span className="input-group-addon">
-                                            <i className="fa fa-lock fa-lg"></i>
+                                            <i className="fa fa-lock fa-lg" />
                                         </span>
                                         <input
                                             type="password"

@@ -1,13 +1,76 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import IMG from "../../assets/images/amsieutoc.jpg";
 import "./donated.css";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { useSelector } from "react-redux";
 
-export const Donated = () => {
+const Donated = () => {
+    const users = useSelector((state) => state.firestore.data.users);
+    const donations = useSelector((state) => state.firestore.data.donation);
+    const plights = useSelector((state) => state.firestore.data.plight);
+    const donatedArr = useSelector((state) => state.firestore.ordered.donated);
+
     const [show, setShow] = useState(false);
+    const [imgUrl, setImgUrl] = useState(undefined);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = (imgUrl) => {
+        setShow(true);
+        setImgUrl(imgUrl);
+    };
+
+    const renderModal = () => {
+        return (
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                aria-labelledby="contained-modal-title-vcenter"
+                size="sm"
+                centered
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Hình ảnh
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="modal-image">
+                    <img alt="" src={imgUrl && imgUrl} />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Thoát
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    };
+    const renderDonated = (donated) => {
+        const donation = donations?.[donated.donation_id];
+        const grantor = users?.[donation?.uid];
+        const plight = plights?.[donated.plight_id];
+        const grantee = users?.[plight?.uid];
+
+        return (
+            <tr>
+                <td>{donated.date}</td>
+                <td>{grantor && grantor.username}</td>
+                <td>{donation.name}</td>
+                <td>{grantee && grantee.username}</td>
+                <td>
+                    <button
+                        type="button"
+                        onClick={() => handleShow(donated.image)}
+                        className="btn btn-info"
+                    >
+                        Hình ảnh
+                    </button>
+                </td>
+            </tr>
+        );
+    };
 
     return (
         <div className="container">
@@ -27,138 +90,24 @@ export const Donated = () => {
                             </tr>
                         </thead>
                         <tbody className="donated-table">
-                            <tr>
-                                <td>10/09/2020</td>
-                                <td>Nguyễn Văn Hải</td>
-                                <td>Xe đạp</td>
-                                <td>Lê Thành Tâm</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        onClick={handleShow}
-                                        className="btn btn-info"
-                                    >
-                                        Hình ảnh
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>27/08/2020</td>
-                                <td>Huỳnh Xuân Toàn</td>
-                                <td>Xe 3 bánh cho người khuyết tật</td>
-                                <td>Lê Thị Hoa</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        onClick={handleShow}
-                                        className="btn btn-info"
-                                    >
-                                        Hình ảnh
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>05/08/2020</td>
-                                <td>Nguyễn Xuân Cường</td>
-                                <td>Sách giáo khoa</td>
-                                <td>Nguyễn Thị Hoa</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        onClick={handleShow}
-                                        className="btn btn-info"
-                                    >
-                                        Hình ảnh
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>05/08/2020</td>
-                                <td>Phan Văn Nam</td>
-                                <td>Xe đạp điện</td>
-                                <td>Nguyễn Thị Hồng</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        onClick={handleShow}
-                                        className="btn btn-info"
-                                    >
-                                        Hình ảnh
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>05/08/2020</td>
-                                <td>Trần Văn Sơn</td>
-                                <td>Mấy sới cỏ</td>
-                                <td>Đỗ Hoàng</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        onClick={handleShow}
-                                        className="btn btn-info"
-                                    >
-                                        Hình ảnh
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>12/07/2020</td>
-                                <td>Nguyễn Văn Nam</td>
-                                <td>Tivi</td>
-                                <td>Huỳnh Trung</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        onClick={handleShow}
-                                        className="btn btn-info"
-                                    >
-                                        Hình ảnh
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10/09/2020</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ấm siêu tốc</td>
-                                <td>Nguyễn Thị B</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        onClick={handleShow}
-                                        className="btn btn-info"
-                                    >
-                                        Hình ảnh
-                                    </button>
-                                </td>
-                            </tr>
+                            {donatedArr &&
+                                donatedArr.map((donated) =>
+                                    renderDonated(donated)
+                                )}
                         </tbody>
                     </table>
-                    <Modal
-                        show={show}
-                        onHide={handleClose}
-                        backdrop="static"
-                        aria-labelledby="contained-modal-title-vcenter"
-                        size="sm"
-                        centered
-                        keyboard={false}
-                    >
-                        <Modal.Header closeButton>
-                            <Modal.Title id="contained-modal-title-vcenter">
-                                Hình ảnh
-                            </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body className="modal-image">
-                            <img src={IMG} />
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Thoát
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
                 </div>
             </div>
+            {renderModal()}
         </div>
     );
 };
+
+export default compose(
+    firestoreConnect([
+        { collection: "donated", where: ["status", "==", "đã trao tặng"] },
+        "users",
+        "donation",
+        "plight",
+    ])
+)(Donated);

@@ -50,3 +50,12 @@
 .donation{
     margin-bottom: 30px;
 }
+
+
+.nodonation {
+    font-size: 33px;
+    text-align: center;
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding-top: 100px;
+}

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DonationSummary from "./donation-summary";
+import DonationSummary from "./donationSummary";
 import { useSelector } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import "./donation.css";
 
-const RandomDonation = ({ except }) => {
+const RandomDonation = React.memo(({ except }) => {
     const donations = useSelector((state) => state.firestore.ordered.donation);
     const filterDonations = donations?.filter(
         (donation) => donation.id !== except
@@ -20,7 +20,6 @@ const RandomDonation = ({ except }) => {
             );
             randomDonation.push(filterDonations?.[randomNumber]);
             filterDonations.splice(randomNumber, 1);
-            console.log(filterDonations);
         }
     }
 
@@ -38,6 +37,6 @@ const RandomDonation = ({ except }) => {
             ))}
         </>
     );
-};
+});
 
 export default compose(firestoreConnect(["donation"]))(RandomDonation);

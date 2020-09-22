@@ -315,33 +315,6 @@ export const donated = [
     },
     {
         date: "2020-09-23",
-        id: "EpLVSiReLMAGf5JLJVz3",
-        donation_id: "6SIDfoXnoGAj21L9dZuk",
-        plight_id: "UGZKKXzwy3ej9TmYIzWG",
-        image:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donatedCapture.PNG?alt=media&token=be940bfc-16bc-483b-92db-b6fbdbd06b48",
-        status: "đã trao tặng",
-    },
-    {
-        date: "2020-09-23",
-        id: "X7TGUl2Nuubcu1b9rLWT",
-        donation_id: "98jnptrEL4mlSXXD11xU",
-        plight_id: "d65xs17VidhScjcQ6Rfb",
-        image:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donatedPhu-Quoc-honeymoon-beach.jpg?alt=media&token=494ccb48-94a0-4f92-bc4a-6f9849dd19a1",
-        status: "đã trao tặng",
-    },
-    {
-        date: "2020-09-23",
-        id: "YMquyltPlINtRfDMLq6W",
-        donation_id: "5hccZUNkrjvQrPxFkOvE",
-        plight_id: "2swVGY8NmRWRCOMupKgr",
-        image:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donateddm.PNG?alt=media&token=b370f73e-5098-4987-ba89-ea2c4930d5dd",
-        status: "đã trao tặng",
-    },
-    {
-        date: "2020-09-23",
         id: "brcq2jzIvvt6GLYnKBUQ",
         donation_id: "a",
         plight_id: "cc",

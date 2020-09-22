@@ -1,12 +1,11 @@
 import React from "react";
 import { Carousel } from "../../components/home/carousel";
 import { Event } from "../../components/event/event";
-import { NewPlightItem } from "../../components/plight/newPlightItem";
-import { PlightItem } from "../../components/plight/plightItem";
-import { Sponsor } from "../../components/home/sponsor";
+import NewPlightItem from "../../components/plight/newPlight";
 import RandomDonation from "../../components/donation/ramdomDonation";
 import { Redirect } from "react-router";
 import { useSelector } from "react-redux";
+import RandomPlight from "../../components/plight/randomPlights";
 
 export const Home = () => {
     const uid = useSelector((state) => state.firebase.auth.uid);
@@ -44,7 +43,7 @@ export const Home = () => {
                                     </h2>
                                 </div>
                             </div>
-                            <NewPlightItem />
+                            <NewPlightItem index={1} />
                         </div>
                     </div>
                 </div>
@@ -61,9 +60,7 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <PlightItem />
-                        <PlightItem />
-                        <PlightItem />
+                        <RandomPlight />
                     </div>
                 </div>
             </div>
@@ -85,33 +82,6 @@ export const Home = () => {
                     </div>
                     <div className="row">
                         <RandomDonation />
-                    </div>
-                </div>
-            </div>
-            <div className="about-testimonial">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-lg-12">
-                            <div className="upcoming-events">
-                                <div className="section-heading">
-                                    <h2 className="entry-title">
-                                        Nhà tài trợ của tháng
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-sm-6 col-md-6">
-                            <Sponsor />
-                        </div>
-                        <div className="col-lg-3 col-sm-6 col-md-6">
-                            <Sponsor />
-                        </div>
-                        <div className="col-lg-3 col-sm-6 col-md-6">
-                            <Sponsor />
-                        </div>
-                        <div className="col-lg-3 col-sm-6 col-md-6">
-                            <Sponsor />
-                        </div>
                     </div>
                 </div>
             </div>
