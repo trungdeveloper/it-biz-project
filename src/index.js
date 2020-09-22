@@ -32,7 +32,6 @@ const rrfConfig = {
 };
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
 

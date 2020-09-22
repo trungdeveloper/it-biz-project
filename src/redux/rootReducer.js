@@ -6,6 +6,10 @@ import donationReducer from "./donation/reducer";
 import { firestoreReducer } from "redux-firestore";
 import plightReducer from "./plight/reducer";
 
+import categoryReducer from "./admin/category/reducer";
+import adminDonationReducer from "./admin/donation/reducer";
+import eventReducerAdmin from "./admin/event/reducer";
+import adminPlightReducer from "./admin/plight/reducer";
 const rootReducer = combineReducers({
     firebase: firebaseReducer,
     firestore: firestoreReducer,
@@ -13,6 +17,10 @@ const rootReducer = combineReducers({
     auth: authReducer,
     donation: donationReducer,
     plight: plightReducer,
+    cate: categoryReducer,
+    adminDonation: adminDonationReducer,
+    eventAdmin: eventReducerAdmin,
+    plightAdmin: adminPlightReducer,
 });
 
 export default rootReducer;
