@@ -11,6 +11,20 @@ img {
   }
 
   .our-causes .cause-wrap {
-    margin-bottom: 30px;
     margin-top: 60px;
+}
+
+.entry-content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 15px;
+}
+
+.our-causes .cause-content-wrap {
+  height: 180px !important;
+  padding: 32px;
+  background: #F2F2F2;
 }

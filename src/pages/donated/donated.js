@@ -29,9 +29,9 @@ export const Donated = () => {
                         <tbody className="donated-table">
                             <tr>
                                 <td>10/09/2020</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ấm siêu tốc</td>
-                                <td>Nguyễn Thị B</td>
+                                <td>Nguyễn Văn Hải</td>
+                                <td>Xe đạp</td>
+                                <td>Lê Thành Tâm</td>
                                 <td>
                                     <button
                                         type="button"
@@ -43,10 +43,10 @@ export const Donated = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>10/09/2020</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ấm siêu tốc</td>
-                                <td>Nguyễn Thị B</td>
+                                <td>27/08/2020</td>
+                                <td>Huỳnh Xuân Toàn</td>
+                                <td>Xe 3 bánh cho người khuyết tật</td>
+                                <td>Lê Thị Hoa</td>
                                 <td>
                                     <button
                                         type="button"
@@ -58,10 +58,10 @@ export const Donated = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>10/09/2020</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ấm siêu tốc</td>
-                                <td>Nguyễn Thị B</td>
+                                <td>05/08/2020</td>
+                                <td>Nguyễn Xuân Cường</td>
+                                <td>Sách giáo khoa</td>
+                                <td>Nguyễn Thị Hoa</td>
                                 <td>
                                     <button
                                         type="button"
@@ -73,10 +73,10 @@ export const Donated = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>10/09/2020</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ấm siêu tốc</td>
-                                <td>Nguyễn Thị B</td>
+                                <td>05/08/2020</td>
+                                <td>Phan Văn Nam</td>
+                                <td>Xe đạp điện</td>
+                                <td>Nguyễn Thị Hồng</td>
                                 <td>
                                     <button
                                         type="button"
@@ -88,10 +88,10 @@ export const Donated = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>10/09/2020</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ấm siêu tốc</td>
-                                <td>Nguyễn Thị B</td>
+                                <td>05/08/2020</td>
+                                <td>Trần Văn Sơn</td>
+                                <td>Mấy sới cỏ</td>
+                                <td>Đỗ Hoàng</td>
                                 <td>
                                     <button
                                         type="button"
@@ -103,10 +103,10 @@ export const Donated = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>10/09/2020</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Ấm siêu tốc</td>
-                                <td>Nguyễn Thị B</td>
+                                <td>12/07/2020</td>
+                                <td>Nguyễn Văn Nam</td>
+                                <td>Tivi</td>
+                                <td>Huỳnh Trung</td>
                                 <td>
                                     <button
                                         type="button"
