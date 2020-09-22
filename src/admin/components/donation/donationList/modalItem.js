@@ -52,12 +52,11 @@ const ModalItem = ({
     const [errorDate, setErrorDate] = useState("");
     const [errorImage, setErrorImage] = useState("");
 
-    const acceptDonations = (e) => {
+    const acceptDonations = () => {
         const dataAccept = {
             status: "xác nhận",
         };
         acceptDonation(dataAccept, donation.id);
-        // e.preventDefault();
     };
     const cancelDonations = () => {
         const dataAccept = {
@@ -94,7 +93,7 @@ const ModalItem = ({
             description != null &&
             category_id != null &&
             condition != null &&
-            date != null
+            date != 'NaN/NaN/NaN'
         ) {
             const baseDatetime = new Date(date);
             const day = baseDatetime.getDate();
@@ -112,7 +111,7 @@ const ModalItem = ({
                     setImage(imageUrl);
                 }
             );
-
+            setCate(categoryIdClone);
             /**
              * Update the status of the modal
              */
@@ -130,13 +129,12 @@ const ModalItem = ({
         if (category_id === "") {
             setErrorCategory_id("Chọn thể loại vật phẩm");
         }
-        if (date === "") {
+        if (date === "NaN/NaN/NaN") {
             setErrorDate("Nhập ngày tặng vật phẩm");
         }
         if (newImage === null) {
             setErrorImage("chọn ảnh vật phẩm");
         }
-        // e.preventDefault();
     };
     const delDonation = () => {
         deleteDonation(donation.id);
@@ -279,7 +277,7 @@ const ModalItem = ({
                                 type="text"
                                 style={{ border: "none" }}
                                 value={category_id}
-                                //  onChange={(e) => setCate(e.target.value)}
+                                onChange={(e) => setCate(e.target.value)}
                                 readOnly={!isEditable}
                                 required="required"
                             />
@@ -345,8 +343,15 @@ const ModalItem = ({
                                 <button
                                     className="mr-10 btn btn-success"
                                     onClick={(e) => {
-                                        setIsEdit(!isEditable),
-                                         e.preventDefault()}}
+                                        setIsEdit(!isEditable);
+                                        setErrorName("");
+                                        setErrorDescription("");
+                                        setErrorCondition("");
+                                        setErrorCategory_id("");
+                                        setErrorDate("");
+                                        setErrorImage("");
+                                        e.preventDefault();
+                                    }}
                                     style={{
                                         width: "50px",
                                         marginRight: "10px",
@@ -361,6 +366,7 @@ const ModalItem = ({
                             <button
                                 className=" btn btn-success"
                                 onClick={(e) => {
+                                    e.preventDefault();
                                     updateDonations();
                                     e.preventDefault();
                                 }}
@@ -483,8 +489,6 @@ const mapStateToProps = (state, props) => {
     return {
         categories: state.firestore.ordered.categories,
         users: state.firestore.ordered.users,
-        firebase: state.firebase,
-        firestore: state.firestore,
         donation,
     };
 };

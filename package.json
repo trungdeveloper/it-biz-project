@@ -56,6 +56,9 @@
       "last 1 safari version"
     ]
   },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "devDependencies": {
     "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
