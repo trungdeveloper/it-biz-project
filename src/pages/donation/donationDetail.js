@@ -59,4 +59,4 @@ const DonationDetail = (props) => {
     );
 };
 
-export default compose(firestoreConnect(["donation"]))(DonationDetail);
+export default compose(firestoreConnect(["donation", "users"]))(DonationDetail);

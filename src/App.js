@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "./pages/home/index";
 import NavBar from "./components/navBar";
-import { Plight } from "./pages/plight/plight";
+import Plight from "./pages/plight/plight";
 import DonationShowcase from "./pages/donation/donation-page";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import DonationDetail from "./pages/donation/donationDetail";
-import { PlightDetail } from "./pages/plight/plightDetail";
+import { PlightDetailPage } from "./pages/plight/plight-detail-page";
 import { ActivityDetail } from "./pages/acitivity/activityDetail";
 import { UserHistory } from "./pages/profile/userHistory";
 import { Footer } from "./components/home/footer";
@@ -22,7 +22,7 @@ import { useSelector } from "react-redux";
 import { DonationRequestPage } from "./admin/page/donation/donationRequest";
 import { PlightRequestPage } from "./admin/page/plight/plightRequestPage";
 import { DonatedPage } from "./admin/page/donated/donatedPage";
-import { Donated } from "./pages/donated/donated";
+import Donated from "./pages/donated/donated";
 import ScrollToTop from "./scroll-to-top";
 import { InsertData } from "./pages/insert-data";
 
@@ -32,7 +32,11 @@ export default function App() {
         <Router>
             <ScrollToTop>
                 {uid !== "GxIEZwxv0ab7cNADjnojaIvrwKW2" ? <NavBar /> : null}
-                <div className="content">
+                <div
+                    className={
+                        uid !== "GxIEZwxv0ab7cNADjnojaIvrwKW2" ? "content" : ""
+                    }
+                >
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/Login" component={Login} />
@@ -55,7 +59,10 @@ export default function App() {
                             component={DonationDetail}
                         />
                         <Route path="/Plight" component={Plight} />
-                        <Route path="/PlightDetail" component={PlightDetail} />
+                        <Route
+                            path="/PlightDetail/:plight_id"
+                            component={PlightDetailPage}
+                        />
                         <Route path="/donated" component={Donated} />
                         <Route
                             path="/ActivityDetail"

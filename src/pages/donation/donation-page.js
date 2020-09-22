@@ -1,10 +1,11 @@
 import React from "react";
-import DonationSummary from "../../components/donation/donation-summary";
+import DonationSummary from "../../components/donation/donationSummary";
 import CategoryBar from "../../components/category/category-bar";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "./donationDetail.css";
 
 const DonationPage = (props) => {
     const id = props.match.params.id_category;
@@ -26,10 +27,8 @@ const DonationPage = (props) => {
                     <div className="col-xs-9 col-sm-9 col-md-8 col-lg-9">
                         <div className="row">
                             {donationOutput && !donationOutput[0] && (
-                                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <p>
-                                        Hiện danh mục này chưa có vật phẩm nào
-                                    </p>
+                                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 nodonation">
+                                    <p>Hiện mục này chưa có tài trợ nào</p>
                                 </div>
                             )}
                             {donationOutput &&
