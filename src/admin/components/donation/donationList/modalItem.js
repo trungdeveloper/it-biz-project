@@ -35,6 +35,7 @@ const ModalItem = ({
                 ? (categoryIdClone = cate.name)
                 : null;
         });
+
     const [isEditable, setIsEdit] = useState(false);
     const inputRef = React.useRef();
     const [name, setName] = useState(donation.name);
@@ -111,6 +112,14 @@ const ModalItem = ({
                     setImage(imageUrl);
                 }
             );
+            const categories =
+                categories &&
+                categories.map((cate) => {
+                    // console.log(cate);
+                    return cate.id === donation.category_id
+                        ? (categoryIdClone = cate.name)
+                        : null;
+                });
             setCate(categoryIdClone);
             /**
              * Update the status of the modal
