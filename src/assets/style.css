@@ -5,6 +5,8 @@ body {
     font-size: 16px;
     line-height: 1.8;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+
 }
 
 img {
@@ -386,7 +388,7 @@ a:hover, a:active {
     .hero-slider .pagination-wrap,
     .hero-slider .swiper-button-next,
     .hero-slider .swiper-button-prev{
-        display: none;
+        display: block;
     }
 
     .hero-content-overlay footer{
@@ -394,6 +396,15 @@ a:hover, a:active {
     }
 }
 
+@media screen and (max-width: 768px){
+    .hero-content-overlay p,
+    .hero-slider .pagination-wrap,
+    .hero-slider .swiper-button-next,
+    .hero-slider .swiper-button-prev{
+        display: none;
+    }
+
+}
 /*--------------------------------------------------------------
 # Elements Page
 --------------------------------------------------------------*/

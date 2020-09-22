@@ -1,36 +1,28 @@
 import React from "react";
 import "./category-bar.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
 
-export const CategoryBar = () => {
+const CategoryBar = () => {
+    const categories = useSelector(
+        (state) => state.firestore.ordered.categories
+    );
     return (
         <ul className="ul-category">
             <li>
-                <Link className="active" to="#home">
+                <Link className="active" to="/donationPage">
                     Danh mục
                 </Link>
             </li>
-            <li>
-                <Link to="#">Đồ Gia Dụng</Link>
-            </li>
-            <li>
-                <Link to="#">Đồ Điện Tử</Link>
-            </li>
-            <li>
-                <Link to="#">Thời Trang</Link>
-            </li>
-            <li>
-                <Link to="#">Nội Thất</Link>
-            </li>
-            <li>
-                <Link to="#">Văn Phòng</Link>
-            </li>
-            <li>
-                <Link to="#">Nông Nghiệp</Link>
-            </li>
-            <li>
-                <Link to="#">Khác</Link>
-            </li>
+            {categories &&
+                categories.map((cate) => (
+                    <li key={cate.id}>
+                        <Link to={`/donationPage/${cate.id}`}>{cate.name}</Link>
+                    </li>
+                ))}
         </ul>
     );
 };
+
+export default firestoreConnect(["categories"])(CategoryBar);

@@ -1,16 +1,10 @@
 import React from "react";
-// import "../../assets/css/bootstrap.min.css";
-// import "../../assets/css/font-awesome.min.css";
-// import "../../assets/css/elegant-fonts.css";
-// import "../../assets/css/themify-icons.css";
-// import "../../assets/css/swiper.min.css";
-// import "../../assets/style.css";
 import { Carousel } from "../../components/home/carousel";
 import { Event } from "../../components/event/event";
 import { NewPlightItem } from "../../components/plight/newPlightItem";
 import { PlightItem } from "../../components/plight/plightItem";
-import { Product } from "../../components/sponsor/product";
 import { Sponsor } from "../../components/home/sponsor";
+import RandomDonation from "../../components/donation/ramdomDonation";
 
 export const Home = () => {
     return (
@@ -85,18 +79,7 @@ export const Home = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
-                            <Product />
-                        </div>
-                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
-                            <Product />
-                        </div>
-                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
-                            <Product />
-                        </div>
-                        <div className="col-xs-3 col-sm-6 col-md-6 col-lg-3">
-                            <Product />
-                        </div>
+                        <RandomDonation />
                     </div>
                 </div>
             </div>

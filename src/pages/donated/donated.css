@@ -1,0 +1,20 @@
+.donated-page{
+    width: 100%;
+    padding-top: 15px;
+}
+.modal-image img{
+    width: 100%;
+}
+
+thead.donated-table tr th{
+    text-align: center;
+    vertical-align: middle;
+}
+tbody.donated-table tr td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.donated-page .section-heading .entry-title{
+    margin-bottom: "20px"
+}

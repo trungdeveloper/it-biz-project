@@ -16,6 +16,7 @@
 .ul-category li a.active {
     background-color: #3B6E23;
     color: white;
+    padding: 15px;
 }
   
 .ul-category li a:hover:not(.active) {

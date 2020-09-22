@@ -28,6 +28,22 @@ export const Activity = () => {
                     <NormalEvent />
                     <NormalEvent />
                 </div>
+                <div className="row">
+                    <table className="table table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>Ngày</th>
+                                <th>Hình ảnh</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>21685</td>
+                                <td>Hình ảnh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

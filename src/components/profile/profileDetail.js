@@ -1,10 +1,9 @@
 import React from "react";
 import "./profileDetail.css";
-import IMG from "../../assets/image/user.png";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import { ProgressModal } from "../../util/ProgressModal";
+import { CustomModal } from "../../util/CustomModal";
 const ProfileDetail = ({ profile, user, firestore }) => {
     const [state, setState] = React.useState({
         username: "",
@@ -46,19 +45,10 @@ const ProfileDetail = ({ profile, user, firestore }) => {
         <div className="container">
             <div className="row">
                 <div className="user_profile">
-                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div className="title">
                             <h5>Thông tin của tôi</h5>
                         </div>
-                        <form>
-                            <div className="image-profile">
-                                <div className="image-radius">
-                                    <img src={IMG} alt="" />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -134,7 +124,7 @@ const ProfileDetail = ({ profile, user, firestore }) => {
                     </div>
                 </div>
             </div>
-            <ProgressModal
+            <CustomModal
                 show={showModal}
                 handleClose={setShowModal}
                 text="Cập nhật thông tin thành công."

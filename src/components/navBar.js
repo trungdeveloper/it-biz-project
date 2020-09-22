@@ -50,10 +50,10 @@ const NavBar = ({ auth, logout }) => {
                         </div>
                         <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                             <div className="share-btn">
-                                <Link to="SharePlight">Chia Sẻ Hoàn Cảnh</Link>
+                                <Link to="/SharePlight">Chia Sẻ Hoàn Cảnh</Link>
                             </div>
                             <div className="donate-btn">
-                                <Link to="donate">Tài Trợ Ngay</Link>
+                                <Link to="/donate">Tài Trợ Ngay</Link>
                             </div>
                         </div>
                     </div>
@@ -166,14 +166,14 @@ const NavBar = ({ auth, logout }) => {
                         </Link>
                     </li>
                     <li
-                        id="activities"
+                        id="donated"
                         className={`tag ${
-                            activeTab === "activities" ? "active" : ""
+                            activeTab === "donated" ? "active" : ""
                         }`}
                     >
                         <Link
-                            onClick={() => setActiveTab("activities")}
-                            to="/Activity"
+                            onClick={() => setActiveTab("donated")}
+                            to="/donated"
                         >
                             HOẠT ĐỘNG
                         </Link>
@@ -192,14 +192,14 @@ const NavBar = ({ auth, logout }) => {
                         </Link>
                     </li>
                     <li
-                        id="donation"
+                        id="donationPage"
                         className={`tag ${
-                            activeTab === "donation" ? "active" : ""
+                            activeTab === "donationPage" ? "active" : ""
                         }`}
                     >
                         <Link
-                            onClick={() => setActiveTab("donation")}
-                            to="/donation"
+                            onClick={() => setActiveTab("donationPage")}
+                            to="/donationPage"
                         >
                             TÀI TRỢ
                         </Link>

@@ -1,0 +1,52 @@
+.donationDetailContent{
+    margin-top: "20px";
+}
+.donationDetailContent img, .donationDetailContent .entry-content,.donationDetailContent .section-heading .entry-title {
+    width: 100%;
+    padding: 15px;
+    max-height: 260px;
+}
+
+.donationDetailContent .section-heading .entry-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 2px;
+    background: #006600;
+    left: 15px;
+}
+
+.entry-title    {
+    font-size: 18px;
+    color: black;
+}
+.posted-date{
+    color: black;
+}
+
+.cause-content-wrap{
+    color: black;
+    min-height: 120px;
+    background: #F2F2F2;
+}
+
+.cause-wrap {
+    border: 1px solid rgb(224, 224, 224);
+    margin-top: 50px;
+}
+
+.description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-top: 15px;
+}
+
+.donation{
+    margin-bottom: 30px;
+}

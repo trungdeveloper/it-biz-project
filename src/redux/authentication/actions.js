@@ -6,10 +6,13 @@ export const loginRequest = (credentials, props) => {
             .auth()
             .signInWithEmailAndPassword(credentials.email, credentials.password)
             .then(() => {
-                dispatch(loginSuccess(credentials));
+                props.firebase.auth().currentUser.emailVerified
+                    ? dispatch(loginSuccess(credentials))
+                    : props.firebase.auth().signOut();
+                dispatch(loginFailure("Vui lòng xác nhận email để đăng nhập"));
             })
             .catch((err) => {
-                dispatch(loginFailure("login fail"), err);
+                dispatch(loginFailure("Đăng nhập thất bại"), err);
             });
     };
 };
@@ -41,7 +44,16 @@ export const register = (newUser, props) => {
                 });
             })
             .then(() => {
-                dispatch(registerSuccess(newUser));
+                const user = props.firebase.auth().currentUser;
+                user.sendEmailVerification()
+                    .then(() => {
+                        !props.firebase.auth().currentUser.emailVerified &&
+                            props.firebase.auth().signOut();
+                        dispatch(registerSuccess(newUser));
+                    })
+                    .catch((err) => {
+                        dispatch(registerFailure(err));
+                    });
             })
             .catch((err) => {
                 dispatch(registerFailure(err));

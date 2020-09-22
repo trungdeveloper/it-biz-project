@@ -7,6 +7,7 @@ import "../../assets/css/swiper.min.css";
 import "../../assets/style.css";
 import IMG from "../../assets/images/oshomah.jpg";
 import { Link } from "react-router-dom";
+import "./plight-style.css";
 
 export const NewPlightItem = () => {
     return (
@@ -23,23 +24,25 @@ export const NewPlightItem = () => {
             <div className="cause-content-wrap">
                 <header className="entry-header d-flex flex-wrap align-items-center">
                     <h3 className="entry-title w-100 m-0">
-                        <Link to="#">Trẻ em mồ côi</Link>
+                        <Link to="#">Học sinh nghèo vượt khó</Link>
                     </h3>
                     <div className="posted-date">
                         <Link to="#">5/8/2020</Link>
                     </div>
                     <div className="posted-date">
-                        <Link to="#">101B Lê Hữu Trác, Sơn Trà, Đà Nẵng</Link>
+                        <Link to="#">
+                            K111/9 đường 2 Tháng 9 (quận Hải Châu) Đà Nẵng
+                        </Link>
                     </div>
                     <div className="cats-links ">
-                        <Link to="#">Nguyễn Văn A</Link>
+                        <Link to="#">Lê Thành Tâm</Link>
                     </div>
                 </header>
                 <div className="entry-content">
                     <p className="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris tempus vestib ulum mauris. Lorem ipsum dolor sit
-                        amet, consectetur.
+                        Hiện tại em Lê Thành Tâm là học sinh lớp 7a1 Trường
+                        Trung học cơ sở Tây Sơn, gia đình nghèo khổ bố bệnh nặng
+                        không lao động được một mình mẹ là lao động...
                     </p>
                 </div>
                 <div className="entry-footer mt-5">

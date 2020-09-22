@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React from "react";
 import { Link } from "react-router-dom";
 import { register } from "../../redux/authentication/actions";
@@ -7,6 +8,8 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import "./register.css";
 import IMG from "../../assets/image/user.svg";
+import { CustomModal } from "../../util/CustomModal";
+import { isEmpty, isEmail } from "validator";
 
 const Register = (props) => {
     const [name, setName] = React.useState("");
@@ -16,14 +19,60 @@ const Register = (props) => {
     const [password, setPassword] = React.useState("");
     const [confirmPassword, setConfirmPassword] = React.useState("");
     const { auth, error, register } = props;
+    const [showModal, setShowModal] = React.useState(false);
+    const [validationMsg, setValidationMsg] = React.useState("");
 
-    const handleSubmit = () => {
-        password === confirmPassword
-            ? register({ name, email, phone, address, password })
-            : alert("mat khau sai");
+    const validateAll = () => {
+        const msg = {};
+        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const phonenumber = /^[0-9\b]+$/;
+        if (isEmpty(name)) {
+            msg.name = "Vui lòng nhập tên của bạn";
+        }
+
+        if (isEmpty(phone)) {
+            msg.phone = "Vui lòng số điện thoại của bạn";
+        } else if (phonenumber.test(phone) === false) {
+            msg.phone = "Số điện thoại bắt buộc phải nhập chữ số";
+        } else if (phone.length != 10) {
+            msg.phone = "Số điện thoại không hợp lệ";
+        }
+
+        if (isEmpty(email)) {
+            msg.email = "Vui lòng nhập email của bạn";
+        } else if (!isEmail(email)) {
+            msg.email = "Email không hợp lệ";
+        } else if (reg.test(email) === false) {
+            msg.email = "Email không hợp lệ";
+        }
+
+        if (isEmpty(address)) {
+            msg.address = "Vui lòng nhập địa chỉ của bạn";
+        }
+
+        if (isEmpty(password)) {
+            msg.password = "Vui lòng nhập mật khẩu của bạn";
+        }
+
+        if (isEmpty(confirmPassword)) {
+            msg.confirmPassword = "Vui lòng nhập xác nhận mật khẩu của bạn";
+        }
+        if (password !== confirmPassword) {
+            msg.confirmPassword = "Mật khẩu không trùng khớp";
+        }
+        setValidationMsg(msg);
+        if (Object.keys(msg).length > 0) return false;
+        return true;
     };
 
-    return auth.uid ? (
+    const handleSubmit = () => {
+        const isValid = validateAll();
+        if (!isValid) return;
+        register({ name, email, phone, address, password });
+        setShowModal(true);
+    };
+
+    return auth.emailVerified ? (
         <Redirect to={"/"} />
     ) : (
         <div className="container h-100">
@@ -59,6 +108,9 @@ const Register = (props) => {
                                             placeholder="Họ và Tên"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">
+                                        {validationMsg.name}
+                                    </p>
                                 </div>
                             </div>
                             <div className="form-group">
@@ -82,6 +134,9 @@ const Register = (props) => {
                                             placeholder="Số điện Thoại"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">
+                                        {validationMsg.phone}
+                                    </p>
                                 </div>
                             </div>
                             <div className="form-group">
@@ -105,6 +160,9 @@ const Register = (props) => {
                                             placeholder="Nhập email của bạn"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">
+                                        {validationMsg.email}
+                                    </p>
                                 </div>
                             </div>
                             <div className="form-group">
@@ -125,6 +183,9 @@ const Register = (props) => {
                                             placeholder="Nhập địa chỉ của bạn"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">
+                                        {validationMsg.address}
+                                    </p>
                                 </div>
                             </div>
                             <div className="form-group">
@@ -145,6 +206,9 @@ const Register = (props) => {
                                             placeholder="Nhập mật khẩu của bạn"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">
+                                        {validationMsg.password}
+                                    </p>
                                 </div>
                             </div>
                             <div className="form-group">
@@ -167,6 +231,9 @@ const Register = (props) => {
                                             placeholder="Xác nhận mật khẩu của bạn"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">
+                                        {validationMsg.confirmPassword}
+                                    </p>
                                 </div>
                             </div>
                             <div className="form-group register_container">
@@ -191,6 +258,11 @@ const Register = (props) => {
                     </div>
                 </div>
             </div>
+            <CustomModal
+                show={showModal}
+                handleClose={setShowModal}
+                text={`Email xác minh đã được gởi tới email ${email}. Vui lòng xác nhận email để đăng nhập`}
+            />
         </div>
     );
 };

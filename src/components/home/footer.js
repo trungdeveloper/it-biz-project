@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
     return (
-        <div>
             <footer className="site-footer">
                 <div className="footer-widgets">
                     <div className="container">
@@ -18,12 +17,11 @@ export const Footer = () => {
                                         </Link>
                                     </h2>
                                     <p>
-                                        Lorem ipsum dolor sit amet, con sectetur
-                                        adipiscing elit. Mauris temp us vestib
-                                        ulum mauris.Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. Mauris
-                                        tempus vestib ulum mauris.Lorem ipsum
-                                        dolo.
+                                        Nhường cơm sẻ áo. Tái sử dụng đồ, bảo vệ
+                                        môi trường. Chúng tôi sẽ mang nhà hảo
+                                        tâm đến gần hơn với những hoàn cảnh khó
+                                        khăn. Để biến việc từ thiện trở nên dễ
+                                        dàng hơn.
                                     </p>
                                 </div>
                                 {/* .foot-about */}
@@ -141,7 +139,5 @@ export const Footer = () => {
                 </div>
                 {/* .footer-widgets */}
             </footer>
-            {/* .site-footer */}
-        </div>
     );
 };

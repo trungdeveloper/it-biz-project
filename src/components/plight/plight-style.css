@@ -9,3 +9,22 @@ img {
   img:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
   }
+
+  .our-causes .cause-wrap {
+    margin-top: 60px;
+}
+
+.entry-content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 15px;
+}
+
+.our-causes .cause-content-wrap {
+  height: 180px !important;
+  padding: 32px;
+  background: #F2F2F2;
+}

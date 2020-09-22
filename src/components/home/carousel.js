@@ -17,11 +17,11 @@ export const Carousel = () => {
                                     </header>
                                     <div className="entry-content mt-4">
                                         <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit. Mauris
-                                            tempus vestibulum mauris quis
-                                            aliquam. Integer accumsan sodales
-                                            odio, id tempus ullamcorper
+                                            Nhường cơm sẻ áo. Tái sử dụng đồ,
+                                            bảo vệ môi trường. Chúng tôi sẽ mang
+                                            nhà hảo tâm đến gần hơn với những
+                                            hoàn cảnh khó khăn. Để biến việc từ
+                                            thiện trở nên dễ dàng hơn.
                                         </p>
                                     </div>
 
