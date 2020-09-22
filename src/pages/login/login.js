@@ -7,10 +7,38 @@ import { compose } from "redux";
 import { firebaseConnect } from "react-redux-firebase";
 import { Redirect } from "react-router";
 import IMG from "../../assets/image/user.svg";
+import isEmpty from "validator/lib/isEmpty";
+import isEmail from "validator/lib/isEmail";
+
 
 const Login = ({ auth, login, authError }) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [validationMsg, setValidationMsg] = React.useState("");
+
+    const validateAll = () =>{
+        const msg = {}
+        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(isEmpty(email)){
+            msg.email = "Vui lòng nhập email của bạn"
+        }else if(!isEmail(email)){
+            msg.email = "Email không hợp lệ"
+        }else if(reg.test(email) === false){
+            msg.email = "Email không hợp lệ"
+        }
+        if(isEmpty(password)){
+            msg.password = "Vui lòng nhập mật khẩu của bạn"
+        }
+        setValidationMsg(msg)
+        if(Object.keys(msg).length > 0) return false
+        return true
+    }
+
+    const handleSubmit = () =>{
+        const isValid = validateAll()
+        if(!isValid) return
+        login({email, password});
+    }
     return auth.emailVerified ? (
         <Redirect to={"/"} />
     ) : (
@@ -47,6 +75,7 @@ const Login = ({ auth, login, authError }) => {
                                             placeholder="Email"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">{validationMsg.email}</p>
                                 </div>
                             </div>
                             <div className="form-group">
@@ -69,6 +98,7 @@ const Login = ({ auth, login, authError }) => {
                                             placeholder="Mật KhẩU"
                                         />
                                     </div>
+                                    <p className="text-red-400 text-xs italic">{validationMsg.password}</p> 
                                 </div>
                             </div>
                             <div className="d-flex justify-content-center mt-3 login_container">
@@ -76,7 +106,7 @@ const Login = ({ auth, login, authError }) => {
                                     type="button"
                                     name="button"
                                     className="btn login_btn"
-                                    onClick={() => login({ email, password })}
+                                    onClick={handleSubmit}
                                 >
                                     Đăng Nhập
                                 </button>

@@ -106,4 +106,7 @@ input::-webkit-input-placeholder {
 .register_container {
    padding: 0 2rem;
 }
+p.text-red-400.text-xs.italic {
+   color: red;
+}
 
