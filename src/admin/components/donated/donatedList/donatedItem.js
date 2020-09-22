@@ -82,7 +82,7 @@ const DonatedItem = (props) => {
                                 .collection("donated")
                                 .doc(donated.id)
                                 .update({
-                                    imgUrl: downloadURL,
+                                    image: downloadURL,
                                     date: dates,
                                     status: "đã trao tặng",
                                 })
@@ -173,7 +173,7 @@ const DonatedItem = (props) => {
                             width: "100px",
                             height: "100px",
                         }}
-                        src={donated.imgUrl}
+                        src={donated.image}
                     ></img>
                 )}
                 <p style={{ color: "red" }}>{errorImage}</p>

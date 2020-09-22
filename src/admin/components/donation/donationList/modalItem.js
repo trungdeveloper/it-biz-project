@@ -93,7 +93,7 @@ const ModalItem = ({
             description != null &&
             category_id != null &&
             condition != null &&
-            date != 'NaN/NaN/NaN'
+            date != null
         ) {
             const baseDatetime = new Date(date);
             const day = baseDatetime.getDate();
@@ -129,7 +129,7 @@ const ModalItem = ({
         if (category_id === "") {
             setErrorCategory_id("Chọn thể loại vật phẩm");
         }
-        if (date === "NaN/NaN/NaN") {
+        if (date === "") {
             setErrorDate("Nhập ngày tặng vật phẩm");
         }
         if (newImage === null) {
@@ -169,6 +169,7 @@ const ModalItem = ({
                             onChange={(e) => setDate(e.target.value)}
                             readOnly={!isEditable}
                             style={{ border: "none" }}
+                            required="required"
                         />
                         <p style={{ color: "red" }}>{errorDate}</p>
                     </div>
