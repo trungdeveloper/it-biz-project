@@ -179,7 +179,7 @@ const DonatedItem = (props) => {
                 )}
                 <p style={{ color: "red" }}>{errorImage}</p>
             </td>
-
+<td></td>
             <td>
                 {donated.status === "chờ trao tặng" ? (
                     <button
