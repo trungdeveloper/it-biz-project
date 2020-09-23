@@ -10,7 +10,7 @@ const PlightDetailPage = (props) => {
     const plight = useSelector(
         (state) => state.firestore.data.plight?.[plightId]
     );
-    console.log(plight);
+
     return (
         <div className="single-page causes-page">
             <div className="featured-cause">
