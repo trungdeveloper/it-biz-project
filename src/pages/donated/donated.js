@@ -57,7 +57,7 @@ const Donated = () => {
             <tr>
                 <td>{donated.date}</td>
                 <td>{grantor && grantor.username}</td>
-                <td>{donation.name}</td>
+                <td>{donation && donation.name}</td>
                 <td>{grantee && grantee.username}</td>
                 <td>
                     <button

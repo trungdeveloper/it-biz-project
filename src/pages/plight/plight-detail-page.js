@@ -2,20 +2,24 @@ import React from "react";
 import PlightDetail from "../../components/plight/plightDetail";
 import RandomPlight from "../../components/plight/randomPlights";
 import { useSelector } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
-export const PlightDetailPage = (props) => {
+const PlightDetailPage = (props) => {
     const plightId = props.match.params.plight_id;
     const plight = useSelector(
         (state) => state.firestore.data.plight?.[plightId]
     );
-
+    console.log(plight);
     return (
         <div className="single-page causes-page">
             <div className="featured-cause">
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-lg-12">
-                            <PlightDetail plight={plight} id={plightId} />
+                            {plight && (
+                                <PlightDetail plight={plight} id={plightId} />
+                            )}
                         </div>
                     </div>
                 </div>
@@ -39,3 +43,5 @@ export const PlightDetailPage = (props) => {
         </div>
     );
 };
+
+export default compose(firestoreConnect(["plight"]))(PlightDetailPage);

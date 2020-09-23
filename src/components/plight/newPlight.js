@@ -25,16 +25,24 @@ const NewPlight = ({ index }) => {
             <div className="cause-content-wrap">
                 <header className="entry-header d-flex flex-wrap align-items-center">
                     <h3 className="entry-title w-100 m-0">
-                        <Link to="#">{plight.name}</Link>
+                        <Link to={`/plightDetail/` + plight.id}>
+                            {plight.name}
+                        </Link>
                     </h3>
                     <div className="posted-date">
-                        <Link to="#">{plight.date}</Link>
+                        <Link to={`/plightDetail/` + plight.id}>
+                            {plight.date}
+                        </Link>
                     </div>
                     <div className="posted-date">
-                        <Link to="#">{plight.address}</Link>
+                        <Link to={`/plightDetail/` + plight.id}>
+                            {plight.address}
+                        </Link>
                     </div>
                     <div className="cats-links ">
-                        <Link to="#">{plight.name}</Link>
+                        <Link to={`/plightDetail/` + plight.id}>
+                            {plight.name}
+                        </Link>
                     </div>
                 </header>
                 <div className="entry-content">

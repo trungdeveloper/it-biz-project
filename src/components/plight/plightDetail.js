@@ -6,9 +6,8 @@ import { firestoreConnect } from "react-redux-firebase";
 
 const PlightDetail = ({ plight, id }) => {
     const user = useSelector(
-        (state) => state.firestore.data.users[plight?.uid]
+        (state) => state.firestore.data.users?.[plight.uid]
     );
-    // const user = users?.find((user) => user.id === plight?.uid);
 
     return (
         <div className="cause-wrap d-flex flex-wrap justify-content-between">

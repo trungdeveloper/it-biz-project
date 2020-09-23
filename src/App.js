@@ -7,7 +7,7 @@ import DonationShowcase from "./pages/donation/donation-page";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import DonationDetail from "./pages/donation/donationDetail";
-import { PlightDetailPage } from "./pages/plight/plight-detail-page";
+import PlightDetailPage from "./pages/plight/plight-detail-page";
 import { ActivityDetail } from "./pages/acitivity/activityDetail";
 import { Footer } from "./components/home/footer";
 import DonationForm from "./pages/donate/donate";
