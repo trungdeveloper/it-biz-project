@@ -2,10 +2,10 @@ import React from "react";
 import "./mainProfile.css";
 import ProfileDetail from "../../components/profile/profileDetail";
 import { ChangePassword } from "../../components/profile/mainProfileChangePass";
-import { ReceiveDonation } from "../../components/profile/receiveDonation";
+import PlightHistory from "../../components/profile/plightHistory";
 import { SideBar } from "../../components/profile/sideBar";
 import { Switch, Route } from "react-router";
-import { UserDonate } from "../../components/profile/donation";
+import DonateHistory from "../../components/profile/donationHistory";
 export const Profile = () => {
     return (
         <div>
@@ -25,17 +25,16 @@ export const Profile = () => {
                             component={ChangePassword}
                         />
                         <Route
-                            path="/profile/receiveDonate"
-                            component={ReceiveDonation}
+                            path="/profile/plightHistory"
+                            component={PlightHistory}
                         />
                         <Route
-                            path="/profile/donation"
-                            component={UserDonate}
+                            path="/profile/donationHistory"
+                            component={DonateHistory}
                         />
                     </Switch>
                 </div>
-                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1" >
-                </div > 
+                <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
             </div>
         </div>
     );

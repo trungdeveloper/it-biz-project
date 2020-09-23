@@ -11,10 +11,10 @@ export const SideBar = () => {
                 <Link to="/profile">Thông tin của tôi</Link>
             </li>
             <li className="tablinks">
-                <Link to="/profile/donation">Tài trợ</Link>
+                <Link to="/profile/donationHistory">Tài trợ</Link>
             </li>
             <li className="tablinks">
-                <Link to="/profile/receiveDonate">Nhận tài trợ</Link>
+                <Link to="/profile/plightHistory">Hoàn cảnh chia sẽ</Link>
             </li>
             <li className="tablinks">
                 <Link to="/profile/changepassword">Đổi mật khẩu</Link>

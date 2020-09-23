@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 
 const Plight = () => {
     const plights = useSelector((state) => state.firestore.ordered.plight);
-    const filterPlight = plights?.filter((plight) => plight.status);
+    const filterPlight = plights?.filter(
+        (plight) => plight.status === "xác nhận"
+    );
 
     return (
         <div className="single-page causes-page">
