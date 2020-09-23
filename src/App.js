@@ -9,7 +9,6 @@ import Register from "./pages/register/register";
 import DonationDetail from "./pages/donation/donationDetail";
 import { PlightDetailPage } from "./pages/plight/plight-detail-page";
 import { ActivityDetail } from "./pages/acitivity/activityDetail";
-import { UserHistory } from "./pages/profile/userHistory";
 import { Footer } from "./components/home/footer";
 import DonationForm from "./pages/donate/donate";
 import { Profile } from "./pages/profile/profile";
@@ -41,7 +40,6 @@ export default function App() {
                         <Route exact path="/" component={Home} />
                         <Route path="/Login" component={Login} />
                         <Route path="/Register" component={Register} />
-                        <Route path="/UserHistory" component={UserHistory} />
                         <Route path="/profile" component={Profile} />
                         <Route
                             exact
