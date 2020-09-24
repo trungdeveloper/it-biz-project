@@ -14,7 +14,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
         name: "",
         category_id: "",
         description: "",
-        condition: "new",
+        condition: "còn mới",
     });
     const [showModal, setShowModal] = React.useState(false);
     const [image, setImage] = React.useState(null);
@@ -65,7 +65,7 @@ const Donate = ({ donate, progress, categories, uid }) => {
         donate({ ...state, uid, status: "chờ xác nhận", date }, image);
         setState({
             name: "",
-            status: "new",
+            condition: "còn mới",
             description: "",
             category: categories?.[0].id,
         });
@@ -107,9 +107,11 @@ const Donate = ({ donate, progress, categories, uid }) => {
                                 id="condition"
                                 onChange={handleOnChange}
                             >
-                                <option value="new">Còn mới</option>
-                                <option value="old">Đã qua sử dụng</option>
-                                <option value="mini-broken">Hư hỏng nhẹ</option>
+                                <option value="còn mới">còn mới</option>
+                                <option value="đã qua sử dụng">
+                                    đã qua sử dụng
+                                </option>
+                                <option value="hư hỏng nhẹ">hư hỏng nhẹ</option>
                             </select>
                         </div>
                     </div>

@@ -51,14 +51,14 @@ const Donated = () => {
         const donation = donations?.[donated.donation_id];
         const grantor = users?.[donation?.uid];
         const plight = plights?.[donated.plight_id];
-        const grantee = users?.[plight?.uid];
+        // const grantee = users?.[plight?.uid];
 
         return (
             <tr>
                 <td>{donated.date}</td>
                 <td>{grantor && grantor.username}</td>
                 <td>{donation && donation.name}</td>
-                <td>{grantee && grantee.username}</td>
+                <td>{plight && plight.name}</td>
                 <td>
                     <button
                         type="button"

@@ -1,13 +1,20 @@
 import React from "react";
 import "../../cssAdmin/style.css";
 import { logout } from "./../../../redux/authentication/actions";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firebaseConnect } from "react-redux-firebase";
+import { useHistory } from "react-router";
 const img = require("../../../assets/image/logo-menu.svg");
 
-const Header = ({ auth, logout }) => {
+const Header = ({ logout }) => {
+    const history = useHistory();
+    const handleLogout = (e) => {
+        e.preventDefault();
+        logout();
+        history.push("/plight");
+    };
+
     return (
         <div className="dashboard-header">
             <nav className="navbar navbar-expand-lg bg-white fixed-top">
@@ -27,18 +34,17 @@ const Header = ({ auth, logout }) => {
                     className="collapse navbar-collapse "
                     id="navbarSupportedContent"
                 >
-                    <Link
+                    <button
                         className="btn btn-success"
                         style={{
                             marginLeft: "84%",
                             backgroundColor: "#006600",
                             color: "white",
                         }}
-                        to="/"
-                        onClick={logout}
+                        onClick={handleLogout}
                     >
                         ĐĂNG XUẤT
-                    </Link>
+                    </button>
                 </div>
             </nav>
         </div>

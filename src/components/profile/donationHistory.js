@@ -14,8 +14,14 @@ const DonateHistory = ({
     updateDonation,
     firebase,
     firestore,
+    userId,
 }) => {
-    const donations = useSelector((state) => state.firestore.ordered.donation);
+    const allDonations = useSelector(
+        (state) => state.firestore.ordered.donation
+    );
+    const donations = allDonations?.filter(
+        (donation) => donation.uid === userId
+    );
     const categories = useSelector(
         (state) => state.firestore.ordered.categories
     );
@@ -121,9 +127,11 @@ const DonateHistory = ({
                             value={donationDetail && donationDetail.condition}
                             onChange={handleChange}
                         >
-                            <option value="new">còn mới</option>
-                            <option value="old">đã qua sữ dụng</option>
-                            <option value="mini-broken">hư hỏng nhẹ</option>
+                            <option value="còn mới">còn mới</option>
+                            <option value="đã qua sữ dụng">
+                                đã qua sữ dụng
+                            </option>
+                            <option value="hư hỏng nhẹ">hư hỏng nhẹ</option>
                         </Form.Control>
                         <Form.Label>Danh mục</Form.Label>
                         <Form.Control
@@ -255,15 +263,5 @@ const mapDispatchToProps = (dispatch, props) => {
 export default compose(
     withFirestore,
     connect(mapStateToProps, mapDispatchToProps),
-    firestoreConnect((props) => {
-        return props.userId
-            ? [
-                  {
-                      collection: "donation",
-                      where: ["uid", "==", props.userId],
-                  },
-                  "categories",
-              ]
-            : [];
-    })
+    firestoreConnect(["donation"])
 )(DonateHistory);

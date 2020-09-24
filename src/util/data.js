@@ -2,7 +2,7 @@ export const donations = [
     {
         id: "a",
         category_id: "0ozuvAiihxN2X4nlC3Zd",
-        condition: "new",
+        condition: "hư hỏng nhẹ",
         date: "12/09/2020",
         description: "Bếp Hồng Ngoại Sunhouse SHD6011 - Đen- hàng chính hãng",
         imgUrl:
@@ -14,7 +14,7 @@ export const donations = [
     {
         id: "b",
         category_id: "soN9xqfYXlRZXWy3MKzY",
-        condition: "old",
+        condition: "đã qua sữ dụng",
         date: "12/09/2020",
         description:
             "Xe đạp không còn nhu cầu dùng nữa nên muốn chia sẽ cho những hoàn cảnh khó khăn có nhu cầu muốn dùng.",
@@ -27,7 +27,7 @@ export const donations = [
     {
         id: "c",
         category_id: "soN9xqfYXlRZXWy3MKzY",
-        condition: "new",
+        condition: "còn mới",
         date: "12/09/2020",
         description: "Xe 3 bánh cho người khuyết tật.",
         imgUrl:
@@ -37,21 +37,9 @@ export const donations = [
         uid: "RN4MOySY3ZNhbkoM8BBH9pHU3Dj1",
     },
     {
-        id: "d",
-        category_id: "soN9xqfYXlRZXWy3MKzY",
-        condition: "new",
-        date: "12/09/2020",
-        description: "Bộ sách giáo khoa lớp 4 còn mới",
-        imgUrl:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donation%2Fsach-giao-khoa-lop-4.jfif?alt=media&token=7a11dd42-5cfe-4df6-ae0b-27731c78cc81",
-        name: "Bộ sách giáo khoa lớp 4",
-        status: "xác nhận",
-        uid: "RmPBVIBeorScBX8wvGmuGU5iDB52",
-    },
-    {
         id: "0m4nvftaWaHm7JWrxF1g",
         category_id: "0ozuvAiihxN2X4nlC3Zd",
-        condition: "new",
+        condition: "còn mới",
         date: "12/09/2020",
         description:
             "Chuyển sang dùng năng lượng mặt trời nên muốn cho những ai cần sử dụng.",
@@ -64,7 +52,7 @@ export const donations = [
     {
         id: "AKure7TBFhXP9s7WfNs0",
         category_id: "CmrmGnwBpG7VjWQpiDxK",
-        condition: "old",
+        condition: "đã qua sữ dụng",
         date: "12/09/2020",
         description: "Đã sử dụng được 3 năm còn sử dụng rất tốt",
         imgUrl:
@@ -77,7 +65,7 @@ export const donations = [
     {
         id: "C8JsjDGXbrNkq0MwRz3d",
         category_id: "0ozuvAiihxN2X4nlC3Zd",
-        condition: "old",
+        condition: "đã qua sữ dụng",
         date: "12/09/2020",
         description: "Laptop dell thế hệ 4 corei7 Ram 4G",
         imgUrl:
@@ -89,7 +77,7 @@ export const donations = [
     {
         id: "Jj7ftDXROFs6NfT275zb",
         category_id: "TavfOBQsAVeYNQqBw18z",
-        condition: "old",
+        condition: "đã qua sữ dụng",
         date: "12/09/2020",
         description: "Đã sử dụng được 3 năm còn sử dụng rất tốt",
         imgUrl:
@@ -101,7 +89,7 @@ export const donations = [
     {
         id: "QzX0VfQiKPzCyo47fXNV",
         category_id: "ZqWbjKWDt2vFXUXAkogA",
-        condition: "old",
+        condition: "đã qua sữ dụng",
         date: "12/09/2020",
         description: "Còn mới, cân nặng khoản 40kg cao 1,6m trở lại",
         imgUrl:
@@ -113,7 +101,7 @@ export const donations = [
     {
         id: "ScD84I85Bjq8Zd4HOi6V",
         category_id: "0ozuvAiihxN2X4nlC3Zd",
-        condition: "new",
+        condition: "còn mới",
         date: "12/09/2020",
         description:
             "Bàn ủi Delites công suất 1100 W ủi hiệu quả.Mặt đế nhôm chống dính lướt nhẹ, lướt êm trên mọi chất liệu vải.Thiết kế mũi nhọn, rãnh cúc giúp dễ dàng ủi mọi vị trí.Dây nguồn xoay 360 độ sử dụng thuận tiện.",
@@ -126,7 +114,7 @@ export const donations = [
     {
         id: "inBjYYmQPsCqqMOXq3Uu",
         category_id: "soN9xqfYXlRZXWy3MKzY",
-        condition: "new",
+        condition: "còn mới",
         date: "12/09/2020",
         description: "Sách mới",
         imgUrl:
@@ -138,7 +126,7 @@ export const donations = [
     {
         id: "noWX4Adv0V7NZJTOJfE2",
         category_id: "TavfOBQsAVeYNQqBw18z",
-        condition: "new",
+        condition: "còn mới",
         date: "12/09/2020",
         description:
             "Lớp vỏ bên ngoài bị rỉ xét, nhưng còn dùng rất tốt. Gia đình chuyển sang dùng loại mới nên không dùng nữa.",
@@ -151,7 +139,7 @@ export const donations = [
     {
         id: "rA7of9xK3k24fydZWHhx",
         category_id: "CmrmGnwBpG7VjWQpiDxK",
-        condition: "new",
+        condition: "còn mới",
         date: "12/09/2020",
         description:
             "Lớp vỏ bên ngoài bị rỉ xét, nhưng còn dùng rất tốt. Gia đình chuyển sang dùng loại mới nên không dùng nữa.",
@@ -164,7 +152,7 @@ export const donations = [
     {
         id: "rq61XDXqqKrhH1S30E5s",
         category_id: "0ozuvAiihxN2X4nlC3Zd",
-        condition: "old",
+        condition: "đã qua sữ dụng",
         date: "12/09/2020",
         description: "Còn dùng khá tốt.",
         imgUrl:
@@ -176,7 +164,7 @@ export const donations = [
     {
         id: "u8ZLtMDpFEI643r6gtsd",
         category_id: "0ozuvAiihxN2X4nlC3Zd",
-        condition: "old",
+        condition: "đã qua sữ dụng",
         date: "12/09/2020",
         description:
             "Còn sử dụng được, không dùng nữa nên muốn cho những ai cần.",
@@ -296,7 +284,7 @@ export const plights = [
 
 export const donated = [
     {
-        date: "2020-09-23",
+        date: "23-09-2020",
         id: "YB3uoGC9SgHUmXRREERP",
         donation_id: "c",
         plight_id: "bb",
@@ -305,16 +293,7 @@ export const donated = [
         status: "đã trao tặng",
     },
     {
-        date: "2020-09-23",
-        id: "EcZL9bUbOeXbe0UN7Yu0",
-        donation_id: "d",
-        plight_id: "TCo3aQboaHlBH7pyyvEy",
-        image:
-            "https://firebasestorage.googleapis.com/v0/b/it-biz-52ebe.appspot.com/o/donated%2Ftrao-tang-xe-dap.jfif?alt=media&token=17b2d5d0-378a-45b2-ae23-eda43d96d5c0",
-        status: "đã trao tặng",
-    },
-    {
-        date: "2020-09-23",
+        date: "23-09-2020",
         id: "brcq2jzIvvt6GLYnKBUQ",
         donation_id: "a",
         plight_id: "cc",
@@ -323,7 +302,7 @@ export const donated = [
         status: "đã trao tặng",
     },
     {
-        date: "2020-09-23",
+        date: "23-09-2020",
         id: "ok9LnnfwmhHPZZFdDTRA",
         donation_id: "0m4nvftaWaHm7JWrxF1g",
         plight_id: "dd",

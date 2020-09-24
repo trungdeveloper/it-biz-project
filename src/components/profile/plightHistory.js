@@ -6,8 +6,15 @@ import { compose } from "redux";
 import { firestoreConnect, withFirestore } from "react-redux-firebase";
 import { deletePlight, updatePlight } from "../../redux/admin/plight/actions";
 
-const PlightHistory = ({ deletePlight, updatePlight, firebase, firestore }) => {
-    const plights = useSelector((state) => state.firestore.ordered.plight);
+const PlightHistory = ({
+    deletePlight,
+    updatePlight,
+    firebase,
+    firestore,
+    userId,
+}) => {
+    const allPlights = useSelector((state) => state.firestore.ordered.plight);
+    const plights = allPlights?.filter((plight) => plight.uid === userId);
     const [show, setShow] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [plightDetail, setPlightDetail] = useState(undefined);
@@ -233,14 +240,5 @@ const mapDispatchToProps = (dispatch, props) => {
 export default compose(
     withFirestore,
     connect(mapStateToProps, mapDispatchToProps),
-    firestoreConnect((props) => {
-        return props.userId
-            ? [
-                  {
-                      collection: "plight",
-                      where: ["uid", "==", props.userId],
-                  },
-              ]
-            : [];
-    })
+    firestoreConnect(["plight"])
 )(PlightHistory);

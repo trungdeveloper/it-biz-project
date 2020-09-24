@@ -21,7 +21,7 @@ atlassian-ide-plugin.xml
 
 # IDE (including symlinks)
 .vscode
-.idea
+/idea
 .classpath
 .settings
 .metadata

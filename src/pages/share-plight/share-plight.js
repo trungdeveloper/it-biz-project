@@ -37,8 +37,7 @@ const SharePlight = ({ uid, addPlight, progress }) => {
             msg.description = "Vui lòng nhập vật phẩm";
         }
         setValidationMsg(msg);
-        if (Object.keys(msg).length > 0) return false;
-        return true;
+        return Object.keys(msg).length <= 0;
     };
     const onHandleChange = (e) => {
         const { id, value } = e.target;
@@ -127,7 +126,7 @@ const SharePlight = ({ uid, addPlight, progress }) => {
                     </div>
                     <div className="form-group">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <label htmlFor="">Ảnh vật phẩm</label>
+                            <label htmlFor="">Hình ảnh</label>
                         </div>
                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <input
